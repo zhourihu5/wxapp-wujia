@@ -1,13 +1,42 @@
 <!--index.wxml-->
 <view class="container">
-  <view class="userinfo">
-    <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
-    <block wx:else>
-      <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
-      <text class="userinfo-nickname">{{userInfo.nickName}}</text>
-    </block>
-  </view>
-  <view class="usermotto">
-    <text class="user-motto">{{motto}}</text>
-  </view>
+
+    <view class="l_items location-bar">
+        <image class="icon" src="/images/icon/img_p_info.png"></image>
+        <text class="text-white">天通苑社区</text>
+        <text class="text-white margin-right text-underline">邀请访客</text>
+    </view>
+
+    <view class="l_items top-round-corner">
+        <view></view>
+        <text class="margin-left">精选活动</text>
+        <view>
+            <text class="text-lighter">更多</text>
+            <view class="icon_arrow_r margin-right"></view>
+        </view>
+    </view>
+
+    <scroll-view class="container-zhaozhi" scroll-x="true">
+        <view class="chaozhi">
+            <block wx:for="{{list}}" wx:key="">
+                <view class="chaozhilist">
+                    <image class="banner_logo" src="/images/tab/img_doctor.png"/>
+                    <view class="restaurantName">这里是活动标题，只有十六个字</view>
+                    <view class="pf">
+                        <view class="price">￥￥12.32</view>
+                        <view class="foodname">16.68</view>
+                    </view>
+                    <view class="pf">
+                        <text class="lable">国外进口</text>
+                        <text class="lable">最多四字</text>
+                        <text class="lable">最多三个</text>
+                    </view>
+                    <text>已拼2550件</text>
+                    <view class="go-group-buy">去拼团</view>
+                </view>
+            </block>
+        </view>
+    </scroll-view>
+    <view class="open-door">开门</view>
+
 </view>

@@ -1,21 +1,203 @@
 /**index.wxss**/
-.userinfo {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+
+.location-bar {
+    width: 100%;
+    background-color: #FFAC17;
+    font-size: 14px;
+    font-weight:lighter;
+    padding: 15px 24px 15px 24px;
+}
+.location-bar .icon{
+    margin-right:  6px;
+    margin-left: 15px;
+}
+.margin-right{
+    margin-right: 15px;
+}
+.margin-left{
+    margin-left: 15px;
+}
+
+
+.l_items {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    position: relative;
+    /*padding-bottom: 25rpx;*/
+    -webkit-box-align: center;
+    align-items: center;
+    justify-content: space-between;
+    /*margin-top: 20rpx;*/
+    word-break: break-all;
+}
+.top-round-corner{
+    border-radius: 10px 10px 0 0;
+    margin-top: -10px;
+    padding: 10px 0;
+    background-color: white;
+    font-size: 16px;
+}
+.text-lighter{
+    font-weight:lighter;
+}
+.text-bold{
+    font-weight:bold;
+}
+.text-underline{
+    text-decoration: underline;
+}
+.view-parent{
+    display: inline-block;
+}
+.banner_logo{
+    width: 294px;
+    height: 154px;
+    border-radius: 10px 10px 0 0;
+    display: block;
+    background-color: blue;
+}
+
+.container-zhaozhi{
+    padding: 0 10rpx;
+    border-radius: 20rpx;
+    white-space: nowrap;/*不放这个不能横排*/
+}
+.container-zhaozhi .chaozhilist{
+    width: auto;
+    height: auto;
+    margin: 10px 8px 10px 8px;
+    display: inline-block;/*不放这个不能横排*/
+}
+.container-zhaozhi .chaozhilist image{
+    width: 294px;
+    height: 154px;
+    border-radius: 10px 10px 0 0;
+    background-color: blue;
+}
+.container-zhaozhi .chaozhilist .restaurantName{
+    font-size:30rpx;
+    overflow: hidden;/*隐藏溢出*/
+    text-overflow: ellipsis;/*显示省略符号来代表被修剪的文本*/
+    white-space: nowrap;/*强制文字不换行*/
+}
+.container-zhaozhi .chaozhilist .pf{
+    display: flex;/*横向布局*/
+}
+.container-zhaozhi .chaozhilist .pf .price{
+    color: red;
+    font-size: 30rpx;
+}
+.container-zhaozhi .chaozhilist .pf .foodname{
+    font-size: 30rpx;
+    overflow: hidden;/*隐藏溢出*/
+    text-overflow: ellipsis;/*显示省略符号来代表被修剪的文本*/
+    white-space: nowrap;/*强制文字不换行*/
+}
+.container-zhaozhi .chaozhilist .go-group-buy{
+    background-color: #FFAC17;
+    width: 76px;
+    height: 30px;
+    color: white;
+    border-radius: 15px;
+    -webkit-text-fill-color: white;
+    font-size: 14px;
+    float: right;
+    display: flex;
+    text-align: center;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    -webkit-box-align: center;
+    vertical-align:middle;
+    margin:0 auto;
+    /*padding-top: 8px;*/
+    /*position: relative;*/
+}
+.open-door{
+    background-color: #FFAC17;
+    width: 120px;
+    height: 120px;
+    border-radius: 60px;
+    color: white;
+    text-align: center;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    -webkit-box-align: center;
+    vertical-align:middle;
+    bottom: 16px;
+}
+
+
+
+
+.l_items image {
+    width: 30rpx;
+    height: 30rpx;
+
+}
+
+.icon_arrow_r {
+    content: " ";
+    display: inline-block;
+    -webkit-transform: rotate(45deg);
+    transform: rotate(45deg);
+    height: 16rpx;
+    width: 16rpx;
+    border-width: 4rpx 4rpx 0 0;
+    border-color: #c8c8cd;
+    border-style: solid;
+    position: relative;
+    top: -1rpx;
+    top: -1rpx;
+    margin-left: 10rpx;
+
+}
+
+
+.mg_r {
+    margin-right: 30rpx;
+
+}
+
+.l_items text:nth-child(2)
+{
+    float: left  ;
+    text-align: left  ;
+    flex: 1 ;
+
+}
+
+.l_items view:nth-child(3)
+{
+    float: right  ;
+    text-align: right  ;
+    flex: 1  ;
+
+}
+
+.text-white {
+    color: white;
+}
+
+
+.float-right {
+    float: right;
 }
 
 .userinfo-avatar {
-  width: 128rpx;
-  height: 128rpx;
-  margin: 20rpx;
-  border-radius: 50%;
+    width: 128 rpx;
+    height: 128 rpx;
+    margin: 20 rpx;
+    border-radius: 50%;
 }
 
 .userinfo-nickname {
-  color: #aaa;
+    color: #aaa;
 }
 
 .usermotto {
-  margin-top: 200px;
+    margin-top: 200px;
 }

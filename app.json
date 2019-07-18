@@ -1,13 +1,44 @@
 {
+  "tabBar": {
+    "color": "#888888",
+    "selectedColor": "#3c3c3c",
+    "backgroundColor": "#FFFFFF",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "iconPath": "images/tab/img_doctor.png",
+        "selectedIconPath": "images/tab/img_h_doctor.png"
+      },
+      {
+        "pagePath": "pages/order/index",
+        "text": "订单",
+        "iconPath": "images/tab/img_f_folk.png",
+        "selectedIconPath": "images/tab/img_h_f_folk.png"
+      },
+      {
+        "pagePath": "pages/order/index",
+        "text": "消息",
+        "iconPath": "images/tab/img_f_message.png",
+        "selectedIconPath": "images/tab/img_h_message.png"
+      },
+      {
+        "pagePath": "pages/order/index",
+        "text": "我的",
+        "iconPath": "images/tab/img_personal.png",
+        "selectedIconPath": "images/tab/img_h_personal.png"
+      }
+    ]
+  },
   "pages": [
     "pages/index/index",
-    "pages/logs/logs"
+    "pages/order/index"
   ],
   "window": {
     "backgroundTextStyle": "light",
-    "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "WeChat",
-    "navigationBarTextStyle": "black"
+    "navigationBarBackgroundColor": "#FFAC17",
+    "navigationBarTitleText": "吾家小智",
+    "navigationBarTextStyle": "white"
   },
   "sitemapLocation": "sitemap.json"
 }
