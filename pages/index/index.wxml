@@ -1,5 +1,5 @@
 <!--index.wxml-->
-<view class="container">
+<view class="container over-hidden">
 
     <view class="l_items location-bar">
         <image class="icon" src="/images/icon/img_p_info.png"></image>

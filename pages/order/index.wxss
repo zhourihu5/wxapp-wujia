@@ -1,8 +1,101 @@
-.log-list {
-  display: flex;
-  flex-direction: column;
-  padding: 40rpx;
+.tab-layout{
+  width: 100%;
 }
-.log-item {
-  margin: 10rpx;
+.gray-bg{
+  background: #F6F7F9;
+}
+.order-container{
+  margin: 10px 15px 0 15px;
+  padding: 0 10px;
+}
+.top-item{
+  padding:10px 0;
+}
+.text-gray{
+  color:#888888;
+}
+.order-image{
+  width: 70px;
+  height: 70px;
+  border-radius: 10px;
+  display: inline-block;
+}
+.order-text{
+  display: inline-block;
+  /*height: 100%;*/
+  /*position: relative;*/
+}
+.order-price{
+  /*position: absolute;*/
+  /*bottom: 0;*/
+  margin-top: 19px;
+}
+.order-middle-item{
+  border-top: 1px #cccccc solid;
+  border-bottom: 1px #cccccc solid;
+  padding: 10px 0;
+  display: flex;
+  align-items: center;
+  justify-content: center|left;
+}
+.btn-wraper{
+  /*height: 57px;*/
+  padding: 15px 0;
+  /*position:relative;*/
+  display: flex;
+  /*justify-content: right;*/
+  /*flex-direction: column;*/
+}
+.left-empty{
+  flex: 1;
+}
+.pay-right-now{
+  background-color: #FE8631;
+  /*width: 76px;*/
+  padding:   0 21px;
+  height: 30px;
+  color: white;
+  border-radius: 15px;
+  -webkit-text-fill-color: white;
+  font-size: 14px;
+  font-weight: lighter;
+  /*position: absolute;*/
+  /*right: 0px;*/
+  /*top: 15px;*/
+  /*float: right;*/
+  display: flex;
+  text-align: center;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  -webkit-box-align: center;
+  vertical-align:middle;
+  /*padding-top: 8px;*/
+  /*position: relative;*/
+}
+.go-stroll{
+  /*background-color: #FE8631;*/
+  border: #FE8631 1px solid;
+  /*width: 76px;*/
+  width: auto;
+  padding:   0 21px;
+  height: 30px;
+  /*color: #FE8631;*/
+  border-radius: 15px;
+  -webkit-text-fill-color: #FE8631;
+  font-size: 14px;
+  font-weight: lighter;
+  /*position: absolute;*/
+  /*right: 0px;*/
+  /*top: 15px;*/
+  /*float: right;*/
+  display: flex;
+  text-align: center;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  -webkit-box-align: center;
+  vertical-align:middle;
+  /*padding-top: 8px;*/
+  /*position: relative;*/
 }

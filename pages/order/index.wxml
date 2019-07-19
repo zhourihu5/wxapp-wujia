@@ -1,6 +1,40 @@
 <!--index.wxml-->
-<view class="container log-list">
-  <block wx:for="{{logs}}" wx:for-item="log">
-    <text class="log-item">{{index + 1}}. {{log}}</text>
-  </block>
+<view class="container gray-bg">
+    <van-tabs class="tab-layout" lineWidth="17" swipeThreshold="5">
+        <van-tab
+                wx:for="{{ tabs }}"
+                wx:for-item="tab"
+                wx:key="index"
+                title="{{tab.title}}"
+        >
+
+            <block wx:for="{{tab.data}}" wx:for-item="data-item" wx:key="">
+                <view class="round-container order-container">
+                    <view class="top-item">
+                        <text class="text-gray">付款剩余时间</text>
+                        <text class="color-orange">00:14:30</text>
+                        <text class="color-orange bold float-right">待付款</text>
+                    </view>
+                    <view class="order-middle-item">
+                        <image class="order-image" src="/images/tab/img_doctor.png"/>
+                        <view class="order-text">
+                            <text class="order-name">卫生间直接打的舒</text>
+                            <view class="order-price">
+                                <text>￥12.32</text>
+                                <text class="line-through">￥16.8</text>
+                            </view>
+                        </view>
+
+                    </view>
+                    <view class="btn-wraper">
+                        <view class="left-empty"></view>
+                        <text class="pay-right-now">立即付款</text>
+                        <text class="go-stroll">联系送货人</text>
+                    </view>
+
+                </view>
+            </block>
+
+        </van-tab>
+    </van-tabs>
 </view>

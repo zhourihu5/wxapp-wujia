@@ -1,10 +1,54 @@
 /**app.wxss**/
 .container {
+  width: 100%;
   height: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
-  /*padding: 200rpx 0;*/
   box-sizing: border-box;
-} 
+}
+
+::-webkit-scrollbar{
+  width: 0;
+  height: 0;
+  color: transparent;
+}
+.color-orange{
+  color: #FFAC17;
+}
+.text-bold{
+  font-weight: bold;
+}
+.line-through{
+  text-decoration: line-through;
+}
+.round-container{
+  background-color: white;
+  border-radius: 10px;
+}
+
+
+
+.float-right{
+  float: right;
+}
+.float-left{
+  float: left;
+}
+
+.relative{
+  position: relative;
+}
+.absolute{
+  position: absolute;
+}
+.inline-block{
+  display:inline-block ;
+}
+.over-hidden{
+  overflow: hidden;
+}
+.clr {
+  zoom: 1;
+}
