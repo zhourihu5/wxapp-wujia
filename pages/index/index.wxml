@@ -16,27 +16,32 @@
         </view>
     </view>
 
-    <scroll-view class="container-zhaozhi" scroll-x="true">
-        <view class="chaozhi">
+    <scroll-view class="activity-scroll" scroll-x="true">
+        <view class="activity-container">
             <block wx:for="{{list}}" wx:key="">
-                <view class="chaozhilist">
-                    <image class="banner_logo" src="/images/tab/img_doctor.png"/>
-                    <view class="restaurantName">这里是活动标题，只有十六个字</view>
-                    <view class="pf">
-                        <view class="price">￥￥12.32</view>
-                        <view class="foodname">16.68</view>
+                <view class="activity-list">
+                    <image class="activity-banner" src="/images/tab/img_doctor.png"/>
+                    <text class="activity-title margin-left-activity-title">这里是活动标题，只有十六个字</text>
+                    <view class="price">
+                        <text class="dollar margin-left-activity-title">￥</text>
+                        <text class="price-integer">12</text>
+                        <text class="price-float">.32</text>
+                        <text class="price-old">￥16.68</text>
                     </view>
-                    <view class="pf">
+                    <view class="margin-left-activity-title">
                         <text class="lable">国外进口</text>
                         <text class="lable">最多四字</text>
                         <text class="lable">最多三个</text>
                     </view>
-                    <text>已拼2550件</text>
-                    <view class="go-group-buy">去拼团</view>
+                    <text class="sell-num margin-left-activity-title">已拼2550件</text>
+                    <text class="go-group-buy">去拼团</text>
                 </view>
             </block>
         </view>
     </scroll-view>
-    <view class="open-door">开门</view>
+    <view class="round-backgroud">
+        <text class="open-door">开门</text>
+    </view>
+
 
 </view>
