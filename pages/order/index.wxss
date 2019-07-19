@@ -1,18 +1,12 @@
 .tab-layout{
   width: 100%;
 }
-.gray-bg{
-  background: #F6F7F9;
-}
 .order-container{
   margin: 10px 15px 0 15px;
   padding: 0 10px;
 }
 .top-item{
   padding:10px 0;
-}
-.text-gray{
-  color:#888888;
 }
 .order-image{
   width: 70px;

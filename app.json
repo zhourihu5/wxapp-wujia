@@ -17,7 +17,7 @@
         "selectedIconPath": "images/tab/img_h_f_folk.png"
       },
       {
-        "pagePath": "pages/order/index",
+        "pagePath": "pages/msg/index",
         "text": "消息",
         "iconPath": "images/tab/img_f_message.png",
         "selectedIconPath": "images/tab/img_h_message.png"
@@ -31,8 +31,9 @@
     ]
   },
   "pages": [
-    "pages/order/index",
-    "pages/index/index"
+    "pages/msg/index",
+    "pages/index/index",
+    "pages/order/index"
   ],
   "window": {
     "backgroundTextStyle": "light",

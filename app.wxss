@@ -27,8 +27,14 @@
   background-color: white;
   border-radius: 10px;
 }
-
-
+.text-gray{
+  color:#888888;
+  font-size: 15px;
+  font-weight: lighter;
+}
+.gray-bg{
+  background: #F6F7F9;
+}
 
 .float-right{
   float: right;
