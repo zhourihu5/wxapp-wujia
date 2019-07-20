@@ -42,6 +42,10 @@
 .float-left{
   float: left;
 }
+.flex-match-parent{
+  width: 100%;
+  display: flex;
+}
 
 .relative{
   position: relative;
@@ -57,4 +61,21 @@
 }
 .clr {
   zoom: 1;
+}
+
+.icon_arrow_r {
+  content: " ";
+  display: inline-block;
+  -webkit-transform: rotate(45deg);
+  transform: rotate(45deg);
+  height: 16rpx;
+  width: 16rpx;
+  border-width: 4rpx 4rpx 0 0;
+  border-color: #c8c8cd;
+  border-style: solid;
+  position: relative;
+  top: -1rpx;
+  top: -1rpx;
+  margin-left: 10rpx;
+
 }

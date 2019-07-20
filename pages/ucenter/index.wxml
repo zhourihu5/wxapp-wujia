@@ -1,0 +1,28 @@
+<!--index.wxml-->
+<view class="container gray-bg">
+    <view class="top-container flex-match-parent">
+        <view class="flex-match-parent">
+            <view class="top-left-text">
+                <view class="username">周日虎</view>
+                <view>13683218402</view>
+            </view>
+            <image class="image" src="/images/tab/img_doctor.png"/>
+        </view>
+
+    </view>
+
+    <block wx:for="{{items}}" wx:for-item="data-item" wx:key="">
+        <view class="item-container">
+            <view class="item">
+                <image class="icon" src="/images/tab/img_doctor.png"/>
+                <view class="item-text">基本资料</view>
+                <view class="margin-r">
+                    <view class="margin-r icon_arrow_r"></view>
+                </view>
+
+            </view>
+            <view class="line"></view>
+        </view>
+
+    </block>
+</view>
