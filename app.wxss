@@ -17,6 +17,7 @@
 .color-orange{
   color: #FFAC17;
 }
+
 .text-bold{
   font-weight: bold;
 }

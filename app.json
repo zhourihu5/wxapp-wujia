@@ -31,10 +31,11 @@
     ]
   },
   "pages": [
-    "pages/ucenter/index",
+    "pages/order/orderDetail/index",
     "pages/index/index",
     "pages/order/index",
-    "pages/msg/index"
+    "pages/msg/index",
+    "pages/ucenter/index"
   ],
   "window": {
     "backgroundTextStyle": "light",
