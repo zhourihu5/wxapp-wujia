@@ -1,0 +1,60 @@
+<!--index.wxml-->
+<view class="container">
+    <view class="gray-bg content">
+        <!-- wxml -->
+        <swiper class='u-wrp-bnr' indicator-dots='true' autoplay='true' interval='5000' duration='1000' circular='true'>
+            <block wx:for="1234" wx:for-index="index">
+                <swiper-item>
+                    <image src='/images/tab/img_doctor.png' class='u-img-slide' mode='aspectFill'></image>
+                </swiper-item>
+            </block>
+        </swiper>
+        <view class="item1">
+            <view class="price-container">
+                <text>￥</text>
+                <text>12.</text>
+                <text>32</text>
+                <text class="line-through">￥16.8</text>
+                <view class="kaituan-num">10人开团</view>
+            </view>
+            <view class="item1-r">
+                <view class="jlhd">距离活动结束仅剩</view>
+                <view>
+                    <text class="djs">00</text>
+                    <text class="djs">36</text>
+                    <text class="djs">35.5</text>
+                </view>
+            </view>
+        </view>
+        <view class="item2">
+            <view class="activity-title margin-left-activity-title">这里是活动标题，只有十六个字</view>
+            <text class="sell-num margin-left-activity-title">已拼2550件</text>
+            <view class="margin-left-activity-title">
+                <text class="lable">国外进口</text>
+                <text class="lable">最多四字</text>
+                <text class="lable">最多三个</text>
+            </view>
+        </view>
+
+        <view class="item3">
+            <view class="item3-1">活动已开团，老板快来参与吧！</view>
+            <view class="item3-2">
+                <view class="item-3-2-l">
+                    <view class="round-image-container">
+                        <block wx:for="123456789abcdefg" wx:key="">
+                            <image src='/images/icon/img_f_bind.png' class='round-image' mode='aspectFill'
+                                   style="z-index: {{100-index}};left: {{index*18}}px;"/>
+
+                        </block>
+                    </view>
+                </view>
+                <view class="item-3-2-r">...等100名用户已参与</view>
+            </view>
+        </view>
+
+    </view>
+
+    <view class="bottom-button">去参团</view>
+</view>
+
+

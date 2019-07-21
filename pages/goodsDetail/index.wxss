@@ -1,0 +1,109 @@
+.content{
+  /*flex: 1;*/
+  /*padding: 0 15px;*/
+  margin-bottom: 49px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.u-wrp-bnr {
+  width: 100%;
+  height: 100vw;
+  display: block;
+  position: relative;
+}
+.u-img-slide {
+  width: 100%;
+  height: inherit;
+}
+.item1{
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  color:white ;
+  -webkit-text-fill-color: white;
+}
+.price-container{
+  background: linear-gradient(to right, #FF8914, #FE482F);
+  display: flex;
+  align-items: center;
+  justify-content: center|left;
+  flex: 1;
+  padding-left: 15px;
+}
+.item1-r{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: #FFEAE4;
+}
+.djs{
+  background: #FF6329;
+  border-radius: 3px;
+  font-size: 10px;
+  padding: 4px 3px;
+  margin: 5px;
+}
+.jlhd{
+  color: #FF6329;
+  -webkit-text-fill-color: #FF6329;
+  font-size: 10px;
+}
+.sell-num{
+  font-size: 12px;
+}
+.item2{
+  background: white;
+  width: 100%;
+}
+.item3{
+  width: 100%;
+  background: white;
+  margin-top: 10px;
+  padding: 0 15px;
+  box-sizing: border-box;
+}
+.item3-1{
+  padding:12px 0 ;
+  border-bottom: 1px #cccccc solid;
+}
+.item3-2{
+  width: 100%;
+  /*height: 100%;*/
+  display: flex;
+  flex-direction: row;
+  /*justify-content: space-between;*/
+  align-items: center|bottom;
+  box-sizing: border-box;
+}
+.item3-2-l{
+  flex: 1;
+  overflow:hidden;white-space:nowrap;text-overflow:ellipsis;
+  /*max-width: calc(100%-132px);*/
+}
+.item-3-2-r{
+  /*width: 100%;*/
+  height: 100%;
+  width: 165px;
+  display: flex;
+  align-items: center|bottom;
+  justify-content: center|bottom;
+  text-align: center|bottom;
+  vertical-align: bottom;
+  overflow:hidden;white-space:nowrap;text-overflow:ellipsis;
+  font-size: 12px;
+}
+.round-image-container{
+  margin-right: 12px;
+  /*height: 31px;*/
+  /*position: relative;*/
+}
+.round-image{
+  width: 31px;
+  height: 31px;
+  display: inline-block;
+  margin-right: -12px;
+  /* left: 12px;*/
+  /*position: absolute;*/
+}

@@ -21,9 +21,7 @@ page{
 .margin-left{
     margin-left: 15px;
 }
-.margin-left-activity-title{
-    margin-left: 10px;
-}
+
 
 .l_items {
     width: 100%;
@@ -90,14 +88,7 @@ page{
     border-radius: 10px 10px 0 0;
     display: block;
 }
-.activity-title{
-    margin-top: 11px;
-    font-size:16px;
-    font-weight: bold;
-    overflow: hidden;/*隐藏溢出*/
-    text-overflow: ellipsis;/*显示省略符号来代表被修剪的文本*/
-    white-space: nowrap;/*强制文字不换行*/
-}
+
 .price{
     color: #FFAC17;
 }
@@ -124,13 +115,7 @@ page{
     white-space: nowrap;/*强制文字不换行*/
     text-decoration: line-through;
 }
-.lable{
-    background-color: #F7F7F7;
-    border-radius: 3px;
-    padding:  3px 6px ;
-    font-size: 10px;
-    margin-right: 11px;
-}
+
 .sell-num{
     font-size: 12px;
 }

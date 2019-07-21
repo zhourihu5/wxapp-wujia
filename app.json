@@ -31,12 +31,13 @@
     ]
   },
   "pages": [
-    "pages/msg/msgDetail/index",
-    "pages/order/orderDetail/index",
+    "pages/goodsDetail/index",
     "pages/index/index",
     "pages/order/index",
     "pages/msg/index",
-    "pages/ucenter/index"
+    "pages/ucenter/index",
+    "pages/msg/msgDetail/index",
+    "pages/order/orderDetail/index"
   ],
   "window": {
     "backgroundTextStyle": "light",
