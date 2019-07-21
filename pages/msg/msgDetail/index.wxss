@@ -1,0 +1,51 @@
+.msg-time{
+    margin: 14px 0;
+    font-size: 14px;
+    font-weight: normal;
+}
+.notice-text-container{
+    display: flex;
+    justify-content: center|left;
+    align-items: center|left;
+    border-bottom: none;
+    padding: 0;
+}
+.item-container{
+    padding: 15px 20px;
+}
+.notice-text-left{
+    flex: 1;
+}
+.important{
+    border-radius: 2px;
+    border: 1px #FFAC17 solid;
+    padding: 3px;
+    font-size: 12px;
+}
+.custom-collapse-item{
+    /*margin-left: -15px;*/
+    /*margin-right: -15px;*/
+    /*background: #ff000000;*/
+}
+.top-cell-class{
+    padding: 10px 0 !important;
+    color:#cccccc;
+}
+
+.custom-top-cell-style{
+    /*padding: 10px 0;*/
+}
+.van-collapse-item-title{
+    /*margin-left: -15px;*/
+
+}
+.custom-right-icon{
+    margin-right: -15px;
+}
+.van-cell: after {
+    display: none !important;
+}
+
+.custom-content{
+    padding:  0 !important;
+}

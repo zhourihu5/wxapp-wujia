@@ -31,6 +31,7 @@
     ]
   },
   "pages": [
+    "pages/msg/msgDetail/index",
     "pages/order/orderDetail/index",
     "pages/index/index",
     "pages/order/index",
@@ -90,7 +91,9 @@
     "van-datetime-picker": "../../dist/datetime-picker/index",
     "van-rate": "../../dist/rate/index",
     "van-collapse": "../../dist/collapse/index",
+    "wj-collapse": "../../dist/wj-collapse/index",
     "van-collapse-item": "../../dist/collapse-item/index",
+    "wj-collapse-item": "../../dist/wj-collapse-item/index",
     "van-picker": "../../dist/picker/index"
   },
   "sitemapLocation": "sitemap.json"
