@@ -107,3 +107,7 @@
   /* left: 12px;*/
   /*position: absolute;*/
 }
+.b-img{
+  width: 100%;
+  height: calc(100vw/345*287);
+}

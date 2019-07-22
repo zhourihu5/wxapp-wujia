@@ -78,6 +78,17 @@
 }
 .color-orange{
   color: #FFAC17;
+  -webkit-text-fill-color:#FFAC17 ;
+}
+.center{
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+.t-gray-small{
+  font-size: 12px;
+  -webkit-text-fill-color: #cccccc;
+  color: #cccccc;
 }
 
 .text-bold{

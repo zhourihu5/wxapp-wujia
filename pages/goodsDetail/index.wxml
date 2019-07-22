@@ -48,8 +48,14 @@
                         </block>
                     </view>
                 </view>
-                <view class="item-3-2-r">...等100名用户已参与</view>
+<!--                //todo 居于底部-->
+                <view class="item-3-2-r t-gray-small">...等100名用户已参与</view>
             </view>
+            <view class="center t-gray-small">参加团后立减<text class="color-orange">6</text>元</view>
+        </view>
+        <view class="item3">
+            <view class="item3-1">商品详情</view>
+            <image class="b-img" src='/images/tab/img_doctor.png' mode='aspectFill'></image>
         </view>
 
     </view>
