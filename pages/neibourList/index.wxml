@@ -1,0 +1,21 @@
+<!--index.wxml-->
+<view class="container-gray-bg-padding body">
+    <view class="w-c">
+        <view class="item-1">
+            <view class="item-1-l">北京市</view>
+            <input class="item-1-r" placeholder="南十里居"/>
+        </view>
+        <block wx:for="1234" wx:key="">
+        <view class="item-2 border-bottom">
+            <image class="image" src="/images/tab/img_doctor.png"/>
+            <view class="item2-c">
+                <view>天通苑社区</view>
+                <view>北京市朝阳区东方阿萨德咖啡机</view>
+            </view>
+            <view class="icon_arrow_r"></view>
+        </view>
+        </block>
+    </view>
+
+</view>
+

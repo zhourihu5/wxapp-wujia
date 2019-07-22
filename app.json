@@ -31,8 +31,9 @@
     ]
   },
   "pages": [
-    "pages/myAdress/index",
+    "pages/neibourList/index",
     "pages/addAdress/index",
+    "pages/myAdress/index",
     "pages/yellowPage/index",
     "pages/index/index",
     "pages/goodsDetail/index",

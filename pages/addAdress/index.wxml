@@ -3,9 +3,9 @@
     <view class="w-b">
         <view class="item no-border">
             <view class="item-l">收货人</view>
-            <view class="item-r u-name">吾家小智</view>
+            <input class="item-r u-name" placeholder="请填写收货人姓名"/>
         </view>
-        <view class="item no-border">
+        <view class="item no-border line-1">
             <view class="item-l"></view>
             <view class="item-r line"></view>
         </view>
@@ -27,7 +27,7 @@
         </view>
         <view class="item">
             <view class="item-l">手机号</view>
-            <view class="item-r">13683218402</view>
+            <input class="item-r"  placeholder="请填写收货人手机号" />
         </view>
         <view class="item">
             <view class="item-l">收货地址</view>
@@ -36,11 +36,11 @@
         </view>
         <view class="item no-border">
             <view class="item-l">门牌号</view>
-            <view class="item-r">三期东一区4号楼大法师的水电费</view>
+            <input class="item-r" placeholder="请选择期区、楼号、单元号、房间号" disabled="disabled"/>
             <view class="icon_arrow_r"></view>
         </view>
     </view>
-    <button class="b-b">添加</button>
+    <button class="b-b">保存并使用</button>
 
 
 </view>

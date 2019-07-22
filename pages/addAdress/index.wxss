@@ -19,6 +19,9 @@
 .item-r{
     flex: 1;
 }
+.line-1{
+    padding: 0;
+}
 .b-b{
     width: 100%;
     margin: 10px 15px;
