@@ -40,6 +40,6 @@
 </view>
 
 <view class="bottom">
-    <view><text>实付款</text><text class="color-orange">￥12.32</text></view>
+    <view class="b-l"><text>实付款：</text><text class="color-orange">￥12.32</text></view>
     <view class="bg-orange pay-btn">立即支付</view>
 </view>
