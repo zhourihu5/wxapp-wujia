@@ -31,6 +31,7 @@
     ]
   },
   "pages": [
+    "pages/yellowPage/index",
     "pages/addAdress/index",
     "pages/index/index",
     "pages/goodsDetail/index",

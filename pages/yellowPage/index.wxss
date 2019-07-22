@@ -1,0 +1,32 @@
+.body{
+    padding: 0;
+    box-sizing: border-box;
+    background: #F6F7F9;
+}
+.item-gray{
+    box-sizing: border-box;
+    padding: 10px;
+    width: 100%;
+}
+.w-c{
+    box-sizing: border-box;
+    width: 100%;
+    background: white;
+    padding: 0 10px;
+}
+.item-c{
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    /*align-items: center;*/
+    /*justify-content: center;*/
+    padding: 10px 0;
+
+}
+.item-c-l{
+    flex: 1;
+}
+.item-c-r{
+
+}

@@ -1,0 +1,49 @@
+<!--index.wxml-->
+<view class="container-gray-bg-padding body">
+    <view class="item-gray">物业信息</view>
+    <view class="w-c">
+        <view class="item-c border-bottom">
+            <view class="item-c-l">物业电话</view>
+            <view class="item-c-r">010-7862594</view>
+        </view>
+        <view class="item-c">
+            <view class="item-c-l">物业地址</view>
+            <view class="item-c-r">010-7862594</view>
+        </view>
+    </view>
+    <view class="item-gray">派出所信息</view>
+    <view class="w-c">
+        <view class="item-c border-bottom">
+            <view class="item-c-l">派出所电话</view>
+            <view class="item-c-r">010-7862594</view>
+        </view>
+        <view class="item-c">
+            <view class="item-c-l">派出所地址</view>
+            <view class="item-c-r">010-7862594</view>
+        </view>
+    </view>
+    <view class="item-gray">幼儿园信息</view>
+    <view class="w-c">
+        <view class="item-c border-bottom">
+            <view class="item-c-l">幼儿园电话</view>
+            <view class="item-c-r">010-7862594</view>
+        </view>
+        <view class="item-c">
+            <view class="item-c-l">幼儿园地址</view>
+            <view class="item-c-r">010-7862594</view>
+        </view>
+    </view>
+    <view class="item-gray">水站信息</view>
+    <view class="w-c">
+        <view class="item-c border-bottom">
+            <view class="item-c-l">水站电话</view>
+            <view class="item-c-r">010-7862594</view>
+        </view>
+        <view class="item-c">
+            <view class="item-c-l">水站地址</view>
+            <view class="item-c-r">010-7862594</view>
+        </view>
+    </view>
+
+</view>
+
