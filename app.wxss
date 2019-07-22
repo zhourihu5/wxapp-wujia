@@ -85,10 +85,20 @@
   justify-content: center;
   text-align: center;
 }
+.no-border{
+  border: none !important;
+}
+.border-bottom{
+  border-bottom: 1px #cccccc solid;
+}
 .t-gray-small{
   font-size: 12px;
   -webkit-text-fill-color: #cccccc;
   color: #cccccc;
+}
+.line{
+  height: 1px;
+  background: #cccccc;
 }
 
 .text-bold{

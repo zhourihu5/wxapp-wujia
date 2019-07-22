@@ -31,8 +31,9 @@
     ]
   },
   "pages": [
-    "pages/goodsDetail/index",
+    "pages/addAdress/index",
     "pages/index/index",
+    "pages/goodsDetail/index",
     "pages/order/index",
     "pages/msg/index",
     "pages/ucenter/index",

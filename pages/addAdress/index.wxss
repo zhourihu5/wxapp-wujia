@@ -1,0 +1,43 @@
+.w-b{
+    padding: 0 15px;
+    background: white;
+    width: 100%;
+}
+.item{
+    padding: 15px 0;
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    box-sizing: border-box;
+    border-bottom: 1px #cccccc solid;
+    align-items: center;
+}
+.item-l{
+    width: 81px;
+    /*background: white;*/
+}
+.item-r{
+    flex: 1;
+}
+.b-b{
+    width: 100%;
+    margin: 10px 15px;
+    background: #FF951C;
+    border-radius: 5px;
+    color: white;
+    height: 44px;
+}
+.demo-radio-group{
+    display: flex;
+    flex-direction: row;
+}
+.demo-radio{
+    margin-right: 49px;
+}
+/*.u-name::after{*/
+/*    border-bottom: 1px #cccccc solid;*/
+/*    height: 1px;*/
+/*    background: #cccccc;*/
+/*    position: absolute;*/
+/*    bottom: 0;*/
+/*}*/

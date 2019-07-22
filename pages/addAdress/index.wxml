@@ -1,0 +1,46 @@
+<view class="container-gray-bg-padding">
+
+    <view class="w-b">
+        <view class="item no-border">
+            <view class="item-l">收货人</view>
+            <view class="item-r u-name">吾家小智</view>
+        </view>
+        <view class="item no-border">
+            <view class="item-l"></view>
+            <view class="item-r line"></view>
+        </view>
+
+        <view class="item">
+            <view class="item-l"></view>
+            <view class="item-r">
+                <van-radio-group
+                        value="{{ radio1 }}"
+                        data-key="radio1"
+                        class="demo-radio-group"
+                        custom-class="demo-radio-group"
+                        bind:change="onChange"
+                >
+                    <van-radio name="1" checkedColor="#FF951C" custom-class="demo-radio">女士</van-radio>
+                    <van-radio name="2" checkedColor="#FF951C" custom-class="demo-radio">男士</van-radio>
+                </van-radio-group>
+            </view>
+        </view>
+        <view class="item">
+            <view class="item-l">手机号</view>
+            <view class="item-r">13683218402</view>
+        </view>
+        <view class="item">
+            <view class="item-l">收货地址</view>
+            <view class="item-r">天通苑小区</view>
+            <view class="icon_arrow_r"></view>
+        </view>
+        <view class="item no-border">
+            <view class="item-l">门牌号</view>
+            <view class="item-r">三期东一区4号楼大法师的水电费</view>
+            <view class="icon_arrow_r"></view>
+        </view>
+    </view>
+    <button class="b-b">添加</button>
+
+
+</view>
