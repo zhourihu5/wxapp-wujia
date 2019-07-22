@@ -1,0 +1,45 @@
+<!--index.wxml-->
+<view class="container-gray-bg-padding body">
+    <view class="match-parent">
+        <van-steps
+                steps="{{ steps }}"
+                active="{{ active }}"
+                activeColor="#FF9B1D"
+                custom-class="stepper"
+        />
+
+    </view>
+    <view class="item-1">
+        <image class="icon-l" src="/images/tab/img_doctor.png"/>
+        <view class="flex-1">请填写收货地址</view>
+        <view class="icon_arrow_r"></view>
+    </view>
+<!--    todo 添加底部彩色边框-->
+
+    <view class="item-2">
+        <view class="item-2-1">
+            <image class="image" src="/images/tab/img_doctor.png"/>
+            <view class="item-2-1-r">
+                <view>商品名称商品名称</view>
+                <view class="item-2-1-b">
+                    <text>￥</text>
+                    <text class="t-b">12</text>
+                    <text class="t-s">.32</text>
+                    <text class="line-through t-g">16.8</text>
+                </view>
+            </view>
+        </view>
+        <view class="item-2-1 item-2-2">
+            <image class="icon-pay" src="/images/tab/img_doctor.png"/>
+            <view class="flex-1 ">微信支付</view>
+            <van-radio name="1" value="1" checkedColor="#FF951C" custom-class="demo-radio" ></van-radio>
+        </view>
+    </view>
+
+
+</view>
+
+<view class="bottom">
+    <view><text>实付款</text><text class="color-orange">￥12.32</text></view>
+    <view class="bg-orange pay-btn">立即支付</view>
+</view>

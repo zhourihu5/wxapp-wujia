@@ -1,0 +1,76 @@
+.body{
+    padding: 0 15px;
+    box-sizing: border-box;
+    background: #F6F7F9;
+}
+.stepper{
+    background: none !important;
+    padding: 21px 0 !important;
+}
+.item-1{
+    background: white;
+    border-radius: 10px;
+    padding: 25px 10px;
+    align-items: center;
+    display: flex;
+    width: 100%;
+    box-sizing: border-box;
+}
+/*.item-1:after{*/
+/*    content: '';*/
+/*    background: url(/images/tab/img_doctor.png) repeat-x;*/
+/*    height: 26px;*/
+/*}*/
+.icon-l{
+    width: 16px;
+    height: 16px;
+    margin-right: 10px;
+}
+.item-2{
+    background: white;
+    border-radius: 10px;
+    padding: 15px 10px;
+    margin-top: 10px;
+    box-sizing: border-box;
+    width: 100%;
+}
+.item-2-1{
+    display: flex;
+    align-items: center;
+    /*justify-content: center;*/
+
+}
+.image{
+    width: 70px;
+    height: 70px;
+    border-radius: 10px;
+    margin-right: 10px;
+}
+.item-2-1-r{
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    /*align-items: center;*/
+}
+.item-2-1-b{
+    color: #FF9B1D;
+    -webkit-text-fill-color: #FF9B1D;
+    font-size: 14px;
+    font-weight: bold;
+}
+.t-b{
+    font-size: 20px;
+    margin-left: 5px;
+}
+.t-g{
+    font-weight: normal;
+}
+.item-2-2{
+    margin-top: 25px;
+}
+.icon-pay{
+    width: 26px;
+    height: 26px;
+    margin-right: 6px;
+
+}

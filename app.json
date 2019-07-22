@@ -31,6 +31,7 @@
     ]
   },
   "pages": [
+    "pages/orderConfirm/index",
     "pages/neibourList/index",
     "pages/addAdress/index",
     "pages/myAdress/index",
