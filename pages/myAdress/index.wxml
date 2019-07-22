@@ -1,0 +1,22 @@
+<view class="container-gray-bg-padding body">
+
+    <view class="w-b">
+        <view class="item-c">
+            <view class="item-c-l">
+                <view>南十里四号楼5单元502</view>
+                <view>葫芦娃13683218402</view>
+            </view>
+            <image class="item-c-r" src="/images/tab/img_doctor.png"></image>
+        </view>
+    </view>
+    <view class="b-b">
+        <van-icon
+                name="add-o"
+                size="32px"
+                class="icon-add"
+        />
+       <text>新增收货地址</text>
+    </view>
+
+
+</view>

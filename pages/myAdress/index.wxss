@@ -1,0 +1,47 @@
+.body{
+    padding: 0 0 74px 0;
+    box-sizing: border-box;
+}
+.w-b{
+    margin-top: 10px;
+    box-sizing: border-box;
+    padding: 10px;
+    background: white;
+    width: 100%;
+}
+.item-c{
+    display: flex;
+    align-items: center;
+}
+.item-c-l{
+    flex: 1;
+}
+.item-c-r{
+    width: 15px;
+    height: 15px;
+}
+.icon-add{
+    /*position: inherit !important;*/
+    display: flex;
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+    margin-right: 10px;
+}
+.b-b{
+    position: fixed;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+    /*width: 100%;*/
+    /*margin: 10px 15px;*/
+    right: 15px;
+    left: 15px;
+    bottom: 15px;
+    background: #FF951C;
+    border-radius: 5px;
+    color: white;
+    height: 44px;
+}
