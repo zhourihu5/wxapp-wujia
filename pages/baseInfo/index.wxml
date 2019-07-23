@@ -1,0 +1,23 @@
+<!--index.wxml-->
+<view class="container-gray-bg-padding body">
+    <view class="match-parent w-b">
+        <view class="item">
+            <view class="item-l">姓名</view>
+            <input placeholder="请输入您的姓名"/>
+        </view>
+        <view class="item ">
+            <view class="item-l">性别</view>
+            <input placeholder="请输选择您的性别"/>
+        </view>
+        <view class="item ">
+            <view class="item-l">手机号</view>
+            <input placeholder="请输选择您的性别" value="34534645636" disabled="disabled"/>
+        </view>
+        <view class="item no-border">
+            <view class="item-l">生日</view>
+            <input placeholder="请输选择您的生日"/>
+        </view>
+    </view>
+
+</view>
+

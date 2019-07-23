@@ -58,6 +58,7 @@
     ]
   },
   "pages": [
+    "pages/baseInfo/index",
     "pages/applySubmit/index",
     "pages/index/index",
     "pages/orderConfirm/index",
