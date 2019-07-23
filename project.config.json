@@ -8,12 +8,10 @@
 		"es6": true,
 		"postcss": true,
 		"minified": true,
-		"newFeature": true,
-		"autoAudits": false,
-		"coverView": true
+		"newFeature": true
 	},
 	"compileType": "miniprogram",
-	"libVersion": "2.0.4",
+	"libVersion": "2.6.4",
 	"appid": "wx78aa6144c22e65ae",
 	"projectname": "wxapp-wujia",
 	"debugOptions": {
@@ -31,12 +29,16 @@
 			"current": -1,
 			"list": []
 		},
+		"plugin": {
+			"current": -1,
+			"list": []
+		},
 		"game": {
 			"currentL": -1,
 			"list": []
 		},
 		"miniprogram": {
-			"current": -1,
+			"current": 27,
 			"list": []
 		}
 	}
