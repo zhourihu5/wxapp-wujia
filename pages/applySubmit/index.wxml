@@ -3,11 +3,11 @@
     <view class="match-parent w-b">
         <view class="item">
             <view class="item-l">已申请户主</view>
-            <view>周日虎</view>
+            <input placeholder="请输入户主的名字"></input>
         </view>
         <view class="item no-border">
             <view class="item-l">申请人</view>
-            <view>吾家小智</view>
+            <input placeholder="请输入申请人的名字"/>
         </view>
     </view>
 
