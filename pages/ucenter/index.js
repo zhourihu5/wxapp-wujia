@@ -5,22 +5,19 @@ Page({
     data: {
         items: [
             {
-                title: "全部",
-                msg:"你的作品最多19个字",
+                title: "基本资料",
                 icon:"/images/tab/img_doctor.png",
-                time:"30分钟前"
+                url:"/pages/baseInfo/index"
             },
             {
-                title: "全部",
-                msg:"你的作品最多19个字",
+                title: "社区黄页",
                 icon:"/images/tab/img_doctor.png",
-                time:"30分钟前"
+                url:"/pages/yellowPage/index"
             },
             {
-                title: "全部",
-                msg:"你的作品最多19个字",
+                title: "申请线上开锁",
                 icon:"/images/tab/img_doctor.png",
-                time:"30分钟前"
+                url:"/pages/neibourList/index"
             },
         ]
     },

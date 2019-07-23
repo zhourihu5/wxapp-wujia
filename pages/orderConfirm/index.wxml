@@ -9,11 +9,14 @@
         />
 
     </view>
-    <view class="item-1">
+    <navigator class="item-1" url="/pages/myAdress/index" hover-class="navigator-hover"
+               open-type="navigateTo">
+<!--    <view class="item-1">-->
         <image class="icon-l" src="/images/tab/img_doctor.png"/>
         <view class="flex-1">请填写收货地址</view>
         <view class="icon_arrow_r"></view>
-    </view>
+<!--    </view>-->
+    </navigator>
 <!--    todo 添加底部彩色边框-->
 
     <view class="item-2">

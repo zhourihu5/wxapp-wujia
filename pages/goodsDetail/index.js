@@ -30,5 +30,8 @@ Page({
                 return util.formatTime(new Date(log))
             })
         })
+    },
+    toConfirmOrder: function(e){
+        wx.navigateTo({url:"/pages/orderConfirm/index"})
     }
 })

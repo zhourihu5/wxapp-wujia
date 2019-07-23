@@ -9,7 +9,9 @@
         >
 
             <block wx:for="{{tab.data}}" wx:for-item="data-item" wx:key="">
-                <view class="round-container order-container">
+                <navigator class="round-container order-container" url="/pages/order/orderDetail/index" hover-class="navigator-hover"
+                           open-type="navigateTo">
+<!--                <view >-->
                     <view class="top-item">
                         <text class="text-gray">付款剩余时间</text>
                         <text class="color-orange">00:14:30</text>
@@ -28,11 +30,12 @@
                     </view>
                     <view class="btn-wraper">
                         <view class="left-empty"></view>
-                        <text class="pay-right-now">立即付款</text>
+                        <text class="pay-right-now" >立即付款</text>
                         <text class="go-stroll">联系送货人</text>
                     </view>
 
-                </view>
+<!--                </view>-->
+                </navigator>
             </block>
 
         </van-tab>

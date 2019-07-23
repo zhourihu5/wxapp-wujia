@@ -60,7 +60,7 @@
 
     </view>
 
-    <view class="bottom-button">去参团</view>
+    <view class="bottom-button" bindtap="toConfirmOrder">去参团</view>
 </view>
 
 

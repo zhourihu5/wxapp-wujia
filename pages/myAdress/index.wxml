@@ -9,7 +9,7 @@
             <image class="item-c-r" src="/images/tab/img_doctor.png"></image>
         </view>
     </view>
-    <view class="b-b">
+    <view class="b-b" bindtap="addNewAdress">
         <van-icon
                 name="add-o"
                 size="32px"

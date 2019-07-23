@@ -18,8 +18,10 @@
 
     <scroll-view class="activity-scroll" scroll-x="true">
         <view class="activity-container">
-            <block wx:for="{{list}}" wx:key="">
-                <view class="activity-list">
+            <block wx:for="{{list}}" wx:key="" >
+                <navigator class="activity-list" url="/pages/goodsDetail/index" hover-class="navigator-hover"
+                           open-type="navigateTo">
+<!--                <view class="activity-list" >-->
                     <image class="activity-banner" src="/images/tab/img_doctor.png"/>
                     <text class="activity-title margin-left-activity-title">这里是活动标题，只有十六个字</text>
                     <view class="price">
@@ -35,7 +37,8 @@
                     </view>
                     <text class="sell-num margin-left-activity-title">已拼2550件</text>
                     <text class="go-group-buy">去拼团</text>
-                </view>
+<!--                </view>-->
+                </navigator>
             </block>
         </view>
     </scroll-view>

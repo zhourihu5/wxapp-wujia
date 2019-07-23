@@ -17,5 +17,8 @@ Page({
         this.setData({
             [key]: event.detail
         });
+    },
+    addNewAdress(e){
+        wx.navigateTo({url:"/pages/addAdress/index"})
     }
 })

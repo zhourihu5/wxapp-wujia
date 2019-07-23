@@ -11,18 +11,16 @@
 
     </view>
 
-    <block wx:for="{{items}}" wx:for-item="data-item" wx:key="">
-        <view class="item-container">
+    <block wx:for="{{items}}" wx:for-item="item" >
+        <navigator class="item-container" url="{{item.url}}" hover-class="navigator-hover"
+                   open-type="navigateTo">
             <view class="item">
-                <image class="icon" src="/images/tab/img_doctor.png"/>
-                <view class="item-text">基本资料</view>
-                <view class="margin-r">
-                    <view class="margin-r icon_arrow_r"></view>
-                </view>
+                <image class="icon" src="{{item.icon}}"/>
+                <view class="item-text">{{item.title}}</view>
+                <view class="icon_arrow_r"></view>
 
             </view>
             <view class="line"></view>
-        </view>
-
+        </navigator>
     </block>
 </view>

@@ -1,7 +1,9 @@
 <!--index.wxml-->
 <view class="container gray-bg">
     <block wx:for="{{items}}" wx:for-item="data-item" wx:key="">
-        <view class="item">
+        <navigator class="item" url="/pages/msg/msgDetail/index" hover-class="navigator-hover"
+                   open-type="navigateTo">
+<!--        <view class="item">-->
             <view class="item-content">
                 <image class="image" src="/images/tab/img_doctor.png"/>
                 <view class="middle-text">
@@ -14,6 +16,7 @@
                 </view>
             </view>
             <view class="line"></view>
-        </view>
+<!--        </view>-->
+        </navigator>
     </block>
 </view>
