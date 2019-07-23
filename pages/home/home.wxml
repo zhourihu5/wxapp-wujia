@@ -1,0 +1,7 @@
+<cu-custom bgColor="bg-gradual-orange" isBack="{{false}}"><view slot="backText">返回</view><view slot="content">吾家W+</view></cu-custom>
+<view class="bg-gradual-orange">
+    <view class="flex solid-bottom padding justify-between">
+      <view> <image class="home_top_img" src="/images/index_pos.png"></image> 天通苑社区</view>
+      <view>邀请访客</view>
+    </view>
+</view> 

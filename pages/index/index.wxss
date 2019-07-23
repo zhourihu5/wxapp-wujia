@@ -32,6 +32,7 @@ page{
     align-items: center;
     justify-content: space-between;
     word-break: break-all;
+    height: 80px;
 }
 .l_items image {
     width: 30rpx;

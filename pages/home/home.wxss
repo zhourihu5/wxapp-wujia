@@ -1,0 +1,5 @@
+/* pages/home/home.wxss */
+.home_top_img {
+  width: 13px;
+  height: 17px;
+}

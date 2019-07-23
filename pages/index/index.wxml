@@ -2,7 +2,7 @@
 <view class="container over-hidden">
 
     <view class="l_items location-bar">
-        <image class="icon" src="/images/icon/img_p_info.png"></image>
+        <image class="icon" src="/images/index_pos.png"></image>
         <text class="text-white">天通苑社区</text>
         <text class="text-white margin-right text-underline">邀请访客</text>
     </view>
