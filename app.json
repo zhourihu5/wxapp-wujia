@@ -4,32 +4,6 @@
     "selectedColor": "#3c3c3c",
     "backgroundColor": "#FFFFFF",
     "list": [
-<<<<<<< HEAD
-      // {
-      //   "pagePath": "pages/index/index",
-      //   "text": "首页",
-      //   "iconPath": "images/tab/img_doctor.png",
-      //   "selectedIconPath": "images/tab/img_h_doctor.png"
-      // },
-      // {
-      //   "pagePath": "pages/order/index",
-      //   "text": "订单",
-      //   "iconPath": "images/tab/img_f_folk.png",
-      //   "selectedIconPath": "images/tab/img_h_f_folk.png"
-      // },
-      // {
-      //   "pagePath": "pages/msg/index",
-      //   "text": "消息",
-      //   "iconPath": "images/tab/img_f_message.png",
-      //   "selectedIconPath": "images/tab/img_h_message.png"
-      // },
-      // {
-      //   "pagePath": "pages/ucenter/index",
-      //   "text": "我的",
-      //   "iconPath": "images/tab/img_personal.png",
-      //   "selectedIconPath": "images/tab/img_h_personal.png"
-      // }
-=======
       {
         "pagePath": "pages/index/index",
         "text": "首页",
@@ -54,13 +28,12 @@
         "iconPath": "images/tab/img_personal.png",
         "selectedIconPath": "images/tab/img_h_personal.png"
       }
->>>>>>> 2b428eeaaa3bd0941b23ec2afdad3408e5ceac9e
     ]
   },
   "pages": [
+    "pages/index/index",
     "pages/baseInfo/index",
     "pages/applySubmit/index",
-    "pages/index/index",
     "pages/orderConfirm/index",
     "pages/neibourList/index",
     "pages/addAdress/index",
