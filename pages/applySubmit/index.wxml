@@ -1,0 +1,44 @@
+<!--index.wxml-->
+<view class="container-gray-bg-padding body">
+    <view class="match-parent w-b">
+        <view class="item">
+            <view class="item-l">已申请户主</view>
+            <input placeholder="请输入户主的名字"></input>
+        </view>
+        <view class="item no-border">
+            <view class="item-l">申请人</view>
+            <input placeholder="请输入申请人的名字"/>
+        </view>
+    </view>
+
+    <view class="match-parent w-b no-margin ">
+        <view class="item no-border">
+            <view class="search-b">
+                <image src='/images/tab/img_doctor.png' class='i-search' mode='aspectFill'></image>
+                <input placeholder="请搜索单元"/>
+            </view>
+        </view>
+
+    </view>
+    <view class="list">
+        <van-radio-group value="3">
+            <van-cell-group class="no-border">
+                <van-cell
+                        wx:for="{{ list }}"
+                        wx:key="index"
+                        title="单选框 {{ item }}"
+                        value-class="value-class"
+                        clickable
+                        data-name="{{ item }}"
+                        bind:click="onClick"
+                >
+                    <van-radio name="{{ item }}" checkedColor="#FF9B1D"/>
+                </van-cell>
+            </van-cell-group>
+        </van-radio-group>
+    </view>
+
+    <button class="b-b">确定</button>
+
+</view>
+
