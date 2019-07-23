@@ -1,0 +1,45 @@
+.ptcg{
+    /*width:192rpx;*/
+    /*height:60rpx;*/
+    font-size:44rpx;
+    font-family:PingFangSC-Regular;
+    font-weight:400;
+    color:rgba(34,34,34,1);
+    line-height:60rpx;
+    margin-top: 20rpx;
+    margin-bottom: 50rpx;
+}
+.round{
+    width:138rpx;
+    height:138rpx;
+    background:rgba(255,155,29,1);
+    border-radius: 69rpx;
+}
+.dg{
+    width:64rpx;
+    height:64rpx;
+    /*background:rgba(255,255,255,1);*/
+}
+.ckdd{
+    width:200rpx;
+    height:72rpx;
+    margin-right: 100rpx;
+    border-radius:36rpx;
+    border:2px solid rgba(255,155,29,1);
+    font-size:28rpx;
+    font-family:PingFangSC-Regular;
+    font-weight:400;
+    color:rgba(255,155,29,1);
+    line-height:40rpx;
+}
+.jxgg{
+    width:200rpx;
+    height:72rpx;
+    background:rgba(255,155,29,1);
+    border-radius:36rpx;
+    font-size:28rpx;
+    font-family:PingFangSC-Regular;
+    font-weight:400;
+    color:rgba(255,255,255,1);
+    line-height:40rpx;
+}

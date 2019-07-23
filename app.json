@@ -32,6 +32,9 @@
   },
   "pages": [
     "pages/index/index",
+    "pages/paySuccess/index",
+    "pages/activityMore/index",
+    "pages/goodsDetail1/index",
     "pages/baseInfo/index",
     "pages/applySubmit/index",
     "pages/orderConfirm/index",

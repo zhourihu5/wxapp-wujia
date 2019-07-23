@@ -1,0 +1,57 @@
+.image{
+  width:140rpx;
+  height:140rpx;
+  background:rgba(216,216,216,1);
+  border-radius:16rpx;
+  border:2rpx solid rgba(151,151,151,1);
+  margin: 0 20rpx 0 10rpx;
+}
+.price-c{
+  font-size:30rpx;
+  font-family:PingFangSC-Semibold;
+  font-weight:600;
+  color:rgba(255,155,29,1);
+  -webkit-text-fill-color:rgba(255,155,29,1);
+  line-height:42rpx;
+}
+.price-integer{
+  font-size:48rpx;
+  font-family:PingFangSC-Semibold;
+  font-weight:600;
+  color:rgba(255,155,29,1);
+  line-height:48px;
+}
+.round-image{
+  width: 62rpx;
+  height: 62rpx;
+  display: inline-block;
+  margin-right: -24px;
+  /* left: 12px;*/
+  /*position: absolute;*/
+}
+.round-image-container{
+  max-width: calc(100% - 232rpx);
+  height: 62rpx;
+  /*max-width: 100%;*/
+  /*max-width: 100rpx;*/
+  overflow: scroll;
+}
+.align-bottom{
+  /*align-items: self-end;*/
+  /*align-content: flex-end;*/
+  /*justify-content: center|end|bottom;*/
+  /*text-align: bottom;*/
+  /*height: 62rpx;*/
+  /*display:table-cell;      !*按照单元格的样式显示元素*!*/
+  /*vertical-align:bottom;*/
+  margin-top: 26rpx;
+}
+.comma{
+  width:24rpx;
+  height:32rpx;
+  font-size:22rpx;
+  font-family:PingFangSC-Regular;
+  font-weight:400;
+  color:rgba(255,99,41,1);
+  line-height:32rpx;
+}

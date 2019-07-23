@@ -4,7 +4,21 @@ const app = getApp()
 
 Page({
   data: {
-    list: [1,2,3,4,5],
+    list: [
+      {
+        isOrdered:'',
+      },
+      {
+        isOrdered:1,
+      },
+      {
+        isOrdered:'',
+      },
+      {
+        isOrdered:1,
+      },
+
+    ],
     userInfo: {},
     hasUserInfo: false,
     canIUse: wx.canIUse('button.open-type.getUserInfo')

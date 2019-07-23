@@ -1,0 +1,56 @@
+<!--index.wxml-->
+<view class="container p-l-r-30">
+    <view class="round-container p-l-r-20 m-t-20">
+        <view class="match-parent p-t-b-20">
+            <view class="flex-1 color-orange">每个用户只限参加一次哦，点我查看更多活动哦~</view>
+            <view class="icon-arrow-r"></view>
+        </view>
+        <view class="match-parent m-t-20 m-b-50">
+            <image class="image" src="/images/tab/img_doctor.png"/>
+            <view class="flex-1">
+                <view>造物生活 卫生巾大所发生的撒大声地SDK大姐夫</view>
+                <view class="price-c">
+                    <text>￥</text>
+                    <text class="price-integer">12</text>
+                    <text>.32</text>
+                    <text class="line-through m-l-20">16.8</text>
+                </view>
+            </view>
+        </view>
+        <view class="match-parent">
+            <view class="line flex-1"></view>
+            <view class="center">
+                <view>剩余</view>
+                <view class="orange-corner">00</view>
+                <view class="comma">:</view>
+                <view class="orange-corner">36</view>
+                <view class="comma">:</view>
+                <view class="orange-corner">35.5</view>
+                <view>结束</view>
+            </view>
+            <view class="line flex-1"></view>
+        </view>
+        <view class="match-parent center p-t-b-40 ">
+            <view class="round-image-container">
+                <block wx:for="123456789abcdefgadasdfsdfsaasdfsdf" wx:key="">
+                    <image src='/images/icon/img_f_bind.png' class='round-image' mode='aspectFill'
+                           style="z-index: {{100-index}};left: {{index*18}}px;"/>
+
+                </block>
+            </view>
+            <!--                //todo 居于底部-->
+            <text class="t-gray-small align-bottom">...等100名用户已参与</text>
+        </view>
+    </view>
+    <view class="center m-t-b-30">大家都在拼</view>
+    <block wx:for="12345678asdfasdfasdfasfasdfasdfasd" wx:key="">
+        <view>
+            todo 这里是自定义商品banner组件
+        </view>
+
+
+    </block>
+
+</view>
+
+

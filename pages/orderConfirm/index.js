@@ -22,5 +22,8 @@ Page({
     this.setData({
       active: ++this.data.active % 4
     });
-  }
+  },
+    toPay(e){
+        wx.navigateTo({url:"/pages/paySuccess/index"})
+    }
 });

@@ -6,20 +6,22 @@
         <text class="text-white">天通苑社区</text>
         <text class="text-white margin-right text-underline">邀请访客</text>
     </view>
-
-    <view class="l_items top-round-corner">
+    <navigator class="l_items top-round-corner" url="/pages/activityMore/index" hover-class="navigator-hover"
+               open-type="navigateTo">
+<!--    <view class="l_items top-round-corner">-->
         <view></view>
         <text class="margin-left">精选活动</text>
         <view>
             <text class="text-lighter">更多</text>
             <view class="icon_arrow_r margin-right"></view>
         </view>
-    </view>
+<!--    </view>-->
+    </navigator>
 
     <scroll-view class="activity-scroll" scroll-x="true">
         <view class="activity-container">
-            <block wx:for="{{list}}" wx:key="" >
-                <navigator class="activity-list" url="/pages/goodsDetail/index" hover-class="navigator-hover"
+            <block wx:for="{{list}}"  >
+                <navigator class="activity-list" url="/pages/goodsDetail{{item.isOrdered}}/index" hover-class="navigator-hover"
                            open-type="navigateTo">
 <!--                <view class="activity-list" >-->
                     <image class="activity-banner" src="/images/tab/img_doctor.png"/>

@@ -1,0 +1,14 @@
+<!--index.wxml-->
+<view class="container p-l-r-30">
+
+
+    <block wx:for="12345678asdfasdfasdfasfasdfasdfasd" wx:key="">
+        <view class="m-t-20">
+            todo 这里是自定义商品banner组件
+        </view>
+
+    </block>
+
+</view>
+
+
