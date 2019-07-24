@@ -1,40 +1,36 @@
-<view class="container-gray-bg-padding">
-    <view class="container-gray-bg-padding">
-        <text class="text-gray msg-time">7-7 21:56</text>
-        <view class="goods-info  item-container">
-            <view class="goods-title  notice-text-container">订单消息</view>
-            <block wx:for="1234" wx:for-item="data-item" wx:key="">
-                <view class="order-info-item">订单金额：￥15.30</view>
-            </block>
+<view class="container p-l-r-30">
+    <text class="center msg-time">7-7 21:56</text>
+    <view class="item-container">
+        <view class="notice-text-container">订单消息</view>
+        <block wx:for="1234" wx:for-item="data-item" wx:key="">
+            <view class="order-info-item">订单金额：￥15.30</view>
+        </block>
 
+    </view>
+    <text class="center msg-time">7-7 21:56</text>
+    <view class="item-container">
+        <view class="notice-text-container">
+            <text class="notice-text-left">社区通知</text>
+            <view class="center important">重</view>
         </view>
-        <text class="text-gray msg-time">7-7 21:56</text>
-        <view class="goods-info item-container">
-            <view class="goods-title notice-text-container">
-                <text class="notice-text-left">社区通知</text>
-                <view class="color-orange important">重</view>
-            </view>
-            <van-collapse border="" value="{{ active1 }}" data-key="active1" bind:change="onChange">
-                <van-collapse-item custom-class="custom-collapse-item"
-                                   top-cell-class="top-cell-class"
-                                   border="{{false}}"
-                                   content-class="custom-content"
-                        title-class="van-collapse-item-title"
-                                   right-icon-class="custom-right-icon"
-                                   title="社区停水停电通知">
-<!--                    topCellStyle="padding: 10px 0;color:#cccccc"-->
-                    啊大大是打发斯蒂芬阿斯顿发生打的费是阿斯
-                </van-collapse-item>
-            </van-collapse>
-        </view>
-
-        <text class="text-gray msg-time">7-7 21:56</text>
-        <view class="goods-info  item-container">
-            <view class="goods-title  notice-text-container">退款消息</view>
-            <view class="order-info-item">爱看大家发开始发大水发斯蒂芬三大地方卡死了地方奥斯卡两地分居</view>
-
-        </view>
+        <van-collapse border="" value="{{ active1 }}" data-key="active1" bind:change="onChange">
+            <van-collapse-item custom-class="custom-collapse-item"
+                               top-cell-class="top-cell-class"
+                               border="{{false}}"
+                               content-class="custom-content"
+                               title-class="van-collapse-item-title"
+                               right-icon-class="custom-right-icon"
+                               title="社区停水停电通知">
+                <!--                    topCellStyle="padding: 10px 0;color:#cccccc"-->
+                啊大大是打发斯蒂芬阿斯顿发生打的费是阿斯
+            </van-collapse-item>
+        </van-collapse>
     </view>
 
+    <text class="center msg-time">7-7 21:56</text>
+    <view class="item-container">
+        <view class="notice-text-container">退款消息</view>
+        <view class="order-info-item">爱看大家发开始发大水发斯蒂芬三大地方卡死了地方奥斯卡两地分居</view>
 
+    </view>
 </view>

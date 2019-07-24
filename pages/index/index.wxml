@@ -1,15 +1,15 @@
 <!--index.wxml-->
 <cu-custom bgColor="bg-gradual-orange" isBack="{{false}}"><view slot="backText">返回</view><view slot="content">图标</view></cu-custom>
-<view class="container over-hidden" style="background-color:#fff;">
+<view class="container over-hidden" style="background: #FAFAFA">
 
     <view class="top-title bg-gradual-orange flex padding justify-between">
-      <view class="flex align-center"><image class="icon" src="/images/index_pos.png"></image><text class="text-white">天通苑社区</text></view>
-      <view class="flex align-center"><text class="text-white margin-right text-underline">邀请访客</text></view>  
+      <view class="flex align-center"><image class="icon" src="/images/index_pos.png"></image><text class="location-text">天通苑社区</text></view>
+      <view class="flex align-center"><text class="margin-right text-underline invite-visitor">邀请访客</text></view>
     </view>
     <view class="activity-more flex padding justify-between">
-        <view><text>精选活动</text></view>
+        <view class="jxhd">精选活动</view>
         <view>
-            <text>更多</text>
+            <text class="more">更多</text>
             <text class="cuIcon-right lg text-gray"></text>
         </view>
     </view>
@@ -19,19 +19,19 @@
             <block wx:for="{{list}}" wx:key="">
                 <view class="activity-list">
                     <image class="activity-banner" src="https://ossweb-img.qq.com/images/lol/web201310/skin/big10006.jpg"/>
-                    <text class="activity-title">这里是活动标题，只有十六个字</text>
+                    <view class="m-l-20 activity-title">这里是活动标题，只有十六个字</view>
                     <view class="price">
                         <text class="dollar margin-left-activity-title">￥</text>
-                        <text class="price-integer">12</text>
-                        <text class="price-float">.32</text>
+                        <text class="price-integer">12.</text>
+                        <text class="price-float">32</text>
                         <text class="price-old">￥16.68</text>
                     </view>
-                    <view class="margin-left-activity-title">
+                    <view class="m-l-20 lable-container">
                         <text class="lable">国外进口</text>
                         <text class="lable">最多四字</text>
                         <text class="lable">最多三个</text>
                     </view>
-                    <text class="sell-num margin-left-activity-title">已拼2550件</text>
+                    <text class="sell-num m-l-20">已拼2550件</text>
                     <text class="go-group-buy">去拼团</text>
                 </view>
             </block>

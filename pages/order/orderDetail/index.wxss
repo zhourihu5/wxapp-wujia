@@ -1,41 +1,93 @@
 .content{
   flex: 1;
-  padding: 0 15px;
-  margin-bottom: 49px;
+  /*position: fixed;*/
+  overflow: scroll;
+  padding: 0 30rpx;
+  margin-bottom: 98rpx;
   width: 100%;
   box-sizing: border-box;
 }
 .top-conrainer{
+  /*width:690px;*/
+  /*height:440rpx;*/
+  background:rgba(255,255,255,1);
+  border-radius:16rpx;
+
   width: 100%;
-  background-color: white;
-  border-radius: 10px;
-  padding: 43px 0 20px 0;
-  margin: 10px 0;
+  padding: 40rpx 0;
+  margin: 20rpx 0;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 }
 .logo-car{
-  width: 79px;
-  height: 79px;
+  width: 422rpx;
+  height: 228rpx;
 }
 .order-status{
-  margin: 16px 0 10px 0;
+  /*width:120px;*/
+  /*height:40px;*/
+  font-size:40rpx;
+  font-family:PingFangSC-Regular;
+  font-weight:400;
+  color:rgba(34,34,34,1);
+  line-height:40rpx;
+
+
+  margin: 32rpx 0 20rpx 0;
 }
 .order-remain-time{
-  font-weight: normal;
-  font-size: 16px;
+  /*width:420px;*/
+  /*height:40px;*/
+  font-size:28rpx;
+  font-family:PingFangSC-Regular;
+  font-weight:400;
+  color:rgba(136,136,136,1);
+  line-height:40rpx;
 }
 .ramain-time-des{
-  font-weight: normal;
-  margin-right: 8px;
-  font-size: 16px;
+  color: #FF9B1D;
+  margin-left: 10rpx;
 }
 .ramain-time-val{
 
 }
+.goods-info{
+  /*width:690px;*/
+  /*height:294px;*/
+  background:rgba(255,255,255,1);
+  border-radius:16rpx;
 
+  box-sizing: border-box;
+  width: 100%;
+  padding: 0 20rpx;
+  margin-bottom: 20rpx;
+}
+.goods-title{
+  /*width:128px;*/
+  /*height:32px;*/
+  font-size:32rpx;
+  font-family:PingFangSC-Regular;
+  font-weight:400;
+  color:rgba(34,34,34,1);
+  line-height:32rpx;
+
+  padding: 30rpx 0;
+  border-bottom: 2rpx #EEEEEE solid;
+}
+.order-info-item{
+  /*width:120px;*/
+  /*height:34px;*/
+  font-size:24rpx;
+  font-family:PingFangSC-Regular;
+  font-weight:400;
+  color:rgba(136,136,136,1);
+  line-height:34rpx;
+
+
+  margin-top: 30rpx;
+}
 .goods-content{
   width: 100%;
   display: flex;
@@ -45,27 +97,61 @@
 
 }
 .goods-image{
-  width: 70px;
-  height: 70px;
-  margin: 16px 10px 16px 0;
-  border-radius: 10px;
-  /*display: inline-block;*/
+  width:140rpx;
+  height:140rpx;
+  background:rgba(216,216,216,1);
+  border-radius:16rpx;
+  border:2rpx solid rgba(151,151,151,1);
+
+
+  margin: 32rpx 20rpx 32rpx 0;
 }
 .goods-text-container{
   flex: 1;
 }
+.goods-name{
+  /*width:460px;*/
+  /*height:40px;*/
+  font-size:28rpx;
+  font-family:PingFangSC-Regular;
+  font-weight:400;
+  color:rgba(34,34,34,1);
+  line-height:40rpx;
+}
 .price-text{
   margin-top: 19px;
 }
+.money{
+  /*width:30px;*/
+  /*height:42px;*/
+  font-size:30rpx;
+  font-family:PingFangSC-Regular;
+  font-weight:400;
+  color:rgba(34,34,34,1);
+  line-height:42rpx;
+}
 .price-now{
-  margin-right: 10px;
-  font-size: 20px;
+  /*width:90px;*/
+  /*height:48px;*/
+  font-size:36rpx;
+  font-family:PingFangSC-Regular;
+  font-weight:400;
+  color:rgba(34,34,34,1);
+  line-height:48rpx;
+
+  margin-left: 2rpx;
+  margin-right: 20rpx;
 }
 .price-old{
-  font-size: 14px;
-  font-weight: normal;
+  /*width:90px;*/
+  /*height:48px;*/
+  font-size:36rpx;
+  font-family:PingFangSC-Regular;
+  font-weight:400;
+  color:rgba(34,34,34,1);
+  line-height:48rpx;
 }
 .dilivery-container{
-  margin-bottom: 10px;
+  margin-bottom: 20rpx;
 }
 

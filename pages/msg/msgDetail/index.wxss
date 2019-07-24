@@ -1,9 +1,35 @@
 .msg-time{
-    margin: 14px 0;
-    font-size: 14px;
-    font-weight: normal;
+    /*width:108px;*/
+    /*height:34px;*/
+    font-size:24rpx;
+    font-family:PingFangSC-Regular;
+    font-weight:400;
+    color:rgba(136,136,136,1);
+    line-height:34rpx;
+
+    margin-top: 50rpx;
+    margin-bottom: 30rpx;
+}
+.order-info-item{
+    /*width:432px;*/
+    /*height:34px;*/
+    font-size:24rpx;
+    font-family:PingFangSC-Regular;
+    font-weight:400;
+    color:rgba(136,136,136,1);
+    line-height:34rpx;
+
+    margin-top: 20rpx;
 }
 .notice-text-container{
+    /*width:128px;*/
+    /*height:44px;*/
+    font-size:32rpx;
+    font-family:PingFangSC-Regular;
+    font-weight:400;
+    color:rgba(34,34,34,1);
+    line-height:44rpx;
+
     display: flex;
     justify-content: center|left;
     align-items: center|left;
@@ -11,16 +37,31 @@
     padding: 0;
 }
 .item-container{
-    padding: 15px 20px;
+    /*width:690px;*/
+    /*height:320px;*/
+    background:rgba(255,255,255,1);
+    border-radius:16rpx;
+
+    padding: 30rpx 40rpx;
 }
 .notice-text-left{
     flex: 1;
 }
 .important{
-    border-radius: 2px;
-    border: 1px #FFAC17 solid;
-    padding: 3px;
-    font-size: 12px;
+    width:32rpx;
+    height:32rpx;
+    border-radius:4rpx;
+    border:1rpx solid rgba(255,155,29,1);
+
+    /*width:20px;*/
+    /*height:28px;*/
+    font-size:20rpx;
+    font-family:PingFangSC-Regular;
+    font-weight:400;
+    color:rgba(255,155,29,1);
+    line-height:28rpx;
+
+
 }
 .custom-collapse-item{
     /*margin-left: -15px;*/
@@ -36,8 +77,13 @@
     /*padding: 10px 0;*/
 }
 .van-collapse-item-title{
-    /*margin-left: -15px;*/
-
+    /*width:322px;*/
+    /*height:34px;*/
+    font-size:24rpx;
+    font-family:PingFangSC-Regular;
+    font-weight:400;
+    color:rgba(136,136,136,1);
+    line-height:34rpx;
 }
 .custom-right-icon{
     margin-right: -15px;
@@ -47,5 +93,16 @@
 }
 
 .custom-content{
+    /*width:606px;*/
+    /*height:102px;*/
+    font-size:24rpx;
+    font-family:PingFangSC-Regular;
+    font-weight:400;
+    color:rgba(136,136,136,1);
+    line-height:34rpx;
+
+
+
+
     padding:  0 !important;
 }

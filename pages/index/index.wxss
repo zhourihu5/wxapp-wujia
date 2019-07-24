@@ -28,25 +28,33 @@ page{
 }
 .activity-scroll{
     white-space: nowrap;/*不放这个不能横排*/
+    margin-bottom: 40rpx;
 }
 .activity-container{
-    padding-left: 10px;
-    padding-right: 10px;
-    
-    
+    padding-left: 30rpx;
+    padding-right: 10rpx;
+
 }
 .activity-list{
-    border-radius: 16px;
-    box-shadow:0px 2px 10px 0px rgba(228,228,228,0.5);
-    margin: 5px 8px 5px 8px;
+    width:568rpx;
+    height:540rpx;
+    background:rgba(255,255,255,1);
+    box-shadow:0rpx 4rpx 20rpx 0rpx rgba(228,228,228,0.5);
+    border-radius:16rpx;
+
+
+    /*margin:  0 10rpx;*/
+    margin-right: 20rpx;
     display: inline-block;/*不放这个不能横排*/
-    width: 568rpx;
-    height: 540rpx;
 }
 .activity-banner{
-    width: 568rpx;
-    height: 284rpx;
-    border-radius: 10px 10px 0 0;
+    width:568rpx;
+    height:284rpx;
+    background:rgba(216,216,216,1);
+    border-radius:16rpx 16rpx 0px 0px;
+    border:2rpx solid rgba(151,151,151,1);
+
+
     display: block;
 }
 
@@ -54,23 +62,46 @@ page{
     color: #FFAC17;
 }
 .dollar{
-    font-size: 14px;
+    /*width:30px;*/
+    /*height:42px;*/
+    font-size:30rpx;
+    font-family:PingFangSC-Semibold;
+    font-weight:600;
+    color:rgba(254,134,49,1);
+    line-height:42rpx;
 }
 .price-integer{
-    font-size: 18px;
-    color: #FFAC17;
+    /*width:106px;*/
+    /*height:36rpx;*/
+    font-size:48rpx;
+    font-family:PingFangSC-Semibold;
+    font-weight:600;
+    color:rgba(254,134,49,1);
+    line-height:36rpx;
 }
 .price-float{
-    font-size: 10px;
-    color: #FFAC17;
+    font-size:36rpx;
+    font-family:PingFangSC-Semibold;
+    font-weight:600;
+    color:rgba(254,134,49,1);
+    line-height:36rpx;
 }
 .flex{
     display: flex;/*横向布局*/
 }
 .price-old{
-    color: #000;
-    font-size: 14px;
-    margin-left: 5px;
+    /*width:82px;*/
+    /*height:28px;*/
+    font-size:28rpx;
+    font-family:PingFangSC-Regular;
+    font-weight:400;
+    color:rgba(85,85,85,1);
+    line-height:28rpx;
+
+
+    margin-left: 10rpx;
+
+
     overflow: hidden;/*隐藏溢出*/
     text-overflow: ellipsis;/*显示省略符号来代表被修剪的文本*/
     white-space: nowrap;/*强制文字不换行*/
@@ -78,20 +109,35 @@ page{
 }
 
 .sell-num{
-    font-size: 12px;
+    /*width:154px;*/
+    /*height:24px;*/
+    font-size:24rpx;
+    font-family:PingFangSC-Regular;
+    font-weight:400;
+    color:rgba(136,136,136,1);
+    line-height:24rpx;
 }
 .go-group-buy{
-    background-color: #FE8631;
-    width: 76px;
-    height: 30px;
-    color: white;
-    border-radius: 15px;
-    -webkit-text-fill-color: white;
-    font-size: 14px;
-    font-weight: lighter;
+    width:152rpx;
+    height:60rpx;
+    background:rgba(254,134,49,1);
+    border-radius:30rpx;
+
+    /*width:84px;*/
+    /*height:28px;*/
+    font-size:28rpx;
+    font-family:PingFangSC-Regular;
+    font-weight:400;
+    color:rgba(255,255,255,1);
+    line-height:28rpx;
+
+
     float: right;
-    margin-right: 10px;
-    margin-bottom: 15px;
+    position: relative;
+    right: 20rpx;
+    bottom: 30rpx;
+    /*margin-right: 20rpx;*/
+    /*margin-bottom: 30rpx;*/
     display: flex;
     text-align: center;
     align-items: center;
@@ -103,35 +149,98 @@ page{
     /*position: relative;*/
 }
 .round-backgroud{
-  width:750rpx;
-  height:410rpx;
-  box-shadow:0px -2px 20px 0px rgba(228,228,228,0.5);
+    width:750rpx;
+    height:410rpx;
+    background:rgba(255,255,255,1);
+    box-shadow:0rpx -2rpx 20rpx 0rpx rgba(228,228,228,0.5);
+
+
   position: fixed;
   bottom: 0px;
   display: flex;
   align-items: center;
   justify-content: center;
   border-radius: 50% 50% 0 0;
+    z-index: -1;
 }
 .open-door{
-    width: 120px;
-    height: 120px;
-    border-radius: 50%;
-    text-align: center;
-    line-height: 120px;
-}
+    width:240rpx;
+    height:240rpx;
+    background:linear-gradient(180deg,rgba(255,185,19,1) 0%,rgba(255,155,29,1) 100%);
 
+    /*width:88px;*/
+    /*height:60px;*/
+    font-size:44rpx;
+    font-family:PingFangSC-Semibold;
+    font-weight:600;
+    color:rgba(255,255,255,1);
+    line-height:60rpx;
+
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+.location-text{
+    /*width:140px;*/
+    /*height:28px;*/
+    font-size:28rpx;
+    font-family:PingFangSC-Regular;
+    font-weight:400;
+    color:rgba(255,255,255,1);
+    line-height:28rpx;
+}
+.invite-visitor{
+    /*width:112px;*/
+    /*height:40px;*/
+    font-size:28rpx;
+    font-family:PingFangSC-Regular;
+    font-weight:400;
+    color:rgba(255,255,255,1);
+    line-height:40rpx;
+}
 .text-white {
     color: white;
 }
-
+.jxhd{
+    /*width:128px;*/
+    /*height:32px;*/
+    font-size:32rpx;
+    font-family:PingFangSC-Medium;
+    font-weight:500;
+    color:rgba(34,34,34,1);
+    line-height:32rpx;
+}
+.more{
+    /*width:56px;*/
+    /*height:32px;*/
+    font-size:28rpx;
+    font-family:PingFangSC-Regular;
+    font-weight:400;
+    color:rgba(34,34,34,1);
+    line-height:32rpx;
+}
 
 .float-right {
     float: right;
 }
-
+.lable-container{
+    margin-top: 32rpx;
+    margin-bottom: 20rpx;
+}
 .activity-title {
-  margin-top: 22px;
+    /*width:528px;*/
+    /*height:32px;*/
+    font-size:32rpx;
+    font-family:PingFangSC-Semibold;
+    font-weight:600;
+    color:rgba(34,34,34,1);
+    line-height:32rpx;
+
+
+    margin-top: 30rpx;
+    margin-bottom: 20rpx;
 }
 
 

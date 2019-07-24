@@ -1,31 +1,62 @@
 .item{
   width: 100%;
-  padding: 0 20px;
+  padding: 0 40rpx;
   background-color: white;
 
 }
 .item-content{
-  padding: 15px 0;
+  padding: 30rpx 0;
   width: 100%;
-  /*border-bottom: #cccccc 1px solid;*/
   display: flex;
+  border-bottom: #EBEBEB 2rpx solid;
+}
+.title{
+  /*width:112px;*/
+  /*height:40px;*/
+  font-size:28rpx;
+  font-family:PingFangSC-Regular;
+  font-weight:400;
+  color:rgba(34,34,34,1);
+  line-height:40rpx;
+}
+.desc{
+  /*width:480px;*/
+  /*height:34px;*/
+  margin-top: 6rpx;
+  font-size:24rpx;
+  font-family:PingFangSC-Regular;
+  font-weight:400;
+  color:rgba(136,136,136,1);
+  line-height:34rpx;
+}
+.time{
+  /*width:84px;*/
+  /*height:28px;*/
+  font-size:20rpx;
+  font-family:PingFangSC-Regular;
+  font-weight:400;
+  color:rgba(136,136,136,1);
+  line-height:28rpx;
 }
 .line{
-  border-bottom: #cccccc 1px solid;
+  border-bottom: #EBEBEB 2rpx solid;
   /*background-color: #cccccc;*/
   /*width: 100vw;*/
   /*height: 1px;*/
   /*margin: 1px 20px 1px 20px;*/
   /*display: flex;*/
   /*flex: 1;*/
-  margin-left: 20px;
-  margin-right: 20px;
+  margin-left: 40rpx;
+  margin-right: 40rpx;
 }
 .image{
-  width: 40px;
-  height: 40px;
-  margin-left: 20px;
-  margin-right: 10px;
+  width:80rpx;
+  height:80rpx;
+  /*background:linear-gradient(124deg,rgba(255,199,60,1) 0%,rgba(255,149,28,1) 100%);*/
+
+  border-radius: 50%;
+  /*margin-left: 40rpx;*/
+  margin-right: 20rpx;
   display: inline-block;
 }
 .middle-text{
@@ -38,19 +69,29 @@
   word-break: break-all;
 }
 .right-text{
-  margin-right: 20px;
+  /*margin-right: 40rpx;*/
   align-items: center;
   justify-content: center;
 }
 .red-circle{
-  background-color: #FF4151;
+
+  width:28rpx;
+  height:28rpx;
+  background:rgba(255,65,81,1);
+
+  /*width:12px;*/
+  /*height:28px;*/
+  font-size:20rpx;
+  font-family:PingFangSC-Regular;
+  font-weight:400;
+  color:rgba(255,255,255,1);
+  line-height:28rpx;
+
   border-radius: 50%;
-  -webkit-text-fill-color: white;
-  width: 14px;
-  height: 14px;
-  font-size: 10px;
+  /*-webkit-text-fill-color: white;*/
+
   display: flex;
-  margin-top: 7px;
+  margin-top: 14rpx;
   align-items: center;
   justify-content: center;
   float: right;

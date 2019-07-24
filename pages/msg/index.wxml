@@ -1,22 +1,19 @@
 <!--index.wxml-->
-<view class="container gray-bg">
-    <block wx:for="{{items}}" wx:for-item="data-item" wx:key="">
+<view class="container p-t-20">
+    <block wx:for="{{items}}" wx:for-item="item" wx:key="">
         <navigator class="item" url="/pages/msg/msgDetail/index" hover-class="navigator-hover"
                    open-type="navigateTo">
-<!--        <view class="item">-->
-            <view class="item-content">
+            <view class="item-content {{item.extraClass}}" >
                 <image class="image" src="/images/tab/img_doctor.png"/>
                 <view class="middle-text">
-                    <view>系统通知</view>
-                    <text class="text-gray">你的作品最多19个字你的作品最多19个字</text>
+                    <view class="title">{{item.title}}</view>
+                    <text class="desc">{{item.msg}}</text>
                 </view>
-                <view class="right-text">
-                    <view>30分钟前</view>
-                    <view class="red-circle">2</view>
+                <view class="right-text" >
+                    <view class="time">{{item.time}}</view>
+                    <view wx:if="{{item.unread}}" class="red-circle">{{item.unread}}</view>
                 </view>
             </view>
-            <view class="line"></view>
-<!--        </view>-->
         </navigator>
     </block>
 </view>
