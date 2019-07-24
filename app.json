@@ -53,7 +53,8 @@
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#FFAC17",
     "navigationBarTitleText": "吾家小智",
-    "navigationBarTextStyle": "white"
+    "navigationBarTextStyle": "white",
+    "navigationStyle": "custom"
   },
   "usingComponents": {
     "cu-custom": "/colorui/components/cu-custom"
