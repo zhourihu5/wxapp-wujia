@@ -8,9 +8,9 @@
     </view>
     <view class="activity-more flex padding justify-between">
         <view class="jxhd">精选活动</view>
-        <view>
-            <text class="more">更多</text>
-            <text class="cuIcon-right lg text-gray"></text>
+        <view class="more">
+            <text >更多</text>
+            <text class="cuIcon-right lg"></text>
         </view>
     </view>
 
@@ -38,8 +38,11 @@
         </view>
     </scroll-view>
     <view class="round-backgroud">
-        <view class="open-door bg-gradual-orange">
-          开门
+        <view class="open-door">
+          <view class="open-text">开门</view>
+            <view class="cuIcon-fold up"></view>
+            <view class="cuIcon-fold up up2"></view>
+            <view class="cuIcon-fold up up3"></view>
         </view>
     </view>
 </view>
