@@ -149,19 +149,26 @@ page{
     /*position: relative;*/
 }
 .round-backgroud{
-    width:750rpx;
-    height:410rpx;
+    position: fixed;
+    /*bottom: -430rpx;*/
+    /*width:750rpx;*/
+    /*height:750rpx;*/
+
+
+    bottom: -1180rpx;
+    width:1500rpx;
+    height:1500rpx;
     background:rgba(255,255,255,1);
     box-shadow:0rpx -2rpx 20rpx 0rpx rgba(228,228,228,0.5);
 
-
-  position: fixed;
-  bottom: 0px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 50% 50% 0 0;
+    left: -375rpx;
+    margin: 0 auto;
+    display: flex;
+    /*align-items: center;*/
+    /*justify-content: center;*/
+    border-radius: 50% 50% 0 0;
     z-index: -1;
+
 }
 .open-door{
     width:240rpx;
@@ -175,7 +182,9 @@ page{
     font-weight:600;
     color:rgba(255,255,255,1);
     line-height:60rpx;
-
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 40rpx;
     border-radius: 50%;
     position: relative;
     /*display: flex;*/
