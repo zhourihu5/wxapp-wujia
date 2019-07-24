@@ -7,26 +7,26 @@
       {
         "pagePath": "pages/index/index",
         "text": "首页",
-        "iconPath": "images/tab/img_doctor.png",
-        "selectedIconPath": "images/tab/img_h_doctor.png"
+        "iconPath": "images/tab-home.png",
+        "selectedIconPath": "images/tab-home-selected.png"
       },
       {
         "pagePath": "pages/order/index",
         "text": "订单",
-        "iconPath": "images/tab/img_f_folk.png",
-        "selectedIconPath": "images/tab/img_h_f_folk.png"
+        "iconPath": "images/tab-order.png",
+        "selectedIconPath": "images/tab-order-selected.png"
       },
       {
         "pagePath": "pages/msg/index",
         "text": "消息",
-        "iconPath": "images/tab/img_f_message.png",
-        "selectedIconPath": "images/tab/img_h_message.png"
+        "iconPath": "images/tab-msg.png",
+        "selectedIconPath": "images/tab-msg-selected.png"
       },
       {
         "pagePath": "pages/ucenter/index",
         "text": "我的",
-        "iconPath": "images/tab/img_personal.png",
-        "selectedIconPath": "images/tab/img_h_personal.png"
+        "iconPath": "images/tab-my.png",
+        "selectedIconPath": "images/tab-my-selected.png"
       }
     ]
   },

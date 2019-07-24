@@ -5,8 +5,11 @@ page{
 }
 
 .top-title {
+    /*width:750px;*/
+    height:130rpx;
+    /*background:rgba(255,172,23,1);  */
+
   width: 100%;
-  height: 60px;
 }
 .top-title .icon {
   width: 13px;
@@ -22,9 +25,9 @@ page{
 }
 .activity-more {
   width: 100%;
-  border-radius: 8px 8px 0 0;
+  border-radius: 16rpx 16rpx 0 0;
   background-color: var(--white);
-  margin-top: -5px;
+  margin-top: -16rpx;
 }
 .activity-scroll{
     white-space: nowrap;/*不放这个不能横排*/
@@ -228,6 +231,8 @@ page{
     font-weight:400;
     color:rgba(255,255,255,1);
     line-height:28rpx;
+
+    margin-left: 4rpx;
 }
 .invite-visitor{
     /*width:112px;*/
