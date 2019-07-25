@@ -1,35 +1,44 @@
 <!--index.wxml-->
-<view class="container">
-    <view class="gray-bg content">
+<cu-custom style="position: fixed;z-index: 100" isBack="{{true}}">
+    <view slot="backText"></view>
+    <view slot="content"></view>
+</cu-custom>
+
+<view class="container" style="margin-top:{{StatusBar}}px;">
+    <view class="goods-content">
         <!-- wxml -->
-        <swiper class='u-wrp-bnr' indicator-dots='true' autoplay='true' interval='5000' duration='1000' circular='true'>
+        <swiper class='u-wrp-bnr'
+                indicator-dots='true' autoplay='true' interval='5000' duration='1000' circular='true'>
             <block wx:for="1234" wx:for-index="index">
                 <swiper-item>
-                    <image src='/images/tab/img_doctor.png' class='u-img-slide' mode='aspectFill'></image>
+                    <image src='/images/tab_my.png' class='u-img-slide' mode='aspectFill'></image>
                 </swiper-item>
             </block>
         </swiper>
         <view class="item1">
             <view class="price-container">
-                <text>￥</text>
-                <text>12.</text>
-                <text>32</text>
-                <text class="line-through">￥16.8</text>
-                <view class="kaituan-num">10人开团</view>
+                <text class="dollor">￥</text>
+                <text class="price-int">12</text>
+                <text class="dot">.</text>
+                <text class="price-float">32</text>
+                <text class="line-through price-old">￥16.8</text>
+                <text class="kaituan-num">10人开团</text>
             </view>
             <view class="item1-r">
                 <view class="jlhd">距离活动结束仅剩</view>
                 <view>
                     <text class="djs">00</text>
+                    <text class="comma">:</text>
                     <text class="djs">36</text>
+                    <text class="comma">:</text>
                     <text class="djs">35.5</text>
                 </view>
             </view>
         </view>
         <view class="item2">
-            <view class="activity-title margin-left-activity-title">这里是活动标题，只有十六个字</view>
-            <text class="sell-num margin-left-activity-title">已拼2550件</text>
-            <view class="margin-left-activity-title">
+            <view class="hdbt">这里是活动标题，只有十六个字</view>
+            <view class="sell-num">已拼2550件</view>
+            <view>
                 <text class="lable">国外进口</text>
                 <text class="lable">最多四字</text>
                 <text class="lable">最多三个</text>
@@ -37,25 +46,45 @@
         </view>
 
         <view class="item3">
-            <view class="item3-1">活动已开团，老板快来参与吧！</view>
-            <view class="item3-2">
-                <view class="item-3-2-l">
-                    <view class="round-image-container">
-                        <block wx:for="123456789abcdefg" wx:key="">
-                            <image src='/images/icon/img_f_bind.png' class='round-image' mode='aspectFill'
-                                   style="z-index: {{100-index}};left: {{index*18}}px;"/>
-
-                        </block>
-                    </view>
+            <view class="flex">
+                <view class="item3-1">
+                    <text class="tuan">团</text>
+                    <text class="mrzgs">每人最高省</text>
+                    <text class="discount-num">8</text>
+                    <text class="mrzgs">元</text>
                 </view>
-<!--                //todo 居于底部-->
-                <view class="item-3-2-r t-gray-small">...等100名用户已参与</view>
+                <view class="flex-1"></view>
             </view>
-            <view class="center t-gray-small">参加团后立减<text class="color-orange">6</text>元</view>
+
+            <view class="item3-2">
+                <view class="cu-avatar-group item3-2-l">
+                    <view class="cu-avatar round round-image" wx:for="{{100}}" wx:key style="background-image:url(https://ossweb-img.qq.com/images/lol/web201310/skin/big1000{{index+1}}.jpg);"></view>
+                </view>
+                <!--                //todo 居于底部-->
+                <view class="item-3-2-r">...等100名用户已参与</view>
+            </view>
+            <view class="center zlyrctghd">再来1人参团该活动商品立减
+                <text class="lijian">6</text>
+                元
+            </view>
         </view>
-        <view class="item3">
-            <view class="item3-1">商品详情</view>
-            <image class="b-img" src='/images/tab/img_doctor.png' mode='aspectFill'></image>
+        <view class="item4">
+            <view class="tgjd">团购进度</view>
+            <view class="step-container">
+                <view class="step-selected">1</view>
+                <view class="step-selected-text">参与活动</view>
+                <view class="dash-line"></view>
+                <view class="step-unselected">2</view>
+                <view class="step-unselected-text">确认订单</view>
+                <view class="dash-line"></view>
+                <view class="step-unselected">3</view>
+                <view class="step-unselected-text">团购成功</view>
+            </view>
+        </view>
+
+        <view class="item5">
+            <view class="item5-1">商品详情</view>
+            <rich-text class="rich-text" nodes="{{  nodes  }}" ></rich-text>
         </view>
 
     </view>

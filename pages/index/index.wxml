@@ -41,8 +41,8 @@
                         <text class="lable">最多四字</text>
                         <text class="lable">最多三个</text>
                     </view>
-                    <text class="sell-num m-l-20">已拼2550件</text>
-                    <text class="go-group-buy">去拼团</text>
+                    <view class="sell-num m-l-20">已拼2550件</view>
+                    <view class="go-group-buy">去拼团</view>
                 </view>
             </block>
         </view>
