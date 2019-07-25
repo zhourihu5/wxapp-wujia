@@ -1,9 +1,16 @@
-<!--index.wxml-->
-<view class="container gray-bg">
+
+<view class="container">
+    <cu-custom  bgColor="titlebar-white" isBack="{{false}}">
+        <view slot="backText">返回</view>
+        <view slot="content">订单</view>
+    </cu-custom>
     <van-tabs class="tab-layout"
               custom-class="custom-tabs"
               nav-class="tab-nav"
               tab-class="tab-custom"
+              border="{{false}}"
+              line-class="tab-line"
+              color="rgba(255,155,29,1)"
               lineWidth="17" swipeable swipeThreshold="5">
         <van-tab
                 wx:for="{{ tabs }}"
@@ -13,7 +20,7 @@
                 custom-class="custom-tab">
                 <view class="list">
                     <block wx:for="{{tab.data}}" wx:for-item="data-item" wx:key="">
-                        <view class="content">
+                        <view class="item-content">
                             <navigator class="round-container order-container" url="/pages/order/orderDetail/index" hover-class="navigator-hover"
                                        open-type="navigateTo">
                                 <!--                <view class="round-container order-container">-->
@@ -25,7 +32,7 @@
                                     <text class="ygq">已过期</text>
                                 </view>
                                 <view class="order-middle-item">
-                                    <image class="order-image" src="/images/tab/img_doctor.png"/>
+                                    <image class="order-image" src="/images/tab_my.png"/>
                                     <view class="order-text">
                                         <text class="order-name">卫生间直接打的舒</text>
                                         <text class="order-name-ygq">已过期的商品名称</text>

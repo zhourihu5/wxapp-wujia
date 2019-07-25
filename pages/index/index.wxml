@@ -2,7 +2,7 @@
 <view class="bg-gradual-orange">
     <cu-custom isBack="{{false}}">
         <view slot="backText">返回</view>
-        <view slot="content">图标</view>
+        <view slot="content">吾家小智</view>
     </cu-custom>
     <view class="top-title  flex padding justify-between">
         <view class="flex align-center">

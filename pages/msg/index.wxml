@@ -1,17 +1,21 @@
 <!--index.wxml-->
+<cu-custom  bgColor="titlebar-white" isBack="{{false}}">
+    <view slot="backText">返回</view>
+    <view slot="content">消息</view>
+</cu-custom>
 <view class="container p-t-20">
     <block wx:for="{{items}}" wx:for-item="item" wx:key="">
         <navigator class="item" url="/pages/msg/msgDetail/index" hover-class="navigator-hover"
                    open-type="navigateTo">
             <view class="item-content {{item.extraClass}}" >
-                <image class="image" src="/images/tab/img_doctor.png"/>
+                <image class="image" src="/images/tab_my.png"/>
                 <view class="middle-text">
                     <view class="title">{{item.title}}</view>
                     <text class="desc">{{item.msg}}</text>
                 </view>
                 <view class="right-text" >
                     <view class="time">{{item.time}}</view>
-                    <view wx:if="{{item.unread}}" class="red-circle">{{item.unread}}</view>
+                    <view wx:if="{{item.unread>0}}" class="red-circle">{{item.unread}}</view>
                 </view>
             </view>
         </navigator>

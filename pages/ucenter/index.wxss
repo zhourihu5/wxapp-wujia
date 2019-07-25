@@ -97,3 +97,18 @@
   margin-left: 30rpx;
   margin-right:30rpx;
 }
+.wjrsqshgmh{
+  /*width:364px;*/
+  /*height:44px;*/
+  font-size:32rpx;
+  font-family:HanziPenSC-W3;
+  font-weight:normal;
+  color:rgba(189,189,189,1);
+  line-height:44rpx;
+
+  position: fixed;
+  bottom: 100rpx;
+  left: 0;
+  right: 0;
+  text-align: center;
+}

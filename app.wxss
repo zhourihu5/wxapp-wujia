@@ -17,6 +17,16 @@
   position: fixed;
   background-color: #F6F7F9;
 }
+.titlebar-white{
+  background:rgba(255,255,255,1);
+  /*width:64px;*/
+  /*height:44px;*/
+  font-size:32rpx;
+  font-family:PingFangSC-Regular;
+  font-weight:400;
+  color:rgba(34,34,34,1);
+  line-height:44rpx;
+}
 .p-l-r-30{
   padding: 0 30rpx;
 }

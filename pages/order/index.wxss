@@ -32,7 +32,10 @@
   position: fixed;
   overflow: scroll;
 }
-.content{
+.tab-line{
+  width:28rpx;height:6rpx;background:rgba(255,155,29,1);border-radius:3rpx;
+}
+.item-content{
   width: 100%;
   padding-top: 20rpx;
 }

@@ -7,36 +7,36 @@
       {
         "pagePath": "pages/index/index",
         "text": "首页",
-        "iconPath": "images/tab-home.png",
-        "selectedIconPath": "images/tab-home-selected.png"
+        "iconPath": "images/tab_home.png",
+        "selectedIconPath": "images/tab_home_selected.png"
       },
       {
         "pagePath": "pages/order/index",
         "text": "订单",
-        "iconPath": "images/tab-order.png",
-        "selectedIconPath": "images/tab-order-selected.png"
+        "iconPath": "images/tab_order.png",
+        "selectedIconPath": "images/tab_order_selected.png"
       },
       {
         "pagePath": "pages/msg/index",
         "text": "消息",
-        "iconPath": "images/tab-msg.png",
-        "selectedIconPath": "images/tab-msg-selected.png"
+        "iconPath": "images/tab_msg.png",
+        "selectedIconPath": "images/tab_msg_selected.png"
       },
       {
         "pagePath": "pages/ucenter/index",
         "text": "我的",
-        "iconPath": "images/tab-my.png",
-        "selectedIconPath": "images/tab-my-selected.png"
+        "iconPath": "images/tab_my.png",
+        "selectedIconPath": "images/tab_my_selected.png"
       }
     ]
   },
   "pages": [
+    "pages/order/index",
     "pages/index/index",
     "pages/msg/msgDetail/index",
     "pages/order/orderDetail/index",
     "pages/ucenter/index",
     "pages/msg/index",
-    "pages/order/index",
     "pages/paySuccess/index",
     "pages/activityMore/index",
     "pages/goodsDetail1/index",
