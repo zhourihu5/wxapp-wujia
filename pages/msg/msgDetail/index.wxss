@@ -9,6 +9,8 @@
 
     margin-top: 50rpx;
     margin-bottom: 30rpx;
+    width: 100%;
+    text-align: center;
 }
 .order-info-item{
     /*width:432px;*/

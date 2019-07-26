@@ -427,6 +427,13 @@
   border-bottom: 2rpx #D6D6D6 dashed;
   margin-right: 16rpx;
 }
+.dash-line-selected{
+  width:82rpx;
+  height:2rpx;
+
+  border-bottom: 2rpx #FF9B1D dashed;
+  margin-right: 16rpx;
+}
 .round-image{
   width: 62rpx !important;
   height: 62rpx !important;

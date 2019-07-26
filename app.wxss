@@ -33,6 +33,9 @@
 .p-30{
   padding: 30rpx;
 }
+.m-t-50{
+  margin-top: 50rpx;
+}
 .p-l-r-20{
   padding: 0 20rpx;
 }

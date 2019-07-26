@@ -1,5 +1,9 @@
+<cu-custom   bgColor="titlebar-white" isBack="{{true}}">
+    <view slot="backText"></view>
+    <view slot="content">消息详情</view>
+</cu-custom>
 <view class="container p-l-r-30">
-    <text class="center msg-time">7-7 21:56</text>
+    <view class="msg-time">7-7 21:56</view>
     <view class="item-container">
         <view class="notice-text-container">订单消息</view>
         <block wx:for="1234" wx:for-item="data-item" wx:key="">
@@ -7,7 +11,7 @@
         </block>
 
     </view>
-    <text class="center msg-time">7-7 21:56</text>
+    <view class="msg-time">7-7 21:56</view>
     <view class="item-container">
         <view class="notice-text-container">
             <text class="notice-text-left">社区通知</text>
@@ -27,7 +31,7 @@
         </van-collapse>
     </view>
 
-    <text class="center msg-time">7-7 21:56</text>
+    <view class="msg-time">7-7 21:56</view>
     <view class="item-container">
         <view class="notice-text-container">退款消息</view>
         <view class="order-info-item">爱看大家发开始发大水发斯蒂芬三大地方卡死了地方奥斯卡两地分居</view>
