@@ -4,6 +4,7 @@ const app = getApp()
 
 Page({
   data: {
+    y:40/app.globalData.pixelRatio,
     StatusBar: app.globalData.StatusBar,
     CustomBar: app.globalData.CustomBar,
     modalName:"ModalGuideInvite,ModalBindPhone,ModalGuideMore,ModalGuideOpen,",
@@ -94,6 +95,7 @@ Page({
     }
   },
   onShow(){
+
     if (typeof this.getTabBar === 'function' &&
         this.getTabBar()) {
       this.getTabBar().init()
@@ -101,6 +103,7 @@ Page({
     }
     // this.showOrHideBindPhone();
     this.showModal('ModalGuideOpen');
+    // this.showModal('ModalGuideMore');
     this.isEnableTabBar()
 
   },

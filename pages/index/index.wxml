@@ -22,9 +22,9 @@
         </view>
     </view>
 </view>
-
-<view class="container over-hidden" style="background: #FAFAFA">
-    <scroll-view class="activity-scroll" scroll-x="true">
+<view class="container over-hidden" style="background: #FAFAFA;z-index: 1"></view>
+<view class="container body" style="background: #FAFAFA;z-index: 3">
+    <scroll-view class="activity-scroll" scroll-x="true" >
         <view class="activity-container">
             <block wx:for="{{list}}" wx:key="">
                 <view class="activity-list">
@@ -48,15 +48,22 @@
             </block>
         </view>
     </scroll-view>
-    <view class="round-backgroud">
-        <view class="open-door {{modalName=='ModalGuideOpen'? 'z-2000':''}}  {{modalName}}123">
+
+</view>
+<view class="round-backgroud" style="z-index: 2"></view>
+<movable-area class="{{modalName=='ModalGuideOpen'?'z-2000':'z-4'}}">
+    <movable-view x="{{0}}" y="{{y}}"
+                  direction="vertical"
+                  disabled="{{modalName=='ModalGuideOpen'}}" >
+        <view class="open-door">
             <view class="open-text">开门</view>
             <view class="cuIcon-fold up"></view>
             <view class="cuIcon-fold up up2"></view>
             <view class="cuIcon-fold up up3"></view>
         </view>
-    </view>
-</view>
+    </movable-view>
+</movable-area>
+
 
 <view class="cu-modal full-screen  {{modalName=='ModalBindPhone'?'show':''}}">
     <view class="cu-dialog dialog">
