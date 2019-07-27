@@ -102,9 +102,9 @@ Page({
       console.log("自定义tabbar")
     }
     // this.showOrHideBindPhone();
-    this.showModal('ModalGuideOpen');
+    // this.showModal('ModalGuideOpen');
     // this.showModal('ModalGuideMore');
-    this.isEnableTabBar()
+    // this.isEnableTabBar()
 
   },
   showGuideInvite(){

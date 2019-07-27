@@ -14,7 +14,7 @@
         </view>
     </view>
     <view class="activity-more flex  justify-between {{modalName=='ModalGuideMore'?'p-t-b-show':'p-t-b-normal'}}  {{modalName}}123"
-            bindtap="{{modalName=='ModalGuideMore'?'toMore':''}}">
+            bindtap="{{modalName!='ModalGuideMore'?'toMore':''}}">
         <view class="jxhd">精选活动</view>
         <view class="more {{modalName=='ModalGuideMore'?'showMore':'m-r-30'}}">
             <text>更多</text>
@@ -27,7 +27,9 @@
     <scroll-view class="activity-scroll" scroll-x="true" >
         <view class="activity-container">
             <block wx:for="{{list}}" wx:key="">
-                <view class="activity-list">
+                <navigator class="activity-list"
+                           url="/pages/goodsDetail/index" hover-class="navigator-hover"
+                           open-type="navigateTo">
                     <image class="activity-banner"
                            src="https://ossweb-img.qq.com/images/lol/web201310/skin/big10006.jpg"/>
                     <view class="m-l-20 activity-title">这里是活动标题，只有十六个字</view>
@@ -44,7 +46,8 @@
                     </view>
                     <view class="sell-num m-l-20">已拼2550件</view>
                     <view class="go-group-buy">去拼团</view>
-                </view>
+
+                </navigator>
             </block>
         </view>
     </scroll-view>

@@ -81,7 +81,7 @@ tab-bar{
 
 .lable{
   /*width:104px;*/
-  /*height:40rpx;*/
+  height:40rpx;
   background:rgba(247,247,247,1);
   border-radius:4rpx;
 
@@ -96,8 +96,12 @@ tab-bar{
 
 
 
-  padding:  6rpx 12rpx ;
+  padding:  0 12rpx ;
   margin-right: 10rpx;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .margin-left-activity-title{

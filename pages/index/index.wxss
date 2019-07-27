@@ -195,7 +195,7 @@ page{
 }
 .activity-scroll{
     white-space: nowrap;/*不放这个不能横排*/
-    margin-bottom: 40rpx;
+    /*margin-bottom: 40rpx;*/
 }
 .activity-container{
     padding-left: 30rpx;
@@ -305,7 +305,7 @@ page{
     float: right;
     position: relative;
     right: 20rpx;
-    bottom: 30rpx;
+    bottom: 60rpx;
     /*margin-right: 20rpx;*/
     /*margin-bottom: 30rpx;*/
     display: flex;
@@ -558,8 +558,10 @@ movable-area {
     float: right;
 }
 .lable-container{
-    margin-top: 32rpx;
+    margin-top: 14rpx;
     margin-bottom: 20rpx;
+    display: flex;
+    align-items: center;
 }
 .activity-title {
     /*width:528px;*/
