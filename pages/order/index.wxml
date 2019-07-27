@@ -21,7 +21,7 @@
                 <view class="list">
                     <block wx:for="{{tab.data}}" wx:for-item="data-item" wx:key="">
                         <view class="item-content">
-                            <navigator class="round-container order-container" url="/pages/order/orderDetail/index" hover-class="navigator-hover"
+                            <navigator class="order-container" url="/pages/order/orderDetail/index" hover-class="navigator-hover"
                                        open-type="navigateTo">
                                 <!--                <view class="round-container order-container">-->
                                 <view class="top-item">

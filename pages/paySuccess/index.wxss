@@ -1,3 +1,89 @@
+.step-container{
+    width: 100%;
+    margin: 40rpx 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.step-selected{
+    width:30rpx;
+    height:30rpx;
+    background:rgba(255,155,29,1);
+
+    /*width:10px;*/
+    /*height:32px;*/
+    font-size:22rpx;
+    font-family:PingFangSC-Regular;
+    font-weight:400;
+    color:rgba(255,255,255,1);
+    line-height:32rpx;
+
+    border-radius: 50%;
+
+    text-align: center;
+}
+.step-selected-text{
+    /*width:96px;*/
+    /*height:28px;*/
+    font-size:24rpx;
+    font-family:PingFangSC-Regular;
+    font-weight:400;
+    color:rgba(34,34,34,1);
+    line-height:28rpx;
+
+    margin-left: 20rpx;
+    margin-right: 16rpx;
+}
+.step-unselected-text{
+    /*width:96px;*/
+    /*height:28px;*/
+    font-size:24rpx;
+    font-family:PingFangSC-Regular;
+    font-weight:400;
+    color:rgba(136,136,136,1);
+    line-height:28rpx;
+
+    margin-left: 20rpx;
+    margin-right: 16rpx;
+}
+.step-unselected{
+    width:30rpx;
+    height:30rpx;
+    background:rgba(214,214,214,1);
+
+    /*width:10px;*/
+    /*height:32px;*/
+    font-size:22rpx;
+    font-family:PingFangSC-Regular;
+    font-weight:400;
+    color:rgba(255,255,255,1);
+    line-height:32rpx;
+
+    border-radius: 50%;
+
+    text-align: center;
+}
+.dash-line{
+    width:82rpx;
+    height:2rpx;
+
+    border-bottom: 2rpx #D6D6D6 dashed;
+    margin-right: 16rpx;
+}
+.dash-line-selected{
+    width:82rpx;
+    height:2rpx;
+
+    border-bottom: 2rpx #FF9B1D dashed;
+    margin-right: 16rpx;
+}
+
+
+
+
+
+
+
 .ptcg{
     /*width:192rpx;*/
     /*height:60rpx;*/
@@ -6,6 +92,7 @@
     font-weight:400;
     color:rgba(34,34,34,1);
     line-height:60rpx;
+
     margin-top: 20rpx;
     margin-bottom: 50rpx;
 }
@@ -13,33 +100,67 @@
     width:138rpx;
     height:138rpx;
     background:rgba(255,155,29,1);
-    border-radius: 69rpx;
+    border-radius: 50%;
+
+    color:rgba(255,255,255,1);
+    font-size:64rpx;
+    line-height:64rpx;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
-.dg{
-    width:64rpx;
-    height:64rpx;
-    /*background:rgba(255,255,255,1);*/
+.djdzp{
+    /*width:160px;*/
+    /*height:44px;*/
+    font-size:32rpx;
+    font-family:PingFangSC-Regular;
+    font-weight:400;
+    color:rgba(34,34,34,1);
+    line-height:44rpx;
+
+
+    text-align: center;
+
 }
 .ckdd{
     width:200rpx;
     height:72rpx;
-    margin-right: 100rpx;
-    border-radius:36rpx;
+    border-radius:44rpx;
     border:2px solid rgba(255,155,29,1);
+
+    /*width:112px;*/
+    /*height:40px;*/
     font-size:28rpx;
     font-family:PingFangSC-Regular;
     font-weight:400;
     color:rgba(255,155,29,1);
     line-height:40rpx;
+
+    /*background:rgba(255,255,255,1);*/
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    margin-right: 100rpx;
 }
 .jxgg{
     width:200rpx;
     height:72rpx;
     background:rgba(255,155,29,1);
-    border-radius:36rpx;
+    border-radius:44rpx;
+
+    /*width:112px;*/
+    /*height:40px;*/
     font-size:28rpx;
     font-family:PingFangSC-Regular;
     font-weight:400;
     color:rgba(255,255,255,1);
     line-height:40rpx;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
 }

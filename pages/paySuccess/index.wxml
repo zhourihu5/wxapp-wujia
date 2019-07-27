@@ -1,19 +1,36 @@
 <!--index.wxml-->
-<view class="container p-l-r-30">
+<cu-custom  bgColor="titlebar-white" isBack="{{true}}">
+    <view slot="backText"></view>
+    <view slot="content">团购成功</view>
+</cu-custom>
 
+<view class="container p-l-r-30">
+    <view class="step-container">
+        <view class="step-selected">1</view>
+        <view class="step-selected-text">参与活动</view>
+        <view class="dash-line-selected"></view>
+        <view class="step-selected">2</view>
+<!--        <view class="step-unselected">2</view>-->
+<!--        <view class="step-unselected-text">确认订单</view>-->
+        <view class="step-selected-text">确认订单</view>
+<!--        <view class="dash-line"></view>-->
+        <view class="dash-line-selected"></view>
+        <view class="step-selected">3</view>
+        <view class="step-selected-text">团购成功</view>
+    </view>
     <view class="round-container center-vertical p-t-b-50 m-t-20">
-        <view class="center round">
-            <image class="dg" src="/images/tab/img_doctor.png"/>
+        <view class="round">
+            <view class="cuIcon-check" />
 
         </view>
         <view class="ptcg">拼团成功</view>
-        <view class="center">
-            <button class="center ckdd">查看订单</button>
-            <button class="center jxgg">继续逛逛</button>
+        <view class="flex align-center">
+            <button class="ckdd">查看订单</button>
+            <button class="jxgg">继续逛逛</button>
         </view>
     </view>
 
-    <view class="center m-t-b-30">大家都在拼</view>
+    <view class="m-t-b-30 djdzp">大家都在拼</view>
     <block wx:for="12345678asdfasdfasdfasfasdfasdfasd" wx:key="">
         <view class="m-t-20">
             todo 这里是自定义商品banner组件

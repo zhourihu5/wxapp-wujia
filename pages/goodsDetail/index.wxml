@@ -37,7 +37,7 @@
     <view class="item2">
         <view class="hdbt">这里是活动标题，只有十六个字</view>
         <view class="sell-num">已拼2550件</view>
-        <view>
+        <view class="flex align-center">
             <text class="lable">国外进口</text>
             <text class="lable">最多四字</text>
             <text class="lable">最多三个</text>

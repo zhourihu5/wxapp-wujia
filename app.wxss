@@ -58,8 +58,8 @@ tab-bar{
   padding-bottom: 30rpx;
 }
 .round-container{
-  border-radius: 4rpx;
-  background: white;
+  border-radius: 16rpx;
+  background:rgba(255,255,255,1);
   width: 100%;
   box-sizing: border-box;
 
@@ -221,6 +221,10 @@ tab-bar{
 .m-b-50{
   margin-bottom: 50rpx;
 }
+.m-l-r-auto{
+  margin-left: auto;
+  margin-right: auto;
+}
 .p-t-b-20{
   padding: 20rpx 0;
 }
@@ -239,10 +243,6 @@ tab-bar{
   color:rgba(136,136,136,1);
   -webkit-text-fill-color:rgba(136,136,136,1);
   line-height:28rpx;
-}
-.round-container{
-  background-color: white;
-  border-radius: 10px;
 }
 .text-gray{
   color:#888888;

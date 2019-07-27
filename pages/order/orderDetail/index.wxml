@@ -1,8 +1,12 @@
-<!--index.wxml-->
-<view class="container">
-    <view class="content">
+<view class="flex-direction">
+
+    <cu-custom bgColor="titlebar-white" isBack="{{true}}">
+        <view slot="backText"></view>
+        <view slot="content">订单详情</view>
+    </cu-custom>
+    <view class="container body">
         <view class="top-conrainer">
-            <image class="logo-car" src="/images/tab/img_doctor.png"/>
+            <image class="logo-car" src="/images/logo_to_receive.png"/>
             <view class="order-status">待收货</view>
             <view class="order-remain-time">
                 <text>剩余系统默认收货时间</text>
@@ -40,5 +44,4 @@
     </view>
     <view class="bottom-button">确认收货</view>
 </view>
-
 

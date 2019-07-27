@@ -280,7 +280,7 @@
 .item3-2-l{
   max-width: calc(100% - 232rpx);
   height: 62rpx ;
-  overflow: scroll;
+  overflow: hidden;
 }
 .item-3-2-r{
   /*width:232px;*/
