@@ -1,0 +1,27 @@
+<!--<van-tabbar active="{{ active }}" bind:change="onChange">-->
+<!--  <van-tabbar-item wx:for="{{ list }}" wx:key="index">-->
+<!--    <image-->
+<!--            slot="icon"-->
+<!--            src="{{ item.iconPath }}"-->
+<!--            mode="aspectFit"-->
+<!--    />-->
+<!--    <image-->
+<!--            slot="icon-active"-->
+<!--            src="{{ item.selectedIconPath }}"-->
+<!--            mode="aspectFit"-->
+<!--    />-->
+<!--    {{item.text}}-->
+<!--  </van-tabbar-item>-->
+<!--</van-tabbar>-->
+
+<view class="cu-bar tabbar bg-white foot wj-tabbar " >
+  <view class="wj-tabitem" bindtap="NavChange" data-active="{{index}}" wx:for="{{ list }}" wx:key="index">
+    <view class='cuIcon-cu-image'>
+      <image class="tab-image" src="{{index===active?item.selectedIconPath:item.iconPath }}"></image>
+    </view>
+    <view class="{{index===active?'tab-selected':'tab-unselected'}} m-t-b-4">{{item.text}}</view>
+  </view>
+</view>
+<view wx:if="{{!isEnabled}}" class="cu-bar foot cu-modal show bg-modal">
+
+</view>

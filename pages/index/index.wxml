@@ -4,18 +4,19 @@
         <view slot="backText">返回</view>
         <view slot="content">吾家小智</view>
     </cu-custom>
-    <view class="top-title  flex padding justify-between">
-        <view class="flex align-center">
-            <image class="icon" src="/images/index_pos.png"></image>
-            <text class="location-text">天通苑社区</text>
-        </view>
-        <view class="flex align-center">
-            <text class="margin-right text-underline invite-visitor">邀请访客</text>
+    <view class="top-title-bg  {{modalName=='ModalGuideInvite'?'p-t-24': 'p-t-34'}}" >
+        <view class="top-title  flex align-center  justify-between">
+            <view class="flex align-center">
+                <image class="icon" src="/images/index_pos.png"></image>
+                <text class="location-text">天通苑社区</text>
+            </view>
+            <text class="text-underline invite-visitor {{modalName=='ModalGuideInvite'?'show-invite':'m-r-30'}}" bindtap="{{modalName=='ModalGuideInvite'?'':'inviteVisitor'}}">邀请访客</text>
         </view>
     </view>
-    <view class="activity-more flex padding justify-between">
+    <view class="activity-more flex  justify-between {{modalName=='ModalGuideMore'?'p-t-b-show':'p-t-b-normal'}}  {{modalName}}123"
+            bindtap="{{modalName=='ModalGuideMore'?'toMore':''}}">
         <view class="jxhd">精选活动</view>
-        <view class="more">
+        <view class="more {{modalName=='ModalGuideMore'?'showMore':'m-r-30'}}">
             <text>更多</text>
             <text class="cuIcon-right lg"></text>
         </view>
@@ -48,7 +49,7 @@
         </view>
     </scroll-view>
     <view class="round-backgroud">
-        <view class="open-door">
+        <view class="open-door {{modalName=='ModalGuideOpen'? 'z-2000':''}}  {{modalName}}123">
             <view class="open-text">开门</view>
             <view class="cuIcon-fold up"></view>
             <view class="cuIcon-fold up up2"></view>
@@ -57,3 +58,44 @@
     </view>
 </view>
 
+<view class="cu-modal full-screen  {{modalName=='ModalBindPhone'?'show':''}}">
+    <view class="cu-dialog dialog">
+        <view class="dialog-title">绑定手机号</view>
+        <view class="input-container"><input class="input" placeholder="请输入您的手机号"/></view>
+        <view class="input-container">
+            <input class="input" placeholder-class="placeholder" cursor="0"
+                   placeholder="请输入验证码"/>
+            <view class="get-code">获取验证码</view>
+        </view>
+        <view class="center dialog-button-disabled m-t-40">立即绑定</view>
+        <view class="center dialog-button-enabled m-t-40" bindtap="bindPhone">立即绑定</view>
+    </view>
+</view>
+<view class="full-screen modal-top0  {{modalName=='ModalGuideInvite'?'show':''}}">
+    <view class="invite-hint" style="top: calc( 130rpx + {{CustomBar}}px - 65rpx );">
+        <view class="guide-invite-line-container">
+            <view class="guide-invite-line"></view>
+        </view>
+        <view class="djkyqhyo">点击可邀请好友哦～</view>
+        <view class="i-know-invite" bindtap="hideModalGuideInvite">我知道了</view>
+    </view>
+
+</view>
+<view class="modal-top0  {{modalName=='ModalGuideMore'?'show':''}}">
+    <view class="invite-hint" style="top: calc( 130rpx - 16rpx + {{CustomBar}}px + 52rpx + 16rpx );right: 76rpx;">
+        <view class="guide-invite-line-container">
+            <view class="guide-invite-line" style="right: 46rpx;"></view>
+        </view>
+        <view class="djkyqhyo">点击可查看更多商品哦～</view>
+        <view class="i-know-invite" bindtap="hideModalGuideMore">我知道了</view>
+    </view>
+
+</view>
+<view class="modal-top0  {{modalName=='ModalGuideOpen'?'show':''}}">
+    <view class="open-hint">
+        <view class="djkyqhyo">向上滑动可以开门哦</view>
+        <view class="i-know-invite" bindtap="hideModalGuideOpen">我知道了</view>
+    </view>
+    <view class="guide-open-line" ></view>
+
+</view>

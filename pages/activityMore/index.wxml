@@ -1,4 +1,7 @@
-<!--index.wxml-->
+<cu-custom  bgColor="titlebar-white" isBack="{{true}}">
+    <view slot="backText"></view>
+    <view slot="content">精选活动</view>
+</cu-custom>
 <view class="container p-l-r-30">
 
 

@@ -1,6 +1,12 @@
 @import "colorui/main.wxss";
 @import "colorui/icon.wxss";
 
+tab-bar{
+  z-index: 1020;
+  height: 98rpx;
+}
+
+
 .scrollPage {
   height: 100vh;
 }
@@ -27,8 +33,14 @@
   color:rgba(34,34,34,1);
   line-height:44rpx;
 }
+.m-r-30{
+  margin-right: 30rpx;
+}
 .p-l-r-30{
   padding: 0 30rpx;
+}
+.m-t-40{
+  margin-top: 40rpx !important;
 }
 .p-30{
   padding: 30rpx;

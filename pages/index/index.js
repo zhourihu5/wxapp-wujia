@@ -4,6 +4,10 @@ const app = getApp()
 
 Page({
   data: {
+    StatusBar: app.globalData.StatusBar,
+    CustomBar: app.globalData.CustomBar,
+    modalName:"ModalGuideInvite,ModalBindPhone,ModalGuideMore,ModalGuideOpen,",
+    isBoundPhone:false,
     list: [
       {
         isOrdered:'',
@@ -23,11 +27,34 @@ Page({
     hasUserInfo: false,
     canIUse: wx.canIUse('button.open-type.getUserInfo')
   },
-  //事件处理函数
-  bindViewTap: function() {
-    wx.navigateTo({
-      url: '../logs/logs'
+  bindPhone: function(e) {
+    console.log("bindphone");
+
+
+    this.hideModal();
+    this.showGuideInvite();
+
+  },
+  isEnableTabBar(){
+    this.enableTabBar(!this.data.modalName);
+  },
+  enableTabBar(enabled){
+    if (typeof this.getTabBar === 'function' &&
+        this.getTabBar()) {
+      this.getTabBar().enable(enabled)
+    }
+  },
+  showModal(name) {
+    this.setData({
+      modalName: name
     })
+    this.isEnableTabBar()
+  },
+  hideModal() {
+    this.setData({
+      modalName: null
+    })
+    this.isEnableTabBar()
   },
   onLoad: function () {
     // if (app.globalData.userInfo) {
@@ -56,6 +83,48 @@ Page({
     //     }
     //   })
     // }
+  },
+  showOrHideBindPhone: function () {
+    if (!this.data.isBoundPhone) {
+      this.enableTabBar(false)
+      this.showModal('ModalBindPhone');
+    } else {
+      this.enableTabBar(true)
+      this.hideModal();
+    }
+  },
+  onShow(){
+    if (typeof this.getTabBar === 'function' &&
+        this.getTabBar()) {
+      this.getTabBar().init()
+      console.log("自定义tabbar")
+    }
+    // this.showOrHideBindPhone();
+    this.showModal('ModalGuideOpen');
+    this.isEnableTabBar()
+
+  },
+  showGuideInvite(){
+    this.hideModal();
+    this.showModal('ModalGuideInvite');
+  },
+  hideModalGuideInvite(e){
+    this.hideModal();
+    this.showModal('ModalGuideMore');
+  },
+  hideModalGuideMore(e){
+    this.hideModal();
+    this.showModal('ModalGuideOpen');
+  },
+  hideModalGuideOpen(e){
+    this.hideModal();
+  },
+  toMore(e){
+    wx.navigateTo({url:"/pages/activityMore/index"})
+  },
+  inviteVisitor(e){
+    console.log("邀请访客")
+
   },
   getUserInfo: function(e) {
     console.log(e)

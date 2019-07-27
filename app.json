@@ -1,5 +1,6 @@
 {
   "tabBar": {
+    "custom": true,
     "color": "#888888",
     "selectedColor": "#3c3c3c",
     "backgroundColor": "#FFFFFF",
@@ -31,9 +32,9 @@
     ]
   },
   "pages": [
+    "pages/index/index",
     "pages/orderConfirm/index",
     "pages/baseInfo/index",
-    "pages/index/index",
     "pages/msg/msgDetail/index",
     "pages/order/index",
     "pages/goodsDetail/index",

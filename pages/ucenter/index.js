@@ -21,6 +21,12 @@ Page({
             },
         ]
     },
+    onShow(){
+        if (typeof this.getTabBar === 'function' &&
+            this.getTabBar()) {
+            this.getTabBar().init()
+        }
+    },
     onLoad: function () {
         this.setData({
             logs: (wx.getStorageSync('logs') || []).map(log => {
