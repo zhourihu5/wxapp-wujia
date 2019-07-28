@@ -177,7 +177,7 @@ tab-bar{
   border: none !important;
 }
 .border-bottom{
-  border-bottom: 1px #cccccc solid;
+  border-bottom: 2rpx #EBEBEB solid;
 }
 .t-gray-small{
   font-size:24rpx;

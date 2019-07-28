@@ -1,24 +1,40 @@
 <!--index.wxml-->
-<view class="container-gray-bg-padding body">
+<cu-custom bgColor="titlebar-white" isBack="{{true}}">
+    <view slot="backText"></view>
+    <view slot="content">小区列表</view>
+</cu-custom>
+<view class="search-container">
+    <view class="item-1">
+        <view class="item-1-l">北京市</view>
+        <view class="cuIcon-triangledownfill sjx"></view>
+        <view class="v-line"></view>
+
+        <input class="item-1-r" placeholder="南十里居"/>
+    </view>
+</view>
+
+<scroll-view  scroll-y class="body" style="top: calc( 108rpx + {{CustomBar}}px );"
+             lower-threshold="{{lowerThreshold}}"
+             upper-threshold="0"
+             bindscrolltoupper='scrolltoupper'
+             bindscrolltolower='scrolltolower'
+>
     <view class="w-c">
-        <view class="item-1">
-            <view class="item-1-l">北京市</view>
-            <input class="item-1-r" placeholder="南十里居"/>
-        </view>
-        <block wx:for="1234" wx:key="">
-            <navigator class="item-2 border-bottom" url="/pages/applySubmit/index" hover-class="navigator-hover"
+        <block wx:for="{{20}}" wx:key="">
+            <navigator class="item-2 {{index==0?'no-border':''}}" url="/pages/applySubmit/index"
+                       hover-class="navigator-hover"
                        open-type="navigateTo">
-<!--        <view class="item-2 border-bottom">-->
-            <image class="image" src="/images/tab/img_doctor.png"/>
-            <view class="item2-c">
-                <view>天通苑社区</view>
-                <view>北京市朝阳区东方阿萨德咖啡机</view>
-            </view>
-            <view class="icon_arrow_r"></view>
-<!--        </view>-->
+                <!--        <view class="item-2 border-bottom">-->
+                <image class="image" src="/images/tab_my.png"/>
+                <view class="item2-c">
+                    <view class="n-name">天通苑社区{{index}}</view>
+                    <view class="n-geo">北京市朝阳区东方阿萨德咖啡机</view>
+                </view>
+                <view class="cuIcon-right arrow"></view>
+                <!--        </view>-->
             </navigator>
         </block>
     </view>
+</scroll-view>
 
-</view>
 

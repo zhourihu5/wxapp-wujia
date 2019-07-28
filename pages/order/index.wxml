@@ -20,7 +20,7 @@
                 custom-class="custom-tab">
 <!--                <view class="list">-->
 <!--                    todo 如果不需要下拉刷新替换为  scroll-view-->
-                    <scroll-view scroll-y  class="scroll-view-order" style="top: calc( {{CustomBar}}px + 84rpx )"
+                     <scroll-view scroll-y  class="scroll-view-order" style="top: calc( {{CustomBar}}px + 84rpx )"
                                  lower-threshold="{{lowerThreshold}}"
                                  upper-threshold="0"
                             bindscrolltoupper='scrolltoupper'

@@ -32,6 +32,9 @@
     ]
   },
   "pages": [
+    "pages/neibourList/index",
+    "pages/yellowPage/index",
+    "pages/applySubmit/index",
     "pages/order/index",
     "pages/index/index",
     "pages/order/orderDetail/index",
@@ -44,11 +47,8 @@
     "pages/ucenter/index",
     "pages/msg/index",
     "pages/activityMore/index",
-    "pages/applySubmit/index",
-    "pages/neibourList/index",
     "pages/addAdress/index",
-    "pages/myAdress/index",
-    "pages/yellowPage/index"
+    "pages/myAdress/index"
   ],
   "window": {
     "backgroundTextStyle": "light",

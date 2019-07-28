@@ -1,7 +1,7 @@
 <!--index.wxml-->
 <view class="container">
     <cu-custom  bgColor="titlebar-white" isBack="{{false}}">
-        <view slot="backText">返回</view>
+        <view slot="backText"></view>
         <view slot="content">吾家小智</view>
     </cu-custom>
     <view class="top-container flex-match-parent">

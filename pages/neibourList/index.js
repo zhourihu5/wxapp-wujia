@@ -4,6 +4,7 @@ const app = getApp()
 
 Page({
   data: {
+    CustomBar: app.globalData.CustomBar,
     list: [1,2,3,4,5],
     userInfo: {},
     hasUserInfo: false,
