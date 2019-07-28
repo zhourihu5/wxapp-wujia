@@ -57,7 +57,10 @@
 <movable-area class="{{modalName=='ModalGuideOpen'?'z-2000':'z-4'}}">
     <movable-view x="{{0}}" y="{{y}}"
                   direction="vertical"
-                  disabled="{{modalName=='ModalGuideOpen'}}" >
+                  disabled="{{modalName=='ModalGuideOpen'}}"
+                  bind:touchend="touchendOpen"
+                  bindchange="moveChangedOpen"
+    >
         <view class="open-door">
             <view class="open-text">开门</view>
             <view class="cuIcon-fold up"></view>

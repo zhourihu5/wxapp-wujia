@@ -1,6 +1,7 @@
 .custom-tabs{
-  /*position: fixed;*/
-  overflow: scroll;
+  width: 100%;
+  /*position: fixed !important;*/
+  /*overflow: scroll;*/
 }
 .tab-custom{
 
@@ -21,15 +22,23 @@
 }
 .tab-layout{
   width: 100%;
+  /*padding-bottom: 98rpx;*/
+  /*margin-bottom: 98rpx;*/
   /*position: fixed;*/
+}
+.van-tabs__wrap scroll-view{
+  background: white;
+  position: fixed;
 }
 .list{
   width: 100%;
+  /*height: 100%;*/
   padding-left: 30rpx;
   padding-right: 30rpx;
-  padding-bottom: 118rpx;
-  height: 100%;
-  position: fixed;
+  /*padding-bottom:calc( 20rpx + 98rpx ) ;*/
+  padding-bottom:20rpx;
+    margin-bottom: 98rpx;
+  position: relative;
   overflow: scroll;
 }
 .tab-line{

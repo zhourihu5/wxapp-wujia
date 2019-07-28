@@ -14,6 +14,12 @@ const formatNumber = n => {
   return n[1] ? n : '0' + n
 }
 
+const app = getApp()
+function rpxToPx(x){
+  return  x*app.globalData.windowWidth/750;
+}
+
 module.exports = {
-  formatTime: formatTime
+  formatTime: formatTime,
+  rpxToPx:rpxToPx
 }

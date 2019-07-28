@@ -1,10 +1,9 @@
-//index.js
-//获取应用实例
-const app = getApp()
 
+const app = getApp()
+const util = require('../../utils/util.js')
 Page({
   data: {
-    y:40/app.globalData.pixelRatio,
+    y:util.rpxToPx(40),
     StatusBar: app.globalData.StatusBar,
     CustomBar: app.globalData.CustomBar,
     modalName:"ModalGuideInvite,ModalBindPhone,ModalGuideMore,ModalGuideOpen,",
@@ -28,6 +27,9 @@ Page({
     hasUserInfo: false,
     canIUse: wx.canIUse('button.open-type.getUserInfo')
   },
+  customData: {
+    y: 0
+  },
   bindPhone: function(e) {
     console.log("bindphone");
 
@@ -35,6 +37,26 @@ Page({
     this.hideModal();
     this.showGuideInvite();
 
+  },
+  moveChangedOpen(e){
+    console.log(e)
+    // event.detail = {x, y, source}
+    if(e.detail.source){//表示非setdata改变的
+      this.customData.y=e.detail.y;
+
+    }
+  },
+  touchendOpen(e){
+    console.log(e)
+    console.log(this.customData)
+    if(this.customData.y<util.rpxToPx(20)){
+      //todo 请求开锁接口，成功后回弹
+      this.setData({// 回弹
+        y:util.rpxToPx(40),
+      })
+    }else {
+
+    }
   },
   isEnableTabBar(){
     this.enableTabBar(!this.data.modalName);

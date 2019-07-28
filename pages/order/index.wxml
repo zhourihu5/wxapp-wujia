@@ -19,6 +19,10 @@
                 title="{{tab.title}}"
                 custom-class="custom-tab">
                 <view class="list">
+<!--                    <scroll-view scroll-y style="height: 100%"-->
+<!--                            bindscrolltoupper='scrolltoupper'-->
+<!--                            bindscrolltolower='scrolltolower'-->
+<!--                    >-->
                     <block wx:for="{{tab.data}}" wx:for-item="data-item" wx:key="">
                         <view class="item-content">
                             <navigator class="order-container" url="/pages/order/orderDetail/index" hover-class="navigator-hover"
@@ -57,8 +61,8 @@
                             </navigator>
                         </view>
                     </block>
+<!--                    </scroll-view>-->
                 </view>
-
 
 
         </van-tab>

@@ -38,5 +38,33 @@ Page({
                 return util.formatTime(new Date(log))
             })
         })
+    },
+    onPullDownRefresh: function() {
+        // Do something when pull down.
+        console.log('onPullDownRefresh')
+
+    },
+    onReachBottom: function() {
+        // Do something when page reach bottom.
+        console.log('onReachBottom')
+    },
+    scrolltoupper: function (e) {
+        console.log("scrolltoupper")
+        console.log(e)
+        wx.showToast({
+            icon: 'none',
+            title: '你触发了下拉刷新',
+            duration: 2000
+        })
+    },
+    scrolltolower(e){
+        console.log("scrolltolower")
+        console.log(e)
+        wx.showToast({
+            icon: 'none',
+            title: '你触发了上拉加载',
+            duration: 2000
+        })
     }
+
 })

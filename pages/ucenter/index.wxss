@@ -107,7 +107,7 @@
   line-height:44rpx;
 
   position: fixed;
-  bottom: 100rpx;
+  bottom: 198rpx;
   left: 0;
   right: 0;
   text-align: center;
