@@ -105,8 +105,26 @@
 
 }
 
+.van-tabs__line {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    z-index: 1;
+    /*height: 3px;*/
+    /*background-color: #f44;*/
+    /*border-radius: 3px;*/
 
-.scroll-view{
+
+    width:28rpx !important;
+    height:6rpx !important;
+    background:rgba(255,155,29,1) !important;
+    border-radius:3rpx !important;
+
+}
+
+
+
+.scroll-view-order{
     position: fixed;
     bottom: 98rpx;
     left: 0;
@@ -115,6 +133,26 @@
 
     padding-left: 30rpx;
     padding-right: 30rpx;
+
+    background:rgba(246,247,249,1) !important;
+}
+.scroll-view {
+/*./refurbish-load/refurbish-load.wxss: 2*/
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    /*background: #fff;*/
+    z-index: 10;
+
+
+    padding-left: 30rpx;
+    padding-right: 30rpx;
+
+    background:#F6F7F9 !important;
+
+
 }
 
 
@@ -125,8 +163,8 @@
   padding-right: 30rpx;
   /*padding-bottom:calc( 20rpx + 98rpx ) ;*/
   /*padding-bottom:20rpx;*/
-    margin-bottom: 98rpx;
-  position: relative;
+  /*  margin-bottom: 98rpx;*/
+  /*position: relative;*/
   overflow: scroll;
 }
 .tab-line{

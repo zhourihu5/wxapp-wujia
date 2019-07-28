@@ -4,6 +4,7 @@ const app = getApp();
 Page({
     data: {
         CustomBar: app.globalData.CustomBar,
+        lowerThreshold:util.rpxToPx(200),
         tabs: [
             {
                 title: "全部",
