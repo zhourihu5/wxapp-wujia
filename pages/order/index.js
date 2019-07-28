@@ -1,8 +1,9 @@
 //index.js
 const util = require('../../utils/util.js')
-
+const app = getApp();
 Page({
     data: {
+        CustomBar: app.globalData.CustomBar,
         tabs: [
             {
                 title: "全部",

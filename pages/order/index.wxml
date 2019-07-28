@@ -19,12 +19,13 @@
                 title="{{tab.title}}"
                 custom-class="custom-tab">
                 <view class="list">
-<!--                    <scroll-view scroll-y style="height: 100%"-->
-<!--                            bindscrolltoupper='scrolltoupper'-->
-<!--                            bindscrolltolower='scrolltolower'-->
-<!--                    >-->
+<!--                    todo 如果不需要下拉刷新替换为  scroll-view-->
+                    <refurbish-load scroll-y  class="scroll-view" style="top: calc( {{CustomBar}}px + 84rpx )"
+                            bindscrolltoupper='scrolltoupper'
+                            bindscrolltolower='scrolltolower'
+                    >
                     <block wx:for="{{tab.data}}" wx:for-item="data-item" wx:key="">
-                        <view class="item-content">
+                        <view class="item-content {{index==0?'p-t-20':''}}">
                             <navigator class="order-container" url="/pages/order/orderDetail/index" hover-class="navigator-hover"
                                        open-type="navigateTo">
                                 <!--                <view class="round-container order-container">-->
@@ -61,7 +62,7 @@
                             </navigator>
                         </view>
                     </block>
-<!--                    </scroll-view>-->
+                    </refurbish-load>
                 </view>
 
 
