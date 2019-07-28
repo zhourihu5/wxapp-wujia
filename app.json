@@ -32,11 +32,11 @@
     ]
   },
   "pages": [
+    "pages/index/index",
     "pages/neibourList/index",
     "pages/yellowPage/index",
     "pages/applySubmit/index",
     "pages/order/index",
-    "pages/index/index",
     "pages/order/orderDetail/index",
     "pages/paySuccess/index",
     "pages/goodsDetail/index",
