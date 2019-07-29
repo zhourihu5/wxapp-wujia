@@ -19,19 +19,24 @@ Page({
                 icon:"/images/icon_lock.png",
                 url:"/pages/neibourList/index"
             },
-        ]
+        ],
+        nickName:'',
+        phone:'',
+        avatarUrl:'',
     },
     onShow(){
         if (typeof this.getTabBar === 'function' &&
             this.getTabBar()) {
             this.getTabBar().init()
         }
+        console.log(wx.getStorageSync('res_user'))
     },
     onLoad: function () {
+        var userInfo=wx.getStorageSync('res_user')
         this.setData({
-            logs: (wx.getStorageSync('logs') || []).map(log => {
-                return util.formatTime(new Date(log))
-            })
+            nickName:userInfo&&userInfo.userInfo&&userInfo.userInfo.nickName,
+            avatarUrl:userInfo&&userInfo.userInfo&&userInfo.userInfo.avatarUrl,
+            phone:'136****8402',
         })
     }
 })

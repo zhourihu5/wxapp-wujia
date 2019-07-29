@@ -1,32 +1,67 @@
 .body{
-    padding: 0 0 74px 0;
-    box-sizing: border-box;
+
+}
+.scroll-view-adr{
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 118rpx;
+
 }
 .w-b{
-    margin-top: 10px;
-    box-sizing: border-box;
-    padding: 10px;
-    background: white;
-    width: 100%;
+    /*margin-top: 20rpx;*/
+
+    width:750rpx;
+    /*height:136rpx;*/
+    background:rgba(255,255,255,1);
+
+    padding: 0 30rpx;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 .item-c{
+    width: 100%;
     display: flex;
     align-items: center;
+
+    /*width:308px;*/
+    /*height:28px;*/
+    font-size:28rpx;
+    font-family:PingFangSC-Regular;
+    font-weight:400;
+    color:rgba(34,34,34,1);
+    line-height:28rpx;
+
+    padding: 30rpx 0;
+    border-top: 3rpx rgba(238,238,238,1) solid;
 }
 .item-c-l{
     flex: 1;
 }
+.t-gray-b{
+    /*width:216px;*/
+    /*height:28px;*/
+    font-size:24rpx;
+    font-family:PingFangSC-Regular;
+    font-weight:400;
+    color:rgba(136,136,136,1);
+    line-height:28rpx;
+
+    margin-top: 20rpx;
+}
 .item-c-r{
-    width: 15px;
-    height: 15px;
 }
 .icon-add{
     /*position: inherit !important;*/
-    display: flex;
-    align-items: center;
-    align-content: center;
-    justify-content: center;
-    margin-right: 10px;
+    /*display: flex;*/
+    /*align-items: center;*/
+    /*align-content: center;*/
+    /*justify-content: center;*/
+
+    font-weight: 100;
 }
 .b-b{
     position: fixed;
@@ -37,11 +72,32 @@
     box-sizing: border-box;
     /*width: 100%;*/
     /*margin: 10px 15px;*/
-    right: 15px;
-    left: 15px;
-    bottom: 15px;
-    background: #FF951C;
-    border-radius: 5px;
-    color: white;
-    height: 44px;
+    right: 30rpx;
+    left: 30rpx;
+    bottom: 30rpx;
+
+    width:690rpx;
+    height:88rpx;
+    background:rgba(255,149,28,1);
+    border-radius:8rpx;
+
+    /*width:192px;*/
+    /*height:44px;*/
+    font-size:32rpx;
+    font-family:PingFangSC-Regular;
+    font-weight:400;
+    color:rgba(255,255,255,1);
+    line-height:44rpx;
+
+}
+.xzshdz{
+    /*width:192px;*/
+    /*height:44px;*/
+    font-size:32rpx;
+    font-family:PingFangSC-Regular;
+    font-weight:400;
+    color:rgba(255,255,255,1);
+    line-height:44rpx;
+
+    margin-left: 20rpx;
 }

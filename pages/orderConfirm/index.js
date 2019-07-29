@@ -24,6 +24,17 @@ Page({
     });
   },
     toPay(e){
-        wx.navigateTo({url:"/pages/paySuccess/index"})
+      wx.requestPayment({
+        timeStamp: '',
+        nonceStr: '',
+        package: '',
+        signType: 'MD5',
+        paySign: '',
+        success (res) {wx.navigateTo({url:"/pages/paySuccess/index"}) },
+        fail (res) {
+          wx.navigateTo({url:"/pages/paySuccess/index"})
+        }
+      })
+        // wx.navigateTo({url:"/pages/paySuccess/index"})
     }
 });

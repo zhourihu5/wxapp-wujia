@@ -1,0 +1,7 @@
+/* pages/authorize/authorize.wxss */
+/* 授权 */
+.auth_box{width:65%;margin:20% auto 0;}
+.auth_logo{width:160rpx;height:120rpx;}
+.auth_title{font-size:34rpx;border-bottom:2px solid #3878DE;}
+.auth_content{line-height:2;margin:60rpx 0 50rpx;}
+.icon_circle:before{content:'';display:inline-block;width:10rpx;height:10rpx;border-radius:50%;background:#666;vertical-align: middle;margin:-2rpx 10rpx 0 0;}

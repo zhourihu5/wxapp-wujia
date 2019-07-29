@@ -47,6 +47,9 @@ Component({
         console.log("没有切换tab");
         return;
       }
+      // if(e.currentTarget.dataset.active==3){
+      //
+      // }
 
       const data = e.currentTarget.dataset
       const url = this.data.list[data.active].pagePath

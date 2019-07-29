@@ -1,22 +1,30 @@
-<view class="container-gray-bg-padding body">
 
+<cu-custom  bgColor="titlebar-white" isBack="{{true}}">
+    <view slot="backText"></view>
+    <view slot="content">我的收货地址</view>
+</cu-custom>
+<view class="container">
+    <scroll-view scroll-y  class="scroll-view-adr" style="top: calc( {{CustomBar}}px + 20rpx )"
+                 bindscrolltoupper='scrolltoupper'
+                 bindscrolltolower='scrolltolower'
+    >
+    <block wx:for="{{10}}" wx:for-item="item" wx:key="">
     <view class="w-b">
-        <view class="item-c">
+        <view class="item-c {{index==0?'no-border':''}}">
             <view class="item-c-l">
-                <view>南十里四号楼5单元502</view>
-                <view>葫芦娃13683218402</view>
+                <view>南十里四号楼5单元{{index}}</view>
+                <view class="t-gray-b">葫芦娃13683218402</view>
             </view>
-            <image class="item-c-r" src="/images/tab/img_doctor.png"></image>
+            <view class="cuIcon-edit" ></view>
         </view>
+
     </view>
+    </block>
+
     <view class="b-b" bindtap="addNewAdress">
-        <van-icon
-                name="add-o"
-                size="32px"
-                class="icon-add"
-        />
-       <text>新增收货地址</text>
+        <view class="cuIcon-roundadd icon-add"></view>
+       <view class="xzshdz">新增收货地址</view>
     </view>
 
-
+    </scroll-view>
 </view>

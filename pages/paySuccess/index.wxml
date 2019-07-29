@@ -25,8 +25,8 @@
         </view>
         <view class="ptcg">拼团成功</view>
         <view class="flex align-center">
-            <button class="ckdd">查看订单</button>
-            <button class="jxgg">继续逛逛</button>
+            <view class="ckdd">查看订单</view>
+            <view class="jxgg">继续逛逛</view>
         </view>
     </view>
 

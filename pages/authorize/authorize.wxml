@@ -1,0 +1,18 @@
+<!--pages/authorize/authorize.wxml-->
+<view class="container white text_center auth_box">
+    <block wx:if="{{canIUse}}">
+        <view class="auth_title">
+            <image src="/images/tab_my.png" class="va_m auth_logo"></image>
+            <view class="mg_t mg_b">微信授权</view>
+        </view>
+        <view class="auth_content">
+            <view>吾家申请获取以下权限</view>
+            <text class="c_666 icon_circle">获得你的公开信息（昵称，头像）</text>
+        </view>
+        <view>
+            <button type="primary" class="m_btn va_m wd180rpx gray_btn fl">拒绝</button>
+            <button type="primary" class="m_btn va_m wd180rpx fr" open-type="getUserInfo" withCredentials="true" bindgetuserinfo="bindGetUserInfo">允许</button>
+        </view>
+    </block>
+    <view wx:else>请升级微信版本</view>
+</view>

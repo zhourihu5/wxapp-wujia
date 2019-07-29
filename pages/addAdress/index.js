@@ -2,20 +2,47 @@
 
 Page({
     data: {
-        active1: [0],
-        active2: 0,
-        active3: [],
-        title1: '有赞微商城',
-        title2: '有赞零售',
-        title3: '有赞美业',
-        content1: '提供多样店铺模板，快速搭建网上商城',
-        content2: '网店吸粉获客、会员分层营销、一机多种收款，告别经营低效和客户流失',
-        content3: '线上拓客，随时预约，贴心顺手的开单收银'
+        modalName:'bottomModal',
+        tabs: [
+            {
+                title: "全部",
+                data:[1,]
+            },
+            {
+                title: "待付款",
+                data:[]
+            },
+            {
+                title: "待收获",
+                data:[1,2,]
+            },
+            {
+                title: "已收货",
+                data:[1,2,3,]
+            },
+            {
+                title: "已过期",
+                data:[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30]
+            },
+        ]
     },
     onChange(event) {
         const { key } = event.currentTarget.dataset;
         this.setData({
             [key]: event.detail
         });
+    },
+    onClickSave(e){
+        //todo
+    },
+    showModal(e){
+        this.setData({
+            modalName:'bottomModal'
+        })
+    },
+    hideModal(){
+        this.setData({
+            modalName:null
+        })
     }
 })

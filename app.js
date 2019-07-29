@@ -14,6 +14,27 @@ App({
         this.globalData.pixelRatio=e.pixelRatio;
       }
     })
+
+    // this.judgeAuth();
+  },
+  /**
+   * 判断用户是否给了获取用户信息的授权
+   */
+  judgeAuth: function() {
+    var that = this;
+    wx.getSetting({
+      success(res) {
+        if (res.authSetting['scope.userInfo']) { // 已经授权，可以直接调用 getUserInfo 获取头像昵称
+          wx.reLaunch({
+            url: '/pages/index/index'
+          });
+        } else { //
+          wx.reLaunch({ //当用户未授权过，进入授权界面
+            url: '/pages/authorize/authorize'
+          });
+        }
+      }
+    })
   },
   globalData: {
     ColorList: [{

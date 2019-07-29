@@ -1,11 +1,14 @@
-<view class="container-gray-bg-padding">
-
+<cu-custom  bgColor="titlebar-white" isBack="{{true}}">
+    <view slot="backText"></view>
+    <view slot="content">新增收货地址</view>
+</cu-custom>
+<view class="container">
     <view class="w-b">
         <view class="item no-border">
             <view class="item-l">收货人</view>
-            <input class="item-r u-name" placeholder="请填写收货人姓名"/>
+            <input class="input" placeholder-class="placeholder"  placeholder="请填写收货人姓名"/>
         </view>
-        <view class="item no-border line-1">
+        <view class="line-1">
             <view class="item-l"></view>
             <view class="item-r line"></view>
         </view>
@@ -27,20 +30,65 @@
         </view>
         <view class="item">
             <view class="item-l">手机号</view>
-            <input class="item-r"  placeholder="请填写收货人手机号" />
+            <input class="input" placeholder-class="placeholder"  placeholder="请填写收货人手机号" />
         </view>
         <view class="item">
             <view class="item-l">收货地址</view>
-            <view class="item-r">天通苑小区</view>
+            <input class="input" placeholder-class="placeholder"  value="天通苑小区"/>
             <view class="icon_arrow_r"></view>
         </view>
-        <view class="item no-border">
+        <view class="item no-border" bindtap="showModal">
             <view class="item-l">门牌号</view>
-            <input class="item-r" placeholder="请选择期区、楼号、单元号、房间号" disabled="disabled"/>
+            <input class="item-r input" placeholder="请选择期区、楼号、单元号、房间号" disabled="disabled"/>
             <view class="icon_arrow_r"></view>
         </view>
     </view>
-    <button class="b-b">保存并使用</button>
+    <view class="b-b" bindtap="onClickSave">保存并使用</view>
+    <view class="b-b-disabled">保存并使用</view>
 
 
+</view>
+<view class="cu-modal bottom-modal {{modalName=='bottomModal'?'show':''}}">
+    <view class="cu-dialog bottom-dialog">
+        <view class="cu-bar d-t-bar">
+            <view class="psz">配送至</view>
+            <view class="cuIcon-close" bindtap="hideModal"></view>
+        </view>
+        <van-tabs class="tab-layout"
+                  custom-class="custom-tabs"
+                  nav-class="tab-nav"
+                  tab-class="tab-custom"
+                  border="{{false}}"
+                  line-class="tab-line"
+                  color="rgba(255,155,29,1)"
+                  lineWidth="17"  swipeThreshold="5">
+            <van-tab
+                    wx:for="{{ tabs }}"
+                    wx:for-item="tab"
+                    wx:key="tabIndex"
+                    title="{{tab.title}}"
+                    custom-class="custom-tab">
+                <!--                <view class="list">-->
+                <!--                    todo 如果不需要下拉刷新替换为  scroll-view-->
+                <scroll-view scroll-y  class="scroll-view-order" style="height: 750rpx;"
+                             bindscrolltoupper='scrolltoupper'
+                             bindscrolltolower='scrolltolower'
+                >
+                    <block wx:for="{{tab.data}}" wx:for-item="data-item" wx:key="">
+                        <view class="item-area area-checked">
+                            <view class="flex" wx:if="{{index==0}}">
+                                <view class="cuIcon-check checkIcon"></view>
+                                <view class="area-checked">东一区{{index}}</view>
+                            </view>
+                            <view wx:else class="area-unchecked">西二区{{index}}</view>
+                        </view>
+
+                    </block>
+                </scroll-view>
+                <!--                </view>-->
+
+
+            </van-tab>
+        </van-tabs>
+    </view>
 </view>
