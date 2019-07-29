@@ -51,11 +51,20 @@ tab-bar{
 .p-l-r-20{
   padding: 0 20rpx;
 }
+.p-r-30{
+  padding-right: 30rpx;
+}
 .m-b-30{
   margin-bottom: 30rpx;
 }
 .p-b-30{
   padding-bottom: 30rpx;
+}
+.w-750{
+  width: 750rpx;
+}
+.w-p-100{
+  width: 100%;
 }
 .round-container{
   border-radius: 16rpx;

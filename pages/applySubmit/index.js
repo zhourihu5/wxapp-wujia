@@ -4,16 +4,19 @@ const app = getApp()
 
 Page({
   data: {
-    list: [1,2,3,4,5,6,7,8,9,10],
+    radio:null,
+    list: ['1','2','3','4','5','6','7','必须是字符串作为标识',9,10],
     userInfo: {},
     hasUserInfo: false,
     canIUse: wx.canIUse('button.open-type.getUserInfo')
   },
   //事件处理函数
-  bindViewTap: function() {
-    wx.navigateTo({
-      url: '../logs/logs'
-    })
+  onClick(event) {
+    console.log("onClick")
+    const { name } = event.currentTarget.dataset;
+    this.setData({
+      radio: name
+    });
   },
   onLoad: function () {
     // if (app.globalData.userInfo) {
