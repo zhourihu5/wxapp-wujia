@@ -9,7 +9,7 @@
         <view class="cuIcon-triangledownfill sjx"></view>
         <view class="v-line"></view>
 
-        <input class="item-1-r" placeholder="南十里居"/>
+        <input class="input" placeholder-class="placeholder" placeholder="南十里居"/>
     </view>
 </view>
 

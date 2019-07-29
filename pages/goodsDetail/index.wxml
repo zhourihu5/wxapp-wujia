@@ -16,11 +16,13 @@
     </swiper>
     <view class="item1">
         <view class="price-container">
-            <text class="dollor">￥</text>
-            <text class="price-int">12</text>
-            <text class="dot">.</text>
-            <text class="price-float">32</text>
-            <text class="line-through price-old">￥16.8</text>
+            <view>
+                <text class="dollor">￥</text>
+                <text class="price-int">12</text>
+                <text class="dot">.</text>
+                <text class="price-float">32</text>
+                <text class="line-through price-old">￥16.8</text>
+            </view>
             <text class="kaituan-num">10人开团</text>
         </view>
         <view class="item1-r">

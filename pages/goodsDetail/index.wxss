@@ -90,7 +90,7 @@
   color:rgba(255,255,255,1);
   line-height:48rpx;
 
-  margin-top: 6rpx;
+  /*margin-top: 6rpx;*/
 }
 .price-old{
   /*width:82px;*/
@@ -110,7 +110,7 @@
 
   margin-left: 10rpx;
   margin-right: 20rpx;
-  margin-top: 10rpx;
+  /*margin-top: 10rpx;*/
 }
 .kaituan-num{
   /*width:122px;*/
