@@ -7,7 +7,7 @@
     <view class="w-c">
         <view class="item-c border-bottom">
             <view class="item-c-l">物业电话</view>
-            <view class="phone">010-7862594</view>
+            <view class="phone" bindtap="showModal" data-phone="{{'15081387317'}}">15081387317</view>
         </view>
         <view class="item-c">
             <view class="item-c-l">物业地址</view>
@@ -49,4 +49,12 @@
     </view>
 
 </view>
-
+<view class="cu-modal full-screen  {{modalName=='ModalCallPhone'?'show':''}}">
+    <view class="cu-dialog dialog">
+        <view class="dialog-title">{{callPhone}}</view>
+        <view class="dialog-action">
+            <view class="dialog-button" bindtap="hideModal">取消</view>
+            <view class="dialog-button no-border" bindtap="makePhoneCall" data-phone="{{callPhone}}">拨打</view>
+        </view>
+    </view>
+</view>

@@ -5,14 +5,32 @@ const app = getApp()
 Page({
   data: {
     list: [1,2,3,4,5],
-    userInfo: {},
-    hasUserInfo: false,
-    canIUse: wx.canIUse('button.open-type.getUserInfo')
+    callPhone:'15081387317',
+    modalName:'ModalCallPhone',
   },
   //事件处理函数
   bindViewTap: function() {
     wx.navigateTo({
       url: '../logs/logs'
+    })
+  },
+  makePhoneCall(e){
+    this.hideModal();
+    const that=this
+    wx.makePhoneCall({
+      phoneNumber: that.data.callPhone
+    })
+  },
+  showModal(e){
+    this.setData({
+      modalName:'ModalCallPhone',
+      callPhone:e.target.dataset.phone,
+    })
+  },
+  hideModal(e){
+    this.setData({
+      modalName:null,
+      // callPhone:null,
     })
   },
   onLoad: function () {
