@@ -29,10 +29,10 @@ Page({
             this.getTabBar()) {
             this.getTabBar().init()
         }
-        console.log(wx.getStorageSync('res_user'))
+        console.log(wx.getStorageSync('wx_user'))
     },
     onLoad: function () {
-        var userInfo=wx.getStorageSync('res_user')
+        var userInfo=wx.getStorageSync('wx_user')
         this.setData({
             nickName:userInfo&&userInfo.userInfo&&userInfo.userInfo.nickName,
             avatarUrl:userInfo&&userInfo.userInfo&&userInfo.userInfo.avatarUrl,

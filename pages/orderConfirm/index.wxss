@@ -97,6 +97,24 @@
     width: 100%;
     box-sizing: border-box;
 }
+.dialog{
+    width:560rpx;
+    height:334rpx;
+    background:rgba(255,255,255,1);
+    border-radius:16rpx;
+    filter:blur(0px);
+}
+.dialog-title{
+    /*width:396px;*/
+    /*height:44px;*/
+    font-size:32rpx;
+    font-family:PingFangSC-Regular;
+    font-weight:400;
+    color:rgba(0,0,0,1);
+    line-height:44rpx;
+
+
+}
 .location{
     /*width:26rpx;*/
     /*height:32rpx;*/

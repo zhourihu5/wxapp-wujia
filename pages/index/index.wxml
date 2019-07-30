@@ -74,14 +74,15 @@
 <view class="cu-modal full-screen  {{modalName=='ModalBindPhone'?'show':''}}">
     <view class="cu-dialog dialog">
         <view class="dialog-title">绑定手机号</view>
-        <view class="input-container"><input class="input" placeholder="请输入您的手机号"/></view>
         <view class="input-container">
-            <input class="input" placeholder-class="placeholder" cursor="0"
-                   placeholder="请输入验证码"/>
-            <view class="get-code">获取验证码</view>
+            <input class="input" placeholder="请输入您的手机号" bindinput="phoneInput"/>
         </view>
-        <view class="center dialog-button-disabled m-t-40">立即绑定</view>
-        <view class="center dialog-button-enabled m-t-40" bindtap="bindPhone">立即绑定</view>
+        <view class="input-container">
+            <input class="input" placeholder-class="placeholder"  bindinput="codeInput"
+                   placeholder="请输入验证码"/>
+            <view class="{{getCodeText=='获取验证码'?'get-code':'djs'}}" bindtap="getVcode">{{getCodeText}}</view>
+        </view>
+        <view class="center dialog-button-{{isBindEnabled?'enabled':'disabled'}} m-t-40" bindtap="bindPhone">立即绑定</view>
     </view>
 </view>
 <view class="full-screen modal-top0  {{modalName=='ModalGuideInvite'?'show':''}}">

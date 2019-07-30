@@ -1,6 +1,7 @@
 Page({
   data: {
     active: 0,
+    modalName:'ModalAddaddr',
     steps: [
       {
         text: '参与活动',
@@ -24,6 +25,9 @@ Page({
     });
   },
     toPay(e){
+
+
+
       wx.requestPayment({
         timeStamp: '',
         nonceStr: '',
@@ -36,5 +40,12 @@ Page({
         }
       })
         // wx.navigateTo({url:"/pages/paySuccess/index"})
+    },
+    hideModal(e){
+      this.setData(
+          {
+            modalName:null,
+          }
+      )
     }
 });

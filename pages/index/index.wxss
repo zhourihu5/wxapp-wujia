@@ -449,6 +449,15 @@ movable-area {
 
     text-decoration: underline;
 }
+.djs{
+    /*width:74px;*/
+    /*height:40px;*/
+    font-size:28rpx;
+    font-family:PingFangSC-Regular;
+    font-weight:400;
+    color:rgba(255,155,29,1);
+    line-height:40rpx;
+}
 .dialog-button-disabled{
     /*width:500rpx;*/
     height:78rpx;

@@ -18,8 +18,16 @@ const app = getApp()
 function rpxToPx(x){
   return  x*app.globalData.windowWidth/750;
 }
+function isTel(value){
+  var reg = /^((13\d|14[57]|15\d|16\d|17[13678]|18\d)\d{8}|170\d{8})$/;
+  if (reg.test(value) === false) {
+    return false;
+  }
+  return true;
+}
 
 module.exports = {
   formatTime: formatTime,
-  rpxToPx:rpxToPx
+  rpxToPx:rpxToPx,
+  isTel:isTel
 }

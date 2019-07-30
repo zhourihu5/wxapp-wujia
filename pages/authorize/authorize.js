@@ -22,7 +22,7 @@ Page({
         wx.getUserInfo({
             withCredentials: true,
             success: function (res_user) {
-                wx.setStorageSync('res_user', res_user);
+                wx.setStorageSync('wx_user', res_user);
                 wx.reLaunch({
                     url: '/pages/index/index'
                 });

@@ -1,13 +1,15 @@
 
 const app = getApp()
 const util = require('../../utils/util.js')
+const network = require('../../utils/network.js')
+var interval = null //倒计时函数
 Page({
   data: {
     y:util.rpxToPx(40),
-    StatusBar: app.globalData.StatusBar,
     CustomBar: app.globalData.CustomBar,
+    getCodeText:'获取验证码',
+    isBindEnabled:false,
     modalName:"ModalGuideInvite,ModalBindPhone,ModalGuideMore,ModalGuideOpen,",
-    isBoundPhone:false,
     list: [
       {
         isOrdered:'',
@@ -23,12 +25,11 @@ Page({
       },
 
     ],
-    userInfo: {},
-    hasUserInfo: false,
-    canIUse: wx.canIUse('button.open-type.getUserInfo')
   },
   customData: {
-    y: 0
+    y: 0,
+    phone:null,
+    code:null,
   },
   bindPhone: function(e) {
     console.log("bindphone");
@@ -80,41 +81,36 @@ Page({
     this.isEnableTabBar()
   },
   onLoad: function () {
-    // if (app.globalData.userInfo) {
-    //   this.setData({
-    //     userInfo: app.globalData.userInfo,
-    //     hasUserInfo: true
-    //   })
-    // } else if (this.data.canIUse){
-    //   // 由于 getUserInfo 是网络请求，可能会在 Page.onLoad 之后才返回
-    //   // 所以此处加入 callback 以防止这种情况
-    //   app.userInfoReadyCallback = res => {
-    //     this.setData({
-    //       userInfo: res.userInfo,
-    //       hasUserInfo: true
-    //     })
-    //   }
-    // } else {
-    //   // 在没有 open-type=getUserInfo 版本的兼容处理
-    //   wx.getUserInfo({
-    //     success: res => {
-    //       app.globalData.userInfo = res.userInfo
-    //       this.setData({
-    //         userInfo: res.userInfo,
-    //         hasUserInfo: true
-    //       })
-    //     }
-    //   })
-    // }
+    this.showOrHideBindPhone();
   },
   showOrHideBindPhone: function () {
-    if (!this.data.isBoundPhone) {
-      this.enableTabBar(false)
-      this.showModal('ModalBindPhone');
-    } else {
-      this.enableTabBar(true)
-      this.hideModal();
-    }
+    const that=this
+    wx.login({
+      success (res) {
+        if (res.code) {
+          console.log('微信登录成功')
+          console.log(res)
+          //发起网络请求
+          network.requestGet(app.url+'/wx/binding/checkBinding', {
+            code: res.code
+          }, function (data) {
+            // {userInfo: null, openid: "oO7s75Bcpea7v0XEqInXMNK87H1A", token: null}
+              wx.setStorageSync('wj_user',data.userInfo);
+              if(!data.userInfo){
+                that.enableTabBar(false)
+                that.showModal('ModalBindPhone');
+              }else {
+                that.enableTabBar(true)
+                that.hideModal();
+              }
+          }, function (msg) {
+
+          })
+        } else {
+          console.log('登录失败！' + res.errMsg)
+        }
+      }
+    })
   },
   onShow(){
 
@@ -128,6 +124,67 @@ Page({
     // this.showModal('ModalGuideMore');
     // this.isEnableTabBar()
 
+  },
+  phoneInput(e){
+    this.customData.phone=e.detail.value
+    this.verifyCodeAndPhone()
+  },
+  codeInput(e){
+    this.customData.code=e.detail.value
+    this.verifyCodeAndPhone()
+  },
+  verifyCodeAndPhone(){
+    if(this.customData.code&&this.customData.phone){
+      this.setData({
+        isBindEnabled:util.isTel(this.customData.phone),
+      })
+
+      return
+    }
+    this.setData({
+      isBindEnabled:false,
+    })
+  },
+
+
+  getVcode(e){
+    const that=this;
+    if(that.data.getCodeText!='获取验证码'){
+      return
+    }
+    if(!util.isTel(this.customData.phone)){
+      app.showToast("请输入正确的手机号")
+      return;
+    }
+
+    var currentTime =61
+    interval = setInterval(function () {
+      currentTime--;
+      that.setData({
+        getCodeText: currentTime + 's'
+      })
+      if (currentTime <= 0) {
+        clearInterval(interval)
+        that.setData({
+          getCodeText: '获取验证码',
+        })
+      }
+    }, 1000)
+    network.requestGet(app.url+'/wx/binding/sendMsg', {
+      userName: that.customData.phone
+    }, function (data) {
+      // {userInfo: null, openid: "oO7s75Bcpea7v0XEqInXMNK87H1A", token: null}
+      wx.setStorageSync('wj_user',data.userInfo);
+      if(!data.userInfo){
+        that.enableTabBar(false)
+        that.showModal('ModalBindPhone');
+      }else {
+        that.enableTabBar(true)
+        that.hideModal();
+      }
+    }, function (msg) {
+
+    })
   },
   showGuideInvite(){
     this.hideModal();
@@ -151,12 +208,4 @@ Page({
     console.log("邀请访客")
 
   },
-  getUserInfo: function(e) {
-    console.log(e)
-    app.globalData.userInfo = e.detail.userInfo
-    this.setData({
-      userInfo: e.detail.userInfo,
-      hasUserInfo: true
-    })
-  }
 })

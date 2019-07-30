@@ -1,6 +1,13 @@
 //app.js
 App({
-
+  url:'http://192.168.1.75:8081',
+  showToast(msg){
+    wx.showToast({
+      title: msg,
+      icon: "none",
+      duration: 2000
+    })
+  },
   onLaunch: function() {
     wx.getSystemInfo({
       success: e => {

@@ -58,3 +58,16 @@
     </view>
     <view class="bg-orange pay-btn" bindtap="toPay">立即支付</view>
 </view>
+<view class="cu-modal full-screen  {{modalName=='ModalAddaddr'?'show':''}}">
+    <view class="cu-dialog dialog">
+        <view class="dialog-title">提示</view>
+        <view class="input-container"><input class="input" placeholder="请输入您的手机号"/></view>
+        <view class="input-container">
+            <input class="input" placeholder-class="placeholder" cursor="0"
+                   placeholder="请输入验证码"/>
+            <view class="get-code">获取验证码</view>
+        </view>
+        <view class="center dialog-button-disabled m-t-40">立即绑定</view>
+        <view class="center dialog-button-enabled m-t-40" bindtap="bindPhone">立即绑定</view>
+    </view>
+</view>
