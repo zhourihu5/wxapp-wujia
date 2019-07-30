@@ -1,0 +1,9 @@
+
+function strSplitToArr(str,token) {
+  return str.split(token);
+
+}
+
+module.exports = {
+  strSplitToArr: strSplitToArr
+};

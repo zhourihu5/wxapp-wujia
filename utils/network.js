@@ -27,8 +27,7 @@ function Promise(fun, options) {
     fun(options);
   });
 }
-
-
+const app = getApp()
 /* 展示进度条的网络请求
 * url:网络请求的url
 * params:请求参数
@@ -46,7 +45,7 @@ function requestLoading(url, data,method, message, successCallBack, failCallBack
         });
     }
     var requestTask = wx.request({
-        url: url,
+        url: app.url+url,
         data: data,
         // header: {
         //     'content-type': 'application/x-www-form-urlencoded',
@@ -56,13 +55,6 @@ function requestLoading(url, data,method, message, successCallBack, failCallBack
         success: function (res) {
             console.log("请求成功")
             console.log(res)
-          // if (-10 == res.data.status) {
-          //   wx.clearStorageSync();
-          //   wx.redirectTo({
-          //     url: '/pages/login/login'
-          //   });
-          //   return false;
-          // }
             wx.hideNavigationBarLoading();
             if (message != "") {
                 wx.hideLoading()
@@ -72,7 +64,7 @@ function requestLoading(url, data,method, message, successCallBack, failCallBack
                 console.log(res.data.data)
                 successCallBack(res.data.data);
             } else {
-                failCallBack(res.data.msg||res.errMsg);
+                failCallBack(res.data.message||res.errMsg);
             }
         },
         fail: function (res) {

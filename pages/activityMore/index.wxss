@@ -1,0 +1,16 @@
+.scroll{
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+.activity-item{
+    width:690rpx;
+    height:568rpx;
+    background:rgba(255,255,255,1);
+    border-radius:16rpx;
+
+    margin: 0 30rpx;
+    margin-bottom: 20rpx;
+}

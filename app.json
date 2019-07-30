@@ -32,6 +32,7 @@
     ]
   },
   "pages": [
+    "pages/activityMore/index",
     "pages/index/index",
     "pages/orderConfirm/index",
     "pages/order/orderDetail/index",
@@ -48,7 +49,6 @@
     "pages/goodsDetail1/index",
     "pages/ucenter/index",
     "pages/msg/index",
-    "pages/activityMore/index",
     "pages/authorize/authorize"
   ],
   "permission": {
@@ -66,6 +66,8 @@
   "usingComponents": {
     "cu-custom": "/colorui/components/cu-custom",
     "refurbish-load": "/refurbish-load/refurbish-load",
+    "activity": "/components/activity/index",
+    "stepper": "/components/stepper/index",
 
 
     "van-action-sheet": "../../dist/action-sheet/index",

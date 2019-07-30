@@ -11,12 +11,10 @@ Page({
             "</div>"
 
     },
-    onLoad: function () {
-        this.setData({
-            logs: (wx.getStorageSync('logs') || []).map(log => {
-                return util.formatTime(new Date(log))
-            })
-        })
+    onLoad: function (query) {
+       let id= query.id
+        console.log('商品详情页接收参数')
+        console.log(query)
     },
 
     toConfirmOrder: function(e){
