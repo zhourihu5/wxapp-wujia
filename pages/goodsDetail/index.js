@@ -49,8 +49,8 @@ Page({
         var minute = Math.floor(milli % (3600 * 1000) / (60 * 1000))
         var second = Math.floor(milli % (1000 * 60) / 1000)
         interval = setInterval(function () {
-            that.data.isBtnEnabled=false
             if(hour==0&&minute==0&&second==0){
+                that.data.isBtnEnabled=false
                 that.setData({
                     hour: '00',
                     minute: '00',
