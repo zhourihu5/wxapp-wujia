@@ -129,7 +129,7 @@ Page({
                     network.requestGet('/wx/binding/checkBinding', {
                         code: res.code
                     }, function (data) {
-                        that.setStorageSync('token',data.token)
+                        wx.setStorageSync('token',data.token)
                         that.setData({
                             communtityName:data.communtityName,
                             list:data.activityList,

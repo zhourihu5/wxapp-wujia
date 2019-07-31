@@ -32,8 +32,8 @@
     ]
   },
   "pages": [
-    "pages/orderConfirm/index",
     "pages/index/index",
+    "pages/orderConfirm/index",
     "pages/goodsDetail/index",
     "pages/activityMore/index",
     "pages/order/orderDetail/index",
