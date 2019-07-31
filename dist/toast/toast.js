@@ -38,7 +38,7 @@ function Toast(toastOptions) {
     };
     queue.push(toast);
     toast.set(options);
-    clearTimeout(toast.timer);
+    clearTimeout(toast.setTimeRemain);
     if (options.duration > 0) {
         toast.timer = setTimeout(() => {
             toast.clear();

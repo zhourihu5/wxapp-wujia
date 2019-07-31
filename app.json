@@ -33,6 +33,7 @@
   },
   "pages": [
     "pages/index/index",
+    "pages/goodsDetail/index",
     "pages/activityMore/index",
     "pages/orderConfirm/index",
     "pages/order/orderDetail/index",
@@ -43,7 +44,6 @@
     "pages/neibourList/index",
     "pages/order/index",
     "pages/paySuccess/index",
-    "pages/goodsDetail/index",
     "pages/baseInfo/index",
     "pages/msg/msgDetail/index",
     "pages/goodsDetail1/index",

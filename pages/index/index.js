@@ -41,6 +41,9 @@ Page({
                     communtityName:data.communtityName,
                     list:data.activityList,
                 })
+                if('0'==data.isBindingFamily){
+                    wx.navigateTo({url:'/pages/neibourList/index'})
+                }
                 wx.setStorageSync('bindingUser', data);
                 this.hideModal();
                 this.showGuideInvite();
@@ -135,6 +138,9 @@ Page({
                             that.enableTabBar(false)
                             that.showModal('ModalBindPhone');
                         } else {
+                            if('0'==data.isBindingFamily){
+                                wx.navigateTo({url:'/pages/neibourList/index'})
+                            }
                             that.enableTabBar(true)
                             that.hideModal();
                         }

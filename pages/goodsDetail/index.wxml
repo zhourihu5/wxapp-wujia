@@ -1,4 +1,5 @@
-<!--index.wxml-->
+<wxs src="../../wxs/utils.wxs" module="utils"/>
+
 <cu-custom style="position: fixed;z-index: 100" isBack="{{true}}">
     <view slot="backText"></view>
     <view slot="content"></view>
@@ -18,59 +19,59 @@
         <view class="price-container">
             <view>
                 <text class="dollor">￥</text>
-                <text class="price-int">12</text>
-                <text class="dot">.</text>
-                <text class="price-float">32</text>
-                <text class="line-through price-old">￥16.8</text>
+                <text class="price-int">{{utils.numBeforeDot(apiData.activity.price)}}</text>
+                <text class="dot" wx:if="{{utils.isNumDot(apiData.activity.price)}}">.</text>
+                <text class="price-float">{{utils.numAfterDot(apiData.activity.price)}}</text>
+                <text class="line-through price-old">￥{{apiData.activity.commodity.initPrice}}</text>
             </view>
             <text class="kaituan-num">10人开团</text>
         </view>
+
         <view class="item1-r">
             <view class="jlhd">距离活动结束仅剩</view>
             <view>
-                <text class="djs">00</text>
+                <text class="djs">{{hour}}</text>
                 <text class="comma">:</text>
-                <text class="djs">36</text>
+                <text class="djs">{{minute}}</text>
                 <text class="comma">:</text>
-                <text class="djs">35.5</text>
+                <text class="djs">{{second}}</text>
             </view>
         </view>
     </view>
     <view class="item2">
-        <view class="hdbt">这里是活动标题，只有十六个字</view>
-        <view class="sell-num">已拼2550件</view>
+        <view class="hdbt">{{apiData.activity.commodity.name}}</view>
+        <view class="sell-num">已拼{{apiData.activity.commodity.salesNum}}件</view>
         <view class="flex align-center">
-            <text class="lable">国外进口</text>
-            <text class="lable">最多四字</text>
-            <text class="lable">最多三个</text>
+            <text wx:for="{{ utils.strSplitToArr(apiData.activity.commodity.labelsName,'|') }}" wx:for-item="labelItem" wx:key="" class="lable">{{labelItem}}</text>
         </view>
     </view>
 
+
     <view class="item3">
-        <view class="flex">
+        <view class="flex justify-between align-center w-p-100">
             <view class="item3-1">
                 <text class="tuan">团</text>
                 <text class="mrzgs">每人最高省</text>
-                <text class="discount-num">8</text>
+                <text class="discount-num">{{apiData.activity.largeMoney}}</text>
                 <text class="mrzgs">元</text>
             </view>
-            <view class="flex-1"></view>
+            <view class="flex align-center text-underline hdsm">活动说明</view>
         </view>
 
         <view class="item3-2">
             <view class="cu-avatar-group item3-2-l">
-                <view class="cu-avatar round round-image" wx:for="{{100}}" wx:key
-                      style="background-image:url(https://ossweb-img.qq.com/images/lol/web201310/skin/big1000{{index+1}}.jpg);"></view>
+                <image class="cu-avatar round round-image" wx:for="{{apiData.userInfoList}}" wx:key
+                      src="{{item.wxCover}}"></image>
             </view>
             <!--                //todo 居于底部-->
-            <view class="item-3-2-r">...等100名用户已参与</view>
+            <view class="item-3-2-r">...等{{100}}名用户已参与</view>
         </view>
-        <view class="center zlyrctghd">再来1人参团该活动商品立减
+        <view class="center zlyrctghd">再来{{1}}人参团该活动商品立减
             <text class="lijian">6</text>
             元
         </view>
     </view>
-    <view class="item4">
+    <view wx:if="{{false}}" class="item4">
         <view class="tgjd">团购进度</view>
         <view class="step-container">
             <view class="step-selected">1</view>
@@ -86,11 +87,15 @@
 
     <view class="item5">
         <view class="item5-1">商品详情</view>
-        <rich-text class="rich-text" nodes="{{  nodes  }}" ></rich-text>
+        <view class="g-form {{index==0?'g-form-b-t':''}}" wx:for="{{10}}" wx:key >
+            <view class="g-f-title">产地</view>
+            <view class="g-f-value">中国</view>
+        </view>
+        <rich-text class="rich-text {{true?'p-t-40':''}}" nodes="{{  apiData.activity.commodity.infos }}" ></rich-text>
     </view>
 
 </view>
 
-<view class="bottom-button" bindtap="toConfirmOrder">去参团</view>
+<view class="bottom-button" bindtap="toConfirmOrder" data-id="{{apiData.activity.id}}">去参团</view>
 
 

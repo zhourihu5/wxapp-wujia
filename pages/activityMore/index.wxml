@@ -1,3 +1,5 @@
+<wxs src="../../wxs/utils.wxs" module="utils"/>
+
 <cu-custom  bgColor="titlebar-white" isBack="{{true}}">
     <view slot="backText"></view>
     <view slot="content">精选活动</view>
@@ -25,22 +27,24 @@
                                 <view class="activity-item m-l-r-30 m-b-20 relative">
                                     <image class="activity-banner"
                                            src="{{item.cover}}"/>
-                                    <view class="m-l-20 m-t-30 m-b-20 activity-title">卫生间纸巾盒免打孔厕所抽纸 1个{{index}}</view>
+                                    <view class="m-l-20 m-t-30 m-b-20 activity-title">{{item.commodity.name}}</view>
                                     <view class="price">
                                         <text class="dollar m-l-20">￥</text>
-                                        <text class="price-integer">12</text>
-                                        <text class="dot">.</text>
-                                        <text class="price-float">32</text>
-                                        <text class="price-old m-l-20 m-r-30">￥16.68</text>
-                                        <text class="sell-num">已抢购2550件</text>
+                                        <text class="price-integer">{{utils.numBeforeDot(item.commodity.price)}}</text>
+                                        <text class="dot" wx:if="{{utils.isNumDot(item.commodity.price)}}">.</text>
+                                        <text class="price-float">{{utils.numAfterDot(item.commodity.price)}}</text>
+                                        <text class="price-old m-l-20 m-r-30">￥{{item.commodity.initPrice}}</text>
+                                        <text class="sell-num">已抢购{{item.commodity.salesNum}}件</text>
                                     </view>
                                     <view class="m-l-20 p-b-30 m-t-20 lable-container">
-<!--                                        <text wx:for="{{ utils.strSplitToArr(item.commodity.labelsName,'|') }}" wx:for-item="labelItem" wx:key="" class="lable">{{labelItem}}</text>-->
-                                        <text wx:for="{{ 3 }}" wx:for-item="labelItem" wx:key="" class="lable">国外进口</text>
+                                        <text wx:for="{{ utils.strSplitToArr(item.commodity.labelsName,'|') }}" wx:for-item="labelItem" wx:key="" class="lable">{{labelItem}}</text>
                                     </view>
 
                                     <view class="go-group-buy" bindtap="goBuy" data-id="{{item.id}}">去拼团</view>
                                 </view>
+
+
+
 
 
             </block>

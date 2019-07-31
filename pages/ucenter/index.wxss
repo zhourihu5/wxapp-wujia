@@ -53,6 +53,8 @@
   height: 94rpx;
   background-color: white;
   padding: 0 30rpx;
+  /*border-top: 2rpx #EBEBEB solid;*/
+
   /*flex-wrap: wrap;*/
   display: flex;
   align-items:center;

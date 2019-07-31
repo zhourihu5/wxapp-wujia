@@ -227,6 +227,17 @@
   padding: 0 20rpx;
   margin-top: 20rpx;
 }
+.hdsm{
+  /*width:96px;*/
+  /*height:34px;*/
+  font-size:24rpx;
+  font-family:PingFangSC-Light;
+  font-weight:300;
+  color:rgba(255,155,29,1);
+  line-height:34rpx;
+
+  justify-content: right;
+}
 .tuan{
   width:32rpx;
   height:32rpx;
@@ -320,12 +331,13 @@
   height:156rpx;
   background:rgba(255,255,255,1);
 
-  margin: 20rpx 0;
+  margin-top: 20rpx ;
   /*padding: 24rpx 42rpx 30rpx 30rpx;*/
 }
 .item5{
   width:750rpx;
   background:rgba(255,255,255,1);
+  margin-top: 20rpx ;
 }
 .item5-1{
   /*width:112px;*/
@@ -337,8 +349,45 @@
   line-height:40rpx;
   padding: 24rpx 30rpx;
 
-  border-bottom: 2rpx rgba(238,238,238,1) solid;
+  /*border-bottom: 2rpx rgba(238,238,238,1) solid;*/
 }
+.g-form{
+  border-bottom:1rpx solid rgba(238,238,238,1);
+  border-left:1rpx solid rgba(238,238,238,1);
+  border-right:1rpx solid rgba(238,238,238,1);
+
+  width: 690rpx;
+  margin: 0 30rpx;
+  display: flex;
+  align-items: center;
+
+  padding: 20rpx 50rpx;
+
+}
+.g-form-b-t{
+  border-top:1rpx solid rgba(238,238,238,1);
+}
+.g-f-title{
+  width: 240rpx;
+  /*height:40px;*/
+  font-size:28rpx;
+  font-family:PingFangSC-Regular;
+  font-weight:400;
+  color:rgba(136,136,136,1);
+  line-height:40rpx;
+
+  overflow: hidden;
+}
+.g-f-value{
+  /*width:56px;*/
+  /*height:40px;*/
+  font-size:28rpx;
+  font-family:PingFangSC-Regular;
+  font-weight:400;
+  color:rgba(34,34,34,1);
+  line-height:40rpx;
+}
+
 .rich-text{
   width: 690rpx;
   margin: auto;

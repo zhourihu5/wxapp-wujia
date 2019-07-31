@@ -273,6 +273,9 @@ tab-bar{
   margin-top: 30rpx;
   margin-bottom: 30rpx;
 }
+.p-t-40{
+  padding-top: 40rpx;
+}
 .m-t-20{
   margin-top: 20rpx;
 }
@@ -331,6 +334,9 @@ tab-bar{
 }
 .no-margin{
   margin: 0 !important;
+}
+.text-underline{
+  text-decoration: underline;
 }
 .relative{
   position: relative;

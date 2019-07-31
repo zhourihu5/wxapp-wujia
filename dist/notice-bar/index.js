@@ -60,7 +60,7 @@ VantComponent({
         });
     },
     destroyed() {
-        this.timer && clearTimeout(this.timer);
+        this.setTimeRemain && clearTimeout(this.setTimeRemain);
     },
     methods: {
         init() {
@@ -91,7 +91,7 @@ VantComponent({
             });
         },
         scroll() {
-            this.timer && clearTimeout(this.timer);
+            this.setTimeRemain && clearTimeout(this.setTimeRemain);
             this.timer = null;
             this.set({
                 animationData: this.resetAnimation
@@ -112,7 +112,7 @@ VantComponent({
             }, this.duration);
         },
         onClickIcon() {
-            this.timer && clearTimeout(this.timer);
+            this.setTimeRemain && clearTimeout(this.setTimeRemain);
             this.timer = null;
             this.set({ show: false });
         },
