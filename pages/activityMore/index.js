@@ -5,7 +5,7 @@ const app = getApp();
 Page({
     data: {
         CustomBar: app.globalData.CustomBar,
-        lowerThreshold:util.rpxToPx(60),
+        lowerThreshold:util.rpxToPx(98),
         list:[],
         isLoading:true,
     },
@@ -65,6 +65,7 @@ Page({
     scrolltoupper(e){
     },
     scrolltolower(e){
+        console.log("scrolltolower")
         var that = this
         if(that.data.isLoading){
             return

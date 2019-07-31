@@ -3,7 +3,33 @@ function strSplitToArr(str,token) {
   return str.split(token);
 
 }
+function numBeforeDot(num) {
+  var str=num.toString()
+  if(isNumDot(str)){
+     return str.split('.')[0];
+
+  }
+  return str;
+
+}
+function isNumDot(num) {
+  var str=num.toString()
+  return str.indexOf(".") != -1;
+}
+function numAfterDot(num) {
+    var str=num.toString()
+  if(isNumDot(str)){
+   // console.log('小数')
+    return str.split('.')[1];
+  }
+
+  return '';
+}
 
 module.exports = {
-  strSplitToArr: strSplitToArr
+  strSplitToArr: strSplitToArr,
+  numBeforeDot: numBeforeDot,
+  isNumDot: isNumDot,
+  numAfterDot: numAfterDot,
+
 };

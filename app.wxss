@@ -350,6 +350,7 @@ tab-bar{
 .wj-loading{
   background:rgba(255,155,29,1);
   color:rgba(255,255,255,1);
+  line-height: 98rpx;
 }
 .icon_arrow_r {
   content: " ";

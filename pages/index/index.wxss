@@ -246,6 +246,13 @@ page{
     color:rgba(254,134,49,1);
     line-height:36rpx;
 }
+.dot{
+    font-size:52rpx;
+    font-family:PingFangSC-Semibold;
+    font-weight:600;
+    color:rgba(254,134,49,1);
+    line-height:48rpx;
+}
 .price-float{
     font-size:36rpx;
     font-family:PingFangSC-Semibold;
