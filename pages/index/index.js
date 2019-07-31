@@ -37,16 +37,17 @@ Page({
                 smsCode: that.customData.code
             },
             function (data) {
+                that.setStorageSync('token',data.token)
                 that.setData({
                     communtityName:data.communtityName,
                     list:data.activityList,
                 })
                 if('0'==data.isBindingFamily){
-                    wx.navigateTo({url:'/pages/neibourList/index'})
+                    wx.redirectTo({url:'/pages/neibourList/index'})
                 }
                 wx.setStorageSync('bindingUser', data);
-                this.hideModal();
-                this.showGuideInvite();
+                that.hideModal();
+                that.showGuideInvite();
             },
             function (msg) {
 
@@ -128,6 +129,7 @@ Page({
                     network.requestGet('/wx/binding/checkBinding', {
                         code: res.code
                     }, function (data) {
+                        that.setStorageSync('token',data.token)
                         that.setData({
                             communtityName:data.communtityName,
                             list:data.activityList,
@@ -139,7 +141,7 @@ Page({
                             that.showModal('ModalBindPhone');
                         } else {
                             if('0'==data.isBindingFamily){
-                                wx.navigateTo({url:'/pages/neibourList/index'})
+                                wx.redirectTo({url:'/pages/neibourList/index'})
                             }
                             that.enableTabBar(true)
                             that.hideModal();

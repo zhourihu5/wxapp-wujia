@@ -32,10 +32,10 @@
     ]
   },
   "pages": [
+    "pages/orderConfirm/index",
     "pages/index/index",
     "pages/goodsDetail/index",
     "pages/activityMore/index",
-    "pages/orderConfirm/index",
     "pages/order/orderDetail/index",
     "pages/yellowPage/index",
     "pages/myAdress/index",

@@ -1,3 +1,5 @@
+<wxs src="../../wxs/utils.wxs" module="utils"/>
+
 <cu-custom bgColor="titlebar-white" isBack="{{true}}">
     <view slot="backText"></view>
     <view slot="content">确认订单</view>
@@ -16,9 +18,15 @@
     </view>
     <navigator url="/pages/myAdress/index" hover-class="navigator-hover"
                open-type="navigateTo">
-        <view class="item-1">
-            <view class="cuIcon-location location"/>
-            <view class="flex-1">请填写收货地址</view>
+        <view class="item-1" bindtap="toAddArr">
+            <view wx:if="{{apiData.address}}" class="flex-1">
+                <view>南十里居4号楼5单元502</view>
+                <view class="uname">葫芦娃15210472201</view>
+            </view>
+            <view wx:else  class="flex flex-1">
+                <view class="cuIcon-location location"/>
+                <view class="">请填写收货地址</view>
+            </view>
             <view class="cuIcon-right right"></view>
         </view>
         <view class="flex justify-between colored-dash">
@@ -28,18 +36,20 @@
 
     <view class="item-2">
         <view class="item-2-1">
-            <image class="image" src="/images/tab_my.png"/>
+            <image class="image" src="{{apiData.cover}}"/>
             <view class="item-2-1-r">
-                <view class="goods-name">商品名称商品名称</view>
+                <view class="goods-name">{{apiData.commodity.name}}</view>
                 <view class="item-2-1-b">
                     <text class="money">￥</text>
-                    <text class="t-b">12</text>
-                    <text class="dot">.</text>
-                    <text class="t-s">32</text>
-                    <text class="line-through t-g">16.8</text>
+                    <text class="t-b">{{utils.numBeforeDot(apiData.price)}}</text>
+                    <text class="dot" wx:if="{{utils.isNumDot(apiData.price)}}">.</text>
+                    <text class="t-s">{{utils.numAfterDot(apiData.price)}}</text>
+                    <text class="line-through t-g">￥{{apiData.commodity.initPrice}}</text>
                 </view>
             </view>
         </view>
+
+
         <view class="item-2-1 m-t-50">
             <image class="icon-pay" src="/images/icon_wechat.png"/>
             <view class="flex-1 wechat-pay">微信支付</view>
@@ -54,20 +64,19 @@
 <view class="bottom">
     <view class="b-l">
         <text class="sfk">实付款：</text>
-        <text class="sfk-value">￥12.32</text>
+        <text class="sfk-value">￥{{apiData.price}}</text>
     </view>
     <view class="bg-orange pay-btn" bindtap="toPay">立即支付</view>
 </view>
+
+
 <view class="cu-modal full-screen  {{modalName=='ModalAddaddr'?'show':''}}">
-    <view class="cu-dialog dialog">
-        <view class="dialog-title">提示</view>
-        <view class="input-container"><input class="input" placeholder="请输入您的手机号"/></view>
-        <view class="input-container">
-            <input class="input" placeholder-class="placeholder" cursor="0"
-                   placeholder="请输入验证码"/>
-            <view class="get-code">获取验证码</view>
+    <view class="cu-dialog dialog relative">
+        <view class="dialog-title m-t-50 m-b-30">提示</view>
+        <view class="msg">未填写收货地址信息，请先添加 地址</view>
+        <view class="dialog-action">
+            <view class="dialog-cancel" bindtap="hideModal" bindtap="hideModal">取消</view>
+            <view class="dialog-add no-border" bindtap="makePhoneCall" data-phone="{{callPhone}}" bindtap="toAddArr">去添加</view>
         </view>
-        <view class="center dialog-button-disabled m-t-40">立即绑定</view>
-        <view class="center dialog-button-enabled m-t-40" bindtap="bindPhone">立即绑定</view>
     </view>
 </view>

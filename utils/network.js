@@ -44,13 +44,16 @@ function requestLoading(url, data,method, message, successCallBack, failCallBack
             title: message,
         });
     }
+    var header=null
+    if(url.startsWith("/v1/")){
+        header={
+            "Authorization":wx.getStorageSync('token')
+        }
+    }
     var requestTask = wx.request({
         url: app.url+url,
         data: data,
-        // header: {
-        //     'content-type': 'application/x-www-form-urlencoded',
-        //     'Cookie': session_id
-        // },
+        header:header,
         method: method,
         success: function (res) {
             console.log("请求成功")
@@ -64,6 +67,12 @@ function requestLoading(url, data,method, message, successCallBack, failCallBack
                 console.log(res.data.data)
                 successCallBack(res.data.data);
             } else {
+                if(res.data&&res.data.code<0){//token is expired
+                    wx.reLaunch({
+                        url:'/pages/index/index'
+                    })
+                    return
+                }
                 failCallBack(res.data.message||res.errMsg);
             }
         },

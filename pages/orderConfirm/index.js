@@ -1,7 +1,9 @@
+const network = require('../../utils/network.js')
+const app=getApp()
 Page({
   data: {
-    active: 0,
-    modalName:'ModalAddaddr',
+    apiData: null,
+    modalName:null,
     steps: [
       {
         text: '参与活动',
@@ -18,14 +20,43 @@ Page({
 
     ]
   },
+  onLoad(query){
+    console.log("接收参数")
+    console.log(query)
+    let that=this
+    let id=query.id
+    network.requestGet('/v1/activity/isOrder',{activityId:id},function (data) {
+      that.setData({
+        apiData:data,
+      })
+    },function (msg) {
 
+    })
+
+  },
+  onShow(){
+    if(this.data.apiData&& !this.data.apiData.address){
+      this.data.apiData.address=app.myAddress
+    }
+
+  },
+  toAddArr(e){
+    this.hideModal(e)
+    wx.navigateTo({
+      // url:'/pages/addAdress/index'
+      url:"/pages/myAdress/index",
+    })
+  },
   nextStep() {
     this.setData({
       active: ++this.data.active % 4
     });
   },
     toPay(e){
-
+      if(!this.data.apiData.address){
+        this.showModal()
+        return
+      }
 
 
       wx.requestPayment({
@@ -40,6 +71,13 @@ Page({
         }
       })
         // wx.navigateTo({url:"/pages/paySuccess/index"})
+    },
+    showModal(){
+      this.setData(
+          {
+            modalName:'ModalAddaddr',
+          }
+      )
     },
     hideModal(e){
       this.setData(

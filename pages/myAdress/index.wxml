@@ -8,14 +8,14 @@
                  bindscrolltoupper='scrolltoupper'
                  bindscrolltolower='scrolltolower'
     >
-    <block wx:for="{{10}}" wx:for-item="item" wx:key="">
+    <block wx:for="{{apiData}}" wx:for-item="item" wx:key="">
     <view class="w-b">
-        <view class="item-c {{index==0?'no-border':''}}">
+        <view class="item-c {{index==0?'no-border':''}}" bindtap="itemClick" data-index="{{index}}">
             <view class="item-c-l">
-                <view>南十里四号楼5单元{{index}}</view>
-                <view class="t-gray-b">葫芦娃13683218402</view>
+                <view>{{item.address}}</view>
+                <view class="t-gray-b">{{item.name}}{{item.phone}}</view>
             </view>
-            <view class="cuIcon-edit" ></view>
+            <view class="cuIcon-edit" bindtap="toEdit"></view>
         </view>
 
     </view>

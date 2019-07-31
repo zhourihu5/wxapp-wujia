@@ -26,6 +26,9 @@ Page({
             },
         ]
     },
+    onLoad(){
+
+    },
     onChange(event) {
         const { key } = event.currentTarget.dataset;
         this.setData({
