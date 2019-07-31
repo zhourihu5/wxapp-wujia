@@ -54,11 +54,24 @@ tab-bar{
 .p-r-30{
   padding-right: 30rpx;
 }
+.m-t-30{
+  margin-top: 30rpx;
+}
+.m-b-20{
+  margin-bottom: 20rpx;
+}
+.m-l-r-30{
+  margin-left: 30rpx;
+  margin-right: 30rpx;
+}
 .m-b-30{
   margin-bottom: 30rpx;
 }
 .p-b-30{
   padding-bottom: 30rpx;
+}
+.m-l-30{
+  margin-left: 30rpx;
 }
 .w-750{
   width: 750rpx;
@@ -116,9 +129,6 @@ tab-bar{
   justify-content: center;
 }
 
-.margin-left-activity-title{
-  margin-left: 20rpx;
-}
 .bottom-button{
   /*width:750px;*/
   height:98rpx;
@@ -337,7 +347,10 @@ tab-bar{
 .clr {
   zoom: 1;
 }
-
+.wj-loading{
+  background:rgba(255,155,29,1);
+  color:rgba(255,255,255,1);
+}
 .icon_arrow_r {
   content: " ";
   display: inline-block;

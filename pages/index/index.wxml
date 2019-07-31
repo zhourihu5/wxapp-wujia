@@ -35,31 +35,31 @@
                 <!--                           open-type="navigateTo">-->
 
 
-                <activity cover="{{item.cover}}"
-                          title="{{item.commodity.name}}"
-                          priceInt="12"
-                          priceFloat="32"
-                          priceOld="16.68"
-                          labelArr="{{ utils.strSplitToArr(item.commodity.labelsName,'|') }}"
-                          salesNum="{{item.commodity.salesNum}}"
-                          dataId="{{item.id}}"/>
+<!--                <activity cover="{{item.cover}}"-->
+<!--                          title="{{item.commodity.name}}"-->
+<!--                          priceInt="12"-->
+<!--                          priceFloat="32"-->
+<!--                          priceOld="16.68"-->
+<!--                          labelArr="{{ utils.strSplitToArr(item.commodity.labelsName,'|') }}"-->
+<!--                          salesNum="{{item.commodity.salesNum}}"-->
+<!--                          dataId="{{item.id}}"/>-->
 
-                <!--                <view class="activity-item">-->
-                <!--                    <image class="activity-banner"-->
-                <!--                           src="{{item.cover}}"/>-->
-                <!--                    <view class="m-l-20 activity-title">{{item.commodity.name}}</view>-->
-                <!--                    <view class="price">-->
-                <!--                        <text class="dollar margin-left-activity-title">￥</text>-->
-                <!--                        <text class="price-integer">12.</text>-->
-                <!--                        <text class="price-float">32</text>-->
-                <!--                        <text class="price-old">￥16.68</text>-->
-                <!--                    </view>-->
-                <!--                    <view class="m-l-20 lable-container">-->
-                <!--                        <text wx:for="{{ utils.strSplitToArr(item.commodity.labelsName,'|') }}" wx:for-item="labelItem" wx:key="" class="lable">{{labelItem}}</text>-->
-                <!--                    </view>-->
-                <!--                    <view class="sell-num m-l-20">已拼{{item.commodity.salesNum}}件</view>-->
-                <!--                    <view class="go-group-buy" bindtap="goBuy" data-id="{{item.id}}">去拼团</view>-->
-                <!--                </view>-->
+                                <view class="activity-item">
+                                    <image class="activity-banner"
+                                           src="{{item.cover}}"/>
+                                    <view class="m-l-20 activity-title">{{item.commodity.name}}</view>
+                                    <view class="price">
+                                        <text class="dollar m-l-20">￥</text>
+                                        <text class="price-integer">12.</text>
+                                        <text class="price-float">32</text>
+                                        <text class="price-old">￥16.68</text>
+                                    </view>
+                                    <view class="m-l-20 lable-container">
+                                        <text wx:for="{{ utils.strSplitToArr(item.commodity.labelsName,'|') }}" wx:for-item="labelItem" wx:key="" class="lable">{{labelItem}}</text>
+                                    </view>
+                                    <view class="sell-num m-l-20">已拼{{item.commodity.salesNum}}件</view>
+                                    <view class="go-group-buy" bindtap="goBuy" data-id="{{item.id}}">去拼团</view>
+                                </view>
 
 
                 <!--                </navigator>-->

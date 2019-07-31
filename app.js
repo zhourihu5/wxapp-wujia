@@ -1,6 +1,7 @@
 //app.js
 App({
   url:'http://192.168.1.75:8081',
+  // url:'http://192.168.1.100:8081',
   isAuthorized:false,
   showToast(msg){
     wx.showToast({

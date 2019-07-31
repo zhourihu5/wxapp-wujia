@@ -1,10 +1,15 @@
 <view class="step-container">
-  <view class="step-selected">1</view>
-  <view class="step-selected-text">参与活动</view>
-  <view class="dash-line-selected"></view>
-  <view class="step-unselected">2</view>
-  <view class="step-unselected-text">确认订单</view>
-  <view class="dash-line"></view>
-  <view class="step-unselected">3</view>
-  <view class="step-unselected-text">团购成功</view>
+  <view class="{{step1Checked?'step-selected':'step-unselected'}}">1</view>
+  <view class="{{step1Checked?'step-selected-text':'step-unselected-text'}}">{{step1Text}}</view>
+  <view class="{{step1Checked?'dash-line-selected':'dash-line'}}"></view>
+
+  <view class="{{step2Checked?'step-selected':'step-unselected'}}">2</view>
+  <view class="{{step2Checked?'step-selected-text':'step-unselected-text'}}">{{step2Text}}</view>
+  <view class="{{step2Checked?'dash-line-selected':'dash-line'}}"></view>
+
+  <view class="{{step3Checked?'step-selected':'step-unselected'}}">3</view>
+  <view class="{{step3Checked?'step-selected-text':'step-unselected-text'}}">{{step3Text}}</view>
+<!--  <view class="{{step3Checked?'dash-line-selected':'dash-line'}}"></view>-->
+
+
 </view>

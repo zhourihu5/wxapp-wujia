@@ -3,47 +3,48 @@
     <view slot="content">精选活动</view>
 </cu-custom>
 <view class="container p-l-r-30">
-    <stepper></stepper>
+    <stepper step1Text="参与活动" step2Text="团购满减" step3Text="团购截至"
+             step1Checked="{{true}}" step2Checked="{{true}}" step3Checked="{{true}}"/>
 
     <scroll-view scroll-y  class="scroll" style="top: calc( {{CustomBar}}px + 112rpx )"
                  bindscrolltoupper='scrolltoupper'
                  bindscrolltolower='scrolltolower'
+                 lower-threshold="{{lowerThreshold}}"
     >
             <block wx:for="{{list}}" wx:key="">
-                <!--                <navigator class="activity-list"-->
-                <!--                           url="/pages/goodsDetail/index" hover-class="navigator-hover"-->
-                <!--                           open-type="navigateTo">-->
+
+<!--                <activity cover="{{item.cover}}"-->
+<!--                          title="{{item.commodity.name}}"-->
+<!--                          priceInt="12"-->
+<!--                          priceFloat="32"-->
+<!--                          priceOld="16.68"-->
+<!--                          labelArr="{{ utils.strSplitToArr(item.commodity.labelsName,'|') }}"-->
+<!--                          salesNum="{{item.commodity.salesNum}}"-->
+<!--                          dataId="{{item.id}}"/>-->
+
+                                <view class="activity-item m-l-r-30 m-b-20 relative">
+                                    <image class="activity-banner"
+                                           src="{{item.cover}}"/>
+                                    <view class="m-l-20 m-t-30 m-b-20 activity-title">卫生间纸巾盒免打孔厕所抽纸 1个{{index}}</view>
+                                    <view class="price">
+                                        <text class="dollar m-l-20">￥</text>
+                                        <text class="price-integer">12</text>
+                                        <text class="dot">.</text>
+                                        <text class="price-float">32</text>
+                                        <text class="price-old m-l-20 m-r-30">￥16.68</text>
+                                        <text class="sell-num">已抢购2550件</text>
+                                    </view>
+                                    <view class="m-l-20 p-b-30 m-t-20 lable-container">
+<!--                                        <text wx:for="{{ utils.strSplitToArr(item.commodity.labelsName,'|') }}" wx:for-item="labelItem" wx:key="" class="lable">{{labelItem}}</text>-->
+                                        <text wx:for="{{ 3 }}" wx:for-item="labelItem" wx:key="" class="lable">国外进口</text>
+                                    </view>
+
+                                    <view class="go-group-buy" bindtap="goBuy" data-id="{{item.id}}">去拼团</view>
+                                </view>
 
 
-                <activity cover="{{item.cover}}"
-                          title="{{item.commodity.name}}"
-                          priceInt="12"
-                          priceFloat="32"
-                          priceOld="16.68"
-                          labelArr="{{ utils.strSplitToArr(item.commodity.labelsName,'|') }}"
-                          salesNum="{{item.commodity.salesNum}}"
-                          dataId="{{item.id}}"/>
-
-                <!--                <view class="activity-item">-->
-                <!--                    <image class="activity-banner"-->
-                <!--                           src="{{item.cover}}"/>-->
-                <!--                    <view class="m-l-20 activity-title">{{item.commodity.name}}</view>-->
-                <!--                    <view class="price">-->
-                <!--                        <text class="dollar margin-left-activity-title">￥</text>-->
-                <!--                        <text class="price-integer">12.</text>-->
-                <!--                        <text class="price-float">32</text>-->
-                <!--                        <text class="price-old">￥16.68</text>-->
-                <!--                    </view>-->
-                <!--                    <view class="m-l-20 lable-container">-->
-                <!--                        <text wx:for="{{ utils.strSplitToArr(item.commodity.labelsName,'|') }}" wx:for-item="labelItem" wx:key="" class="lable">{{labelItem}}</text>-->
-                <!--                    </view>-->
-                <!--                    <view class="sell-num m-l-20">已拼{{item.commodity.salesNum}}件</view>-->
-                <!--                    <view class="go-group-buy" bindtap="goBuy" data-id="{{item.id}}">去拼团</view>-->
-                <!--                </view>-->
-
-
-                <!--                </navigator>-->
             </block>
+        <view class="cu-load wj-loading {{isLoading?'loading':'over'}}"></view>
     </scroll-view>
 
 </view>
