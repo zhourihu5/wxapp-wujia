@@ -18,6 +18,9 @@ const app = getApp()
 function rpxToPx(x){
   return  x*app.globalData.windowWidth/750;
 }
+function lowerThreshold(){
+  return  rpxToPx(98);
+}
 function isTel(value){
   var reg = /^((13\d|14[57]|15\d|16\d|17[13678]|18\d)\d{8}|170\d{8})$/;
   if (reg.test(value) === false) {
@@ -26,8 +29,10 @@ function isTel(value){
   return true;
 }
 
+
 module.exports = {
   formatTime: formatTime,
   rpxToPx:rpxToPx,
-  isTel:isTel
+  isTel:isTel,
+  lowerThreshold:lowerThreshold
 }

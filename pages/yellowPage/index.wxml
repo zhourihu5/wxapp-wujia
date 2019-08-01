@@ -1,56 +1,24 @@
-<cu-custom  bgColor="titlebar-white" isBack="{{true}}">
+<cu-custom bgColor="titlebar-white" isBack="{{true}}">
     <view slot="backText"></view>
     <view slot="content">社区黄页</view>
 </cu-custom>
 <view class="container body">
-    <view class="item-gray">物业信息</view>
-    <view class="w-c">
-        <view class="item-c border-bottom">
-            <view class="item-c-l">物业电话</view>
-            <view class="phone" bindtap="showModal" data-phone="{{'15081387317'}}">15081387317</view>
+    <block wx:for="{{apiData}}" wx:for-item="item" wx:key="">
+        <view class="item-gray">{{item.name}}信息</view>
+        <view class="w-c">
+            <view class="item-c border-bottom">
+                <view class="item-c-l">{{item.name}}电话</view>
+                <view class="phone" bindtap="showModal" data-phone="{{item.phone}}">{{item.phone}}</view>
+            </view>
+            <view class="item-c">
+                <view class="item-c-l">{{item.name}}地址</view>
+                <view class="item-c-r">{{item.address}}</view>
+            </view>
         </view>
-        <view class="item-c">
-            <view class="item-c-l">物业地址</view>
-            <view class="item-c-r">天通苑按时抵扣积分时代峰峻的</view>
-        </view>
-    </view>
-    <view class="item-gray">派出所信息</view>
-    <view class="w-c">
-        <view class="item-c border-bottom">
-            <view class="item-c-l">派出所电话</view>
-            <view class="phone">010-7862594</view>
-        </view>
-        <view class="item-c">
-            <view class="item-c-l">派出所地址</view>
-            <view class="item-c-r">阿达水电费是大法师的第三方</view>
-        </view>
-    </view>
-    <view class="item-gray">幼儿园信息</view>
-    <view class="w-c">
-        <view class="item-c border-bottom">
-            <view class="item-c-l">幼儿园电话</view>
-            <view class="phone">010-7862594</view>
-        </view>
-        <view class="item-c">
-            <view class="item-c-l">幼儿园地址</view>
-            <view class="item-c-r">大所发生的是打发斯蒂芬</view>
-        </view>
-    </view>
-    <view class="item-gray">水站信息</view>
-    <view class="w-c">
-        <view class="item-c border-bottom">
-            <view class="item-c-l">水站电话</view>
-            <view class="phone">010-7862594</view>
-        </view>
-        <view class="item-c">
-            <view class="item-c-l">水站地址</view>
-            <view class="item-c-r">大法师的的沙发斯蒂芬阿斯顿发斯蒂芬</view>
-        </view>
-    </view>
-
+    </block>
 </view>
 <view class="cu-modal full-screen  {{modalName=='ModalCallPhone'?'show':''}}">
-    <view class="cu-dialog dialog">
+    <view class="cu-dialog dialog relative">
         <view class="dialog-title">{{callPhone}}</view>
         <view class="dialog-action">
             <view class="dialog-button" bindtap="hideModal">取消</view>

@@ -57,19 +57,26 @@ Page({
         this.showModal()
         return
       }
+      network.requestPost('/v1/order/saveOrder',{},function (data) {
+
+        wx.requestPayment({
+          timeStamp: '',
+          nonceStr: '',
+          package: '',
+          signType: 'MD5',
+          paySign: '',
+          success (res) {wx.navigateTo({url:"/pages/paySuccess/index"}) },
+          fail (res) {
+
+          }
+        })
 
 
-      wx.requestPayment({
-        timeStamp: '',
-        nonceStr: '',
-        package: '',
-        signType: 'MD5',
-        paySign: '',
-        success (res) {wx.navigateTo({url:"/pages/paySuccess/index"}) },
-        fail (res) {
-          wx.navigateTo({url:"/pages/paySuccess/index"})
-        }
+      },function (msg) {
+
       })
+
+
         // wx.navigateTo({url:"/pages/paySuccess/index"})
     },
     showModal(){

@@ -9,10 +9,12 @@ Page({
     data: {
         StatusBar: app.globalData.StatusBar,
         apiData:null,
-        hour:null,
-        minute:null,
-        second:null,
+        hour: '00',
+        minute: '00',
+        second: '00',
         isBtnEnabled:true,
+        modalName:null,
+        formatTitle:['产地','规格','重量','包装','保质期','贮存方式'],
     },
     setTimeRemain: function (pDate) {
         var that=this
@@ -96,6 +98,16 @@ Page({
 
             })
     },
+    hideModal(e){
+        this.setData({
+            modalName:null,
+        })
+    },
+    showModal(e){
+        this.setData({
+            modalName:'ModalIntro',
+        })
+    },
     formatTime(num){
         if(num<10){
             return '0'+num;
@@ -107,6 +119,10 @@ Page({
     },
 
     toConfirmOrder: function(e){
+        if(!this.data.apiData){
+            app.showToast('数据正在加载中，请稍等')
+            return
+        }
         if(!this.data.isBtnEnabled){
             app.showToast('活动已结束，下次再来吧')
             return

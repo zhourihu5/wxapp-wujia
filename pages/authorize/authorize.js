@@ -14,15 +14,15 @@ Page({
      * 生命周期函数--监听页面加载
      */
     onLoad: function (options) {
-        //清除session
-        // wx.setStorageSync('session_id', '');
     },
     bindGetUserInfo: function (e) {
         var that = this;
         wx.getUserInfo({
             withCredentials: true,
             success: function (res_user) {
-                wx.setStorageSync('wx_user', res_user);
+                // wx.setStorageSync('wx_user', res_user);
+                app.isAuthorized=true
+                app.wxUserInfo=res_user
                 wx.reLaunch({
                     url: '/pages/index/index'
                 });

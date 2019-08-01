@@ -5,7 +5,7 @@ const app = getApp();
 Page({
     data: {
         CustomBar: app.globalData.CustomBar,
-        lowerThreshold:util.rpxToPx(98),
+        lowerThreshold:util.lowerThreshold(),
         list:[],
         isLoading:true,
     },

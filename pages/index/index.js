@@ -27,7 +27,7 @@ Page({
         if (!this.data.isBindEnabled) {
             return
         }
-        var userInfo =that.customData.wx_user||wx.getStorageSync('wx_user')
+        var userInfo =that.customData.wx_user||app.wxUserInfo
         network.requestPost('/wx/binding/bindingUser',
             {
                 cover: userInfo && userInfo.userInfo && userInfo.userInfo.avatarUrl,
@@ -37,7 +37,8 @@ Page({
                 smsCode: that.customData.code
             },
             function (data) {
-                that.setStorageSync('token',data.token)
+                app.token=data.token
+                app.communtityId=data.communtityList[0].id
                 that.setData({
                     communtityName:data.communtityName,
                     list:data.activityList,
@@ -45,7 +46,6 @@ Page({
                 if('0'==data.isBindingFamily){
                     wx.redirectTo({url:'/pages/neibourList/index'})
                 }
-                wx.setStorageSync('bindingUser', data);
                 that.hideModal();
                 that.showGuideInvite();
             },
@@ -108,7 +108,7 @@ Page({
         wx.getUserInfo({
             withCredentials: true,
             success: function (res_user) {
-                wx.setStorageSync('wx_user', res_user);
+                app.wxUserInfo=res_user
                 that.setData({
                     isAuthorized:true
                 })
@@ -129,13 +129,13 @@ Page({
                     network.requestGet('/wx/binding/checkBinding', {
                         code: res.code
                     }, function (data) {
-                        wx.setStorageSync('token',data.token)
+                        app.token=data.token
+                        app.communtityId=data.communtityList[0].id
                         that.setData({
                             communtityName:data.communtityName,
                             list:data.activityList,
                         })
                         that.customData.openid = data.openid
-                        wx.setStorageSync('checkBinding', data);
                         if (!data.userInfo) {
                             that.enableTabBar(false)
                             that.showModal('ModalBindPhone');
@@ -212,8 +212,6 @@ Page({
         network.requestGet('/wx/binding/sendMsg', {
             userName: that.customData.phone
         }, function (data) {
-            // {userInfo: null, openid: "oO7s75Bcpea7v0XEqInXMNK87H1A", token: null}
-            wx.setStorageSync('wj_user', data.userInfo);
             if (!data.userInfo) {
                 that.enableTabBar(false)
                 that.showModal('ModalBindPhone');

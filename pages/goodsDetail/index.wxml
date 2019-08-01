@@ -9,9 +9,9 @@
     <!-- wxml -->
     <swiper class='u-wrp-bnr'
             indicator-dots='true' autoplay='true' interval='5000' duration='1000' circular='true'>
-        <block wx:for="1234" wx:for-index="index">
+        <block wx:for="{{apiData.commodity.attaInfos}}" wx:for-index="index">
             <swiper-item>
-                <image src='/images/tab_my.png' class='u-img-slide' mode='aspectFill'></image>
+                <image src='{{item.attaAddr}}' class='u-img-slide' mode='aspectFill'></image>
             </swiper-item>
         </block>
     </swiper>
@@ -24,7 +24,7 @@
                 <text class="price-float">{{utils.numAfterDot(apiData.activity.price)}}</text>
                 <text class="line-through price-old">￥{{apiData.activity.commodity.initPrice}}</text>
             </view>
-            <text class="kaituan-num">10人开团</text>
+            <text wx:if="{{false}}" class="kaituan-num">10人开团</text>
         </view>
 
         <view class="item1-r">
@@ -55,7 +55,7 @@
                 <text class="discount-num">{{apiData.activity.largeMoney}}</text>
                 <text class="mrzgs">元</text>
             </view>
-            <view class="flex align-center text-underline hdsm">活动说明</view>
+            <view class="flex align-center text-underline hdsm" bindtap="showModal">活动说明</view>
         </view>
 
         <view class="item3-2">
@@ -67,7 +67,7 @@
             <view class="item-3-2-r">...等{{100}}名用户已参与</view>
         </view>
         <view class="center zlyrctghd">再来{{1}}人参团该活动商品立减
-            <text class="lijian">6</text>
+            <text class="lijian">{{6}}</text>
             元
         </view>
     </view>
@@ -87,9 +87,9 @@
 
     <view class="item5">
         <view class="item5-1">商品详情</view>
-        <view class="g-form {{index==0?'g-form-b-t':''}}" wx:for="{{10}}" wx:key >
-            <view class="g-f-title">产地</view>
-            <view class="g-f-value">中国</view>
+        <view class="g-form {{index==0?'g-form-b-t':''}}" wx:for="{{formatTitle}}" wx:key >
+            <view class="g-f-title">{{item}}</view>
+            <view class="g-f-value">{{apiData.commodity.formatVals[index]}}</view>
         </view>
         <rich-text class="rich-text {{true?'p-t-40':''}}" nodes="{{  apiData.activity.commodity.infos }}" ></rich-text>
     </view>
@@ -98,4 +98,35 @@
 
 <view class="bottom-button" bindtap="toConfirmOrder" data-id="{{apiData.activity.id}}">去参团</view>
 
-
+<view class="cu-modal full-screen  {{modalName=='ModalIntro'?'show':''}}">
+    <view class="cu-dialog dialog relative">
+        <view class="dialog-title">活动说明</view>
+        <view class="dialog-content">
+            <view>
+                <view class="d-c-t">返现支持形式：</view>
+                <view class="d-c-c p-b-30">
+                    仅限通过“微信支付 ”支付方式付款，给予相应的团购返现；微信卖家“自有微信支付、货到付款、找人代付、送礼”均不支持团购返现。
+                </view>
+            </view>
+            <view>
+                <view class="d-c-t">返现方式：</view>
+                <view class="d-c-c p-b-30">
+                    以部分退款的形式原路返给买家的，满足条件后，就会部分退款相应金额给买家。
+                </view>
+            </view>
+            <view>
+                <view class="d-c-t">库存：</view>
+                <view class="d-c-c p-b-30">
+                    订单退款，已售出件数，不扣除退款订单，不影响满足条件的团购订单返现
+                </view>
+            </view>
+            <view>
+                <view class="d-c-t">返现条件：</view>
+                <view class="d-c-c p-b-30">
+                    卖家可设置售出达到n件，每件返现m元（最低1元，且为整数），最多可设置5条规则；（建议卖家合理设置）
+                </view>
+            </view>
+        </view>
+        <view class="dialog-action" bindtap="hideModal">我知道了</view>
+    </view>
+</view>

@@ -47,7 +47,7 @@ function requestLoading(url, data,method, message, successCallBack, failCallBack
     var header=null
     if(url.startsWith("/v1/")){
         header={
-            "Authorization":wx.getStorageSync('token')
+            "Authorization":app.token
         }
     }
     var requestTask = wx.request({

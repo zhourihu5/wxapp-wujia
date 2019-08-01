@@ -2,8 +2,11 @@
 App({
   url:'http://192.168.1.75:8081',
   // url:'http://192.168.1.100:8081',
+  token:null,
   isAuthorized:false,
   myAddress:null,//我的收获地址
+  wxUserInfo:null,
+  communtityId:null,
   showToast(msg){
     wx.showToast({
       title: msg,
@@ -36,14 +39,21 @@ App({
       success(res) {
         if (res.authSetting['scope.userInfo']) { // 已经授权，可以直接调用 getUserInfo 获取头像昵称
           that.isAuthorized=true
-          // wx.reLaunch({
-          //   url: '/pages/index/index'
-          // });
+          // 必须是在用户已经授权的情况下调用
+          wx.getUserInfo({
+            success: function(res) {
+              that.wxUserInfo=res
+              // var userInfo = res.userInfo
+              // var nickName = userInfo.nickName
+              // var avatarUrl = userInfo.avatarUrl
+              // var gender = userInfo.gender //性别 0：未知、1：男、2：女
+              // var province = userInfo.province
+              // var city = userInfo.city
+              // var country = userInfo.country
+            }
+          })
         } else {
           that.isAuthorized=false
-          // wx.reLaunch({ //当用户未授权过，进入授权界面
-          //   url: '/pages/authorize/authorize'
-          // });
         }
       }
     })

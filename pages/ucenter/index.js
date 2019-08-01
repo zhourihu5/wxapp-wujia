@@ -1,6 +1,6 @@
 //index.js
 const util = require('../../utils/util.js')
-
+const app=getApp()
 Page({
     data: {
         items: [
@@ -29,10 +29,9 @@ Page({
             this.getTabBar()) {
             this.getTabBar().init()
         }
-        console.log(wx.getStorageSync('wx_user'))
     },
     onLoad: function () {
-        var userInfo=wx.getStorageSync('wx_user')
+        var userInfo=app.wxUserInfo
         this.setData({
             nickName:userInfo&&userInfo.userInfo&&userInfo.userInfo.nickName,
             avatarUrl:userInfo&&userInfo.userInfo&&userInfo.userInfo.avatarUrl,

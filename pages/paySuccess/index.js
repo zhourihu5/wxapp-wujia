@@ -25,11 +25,6 @@ Page({
         ]
     },
     onLoad: function () {
-        this.setData({
-            logs: (wx.getStorageSync('logs') || []).map(log => {
-                return util.formatTime(new Date(log))
-            })
-        })
     },
     toConfirmOrder: function(e){
         wx.navigateTo({url:"/pages/orderConfirm/index"})

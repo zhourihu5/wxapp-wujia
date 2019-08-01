@@ -1,0 +1,43 @@
+page{
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.body{
+  width:750rpx;
+  height:100%;
+  background:rgba(246,247,249,1);
+  /*border-radius:4rpx;*/
+
+  display: flex;
+  flex-direction: column;
+
+  padding:0 30rpx;
+
+}
+.img-content{
+  flex: 1;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.img{
+  width: 422rpx;
+  height: 228rpx;
+  margin-bottom: 28rpx;
+}
+.img-desc{
+  /*width:280px;*/
+  /*height:88px;*/
+  font-size:28rpx;
+  font-family:PingFangSC-Regular;
+  font-weight:400;
+  color:rgba(85,85,85,1);
+  line-height:44rpx;
+
+
+}
+

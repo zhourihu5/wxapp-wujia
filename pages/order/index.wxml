@@ -11,11 +11,13 @@
               border="{{false}}"
               line-class="tab-line"
               color="rgba(255,155,29,1)"
-              lineWidth="17" swipeable swipeThreshold="5">
+              lineWidth="17" swipeable swipeThreshold="5"
+              bind:change="onChange"
+    >
         <van-tab
                 wx:for="{{ tabs }}"
                 wx:for-item="tab"
-                wx:key="index"
+                wx:for-index="tabIndex"
                 title="{{tab.title}}"
                 custom-class="custom-tab">
 <!--                <view class="list">-->
@@ -26,7 +28,7 @@
                             bindscrolltoupper='scrolltoupper'
                             bindscrolltolower='scrolltolower'
                     >
-                    <block wx:for="{{tab.data}}" wx:for-item="data-item" wx:key="">
+                    <block wx:for="{{tabData[tabIndex]}}" wx:for-item="item" wx:key="">
                         <view class="item-content {{index==0?'p-t-20':''}}">
                             <navigator class="order-container" url="/pages/order/orderDetail/index" hover-class="navigator-hover"
                                        open-type="navigateTo">
@@ -41,7 +43,7 @@
                                 <view class="order-middle-item">
                                     <image class="order-image" src="/images/tab_my.png"/>
                                     <view class="order-text">
-                                        <text class="order-name">卫生间直接打的舒</text>
+                                        <text class="order-name">卫生间直接打的舒{{index}}</text>
                                         <text class="order-name-ygq">已过期的商品名称</text>
                                         <view class="order-price">
                                             <text class="money">￥</text>
@@ -64,6 +66,7 @@
                             </navigator>
                         </view>
                     </block>
+                         <view class="cu-load wj-loading {{isLoading?'loading':'over'}}"></view>
                     </scroll-view>
 <!--                </view>-->
 
