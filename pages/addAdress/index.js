@@ -103,7 +103,9 @@ Page({
             this.hideModal()
             var showAddress=''
             var item=null
-            for(item in this.data.tabs){
+            var i=0
+            for(i=0;i<this.data.tabs.length;i++){
+                item=this.data.tabs[i]
                 showAddress+=item.data[item.selected].name
             }
             this.setData({

@@ -23,7 +23,8 @@ Page({
                 selected:null,
             },
 
-        ]
+        ],
+
     },
     onLoad(){
         var pages = getCurrentPages() // 获取栈中全部界面的, 然后把数据写入相应界面
@@ -32,6 +33,11 @@ Page({
         this.setData({
             currentCommunity:prePage.data.currentCommunity
         })
+        console.log('前一个页面选择的数据')
+        console.log(this.data.currentCommunity)
+        prePage.data.currentCommunity=null
+        this.data.flagList=this.data.currentCommunity.flag.split('-')
+        this.loadAddrData()
     },
     relationInput(e){
         this.data.relation = e.detail.value
@@ -93,12 +99,15 @@ Page({
             return;
         }
         this.data.familyId= this.data.tabs[this.data.active].data[index].id
+        this.data.currentCode= this.data.tabs[this.data.active].data[index].code
         this.data.tabs[this.data.active].selected=index
         if(this.data.flagList.length==this.data.active+1){
             this.hideModal()
             var showAddress=this.data.currentCommunity.name
+            var i=0
             var item=null
-            for(item in this.data.tabs){
+            for(i=0;i<this.data.tabs.length; i++){
+                item=this.data.tabs[i]
                 showAddress+=item.data[item.selected].name
             }
             this.setData({
@@ -164,11 +173,6 @@ Page({
 
         })
 
-    },
-    showModalCommnunity(e){
-        this.setData({
-            modalName:'communityModal'
-        })
     },
     showModalDoorNum(e){
         this.setData({

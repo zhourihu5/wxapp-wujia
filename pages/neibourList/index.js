@@ -66,9 +66,9 @@ Page({
       })
       if(data.length>=that.data.pageSize){
         that.pageNum++
-        this.data.hasNextPage=true
+        that.data.hasNextPage=true
       }else {
-        this.data.hasNextPage=false
+        that.data.hasNextPage=false
       }
       that.data.isLoading=false
     },function (msg) {
