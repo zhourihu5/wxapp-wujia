@@ -6,7 +6,8 @@
     <view class="w-b">
         <view class="item no-border">
             <view class="item-l">收货人</view>
-            <input class="input" placeholder-class="placeholder"  placeholder="请填写收货人姓名"/>
+            <input class="input" placeholder-class="placeholder"  placeholder="请填写收货人姓名"
+                   bindinput="nameInput"  />
         </view>
         <view class="line-1">
             <view class="item-l"></view>
@@ -17,38 +18,38 @@
             <view class="item-l"></view>
             <view class="item-r">
                 <van-radio-group
-                        value="{{ radio1 }}"
-                        data-key="radio1"
+                        value="{{ sex }}"
                         class="demo-radio-group"
                         custom-class="demo-radio-group"
-                        bind:change="onChange"
+                        bind:change="onChangeRadio"
                 >
-                    <van-radio name="1" checkedColor="#FF951C" custom-class="demo-radio">女士</van-radio>
-                    <van-radio name="2" checkedColor="#FF951C" custom-class="demo-radio">男士</van-radio>
+                    <van-radio name="女" checkedColor="#FF951C" custom-class="demo-radio">女士</van-radio>
+                    <van-radio name="男" checkedColor="#FF951C" custom-class="demo-radio">男士</van-radio>
                 </van-radio-group>
             </view>
         </view>
         <view class="item">
             <view class="item-l">手机号</view>
-            <input class="input" placeholder-class="placeholder"  placeholder="请填写收货人手机号" />
+            <input class="input" placeholder-class="placeholder"  placeholder="请填写收货人手机号"
+                   bindinput="phoneInput"/>
         </view>
-        <view class="item">
-            <view class="item-l">收货地址</view>
-            <input class="input" placeholder-class="placeholder"  value="天通苑小区"/>
+        <view class="item" bindtap="showModalCommnunity">
+            <view class="item-l" >收货地址</view>
+            <input class="item-r input" placeholder-class="placeholder" placeholder="请选择收货地址"
+                   disabled="disabled" value="{{currentCommunity.name}}"/>
             <view class="icon_arrow_r"></view>
         </view>
-        <view class="item no-border" bindtap="showModal">
+        <view class="item no-border" bindtap="showModalDoorNum">
             <view class="item-l">门牌号</view>
-            <input class="item-r input" placeholder="请选择期区、楼号、单元号、房间号" disabled="disabled"/>
+            <input class="item-r input" placeholder="请选择期区、楼号、单元号、房间号"
+                   disabled="disabled" value="{{showAddress}}"/>
             <view class="icon_arrow_r"></view>
         </view>
     </view>
-    <view class="b-b" bindtap="onClickSave">保存并使用</view>
-    <view class="b-b-disabled">保存并使用</view>
-
+    <view class="{{isBtnEnabled?'b-b':'b-b-disabled'}}" bindtap="onClickSave">保存并使用</view>
 
 </view>
-<view class="cu-modal bottom-modal {{modalName=='bottomModal'?'show':''}}">
+<view class="cu-modal bottom-modal {{modalName=='doorNumModal'?'show':''}}">
     <view class="cu-dialog bottom-dialog">
         <view class="cu-bar d-t-bar">
             <view class="psz">配送至</view>
@@ -61,11 +62,14 @@
                   border="{{false}}"
                   line-class="tab-line"
                   color="rgba(255,155,29,1)"
-                  lineWidth="17"  swipeThreshold="5">
+                  lineWidth="17"  swipeThreshold="5"
+                  active="{{active}}"
+                  bind:change="tabChange">
             <van-tab
                     wx:for="{{ tabs }}"
                     wx:for-item="tab"
-                    wx:key="tabIndex"
+                    wx:for-index="tabIndex"
+                    wx:key=""
                     title="{{tab.title}}"
                     custom-class="custom-tab">
                 <!--                <view class="list">-->
@@ -74,13 +78,13 @@
                              bindscrolltoupper='scrolltoupper'
                              bindscrolltolower='scrolltolower'
                 >
-                    <block wx:for="{{tab.data}}" wx:for-item="data-item" wx:key="">
-                        <view class="item-area area-checked">
-                            <view class="flex" wx:if="{{index==0}}">
+                    <block wx:for="{{tab.data}}" wx:for-item="item" wx:key="">
+                        <view class="item-area area-checked" data-index="{{index}}"  bindtap="itemClicked" >
+                            <view class="flex" wx:if="{{index==tab.selected}}">
                                 <view class="cuIcon-check checkIcon"></view>
-                                <view class="area-checked">东一区{{index}}</view>
+                                <view class="area-checked">{{item.name}}</view>
                             </view>
-                            <view wx:else class="area-unchecked">西二区{{index}}</view>
+                            <view wx:else class="area-unchecked">{{item.name}}</view>
                         </view>
 
                     </block>
@@ -90,5 +94,20 @@
 
             </van-tab>
         </van-tabs>
+    </view>
+</view>
+<view class="cu-modal bottom-modal {{modalName=='communityModal'?'show':''}}">
+    <view class="cu-dialog bottom-dialog">
+        <view class="cu-bar d-t-bar">
+            <view class="psz">请选择收货地址</view>
+            <view class="cuIcon-close" bindtap="hideModal"></view>
+        </view>
+        <view>
+            <picker-view indicator-style="height: 50px;" style="width: 100%; height: 300px;" value="{{value}}" bindchange="bindChange">
+                <picker-view-column>
+                    <view wx:for="{{communityList}}" style="line-height: 50px">{{item.name}}</view>
+                </picker-view-column>
+            </picker-view>
+        </view>
     </view>
 </view>

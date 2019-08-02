@@ -18,7 +18,7 @@ Page({
   showModal(e){
     this.setData({
       modalName:'ModalCallPhone',
-      callPhone:e.target.dataset.phone,
+      callPhone:e.currentTarget.dataset.phone,
     })
   },
   hideModal(e){

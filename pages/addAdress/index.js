@@ -1,46 +1,212 @@
 //index.js
-
+const network = require('../../utils/network.js')
+const util = require('../../utils/util.js')
+const app=getApp()
 Page({
     data: {
         modalName:'bottomModal',
+        communityList:null,
+        currentCommunity:null,
+        value: [0, ],//社区位置
+        flagList:null,
+        sex:null,
+        receiveName:null,
+        phone:null,
+        loadingDoorNumData:false,
+        active:0,//选择期区楼等的当前tab
+        currentCode:null,
+        showAddress:null,
+        isBtnEnabled:false,
         tabs: [
             {
-                title: "全部",
-                data:[1,]
+                title: "请选择",
+                data:[],
+                selected:null,
             },
-            {
-                title: "待付款",
-                data:[]
-            },
-            {
-                title: "待收获",
-                data:[1,2,]
-            },
-            {
-                title: "已收货",
-                data:[1,2,3,]
-            },
-            {
-                title: "已过期",
-                data:[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30]
-            },
+
         ]
     },
     onLoad(){
+        var that=this
+        network.requestGet('/v1/address/findCommuntity',{},function (data) {
+
+            that.data.communityList=data
+            console.log('communityList数据')
+            console.log(that.data.communityList)
+            that.setData({
+                communityList:that.data.communityList,
+                currentCommunity:that.data.communityList[0]
+            })
+            that.data.flagList=that.data.currentCommunity.flag.split('-')
+            that.loadAddrData()
+        },function (msg) {
+        })
+    },
+    phoneInput(e){
+        this.data.phone = e.detail.value
+        this.canClickSave()
+    },
+    nameInput(e){
+        this.data.receiveName = e.detail.value
+        this.canClickSave()
+    },
+
+    loadAddrData(){
+        var that=this
+        var active=that.data.active
+        that.data.loadingDoorNumData=true
+        var url=null
+        var paramData=null
+        if(that.data.flagList[that.data.active]=='期'){
+            url='/v1/issue/findByCommuntity'
+            paramData={commCode:that.data.currentCommunity.code}
+        }else if(that.data.flagList[that.data.active]=='区'){
+            url='/v1/district/findByCommuntity'
+            paramData={commCode:that.data.currentCommunity.code}
+        }else if(that.data.flagList[that.data.active]=='楼') {
+            url='/v1/floor/findByFloor'
+            paramData={commCode:that.data.currentCommunity.code}
+        }else if(that.data.flagList[that.data.active]=='单') {
+            url='/v1/unit/findByUnit'
+            paramData={commCode:that.data.currentCommunity.code,floorCode:that.data.currentCode}
+        }else if(that.data.flagList[that.data.active]=='层') {//
+            url='/v1/storey/list'
+            paramData={commCode:that.data.currentCommunity.code,unitCode:that.data.currentCode}
+        }else if(that.data.flagList[that.data.active]=='家') {
+            url='/v1/family/getFamilyByStoreyCode';
+            paramData={commCode:that.data.currentCommunity.code,storeyCode:that.data.currentCode}
+        }
+        network.requestGet(url,paramData,function (data) {
+            that.data.loadingDoorNumData=false
+            that.data.tabs[active].data=data
+            that.setData({
+                tabs:that.data.tabs
+            })
+            console.log('tabData')
+            console.log(that.data.tabs)
+        },function (msg) {
+            that.data.loadingDoorNumData=false
+        })
 
     },
-    onChange(event) {
-        const { key } = event.currentTarget.dataset;
+    itemClicked(e){//期区楼等的选择点击事件
+        var index= e.currentTarget.dataset.index;
+        if(!index){
+            console.log(e)
+        }
+        this.data.currentCode= this.data.tabs[this.data.active].data[index].code
+        this.data.tabs[this.data.active].selected=index
+        if(this.data.flagList.length==this.data.active+1){
+            this.hideModal()
+            var showAddress=''
+            var item=null
+            for(item in this.data.tabs){
+                showAddress+=item.data[item.selected].name
+            }
+            this.setData({
+                showAddress:showAddress
+            })
+            this.canClickSave()
+
+            return
+        }
+        this.data.tabs[this.data.active].title=this.data.tabs[this.data.active].data[index].name
+        if(this.data.tabs[this.data.tabs.length-1].title!="请选择"){
+            this.data.tabs.push({
+                title: "请选择",
+                data:[],
+                selected:null,
+            })
+        }
+        this.data.active++
+        this.loadAddrData()
         this.setData({
-            [key]: event.detail
+            tabs:this.data.tabs,
+            active:this.data.active
+        })
+    },
+    canClickSave(){
+        var isBtnEnabled=false
+        if(this.data.sex&&this.data.receiveName&&this.data.phone&&this.data.show&&this.data.currentCommunity&&util.isTel(this.data.phone)){
+            isBtnEnabled=true
+        }else {
+            isBtnEnabled=false
+        }
+        this.setData({
+            isBtnEnabled:isBtnEnabled
+        })
+    },
+    tabChange(event) {
+        var that = this
+        that.data.active = event.detail.index
+        if(that.data.tabs[that.data.active].data.length<=0){
+            that.loadAddrData()
+        }
+
+    },
+    bindChange: function (e) {
+        const that=this
+        const val = e.detail.value
+        if(that.data.communityList[ val[0] ].id!=that.data.currentCommunity.id){
+            this.setData({
+                showAddress:null,
+                tabs: [
+                    {
+                        title: "请选择",
+                        data:[],
+                        selected:null,
+                    },
+
+                ]
+            })
+        }
+        this.setData({
+            value: val,
+            currentCommunity:that.data.communityList[ val[0] ]
+        })
+        that.data.flagList=that.data.currentCommunity.flag.split('-')
+        this.canClickSave()
+    },
+    onChangeRadio(event) {
+        this.setData({
+            sex: event.detail
         });
+        this.canClickSave()
     },
     onClickSave(e){
-        //todo
+        if(!this.data.isBtnEnabled){
+            return
+        }
+        var that=this
+        network.requestPost('/v1/address/saveAddress',{
+            name:that.data.receiveName,
+            phone:that.data.phone,
+            sex:that.data.sex,
+            address:that.data.showAddress,
+            province:that.data.currentCommunity.province,
+            city:that.data.currentCommunity.city,
+            area:that.data.currentCommunity.area,
+            communtityId:that.data.currentCommunity.id,
+
+        },function (data) {
+
+            app.showToast('保存成功')
+            wx.navigateBack({
+                delta: 1
+            });
+        },function (msg) {
+
+        })
+
     },
-    showModal(e){
+    showModalCommnunity(e){
         this.setData({
-            modalName:'bottomModal'
+            modalName:'communityModal'
+        })
+    },
+    showModalDoorNum(e){
+        this.setData({
+            modalName:'doorNumModal'
         })
     },
     hideModal(){

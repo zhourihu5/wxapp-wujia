@@ -3,7 +3,8 @@ const years = []
 const months = []
 const days = []
 const network = require('../../utils/network.js')
-for (let i = 1990; i <= date.getFullYear(); i++) {
+const app=getApp()
+for (let i = date.getFullYear()-100; i <= date.getFullYear(); i++) {
     years.push(i)
 }
 
@@ -17,7 +18,7 @@ for (let i = 1; i <= 31; i++) {
 
 Page({
     data: {
-        modalName:'bottomModal',
+        modalName:null,
         apiData:null,
         years: years,
         months: months,
@@ -34,8 +35,7 @@ Page({
 
         const val = e.detail.value
         //todo 选择月份时动态改变日的可选范围，判断日期是否合法
-        this.apiData=this.apiData||{}
-        this.apiData.birthday=`${this.data.years[val[0]]}-${this.data.months[val[1]]}-${this.data.days[val[2]]}`
+        this.data.apiData.birthday=`${this.data.years[val[0]]}-${this.data.months[val[1]]}-${this.data.days[val[2]]}`
         this.setData({
             apiData:this.data.apiData,
             // year: this.data.years[val[0]],
@@ -44,14 +44,20 @@ Page({
         })
     },
     onLoad(){
-        // var that=this
-        // network.requestGet('/v1/user/findWxUserInfo',{},function (data) {
-        //     that.setData({
-        //         apiData:data,
-        //     })
-        // },function (msg) {
-        //
-        // })
+        var that=this
+        network.requestGet('/v1/user/findWxUserInfo',{},function (data) {
+            that.setData({
+                apiData:data,
+            })
+        },function (msg) {
+
+        })
+    },
+    nickNameInput(e){
+        if(!this.data.apiData){
+            return
+        }
+        this.data.apiData.nickName=e.detail.value
     },
     onChangeSex(event) {
         if(!this.data.apiData){
@@ -74,9 +80,9 @@ Page({
         //todo 校验合法性
         var that=this
         network.requestPost('/v1/user/updateInfo',{
-            birthday:that.apiData.birthday,
-            nickName:that.apiData.nickName,
-            sex:that.apiData.sex,
+            birthday:that.data.apiData.birthday,
+            nickName:that.data.apiData.nickName,
+            sex:that.data.apiData.sex,
 
         },function (data) {
             app.showToast('修改成功')

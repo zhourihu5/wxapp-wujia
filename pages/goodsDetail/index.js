@@ -127,7 +127,7 @@ Page({
             app.showToast('活动已结束，下次再来吧')
             return
         }
-        var id=e.target.dataset.id
+        var id=e.currentTarget.dataset.id
         wx.navigateTo({url:"/pages/orderConfirm/index?id="+id})
     },
 

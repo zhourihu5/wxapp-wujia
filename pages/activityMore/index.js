@@ -18,7 +18,7 @@ Page({
         this.loadData()
     },
     goBuy(e){
-        let id=e.target.dataset.id;
+        let id=e.currentTarget.dataset.id;
         wx.navigateTo({url:'/pages/goodsDetail/index?id='+id})
     },
     loadData(){

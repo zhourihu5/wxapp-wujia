@@ -9,7 +9,7 @@
     <!-- wxml -->
     <swiper class='u-wrp-bnr'
             indicator-dots='true' autoplay='true' interval='5000' duration='1000' circular='true'>
-        <block wx:for="{{apiData.commodity.attaInfos}}" wx:for-index="index">
+        <block wx:for="{{apiData.activity.commodity.attaInfos}}" >
             <swiper-item>
                 <image src='{{item.attaAddr}}' class='u-img-slide' mode='aspectFill'></image>
             </swiper-item>
@@ -89,9 +89,10 @@
         <view class="item5-1">商品详情</view>
         <view class="g-form {{index==0?'g-form-b-t':''}}" wx:for="{{formatTitle}}" wx:key >
             <view class="g-f-title">{{item}}</view>
-            <view class="g-f-value">{{apiData.commodity.formatVals[index]}}</view>
+            <view class="g-f-value">{{apiData.activity.commodity.formatVals[index]}}</view>
         </view>
-        <rich-text class="rich-text {{true?'p-t-40':''}}" nodes="{{  apiData.activity.commodity.infos }}" ></rich-text>
+        <view class="{{formatTitle?'p-t-40':''}}"></view>
+        <rich-text class="rich-text" nodes="{{  apiData.activity.commodity.infos }}" ></rich-text>
     </view>
 
 </view>

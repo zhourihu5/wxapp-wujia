@@ -18,7 +18,7 @@
     </view>
     <navigator url="/pages/myAdress/index" hover-class="navigator-hover"
                open-type="navigateTo">
-        <view class="item-1" bindtap="toAddArr">
+        <view class="item-1" >
             <view wx:if="{{apiData.address}}" class="flex-1">
                 <view>南十里居4号楼5单元502</view>
                 <view class="uname">葫芦娃15210472201</view>

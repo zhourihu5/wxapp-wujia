@@ -38,7 +38,11 @@ Page({
             },
             function (data) {
                 app.token=data.token
-                app.communtityId=data.communtityList[0].id
+                try {
+                    app.communtityId = data.communtityList[0].id
+                    app.communtityCode = data.communtityList[0].code
+                } catch (e) {
+                }
                 that.setData({
                     communtityName:data.communtityName,
                     list:data.activityList,
@@ -56,7 +60,7 @@ Page({
 
     },
     goBuy(e){
-        let id=e.target.dataset.id;
+        let id=e.currentTarget.dataset.id;
         wx.navigateTo({url:'/pages/goodsDetail/index?id='+id})
     },
     moveChangedOpen(e) {
@@ -130,7 +134,11 @@ Page({
                         code: res.code
                     }, function (data) {
                         app.token=data.token
-                        app.communtityId=data.communtityList[0].id
+                        try {
+                            app.communtityId = data.communtityList[0].id
+                            app.communtityCode = data.communtityList[0].code
+                        } catch (e) {
+                        }
                         that.setData({
                             communtityName:data.communtityName,
                             list:data.activityList,

@@ -6,7 +6,8 @@
     <view class="w-b">
         <view class="item no-border">
             <view class="item-l">姓名</view>
-            <input class="input" placeholder-class="placeholder"  placeholder="请输入您的姓名" value="{{apiData.nickName}}"/>
+            <input class="input" placeholder-class="placeholder" placeholder="请输入您的姓名"
+                   bindinput="nickNameInput" value="{{apiData.nickName}}" disabled="{{!apiData}}"/>
         </view>
         <view class="line-1">
             <view class="item-l"></view>
@@ -22,8 +23,8 @@
                         custom-class="demo-radio-group"
                         bind:change="onChangeSex"
                 >
-                    <van-radio name="男" checkedColor="#FF951C" custom-class="demo-radio">女士</van-radio>
-                    <van-radio name="女" checkedColor="#FF951C" custom-class="demo-radio">男士</van-radio>
+                    <van-radio name="女" checkedColor="#FF951C" custom-class="demo-radio">女士</van-radio>
+                    <van-radio name="男" checkedColor="#FF951C" custom-class="demo-radio">男士</van-radio>
                 </van-radio-group>
             </view>
         </view>
@@ -53,13 +54,13 @@
         <view>
             <picker-view indicator-style="height: 50px;" style="width: 100%; height: 300px;" value="{{value}}" bindchange="bindChange">
                 <picker-view-column>
-                    <view wx:for="{{years}}" style="line-height: 100rpx">{{item}}年</view>
+                    <view wx:for="{{years}}" style="line-height: 50px">{{item}}年</view>
                 </picker-view-column>
                 <picker-view-column>
-                    <view wx:for="{{months}}" style="line-height: 100rx">{{item}}月</view>
+                    <view wx:for="{{months}}" style="line-height: 50px">{{item}}月</view>
                 </picker-view-column>
                 <picker-view-column>
-                    <view wx:for="{{days}}" style="line-height: 100rpx">{{item}}日</view>
+                    <view wx:for="{{days}}" style="line-height: 50px">{{item}}日</view>
                 </picker-view-column>
             </picker-view>
         </view>
