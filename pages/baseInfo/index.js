@@ -25,7 +25,7 @@ Page({
         days: days,
         // radioChecked:null,
         birthDay:null,
-        value: [9999, 1, 1],
+        value: [9999, 0, 0],
     },
     bindChange: function (e) {
         if(!this.data.apiData){

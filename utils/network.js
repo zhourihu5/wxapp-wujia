@@ -91,6 +91,7 @@ function requestLoading(url, data,method, message, successCallBack, failCallBack
                 showCancel:false,
                 content:'网络异常~~'
             });
+            failCallBack(res.errMsg||res);
         },
         complete: function (res) {
           completeCallBack(res.data)

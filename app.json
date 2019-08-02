@@ -33,6 +33,7 @@
   },
   "pages": [
     "pages/index/index",
+    "pages/neibourList/index",
     "pages/baseInfo/index",
     "pages/order/index",
     "pages/auditWait/index",
@@ -45,7 +46,6 @@
     "pages/myAdress/index",
     "pages/addAdress/index",
     "pages/applySubmit/index",
-    "pages/neibourList/index",
     "pages/paySuccess/index",
     "pages/msg/msgDetail/index",
     "pages/goodsDetail1/index",

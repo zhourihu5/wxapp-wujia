@@ -94,6 +94,9 @@ Page({
         if(!index){
             console.log(e)
         }
+        if(this.data.tabs[this.data.active].selected==index){
+            return;
+        }
         this.data.currentCode= this.data.tabs[this.data.active].data[index].code
         this.data.tabs[this.data.active].selected=index
         if(this.data.flagList.length==this.data.active+1){
@@ -111,14 +114,19 @@ Page({
             return
         }
         this.data.tabs[this.data.active].title=this.data.tabs[this.data.active].data[index].name
-        if(this.data.tabs[this.data.tabs.length-1].title!="请选择"){
+        var i=this.data.tabs.length-1-this.data.active
+        for(;i>0;i--){
+            this.data.tabs.pop()
+        }
+        // if(this.data.tabs[this.data.tabs.length-1].title!="请选择"){
             this.data.tabs.push({
                 title: "请选择",
                 data:[],
                 selected:null,
             })
-        }
+        // }
         this.data.active++
+
         this.loadAddrData()
         this.setData({
             tabs:this.data.tabs,
@@ -127,10 +135,12 @@ Page({
     },
     canClickSave(){
         var isBtnEnabled=false
-        if(this.data.sex&&this.data.receiveName&&this.data.phone&&this.data.show&&this.data.currentCommunity&&util.isTel(this.data.phone)){
-            isBtnEnabled=true
-        }else {
-            isBtnEnabled=false
+        if(this.data.sex&&this.data.receiveName&&this.data.phone&&this.data.show&&this.data.currentCommunity){
+            if(util.isTel(this.data.phone)){
+                isBtnEnabled=true
+            }else {
+                app.showToast('请输入正确的手机号')
+            }
         }
         this.setData({
             isBtnEnabled:isBtnEnabled
