@@ -1,57 +1,77 @@
-<cu-custom bgColor="titlebar-white" isBack="{{true}}">
+<cu-custom  bgColor="titlebar-white" isBack="{{true}}">
     <view slot="backText"></view>
-    <view slot="content">提交申请</view>
+    <view slot="content">新增收货地址</view>
 </cu-custom>
 <view class="container">
     <view class="w-b">
         <view class="item">
-            <view class="item-l">申请人姓名</view>
-            <input class="input" placeholder="请输入户主的名字"></input>
+            <view class="item-l">已申请户主</view>
+            <input class="input" placeholder="请输入户主的名字" bindinput="ownerInput"/>
         </view>
         <view class="item">
             <view class="item-l">申请人</view>
-            <input class="input" placeholder-class="placeholder" placeholder="请输入申请人的名字"/>
+            <input class="input" placeholder-class="placeholder" placeholder="请输入申请人的名字"
+                   bindinput="nameInput"/>
         </view>
         <view class="item no-border">
             <view class="item-l">与户主关系</view>
-            <input class="input" placeholder-class="placeholder" placeholder="请输入与户主的关系"/>
+            <input class="input" placeholder-class="placeholder" placeholder="请输入与户主的关系"
+                   bindinput="relationInput"/>
+        </view>
+        <view class="item no-border" bindtap="showModalDoorNum">
+            <view class="item-l">门牌号</view>
+            <input class="item-r input" placeholder="请选择期区、楼号、单元号、房间号"
+                   disabled="disabled" value="{{showAddress}}"/>
+            <view class="icon_arrow_r"></view>
         </view>
     </view>
-
-    <view class="w-b no-margin ">
-        <view class="item-search">
-            <view class="search-b">
-                <view class='cuIcon-search i-search'></view>
-                <input class="input p-r-30" placeholder-class="placeholder" placeholder="请搜索单元"/>
-            </view>
-        </view>
-
-    </view>
-
-    <scroll-view scroll-y class="list"
-                 bindscrolltoupper='scrolltoupper'
-                 bindscrolltolower='scrolltolower'>
-<!--        <view class="list">-->
-        <van-radio-group class="w-p-100" value="{{radio}}">
-            <van-cell-group class="w-p-100 no-border" border="{{false}}" >
-                <van-cell class="w-p-100"
-                        wx:for="{{ list }}"
-                        wx:key="index"
-                        title="单选框 {{ item }}"
-                        value-class="value-class"
-                        clickable
-                        data-name="{{ item }}"
-                        bind:click="onClick"
-                >
-                    <van-radio name="{{ item }}" checkedColor="#FF9B1D"/>
-                </van-cell>
-            </van-cell-group>
-        </van-radio-group>
-<!--        </view>-->
-    </scroll-view>
-
-    <view class="b-b">确定</view>
-    <view class="b-b-disabled">确定</view>
+    <view class="{{isBtnEnabled?'b-b':'b-b-disabled'}}" bindtap="onClickSave">确定</view>
 
 </view>
+<view class="cu-modal bottom-modal {{modalName=='doorNumModal'?'show':''}}">
+    <view class="cu-dialog bottom-dialog">
+        <view class="cu-bar d-t-bar">
+            <view class="psz">配送至</view>
+            <view class="cuIcon-close" bindtap="hideModal"></view>
+        </view>
+        <van-tabs class="tab-layout"
+                  custom-class="custom-tabs"
+                  nav-class="tab-nav"
+                  tab-class="tab-custom"
+                  border="{{false}}"
+                  line-class="tab-line"
+                  color="rgba(255,155,29,1)"
+                  lineWidth="17"  swipeThreshold="5"
+                  active="{{active}}"
+                  bind:change="tabChange">
+            <van-tab
+                    wx:for="{{ tabs }}"
+                    wx:for-item="tab"
+                    wx:for-index="tabIndex"
+                    wx:key=""
+                    title="{{tab.title}}"
+                    custom-class="custom-tab">
+                <!--                <view class="list">-->
+                <!--                    todo 如果不需要下拉刷新替换为  scroll-view-->
+                <scroll-view scroll-y  class="scroll-view-order" style="height: 750rpx;"
+                             bindscrolltoupper='scrolltoupper'
+                             bindscrolltolower='scrolltolower'
+                >
+                    <block wx:for="{{tab.data}}" wx:for-item="item" wx:key="">
+                        <view class="item-area area-checked" data-index="{{index}}"  bindtap="itemClicked" >
+                            <view class="flex" wx:if="{{index==tab.selected}}">
+                                <view class="cuIcon-check checkIcon"></view>
+                                <view class="area-checked">{{item.name}}</view>
+                            </view>
+                            <view wx:else class="area-unchecked">{{item.name}}</view>
+                        </view>
 
+                    </block>
+                </scroll-view>
+                <!--                </view>-->
+
+
+            </van-tab>
+        </van-tabs>
+    </view>
+</view>

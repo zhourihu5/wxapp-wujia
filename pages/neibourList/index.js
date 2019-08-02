@@ -17,17 +17,15 @@ Page({
     hasNextPage:true,
     isLoadingSearch:false,
     lowerThreshold:util.lowerThreshold(),
-    list: [1,2,3,4,5],
-    userInfo: {},
-    hasUserInfo: false,
-    canIUse: wx.canIUse('button.open-type.getUserInfo')
+    currentCommunity:null,
   },
   onLoad: function () {
-    // this.loadAreaData()
+    this.loadAreaData()
   },
   loadAreaData(){
+    var that=this
     network.requestGet('/area/all',{},function (data) {
-      this.setData({
+      that.setData({
         apiAreaData:data,
       })
     },function (msg) {
@@ -41,27 +39,28 @@ Page({
     this.setData({
       apiSearchData:null
     })
-    this.loadData()
+    this.loadSearchData()
 
 
   },
-  loadData(){
+  loadSearchData(){
     if(!this.data.hasNextPage){
       return
     }
     this.data.isLoading=true
     var that=this
-    var areaCode=that.data.currentArea?that.data.apiAreaData[val[0]][val[1]][val[2]].areaCode:''
+    var val=that.data.pickerValue
+    var areaCode=that.data.currentArea?that.data.apiAreaData[val[0]].children[val[1]].children[val[2]].id:''
     network.requestGet('/v1/communtityInfo/findByAreaCodeAndName',{
       areaCode:areaCode,
-      name:searchText,
-      pageNum:this.data.pageNum,
-      pageSize:this.data.pageSize,
+      name:that.data.searchText,
+      pageNum:that.data.pageNum,
+      pageSize:that.data.pageSize,
     },function (data) {
       if(that.data.pageNum==1){
         that.data.apiSearchData=[]
       }
-      that.data.apiSearchData.push.apply(that.data.apiSearchData,data)
+      that.data.apiSearchData.push.apply(that.data.apiSearchData,data.content)
       that.setData({
         apiSearchData:that.data.apiSearchData,
       })
@@ -74,6 +73,13 @@ Page({
       that.data.isLoading=false
     },function (msg) {
       that.data.isLoading=false
+    })
+  },
+  itemClicked(e){
+    var index=e.currentTarget.dataset.index
+    this.data.currentCommunity=this.data.apiSearchData[index]
+    wx.navigateTo({
+      url:'/pages/applySubmit/index'
     })
   },
   scrolltolower(e){
@@ -98,8 +104,7 @@ Page({
   pickerChange: function (e) {
 
     const val = e.detail.value
-    this.data.apiData.birthday=`${this.data.years[val[0]]}-${this.data.months[val[1]]}-${this.data.days[val[2]]}`
-    this.data.currentArea=this.data.apiAreaData[val[0]][val[1]][val[2]].areaName
+    this.data.currentArea=this.data.apiAreaData[val[0]].children[val[1]].children[val[2]].areaName
     this.setData({
       pickerValue:val,
       currentArea:this.data.currentArea

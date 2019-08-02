@@ -1,57 +1,183 @@
 //index.js
-//获取应用实例
-const app = getApp()
-
+const network = require('../../utils/network.js')
+const util = require('../../utils/util.js')
+const app=getApp()
 Page({
-  data: {
-    radio:null,
-    list: ['1','2','3','4','5','6','7','必须是字符串作为标识',9,10],
-    userInfo: {},
-    hasUserInfo: false,
-    canIUse: wx.canIUse('button.open-type.getUserInfo')
-  },
-  //事件处理函数
-  onClick(event) {
-    console.log("onClick")
-    const { name } = event.currentTarget.dataset;
-    this.setData({
-      radio: name
-    });
-  },
-  onLoad: function () {
-    // if (app.globalData.userInfo) {
-    //   this.setData({
-    //     userInfo: app.globalData.userInfo,
-    //     hasUserInfo: true
-    //   })
-    // } else if (this.data.canIUse){
-    //   // 由于 getUserInfo 是网络请求，可能会在 Page.onLoad 之后才返回
-    //   // 所以此处加入 callback 以防止这种情况
-    //   app.userInfoReadyCallback = res => {
-    //     this.setData({
-    //       userInfo: res.userInfo,
-    //       hasUserInfo: true
-    //     })
-    //   }
-    // } else {
-    //   // 在没有 open-type=getUserInfo 版本的兼容处理
-    //   wx.getUserInfo({
-    //     success: res => {
-    //       app.globalData.userInfo = res.userInfo
-    //       this.setData({
-    //         userInfo: res.userInfo,
-    //         hasUserInfo: true
-    //       })
-    //     }
-    //   })
-    // }
-  },
-  getUserInfo: function(e) {
-    console.log(e)
-    app.globalData.userInfo = e.detail.userInfo
-    this.setData({
-      userInfo: e.detail.userInfo,
-      hasUserInfo: true
-    })
-  }
+    data: {
+        modalName:'bottomModal',
+        currentCommunity:null,
+        flagList:null,
+        applyName:null,
+        ownName:null,
+        relation:null,
+        familyId:null,
+        loadingDoorNumData:false,
+        active:0,//选择期区楼等的当前tab
+        currentCode:null,
+        showAddress:null,
+        isBtnEnabled:false,
+        tabs: [
+            {
+                title: "请选择",
+                data:[],
+                selected:null,
+            },
+
+        ]
+    },
+    onLoad(){
+        var pages = getCurrentPages() // 获取栈中全部界面的, 然后把数据写入相应界面
+        // var currentPage  = pages[pages.length - 1]  //当前界面
+        var prePage = pages[pages.length - 2]  //上一个界面
+        this.setData({
+            currentCommunity:prePage.data.currentCommunity
+        })
+    },
+    relationInput(e){
+        this.data.relation = e.detail.value
+        this.canClickSave()
+    },
+    nameInput(e){
+        this.data.applyName = e.detail.value
+        this.canClickSave()
+    },
+    ownerInput(e){
+        this.data.ownName = e.detail.value
+        this.canClickSave()
+    },
+
+    loadAddrData(){
+        var that=this
+        var active=that.data.active
+        that.data.loadingDoorNumData=true
+        var url=null
+        var paramData=null
+        if(that.data.flagList[that.data.active]=='期'){
+            url='/v1/issue/findByCommuntity'
+            paramData={commCode:that.data.currentCommunity.code}
+        }else if(that.data.flagList[that.data.active]=='区'){
+            url='/v1/district/findByCommuntity'
+            paramData={commCode:that.data.currentCommunity.code}
+        }else if(that.data.flagList[that.data.active]=='楼') {
+            url='/v1/floor/findByFloor'
+            paramData={commCode:that.data.currentCommunity.code}
+        }else if(that.data.flagList[that.data.active]=='单') {
+            url='/v1/unit/findByUnit'
+            paramData={commCode:that.data.currentCommunity.code,floorCode:that.data.currentCode}
+        }else if(that.data.flagList[that.data.active]=='层') {//
+            url='/v1/storey/list'
+            paramData={commCode:that.data.currentCommunity.code,unitCode:that.data.currentCode}
+        }else if(that.data.flagList[that.data.active]=='家') {
+            url='/v1/family/getFamilyByStoreyCode';
+            paramData={commCode:that.data.currentCommunity.code,storeyCode:that.data.currentCode}
+        }
+        network.requestGet(url,paramData,function (data) {
+            that.data.loadingDoorNumData=false
+            that.data.tabs[active].data=data
+            that.setData({
+                tabs:that.data.tabs
+            })
+            console.log('tabData')
+            console.log(that.data.tabs)
+        },function (msg) {
+            that.data.loadingDoorNumData=false
+        })
+
+    },
+    itemClicked(e){//期区楼等的选择点击事件
+        var index= e.currentTarget.dataset.index;
+        if(!index){
+            console.log(e)
+        }
+        if(this.data.tabs[this.data.active].selected==index){
+            return;
+        }
+        this.data.familyId= this.data.tabs[this.data.active].data[index].id
+        this.data.tabs[this.data.active].selected=index
+        if(this.data.flagList.length==this.data.active+1){
+            this.hideModal()
+            var showAddress=this.data.currentCommunity.name
+            var item=null
+            for(item in this.data.tabs){
+                showAddress+=item.data[item.selected].name
+            }
+            this.setData({
+                showAddress:showAddress
+            })
+            this.canClickSave()
+
+            return
+        }
+        this.data.tabs[this.data.active].title=this.data.tabs[this.data.active].data[index].name
+        var i=this.data.tabs.length-1-this.data.active
+        for(;i>0;i--){
+            this.data.tabs.pop()
+        }
+        // if(this.data.tabs[this.data.tabs.length-1].title!="请选择"){
+            this.data.tabs.push({
+                title: "请选择",
+                data:[],
+                selected:null,
+            })
+        // }
+        this.data.active++
+
+        this.loadAddrData()
+        this.setData({
+            tabs:this.data.tabs,
+            active:this.data.active
+        })
+    },
+    canClickSave(){
+        var isBtnEnabled=false
+        if(this.data.applyName&&this.data.ownName&&this.data.showAddress&&this.data.relation){
+            isBtnEnabled=true
+        }
+        this.setData({
+            isBtnEnabled:isBtnEnabled
+        })
+    },
+    tabChange(event) {
+        var that = this
+        that.data.active = event.detail.index
+        if(that.data.tabs[that.data.active].data.length<=0){
+            that.loadAddrData()
+        }
+
+    },
+    onClickSave(e){
+        if(!this.data.isBtnEnabled){
+            return
+        }
+        var that=this
+        network.requestPost('/v1/apply/applyUnLock',{
+            applyName:that.data.applyName,
+            ownName:that.data.ownName,
+            relation:that.data.relation,
+            familyId:that.data.familyId,
+            familyName:that.data.showAddress,
+        },function (data) {
+            wx.redirectTo({
+                url: "/pages/auditWait/index"
+            });
+        },function (msg) {
+
+        })
+
+    },
+    showModalCommnunity(e){
+        this.setData({
+            modalName:'communityModal'
+        })
+    },
+    showModalDoorNum(e){
+        this.setData({
+            modalName:'doorNumModal'
+        })
+    },
+    hideModal(){
+        this.setData({
+            modalName:null
+        })
+    }
 })

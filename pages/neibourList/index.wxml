@@ -23,9 +23,10 @@
 >
     <view class="w-c">
         <block wx:for="{{apiSearchData}}" wx:key="">
-            <navigator class="item-2 {{index==0?'no-border':''}}" url="/pages/applySubmit/index?id={{item.id}}"
+            <view class="item-2 {{index==0?'no-border':''}}" url="/pages/applySubmit/index?id={{item.id}}"
                        hover-class="navigator-hover"
-                       open-type="navigateTo">
+                       open-type="navigateTo"
+            bindtap="itemClicked" data-index="{{index}}">
                 <!--        <view class="item-2 border-bottom">-->
                 <image wx:if="{{false}}" class="image" src="/images/tab_my.png"/>
                 <view class="item2-c">
@@ -34,7 +35,7 @@
                 </view>
                 <view class="cuIcon-right arrow"></view>
                 <!--        </view>-->
-            </navigator>
+            </view>
         </block>
     </view>
     <view wx:if="{{apiSearchData}}" class="cu-load wj-loading {{isLoadingSearch?'loading':'over'}}"></view>
@@ -51,10 +52,10 @@
                     <view wx:for="{{apiAreaData}}" style="line-height: 50px">{{item.areaName}}</view>
                 </picker-view-column>
                 <picker-view-column>
-                    <view wx:for="{{apiAreaData[ pickerValue[0] ]}}" style="line-height: 50px">{{item.areaName}}</view>
+                    <view wx:for="{{apiAreaData[ pickerValue[0] ].children}}" style="line-height: 50px">{{item.areaName}}</view>
                 </picker-view-column>
                 <picker-view-column>
-                    <view wx:for="{{apiAreaData[ pickerValue[0] ][ pickerValue[1] ]}}" style="line-height: 50px">{{item.areaName}}</view>
+                    <view wx:for="{{apiAreaData[ pickerValue[0] ].children[ pickerValue[1] ].children}}" style="line-height: 50px">{{item.areaName}}</view>
                 </picker-view-column>
             </picker-view>
         </view>
