@@ -29,6 +29,7 @@ Page({
     network.requestGet('/v1/activity/isOrder',{activityId:id},function (data) {
       that.setData({
         apiData:data,
+        myAddress:data.address,
       })
     },function (msg) {
 
@@ -53,11 +54,19 @@ Page({
     });
   },
     toPay(e){
-      if(!this.data.apiData.address){
+      if(!this.data.myAddress){
         this.showModal()
         return
       }
-      network.requestPost('/v1/order/saveOrder',{},function (data) {
+      var that=this
+      network.requestPost('/v1/order/saveOrder',{
+        activityId:that.data.apiData.id,
+        deliveryUname:that.data.myAddress.name,
+        deliveryUphone:that.data.myAddress.phone,
+        deliveryArea:that.data.myAddress.address,
+        commodityId:that.data.apiData.commodity.id,
+
+      },function (data) {
 
         wx.requestPayment({
           timeStamp: '',

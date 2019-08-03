@@ -19,9 +19,9 @@
     <navigator url="/pages/myAdress/index" hover-class="navigator-hover"
                open-type="navigateTo">
         <view class="item-1" >
-            <view wx:if="{{apiData.address}}" class="flex-1">
-                <view>南十里居4号楼5单元502</view>
-                <view class="uname">葫芦娃15210472201</view>
+            <view wx:if="{{myAddress}}" class="flex-1">
+                <view>{{myAddress.address}}</view>
+                <view class="uname">{{myAddress.name}}{{myAddress.phone}}</view>
             </view>
             <view wx:else  class="flex flex-1">
                 <view class="cuIcon-location location"/>
@@ -64,7 +64,7 @@
 <view class="bottom">
     <view class="b-l">
         <text class="sfk">实付款：</text>
-        <text class="sfk-value">￥{{apiData.price}}</text>
+        <text class="sfk-value">￥{{apiData.paymentMoney}}</text>
     </view>
     <view class="bg-orange pay-btn" bindtap="toPay">立即支付</view>
 </view>

@@ -14,6 +14,7 @@ Page({
         list: [
 
         ],
+        failReason:null,
     },
     customData: {
         y: 0,
@@ -43,6 +44,7 @@ Page({
                     app.communtityCode = data.communtityList[0].code
                 } catch (e) {
                 }
+                app.nickName=data.userInfo.nickName
                 that.setData({
                     communtityName:data.communtityName,
                     list:data.activityList,
@@ -52,6 +54,7 @@ Page({
                 }else if(data.isApplyLock=='0'){//待审核
                     wx.redirectTo({url:'/pages/auditWait/index'})
                 }else if(data.isApplyLock=='2'){//不通过
+                    that.data.failReason=data.failReason;//todo 驳回原因字段
                     wx.redirectTo({url:'/pages/auditFail/index'})
                 }
                 that.hideModal();
@@ -102,6 +105,9 @@ Page({
         })
         this.isEnableTabBar()
     },
+    showModalAddCommunity(e){
+        showModal('ModalAddCommunity')
+    },
     hideModal() {
         this.setData({
             modalName: null
@@ -149,6 +155,7 @@ Page({
                         })
                         that.customData.openid = data.openid
                         if (data.userInfo) {
+                            app.nickName=data.userInfo.nickName
                             if('0'==data.isBindingFamily){
                                 wx.redirectTo({url:'/pages/neibourList/index'})
                             }else if(data.isApplyLock=='0'){//待审核

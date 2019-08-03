@@ -30,10 +30,15 @@ Page({
             this.getTabBar().init()
         }
     },
+    nickNameChanged(){
+        this.setData({
+            nickName:app.nickName,
+        })
+    },
     onLoad: function () {
         var userInfo=app.wxUserInfo
         this.setData({
-            nickName:userInfo&&userInfo.userInfo&&userInfo.userInfo.nickName,
+            nickName:app.nickName||(userInfo&&userInfo.userInfo&&userInfo.userInfo.nickName) ,
             avatarUrl:userInfo&&userInfo.userInfo&&userInfo.userInfo.avatarUrl,
             phone:'136****8402',
         })

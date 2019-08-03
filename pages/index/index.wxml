@@ -7,7 +7,7 @@
     </cu-custom>
     <view class="top-title-bg  {{modalName=='ModalGuideInvite'?'p-t-24': 'p-t-34'}}">
         <view class="top-title  flex align-center  justify-between">
-            <view class="flex align-center">
+            <view class="flex align-center" bindtap="showModalAddCommunity">
                 <image class="icon" src="/images/index_pos.png"></image>
                 <text class="location-text">{{communtityName}}</text>
             </view>
@@ -127,6 +127,10 @@
     </view>
 
 </view>
+<view class="modal-top0  {{modalName=='ModalAddCommunity'?'show':''}}">
+
+</view>
+
 <view class="modal-top0  {{modalName=='ModalGuideOpen'?'show':''}}">
     <view class="open-hint">
         <view class="djkyqhyo">向上滑动可以开门哦</view>

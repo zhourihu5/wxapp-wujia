@@ -8,6 +8,7 @@ Page({
         lowerThreshold:util.lowerThreshold(),
         list:[],
         isLoading:true,
+        reachBottom:false,
     },
     customData:{
         pageNum:1,
@@ -67,6 +68,9 @@ Page({
     scrolltolower(e){
         console.log("scrolltolower")
         var that = this
+        that.setData({
+            reachBottom:true
+        })
         if(that.data.isLoading){
             return
         }

@@ -7,6 +7,6 @@
     <image class="img" src="/images/audit_fail.png"></image>
     <view class="img-desc">您提交的信息被驳回， 请重新申请～</view>
 </view>
-    <view class="bhyy"><text class="bhyy-title">驳回原因：</text>信息查不到信息查不到信息查不到信查到信最多就是一行多点啊。</view>
+    <view class="bhyy"><text class="bhyy-title">驳回原因：</text>{{failReason}}</view>
     <view class="btn-apply" bindtap="onClick">立即申请</view>
 </view>

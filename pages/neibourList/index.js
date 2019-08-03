@@ -16,6 +16,7 @@ Page({
     searchText:'',
     hasNextPage:true,
     isLoadingSearch:false,
+    reachBottom:false,
     lowerThreshold:util.lowerThreshold(),
     currentCommunity:null,
   },
@@ -37,7 +38,8 @@ Page({
     this.data.pageNum=1
     this.data.hasNextPage=true
     this.setData({
-      apiSearchData:null
+      apiSearchData:null,
+      reachBottom:false,
     })
     this.loadSearchData()
 
@@ -83,6 +85,9 @@ Page({
     })
   },
   scrolltolower(e){
+    this.setData({
+      reachBottom:true,
+    })
     if(!this.data.hasNextPage){
       return
     }
