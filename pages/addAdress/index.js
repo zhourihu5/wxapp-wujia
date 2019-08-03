@@ -137,7 +137,7 @@ Page({
     },
     canClickSave(){
         var isBtnEnabled=false
-        if(this.data.sex&&this.data.receiveName&&this.data.phone&&this.data.show&&this.data.currentCommunity){
+        if(this.data.sex&&this.data.receiveName&&this.data.phone&&this.data.showAddress&&this.data.currentCommunity){
             if(util.isTel(this.data.phone)){
                 isBtnEnabled=true
             }else {
@@ -201,7 +201,10 @@ Page({
             communtityId:that.data.currentCommunity.id,
 
         },function (data) {
-
+            var pages = getCurrentPages() // 获取栈中全部界面的, 然后把数据写入相应界面
+            // var currentPage  = pages[pages.length - 1]  //当前界面
+            var prePage = pages[pages.length - 2]  //上一个界面
+            prePage.notifyAddressChanged()
             app.showToast('保存成功')
             wx.navigateBack({
                 delta: 1

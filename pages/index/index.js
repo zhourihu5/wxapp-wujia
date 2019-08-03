@@ -49,6 +49,10 @@ Page({
                 })
                 if('0'==data.isBindingFamily){
                     wx.redirectTo({url:'/pages/neibourList/index'})
+                }else if(data.isApplyLock=='0'){//待审核
+                    wx.redirectTo({url:'/pages/auditWait/index'})
+                }else if(data.isApplyLock=='2'){//不通过
+                    wx.redirectTo({url:'/pages/auditFail/index'})
                 }
                 that.hideModal();
                 that.showGuideInvite();
@@ -144,15 +148,19 @@ Page({
                             list:data.activityList,
                         })
                         that.customData.openid = data.openid
-                        if (!data.userInfo) {
-                            that.enableTabBar(false)
-                            that.showModal('ModalBindPhone');
-                        } else {
+                        if (data.userInfo) {
                             if('0'==data.isBindingFamily){
                                 wx.redirectTo({url:'/pages/neibourList/index'})
+                            }else if(data.isApplyLock=='0'){//待审核
+                                wx.redirectTo({url:'/pages/auditWait/index'})
+                            }else if(data.isApplyLock=='2'){//不通过
+                                wx.redirectTo({url:'/pages/auditFail/index'})
                             }
                             that.enableTabBar(true)
                             that.hideModal();
+                        } else {
+                            that.enableTabBar(false)
+                            that.showModal('ModalBindPhone');
                         }
                     }, function (msg) {
 

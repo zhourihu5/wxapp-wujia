@@ -7,9 +7,9 @@ Page({
         apiData:null,
     },
     onLoad(option) {
-
+        this.loadData()
     },
-    onShow(){
+    notifyAddressChanged(){
         this.loadData()
     },
     loadData(){
@@ -26,13 +26,17 @@ Page({
         wx.navigateTo({url:"/pages/addAdress/index"})
     },
     itemClick(e){
-        // var pages=getCurrentPages();
-        // var prevPage=pages[pages.length-2];
-        // prevPage.setData({
-        //     user:'LaternKiwis'
-        // })
         var index=e.currentTarget.dataset.index
-        app.myAddress=this.data.apiData[index]
+        var pages=getCurrentPages();
+        var prevPage=pages[pages.length-2];
+        prevPage.setData({
+            myAddress:this.data.apiData[index],//收货地址
+        })
+        wx.navigateBack({
+            delta: 1,
+        })
+        // app.myAddress=this.data.apiData[index]
+
     },
     toEdit(e){
 
