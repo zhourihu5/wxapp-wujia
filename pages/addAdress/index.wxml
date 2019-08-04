@@ -51,9 +51,9 @@
 </view>
 <view class="cu-modal bottom-modal {{modalName=='doorNumModal'?'show':''}}">
     <view class="cu-dialog bottom-dialog">
-        <view class="cu-bar d-t-bar">
+        <view class="d-t-bar justify-between">
             <view class="psz">配送至</view>
-            <view class="cuIcon-close" bindtap="hideModal"></view>
+            <view class="cuIcon-close close p-30" bindtap="hideModal"></view>
         </view>
         <van-tabs class="tab-layout"
                   custom-class="custom-tabs"

@@ -17,6 +17,6 @@ Page({
         prePage.data.failReason = null
     },
     onClick(e) {
-
+        wx.redirectTo({url: '/pages/neibourList/index'})
     }
 })

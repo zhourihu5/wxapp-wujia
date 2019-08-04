@@ -314,6 +314,8 @@ page{
     /*margin:  0 10rpx;*/
     margin-right: 20rpx;
     display: inline-block;/*不放这个不能横排*/
+
+    position: relative;
 }
 .activity-only-one{
     width:690rpx;
@@ -414,10 +416,6 @@ page{
     line-height:28rpx;
 
 
-    float: right;
-    position: relative;
-    right: 20rpx;
-    bottom: 60rpx;
     /*margin-right: 20rpx;*/
     /*margin-bottom: 30rpx;*/
     display: flex;
@@ -429,6 +427,16 @@ page{
     vertical-align:middle;
     /*padding-top: 8px;*/
     /*position: relative;*/
+
+    /*float: right;*/
+    /*position: relative;*/
+    /*right: 20rpx;*/
+    /*bottom: 60rpx;*/
+
+    float: right;
+    position: absolute;
+    right: 20rpx;
+    bottom: 30rpx;
 }
 .round-backgroud{
     position: fixed;

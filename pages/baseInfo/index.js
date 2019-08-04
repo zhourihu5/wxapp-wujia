@@ -18,8 +18,8 @@ for (let i = 1; i <= 31; i++) {
 
 Page({
     data: {
-        // modalName: null,
-        modalName: 'bottomModal',
+        modalName: null,
+        // modalName: 'bottomModal',
         apiData: null,
         years: years,
         months: months,
@@ -28,6 +28,7 @@ Page({
         birthDay: null,
         value: [9999, 0, 0],
         valueTmp:null,
+        isBtnEnabled:false,
     },
     pickerChange: function (e) {
         if (!this.data.apiData) {
@@ -51,29 +52,30 @@ Page({
         this.setData({
             apiData: this.data.apiData,
             value:this.data.value
-            // year: this.data.years[val[0]],
-            // month: this.data.months[val[1]],
-            // day: this.data.days[val[2]]
         })
+        this.canClickSave()
     },
     onLoad() {
-
-
-
         var that = this
         network.requestGet('/v1/user/findWxUserInfo', {}, function (data) {
             that.setData({
                 apiData: data,
             })
+            that.canClickSave()
         }, function (msg) {
-
+            that.setData({
+                apiData: {},
+            })
+            that.canClickSave()
         })
     },
     nickNameInput(e) {
         if (!this.data.apiData) {
+            app.showToast('数据正在加载中，请稍等')
             return
         }
         this.data.apiData.nickName = e.detail.value
+        this.canClickSave()
     },
     onChangeSex(event) {
         if (!this.data.apiData) {
@@ -87,11 +89,24 @@ Page({
         this.setData({
             apiData: this.data.apiData,
         });
+        this.canClickSave()
+    },
+    canClickSave() {
+        var isBtnEnabled = false
+        if (this.data.apiData && this.data.apiData.nickName && this.data.apiData.sex && this.data.apiData.birthday) {
+            isBtnEnabled = true
+        }
+        this.setData({
+            isBtnEnabled: isBtnEnabled
+        })
     },
     onClickSave(e) {
         if (!this.data.apiData) {
             app.showToast('数据正在加载中，请稍等')
             return
+        }
+        if(!this.data.isBtnEnabled){
+            return;
         }
         //todo 校验合法性
         var that = this

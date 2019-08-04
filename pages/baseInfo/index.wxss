@@ -59,7 +59,7 @@
     display: flex;
     height: 0;
 }
-.b-b{
+.b-b-enabled{
     width:690rpx;
     height:88rpx;
     background:rgba(255,149,28,1);

@@ -32,8 +32,9 @@
     ]
   },
   "pages": [
-    "pages/baseInfo/index",
+    "pages/addAdress/index",
     "pages/index/index",
+    "pages/baseInfo/index",
     "pages/applySubmit/index",
     "pages/neibourList/index",
     "pages/order/index",
@@ -45,7 +46,6 @@
     "pages/order/orderDetail/index",
     "pages/yellowPage/index",
     "pages/myAdress/index",
-    "pages/addAdress/index",
     "pages/paySuccess/index",
     "pages/msg/msgDetail/index",
     "pages/goodsDetail1/index",

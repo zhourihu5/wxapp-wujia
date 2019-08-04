@@ -106,27 +106,45 @@
         <view class="dialog-title">活动说明</view>
         <view class="dialog-content">
             <view>
-                <view class="d-c-t">返现支持形式：</view>
+                <view class="d-c-t">1. 限时支付：</view>
                 <view class="d-c-c p-b-30">
-                    仅限通过“微信支付 ”支付方式付款，给予相应的团购返现；微信卖家“自有微信支付、货到付款、找人代付、送礼”均不支持团购返现。
+                    团购商品成功下单后需要在10分钟之内完成支付，否则该订单会自动取消。
                 </view>
             </view>
             <view>
-                <view class="d-c-t">返现方式：</view>
+                <view class="d-c-t">2. 返现标准:</view>
                 <view class="d-c-c p-b-30">
-                    以部分退款的形式原路返给买家的，满足条件后，就会部分退款相应金额给买家。
+                    根据用户参加团购的数量而变化。 参加团购人数越多，则返现越多。
                 </view>
             </view>
             <view>
-                <view class="d-c-t">库存：</view>
+                <view class="d-c-t">3. 支付方式：</view>
                 <view class="d-c-c p-b-30">
-                    订单退款，已售出件数，不扣除退款订单，不影响满足条件的团购订单返现
+                    仅限通过“微信支付 ”方式付款，根据参团人数变化并给予相应的团购返现。
                 </view>
             </view>
             <view>
-                <view class="d-c-t">返现条件：</view>
+                <view class="d-c-t">4. 返现方式：</view>
                 <view class="d-c-c p-b-30">
-                    卖家可设置售出达到n件，每件返现m元（最低1元，且为整数），最多可设置5条规则；（建议卖家合理设置）
+                    是以参团人员团购满减部分退款的形式原路返还买家。
+                </view>
+            </view>
+            <view>
+                <view class="d-c-t">5. 返现时间：</view>
+                <view class="d-c-c p-b-30">
+                    将在活动结束后立即返回用户参与团购后所满减的金额。
+                </view>
+            </view>
+            <view>
+                <view class="d-c-t">6. 名额限制：</view>
+                <view class="d-c-c p-b-30">
+                    此活动对每个用户ID参与次数有数量上限，每个ID参与每种团购商品仅限一次。 *此活动一经成功下单不得退款、修改、申诉，请买家慎重支付订单。
+                </view>
+            </view>
+            <view>
+                <view class="d-c-t">7. 配送时间：</view>
+                <view class="d-c-c p-b-30">
+                    团购时间以每次活动页面公告的时间为准。活动结束后48小时内送货上门。
                 </view>
             </view>
         </view>

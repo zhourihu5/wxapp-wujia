@@ -40,8 +40,7 @@
             <view class="icon_arrow_r"></view>
         </view>
     </view>
-    <view class="b-b" bindtap="onClickSave">保存并使用</view>
-    <!--    <view class="b-b-disabled">保存并使用</view>-->
+    <view class="b-b-{{isBtnEnabled?'enabled':'disabled'}}" bindtap="onClickSave">保存</view>
 
 
 </view>

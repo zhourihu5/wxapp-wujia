@@ -52,19 +52,7 @@
     <scroll-view class="activity-scroll" scroll-x="true">
         <view class="activity-container">
             <block wx:for="{{apiData.activityList}}" wx:key="">
-                <!--                <navigator class="activity-list"-->
-                <!--                           url="/pages/goodsDetail/index" hover-class="navigator-hover"-->
-                <!--                           open-type="navigateTo">-->
-
-
-                <!--                <activity cover="{{item.cover}}"-->
-                <!--                          title="{{item.commodity.name}}"-->
-                <!--                          priceInt="12"-->
-                <!--                          priceFloat="32"-->
-                <!--                          priceOld="16.68"-->
-                <!--                          labelArr="{{ utils.strSplitToArr(item.commodity.labelsName,'|') }}"-->
-                <!--                          salesNum="{{item.commodity.salesNum}}"-->
-                <!--                          dataId="{{item.id}}"/>-->
+<!--            <block wx:for="{{3}}" wx:key="">-->
 
                 <view class="activity-item {{apiData.activityList.length<=1?'activity-only-one':''}}">
                     <image class="activity-banner"

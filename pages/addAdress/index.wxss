@@ -108,18 +108,13 @@
     border-radius:16rpx 16rpx 2rpx 2rpx !important;
 }
 .d-t-bar{
-    margin-top: 32rpx;
-    margin-left: 40rpx;
-    margin-right: 26rpx;
-
-    min-height: 0;
 }
 .tab-layout{
 
 }
 .custom-tabs{
     margin-left: 32rpx;
-    margin-top: 60rpx;
+    margin-top: 30rpx;
 }
 .van-tabs__line {
 /*./dist/tabs/index.wxss: 68*/
@@ -221,6 +216,16 @@
     font-weight:500;
     color:rgba(34,34,34,1);
     line-height:44rpx;
+
+    padding: 30rpx 0;
+    padding-left: 40rpx;
+
+}
+.close{
+    /*width:34px;*/
+    font-size: 34rpx;
+    line-height:34rpx;
+    color:rgba(136,136,136,1);
 }
 .item-area{
     width: 100%;

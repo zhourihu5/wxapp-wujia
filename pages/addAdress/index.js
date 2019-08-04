@@ -164,6 +164,7 @@ Page({
 
     },
     pickerConfirm(e){
+        this.hideModal()
         var that=this
         var val=this.data.valueTmp
         if(!val){
