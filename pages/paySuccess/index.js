@@ -25,5 +25,14 @@ Page({
     },
     bindscrolltolower(e){
 
-    }
+    },
+    goBuy(e) {
+        var index=e.currentTarget.dataset.index
+        let id =this.data.apiData[index].id;
+        if(this.data.apiData[index].isJoin==0){
+            wx.redirectTo({url: '/pages/goodsDetail/index?id=' + id})
+        }else {
+            wx.redirectTo({url: '/pages/goodsDetail1/index?id=' + id})
+        }
+    },
 })

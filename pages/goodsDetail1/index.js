@@ -113,9 +113,9 @@ Page({
         var index=e.currentTarget.dataset.index
         let id =this.data.apiOtherListData[index].id;
         if(this.data.apiOtherListData[index].isJoin==0){
-            wx.navigateTo({url: '/pages/goodsDetail/index?id=' + id})
+            wx.redirectTo({url: '/pages/goodsDetail/index?id=' + id})
         }else {
-            wx.navigateTo({url: '/pages/goodsDetail1/index?id=' + id})
+            wx.redirectTo({url: '/pages/goodsDetail1/index?id=' + id})
         }
     },
     hideModal(e) {

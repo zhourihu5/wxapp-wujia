@@ -42,7 +42,7 @@
                     </text>
                 </view>
 
-                <view class="go-group-buy" bindtap="goBuy" data-id="{{item.id}}">去拼团</view>
+                <view class="go-group-buy" bindtap="goBuy" data-index="{{index}}">去拼团</view>
             </view>
 
 

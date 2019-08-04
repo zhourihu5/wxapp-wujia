@@ -32,8 +32,8 @@
     ]
   },
   "pages": [
-    "pages/addAdress/index",
     "pages/index/index",
+    "pages/addAdress/index",
     "pages/baseInfo/index",
     "pages/applySubmit/index",
     "pages/neibourList/index",

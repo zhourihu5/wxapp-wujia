@@ -19,8 +19,13 @@ Page({
         this.loadData()
     },
     goBuy(e) {
-        let id = e.currentTarget.dataset.id;
-        wx.navigateTo({url: '/pages/goodsDetail/index?id=' + id})
+        var index=e.currentTarget.dataset.index
+        let id =this.data.list[index].id;
+        if(this.data.list[index].isJoin==0){
+            wx.navigateTo({url: '/pages/goodsDetail/index?id=' + id})
+        }else {
+            wx.navigateTo({url: '/pages/goodsDetail1/index?id=' + id})
+        }
     },
     loadData() {
         var that = this
