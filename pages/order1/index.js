@@ -143,7 +143,6 @@ Page({
         // console.log("scrolltoupper")
     },
     scrolltolower(e) {
-        console.log('scrolltolower')
         this.data.tabs[this.data.active].reachBottom=true
         this.setData({
             tabs:this.data.tabs

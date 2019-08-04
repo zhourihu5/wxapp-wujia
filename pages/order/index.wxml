@@ -12,7 +12,7 @@
               color="rgba(255,155,29,1)"
               lineWidth="17" swipeable swipeThreshold="5"
               active="{{active}}"
-              bind:change="onChange"
+              bind:change="onChangeTab"
     >
         <van-tab
                 wx:for="{{ tabs }}"
@@ -29,6 +29,7 @@
                          bindscrolltolower='scrolltolower'
             >
                 <block wx:for="{{tab.data}}" wx:for-item="item" wx:key="">
+<!--                <block wx:for="{{10}}" wx:for-item="item" wx:key="">-->
                     <view class="item-content {{index==0?'p-t-20':''}}">
                         <view class="order-container" url="/pages/order/orderDetail/index"
                                    hover-class="navigator-hover"
@@ -38,7 +39,7 @@
                             <!--                <view class="round-container order-container">-->
                             <view class="top-item">
                                 <text>付款剩余时间：</text>
-                                <text class="sysj">00:14:30</text>
+                                <text class="sysj">{{index}}  00:14:30</text>
                                 <view class="flex-1"></view>
                                 <text wx:if="{{item.status=='1'}}"  class="dfk">待付款</text>
                                 <text wx:elif="{{item.status=='2'}}"  class="dfk">待收货</text>
@@ -69,6 +70,10 @@
                     </view>
                 </block>
                 <view wx:if="{{tab.reachBottom&&tab.isLoading}}" class="cu-load wj-loading {{isLoading?'loading':'over'}}"></view>
+                <view wx:if="{{tab.isOver&&tab.data.length<=0}}" class="empty-container">
+                    <image class="empty-img" src="/images/empty_order.png"></image>
+                    <view class="empty-text">您还没有订单哦～</view>
+                </view>
             </scroll-view>
             <!--                </view>-->
 

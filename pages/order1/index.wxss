@@ -1,5 +1,22 @@
+page{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+.body{
+    width:750rpx;
+    /*height:100%;*/
+    flex: 1;
+    background:rgba(246,247,249,1);
+    /*border-radius:4rpx;*/
 
+    display: flex;
+    flex-direction: column;
 
+    padding:0 30rpx;
+
+}
 
 
 .empty-container{
@@ -26,11 +43,25 @@
 
     margin-top: 30rpx;
 }
+.tab-item{
+    width: 100%;
+    /*height: 100%;*/
+}
+.tab-item-active{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+
+}
 
 .custom-tabs{
   width: 100%;
   /*position: fixed !important;*/
   /*overflow: scroll;*/
+    flex: 1;
+    display: flex;
+    flex-direction: column;
 }
 .tab-custom{
 
@@ -45,16 +76,70 @@
   /*display: flex;*/
   /*flex-direction: column;*/
   /*align-items: center;*/
-  height: 100%;
+  /*height: 100%;*/
   /*position: fixed;*/
-  overflow: scroll;
+  /*overflow: scroll;*/
+
+    flex: 1;
 }
 .tab-layout{
   width: 100%;
   /*padding-bottom: 98rpx;*/
   /*margin-bottom: 98rpx;*/
   /*position: fixed;*/
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+
+    padding-bottom: 98rpx;
 }
+
+.van-tab__pane--active {
+/*./dist/tab/index.wxss: 8*/
+/*height: auto;*/
+height: 100% !important;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+
+}
+
+.van-tabs__content {
+/*./dist/tabs/index.wxss: 95*/
+    height: 100%;
+overflow: hidden;
+
+    display: flex;
+    flex-direction: column;
+
+}
+.van-tab, .van-tabs__track {
+/*./dist/tabs/index.wxss: 99*/
+position: relative;
+
+}
+.van-tab, .van-tabs__track {
+/*./pages/order/index.wxss: 145*/
+min-width: 0;
+    /*padding: 0 5px;*/
+    padding-left: 0px ;
+    padding-right: 0px;
+    text-align: center;
+    cursor: pointer;
+    box-sizing: border-box;
+    -webkit-flex: 1;
+    flex: 1;
+    height: 100%;
+
+    display: flex;
+    flex-direction: column;
+
+}
+
+
+
+
+
 .van-tabs__wrap scroll-view{
   background: white;
   position: fixed;
@@ -107,30 +192,6 @@
 
     /*font-weight: 500;*/
     /*color: #333;*/
-
-}
-.van-tab, .van-tabs__track {
-
-    /*width:84px;*/
-    /*height:40px;*/
-    /*font-size:28rpx !important;*/
-    /*font-family:PingFangSC-Regular !important;*/
-    /*font-weight:400 !important;*/
-    /*color:rgba(34,34,34,1) !important;*/
-    /*line-height:40rpx !important;*/
-
-
-
-    min-width: 0;
-    padding: 0 5px;
-    /*font-size: 14px;*/
-    /*line-height: 44px;*/
-    /*color: #7d7e80;*/
-    text-align: center;
-    cursor: pointer;
-    box-sizing: border-box;
-    -webkit-flex: 1;
-    flex: 1;
 
 }
 

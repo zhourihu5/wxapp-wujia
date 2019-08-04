@@ -1,0 +1,86 @@
+<cu-custom bgColor="titlebar-white" isBack="{{false}}">
+    <view slot="backText">返回</view>
+    <view slot="content">订单</view>
+</cu-custom>
+<van-tabs class="tab-layout"
+          custom-class="custom-tabs"
+          nav-class="tab-nav"
+          tab-class="tab-custom"
+          border="{{false}}"
+          line-class="tab-line"
+          color="rgba(255,155,29,1)"
+          lineWidth="17" swipeable swipeThreshold="5"
+          active="{{active}}"
+          bind:change="onChangeTab"
+>
+    <van-tab
+            wx:for="{{ tabs }}"
+            wx:for-item="tab"
+            wx:for-index="tabIndex"
+            title="{{tab.title}}"
+            custom-class="custom-tab"
+            class="{{tabIndex==active?'tab-item-active':'tab-item'}} "
+    >
+        <!--                <view class="list">-->
+        <!--                    todo 如果不需要下拉刷新替换为  scroll-view-->
+<!--        <scroll-view scroll-y class="scroll-view-order" style="top: calc( {{CustomBar}}px + 84rpx )"-->
+        <scroll-view scroll-y class="body"
+                     lower-threshold="{{lowerThreshold}}"
+                     upper-threshold="0"
+                     bindscrolltoupper='scrolltoupper'
+                     bindscrolltolower='scrolltolower'
+        >
+<!--            <block wx:for="{{tab.data}}" wx:for-item="item" wx:key="">-->
+            <block wx:for="{{10}}" wx:for-item="item" wx:key="">
+                <view class="item-content {{index==0?'p-t-20':''}}">
+                    <view class="order-container" url="/pages/order/orderDetail/index"
+                          hover-class="navigator-hover"
+                          open-type="navigateTo"
+                          bindtap="itemClicked"
+                          data-index="{{index}}">
+                        <!--                <view class="round-container order-container">-->
+                        <view class="top-item">
+                            <text>付款剩余时间：</text>
+                            <text class="sysj">{{index}} 00:14:30</text>
+                            <view class="flex-1"></view>
+                            <text wx:if="{{item.status=='1'}}"  class="dfk">待付款</text>
+                            <text wx:elif="{{item.status=='2'}}"  class="dfk">待收货</text>
+                            <text wx:elif="{{item.status=='3'}}"  class="dfk">已收货</text>
+                            <text wx:else  class="ygq">已过期</text>
+                        </view>
+                        <view class="order-middle-item">
+                            <image class="order-image" src="/images/tab_my.png"/>
+                            <view class="order-text">
+                                <view class="{{item.status=='4'?'order-name-ygq':'order-name'}} ">卫生间直接打的舒{{index}}</view>
+                                <view class="order-price">
+                                    <text class="{{item.status=='4'?'money-ygq':'money'}}">￥</text>
+                                    <text class="{{item.status=='4'?'price-now-ygq':'price-now'}}">12.32</text>
+                                    <text class="line-through price-old">￥16.8</text>
+                                </view>
+                            </view>
+
+                        </view>
+                        <view class="btn-wraper">
+                            <view class="left-empty"></view>
+                            <text wx:if="{{item.status=='1'}}" class="pay-right-now" bindtap="toPay">立即付款</text>
+                            <text wx:elif="{{item.status=='2'}}" class="lxshr" bindtap="askDeliver">联系送货人</text>
+                            <text wx:else class="go-stroll" bindtap="goStroll">去逛逛</text>
+                        </view>
+
+                        <!--                </view>-->
+                    </view>
+                </view>
+            </block>
+            <view wx:if="{{tab.reachBottom&&tab.isLoading}}" class="cu-load wj-loading {{isLoading?'loading':'over'}}"></view>
+
+            <view wx:if="{{tab.data.isOver&&tab.data.length<=0}}" class="empty-container">
+                <image class="empty-img" src="/images/empty_order.png"></image>
+                <view class="empty-text">您还没有订单哦～</view>
+            </view>
+
+        </scroll-view>
+        <!--                </view>-->
+
+
+    </van-tab>
+</van-tabs>
