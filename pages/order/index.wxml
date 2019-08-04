@@ -48,8 +48,7 @@
                             <view class="order-middle-item">
                                 <image class="order-image" src="/images/tab_my.png"/>
                                 <view class="order-text">
-                                    <text class="order-name">卫生间直接打的舒{{index}}</text>
-                                    <text class="order-name-ygq">已过期的商品名称</text>
+                                    <view class="{{item.status=='4'?'order-name-ygq':'order-name'}} ">卫生间直接打的舒{{index}}</view>
                                     <view class="order-price">
                                         <text class="{{item.status=='4'?'money-ygq':'money'}}">￥</text>
                                         <text class="{{item.status=='4'?'price-now-ygq':'price-now'}}">12.32</text>

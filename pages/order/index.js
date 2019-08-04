@@ -30,6 +30,7 @@ Page({
                 title: "待收获",
                 status:2,
                 isOver:false,
+                isLoading: false,
                 reachBottom:false,
                 pageNum: 1,
                 data:[],
@@ -95,7 +96,7 @@ Page({
                 tabs: that.data.tabs,
             })
         }, function (msg) {
-
+            that.data.tabs[active].isLoading=false
         })
     },
     onChange(event) {

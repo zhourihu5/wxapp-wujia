@@ -1,5 +1,3 @@
-import _Promise from 'bluebird';
-
 
 function request(url, data,method, success, fail) {
   this.requestLoading(url, data,method, "", success, fail)
@@ -11,22 +9,6 @@ function requestPost(url, data, success, fail) {
   this.requestLoading(url, data,'POST', "", success, fail)
 }
 
-/**
- * @param {Function} fun 接口
- * @param {Object} options 接口参数
- * @returns {Promise} Promise对象
- */
-function Promise(fun, options) {
-  options = options || {};
-  return new _Promise((resolve, reject) => {
-    if (typeof fun !== 'function') {
-      reject();
-    }
-    options.success = resolve;
-    options.fail = reject;
-    fun(options);
-  });
-}
 const app = getApp()
 /* 展示进度条的网络请求
 * url:网络请求的url
@@ -101,7 +83,6 @@ function requestLoading(url, data,method, message, successCallBack, failCallBack
   return requestTask;
 }
 module.exports = {
-  Promise: Promise,
   request: request,
     requestGet: requestGet,
     requestPost: requestPost,

@@ -67,7 +67,6 @@
   },
   "usingComponents": {
     "cu-custom": "/colorui/components/cu-custom",
-    "refurbish-load": "/refurbish-load/refurbish-load",
     "activity": "/components/activity/index",
     "stepper": "/components/stepper/index",
 

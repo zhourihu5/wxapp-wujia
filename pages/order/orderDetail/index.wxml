@@ -54,11 +54,11 @@
         <view class="goods-content">
             <image class="goods-image" src="/images/tab/img_doctor.png"/>
             <view class="goods-text-container">
-                <view class="goods-name {{apiData.status=='4'?'expired':''}}">卫生间直接打到是阿萨德</view>
+                <view class="goods-name {{apiData.status=='4'?'expired':''}}">{{apiData.commodity.name}}</view>
                 <view class="price-text">
                     <text class="money {{apiData.status=='4'?'expired':''}}">￥</text>
-                    <text class="price-now {{apiData.status=='4'?'expired':''}}">12.32</text>
-                    <text class="line-through text-gray price-old {{apiData.status=='4'?'expired':''}} ">￥16.8</text>
+                    <text class="price-now {{apiData.status=='4'?'expired':''}}">{{apiData.realPrice}}</text>
+                    <text class="line-through text-gray price-old {{apiData.status=='4'?'expired':''}} ">￥{{apiData.price}}</text>
                 </view>
             </view>
         </view>
@@ -72,10 +72,10 @@
 <!--    </view>-->
     <view class="goods-info ">
         <view class="goods-title {{apiData.status=='4'?'expired':''}}">订单信息</view>
-        <view class="order-info-item">订单金额：￥15.30</view>
-        <view class="order-info-item">创建时间：2019-5-24 13：58：56</view>
-        <view class="order-info-item">订单编号：23465457568679786</view>
-        <view class="order-info-item  p-b-30">收货地址：天通苑社区15号楼2单元201</view>
+        <view class="order-info-item">订单金额：￥{{apiData.realPrice}}</view>
+        <view class="order-info-item">创建时间：{{apiData.createDate}}</view>
+        <view class="order-info-item">订单编号：{{apiData.code}}</view>
+        <view class="order-info-item  p-b-30">收货地址：{{apiData.deliveryArea}}</view>
     </view>
 <!--    <view class="goods-info dilivery-container">-->
 <!--        <view class="goods-title">配送信息</view>-->
