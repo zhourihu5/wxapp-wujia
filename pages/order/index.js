@@ -113,6 +113,15 @@ Page({
             url:"/pages/order/orderDetail/index?id="+id
         })
     },
+    goStroll(e){//去逛逛 todo 问产品要跳哪
+
+    },
+    askDeliver(e){//TODO 联系送货人 问产品
+
+    },
+    toPay(e){//todo 立即付款
+
+    },
     onPullDownRefresh: function () {
         // Do something when pull down.
         console.log('onPullDownRefresh')
