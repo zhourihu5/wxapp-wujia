@@ -1,4 +1,4 @@
-<cu-custom  bgColor="titlebar-white" isBack="{{true}}">
+<cu-custom bgColor="titlebar-white" isBack="{{true}}">
     <view slot="backText"></view>
     <view slot="content">基本资料</view>
 </cu-custom>
@@ -30,9 +30,9 @@
         </view>
         <view class="item">
             <view class="item-l">手机号</view>
-            <input class="input" placeholder-class="placeholder"  placeholder="请填写收货人手机号"
+            <input class="input" placeholder-class="placeholder" placeholder="请填写收货人手机号"
                    value="{{apiData.userName}}" disabled="disabled"
-             />
+            />
         </view>
         <view class="item no-border" bindtap="showModal">
             <view class="item-l">生日</view>
@@ -41,18 +41,20 @@
         </view>
     </view>
     <view class="b-b" bindtap="onClickSave">保存并使用</view>
-<!--    <view class="b-b-disabled">保存并使用</view>-->
+    <!--    <view class="b-b-disabled">保存并使用</view>-->
 
 
 </view>
 <view class="cu-modal bottom-modal {{modalName=='bottomModal'?'show':''}}">
     <view class="cu-dialog bottom-dialog">
-        <view class="cu-bar d-t-bar">
-            <view class="psz">请选择生日</view>
-            <view class="cuIcon-close" bindtap="hideModal"></view>
+        <view class="d-t-bar">
+            <view class="d-cancel" bindtap="hideModal">取消</view>
+            <view class="flex-1 d-title">请选择生日</view>
+            <view class="d-confirm" bindtap="pickerConfirm">确定</view>
         </view>
         <view>
-            <picker-view indicator-style="height: 50px;" style="width: 100%; height: 300px;" value="{{value}}" bindchange="bindChange">
+            <picker-view indicator-style="height: 50px;" style="width: 100%; height: 300px;" value="{{value}}"
+                         bindchange="pickerChange">
                 <picker-view-column>
                     <view wx:for="{{years}}" style="line-height: 50px">{{item}}年</view>
                 </picker-view-column>

@@ -1,9 +1,16 @@
 
 function strSplitToArr(str,token) {
-  return str.split(token);
+  if(str){
+    return str.split(token);
+  }else {
+    return str
+  }
 
 }
 function numBeforeDot(num) {
+  if(num===null){
+    return num
+  }
   var str=num.toString()
   if(isNumDot(str)){
      return str.split('.')[0];
@@ -13,10 +20,16 @@ function numBeforeDot(num) {
 
 }
 function isNumDot(num) {
+  if(num===null){
+    return num
+  }
   var str=num.toString()
   return str.indexOf(".") != -1;
 }
 function numAfterDot(num) {
+  if(num===null){
+    return num
+  }
     var str=num.toString()
   if(isNumDot(str)){
    // console.log('小数')

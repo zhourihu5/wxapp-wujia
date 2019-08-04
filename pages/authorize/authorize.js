@@ -21,8 +21,8 @@ Page({
             withCredentials: true,
             success: function (res_user) {
                 // wx.setStorageSync('wx_user', res_user);
-                app.isAuthorized=true
-                app.wxUserInfo=res_user
+                app.isAuthorized = true
+                app.wxUserInfo = res_user
                 wx.reLaunch({
                     url: '/pages/index/index'
                 });

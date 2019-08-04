@@ -1,4 +1,4 @@
-<cu-custom  bgColor="titlebar-white" isBack="{{true}}">
+<cu-custom bgColor="titlebar-white" isBack="{{true}}">
     <view slot="backText"></view>
     <view slot="content">新增收货地址</view>
 </cu-custom>
@@ -6,8 +6,8 @@
     <view class="w-b">
         <view class="item no-border">
             <view class="item-l">收货人</view>
-            <input class="input" placeholder-class="placeholder"  placeholder="请填写收货人姓名"
-                   bindinput="nameInput"  />
+            <input class="input" placeholder-class="placeholder" placeholder="请填写收货人姓名"
+                   bindinput="nameInput"/>
         </view>
         <view class="line-1">
             <view class="item-l"></view>
@@ -30,11 +30,11 @@
         </view>
         <view class="item">
             <view class="item-l">手机号</view>
-            <input class="input" placeholder-class="placeholder"  placeholder="请填写收货人手机号"
+            <input class="input" placeholder-class="placeholder" placeholder="请填写收货人手机号"
                    bindinput="phoneInput"/>
         </view>
         <view class="item" bindtap="showModalCommnunity">
-            <view class="item-l" >收货地址</view>
+            <view class="item-l">收货地址</view>
             <input class="item-r input" placeholder-class="placeholder" placeholder="请选择收货地址"
                    disabled="disabled" value="{{currentCommunity.name}}"/>
             <view class="icon_arrow_r"></view>
@@ -62,7 +62,7 @@
                   border="{{false}}"
                   line-class="tab-line"
                   color="rgba(255,155,29,1)"
-                  lineWidth="17"  swipeThreshold="5"
+                  lineWidth="17" swipeThreshold="5"
                   active="{{active}}"
                   bind:change="tabChange">
             <van-tab
@@ -74,12 +74,12 @@
                     custom-class="custom-tab">
                 <!--                <view class="list">-->
                 <!--                    todo 如果不需要下拉刷新替换为  scroll-view-->
-                <scroll-view scroll-y  class="scroll-view-order" style="height: 750rpx;"
+                <scroll-view scroll-y class="scroll-view-order" style="height: 750rpx;"
                              bindscrolltoupper='scrolltoupper'
                              bindscrolltolower='scrolltolower'
                 >
                     <block wx:for="{{tab.data}}" wx:for-item="item" wx:key="">
-                        <view class="item-area area-checked" data-index="{{index}}"  bindtap="itemClicked" >
+                        <view class="item-area area-checked" data-index="{{index}}" bindtap="itemClicked">
                             <view class="flex" wx:if="{{index==tab.selected}}">
                                 <view class="cuIcon-check checkIcon"></view>
                                 <view class="area-checked">{{item.name}}</view>
@@ -98,12 +98,14 @@
 </view>
 <view class="cu-modal bottom-modal {{modalName=='communityModal'?'show':''}}">
     <view class="cu-dialog bottom-dialog">
-        <view class="cu-bar d-t-bar">
-            <view class="psz">请选择收货地址</view>
-            <view class="cuIcon-close" bindtap="hideModal"></view>
+        <view class="d-t-bar">
+            <view class="d-cancel" bindtap="hideModal">取消</view>
+            <view class="flex-1 d-title">请选择收货地址</view>
+            <view class="d-confirm" bindtap="pickerConfirm">确定</view>
         </view>
         <view>
-            <picker-view indicator-style="height: 50px;" style="width: 100%; height: 300px;" value="{{value}}" bindchange="bindChange">
+            <picker-view indicator-style="height: 50px;" style="width: 100%; height: 300px;" value="{{value}}"
+                         bindchange="bindChange">
                 <picker-view-column>
                     <view wx:for="{{communityList}}" style="line-height: 50px">{{item.name}}</view>
                 </picker-view-column>

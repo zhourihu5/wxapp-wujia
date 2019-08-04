@@ -67,6 +67,7 @@ function requestLoading(url, data,method, message, successCallBack, failCallBack
                 console.log(res.data.data)
                 successCallBack(res.data.data);
             } else {
+                app.showToast(res.data.message||res.errMsg)
                 if(res.data&&res.data.code<0){//token is expired
                     wx.reLaunch({
                         url:'/pages/index/index'

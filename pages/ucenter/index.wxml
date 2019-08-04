@@ -1,6 +1,6 @@
 <!--index.wxml-->
 <view class="container">
-    <cu-custom  bgColor="titlebar-white" isBack="{{false}}">
+    <cu-custom bgColor="titlebar-white" isBack="{{false}}">
         <view slot="backText"></view>
         <view slot="content">吾家小智</view>
     </cu-custom>
@@ -15,7 +15,7 @@
 
     </view>
 
-    <block wx:for="{{items}}" wx:for-item="item" >
+    <block wx:for="{{items}}" wx:for-item="item">
         <navigator class="item-container" url="{{item.url}}" hover-class="navigator-hover"
                    open-type="navigateTo">
             <view wx:if="{{index!=0}}" class="line"></view>
@@ -30,6 +30,6 @@
     <view class="wjrsqshgmh">
         吾家让社区生活更美好～
     </view>
-<!--    <view style="width: 740rpx;background: red;">test</view>-->
-<!--    <view style="width: 750rpx;background: red;">test</view>-->
+    <!--    <view style="width: 740rpx;background: red;">test</view>-->
+    <!--    <view style="width: 750rpx;background: red;">test</view>-->
 </view>

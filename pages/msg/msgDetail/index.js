@@ -13,7 +13,7 @@ Page({
         content3: '线上拓客，随时预约，贴心顺手的开单收银'
     },
     onChange(event) {
-        const { key } = event.currentTarget.dataset;
+        const {key} = event.currentTarget.dataset;
         this.setData({
             [key]: event.detail
         });

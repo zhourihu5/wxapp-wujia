@@ -1,29 +1,55 @@
-
+const util = require('../../../utils/util.js')
+const network = require('../../../utils/network.js')
 Page({
     data: {
-        tabs: [
-            {
-                title: "全部",
-                data:[1,2,3,4,5,6,7,8,9]
-            },
-            {
-                title: "待付款",
-                data:[1,2,3,4,5,6,7,8,9]
-            },
-            {
-                title: "待收获",
-                data:[1,2,3,4,5,6,7,8,9]
-            },
-            {
-                title: "已收货",
-                data:[1,2,3,4,5,6,7,8,9]
-            },
-            {
-                title: "已过期",
-                data:[1,2,3,4,5,6,7,8,9]
-            },
-        ]
+        apiData:null,
     },
-    onLoad: function () {
-    }
+    onLoad: function (options) {
+        let id=options.id;
+        var that=this
+        network.requestGet('/v1/order/findOrderDetail',{orderId:id},function (data) {
+            that.setData({
+                apiData:data,
+            })
+        },function (msg) {
+
+        })
+    },
+    cancelOrder(e){//todo 取消订单
+
+    },
+    goStroll(e){//去逛逛 todo 问产品要跳哪
+
+    },
+    confirmReceive(e){//TODO 确认收货
+
+    },
+    toPay(e){
+        var that=this
+
+        that.payOrder();//todo just for test,please delete it if online
+
+        wx.requestPayment({
+            timeStamp: '',
+            nonceStr: '',
+            package: '',
+            signType: 'MD5',
+            paySign: '',
+            success(res) {
+                that.payOrder()
+            },
+            fail(res) {
+
+            }
+        })
+    },
+    payOrder(){//修改订单状态
+        var that=this
+        network.requestPost('/v1/order/payOrder',{id:that.data.apiPayOrderData.id},function (data) {
+            // wx.navigateTo({url: "/pages/paySuccess/index"})
+            wx.redirectTo({url: "/pages/paySuccess/index"})
+        },function (msg) {
+
+        })
+    },
 })

@@ -1,6 +1,5 @@
-
 <view class="container">
-    <cu-custom  bgColor="titlebar-white" isBack="{{false}}">
+    <cu-custom bgColor="titlebar-white" isBack="{{false}}">
         <view slot="backText">返回</view>
         <view slot="content">订单</view>
     </cu-custom>
@@ -12,6 +11,7 @@
               line-class="tab-line"
               color="rgba(255,155,29,1)"
               lineWidth="17" swipeable swipeThreshold="5"
+              active="{{active}}"
               bind:change="onChange"
     >
         <van-tab
@@ -20,55 +20,58 @@
                 wx:for-index="tabIndex"
                 title="{{tab.title}}"
                 custom-class="custom-tab">
-<!--                <view class="list">-->
-<!--                    todo 如果不需要下拉刷新替换为  scroll-view-->
-                     <scroll-view scroll-y  class="scroll-view-order" style="top: calc( {{CustomBar}}px + 84rpx )"
-                                 lower-threshold="{{lowerThreshold}}"
-                                 upper-threshold="0"
-                            bindscrolltoupper='scrolltoupper'
-                            bindscrolltolower='scrolltolower'
-                    >
-                    <block wx:for="{{tabData[tabIndex]}}" wx:for-item="item" wx:key="">
-                        <view class="item-content {{index==0?'p-t-20':''}}">
-                            <navigator class="order-container" url="/pages/order/orderDetail/index" hover-class="navigator-hover"
-                                       open-type="navigateTo">
-                                <!--                <view class="round-container order-container">-->
-                                <view class="top-item">
-                                    <text >付款剩余时间：</text>
-                                    <text class="sysj">00:14:30</text>
-                                    <view class="flex-1"></view>
-                                    <text class="dfk">待付款</text>
-                                    <text class="ygq">已过期</text>
-                                </view>
-                                <view class="order-middle-item">
-                                    <image class="order-image" src="/images/tab_my.png"/>
-                                    <view class="order-text">
-                                        <text class="order-name">卫生间直接打的舒{{index}}</text>
-                                        <text class="order-name-ygq">已过期的商品名称</text>
-                                        <view class="order-price">
-                                            <text class="money">￥</text>
-                                            <text class="price-now">12.32</text>
-                                            <text class="money-ygq">￥</text>
-                                            <text class="price-now-ygq">12.32</text>
-                                            <text class="line-through price-old">￥16.8</text>
-                                        </view>
+            <!--                <view class="list">-->
+            <!--                    todo 如果不需要下拉刷新替换为  scroll-view-->
+            <scroll-view scroll-y class="scroll-view-order" style="top: calc( {{CustomBar}}px + 84rpx )"
+                         lower-threshold="{{lowerThreshold}}"
+                         upper-threshold="0"
+                         bindscrolltoupper='scrolltoupper'
+                         bindscrolltolower='scrolltolower'
+            >
+                <block wx:for="{{tabData[tabIndex]}}" wx:for-item="item" wx:key="">
+                    <view class="item-content {{index==0?'p-t-20':''}}">
+                        <view class="order-container" url="/pages/order/orderDetail/index"
+                                   hover-class="navigator-hover"
+                                   open-type="navigateTo"
+                                   bindtap="itemClicked"
+                                    data-index="{{index}}">
+                            <!--                <view class="round-container order-container">-->
+                            <view class="top-item">
+                                <text>付款剩余时间：</text>
+                                <text class="sysj">00:14:30</text>
+                                <view class="flex-1"></view>
+                                <text class="dfk">待付款</text>
+                                <text class="ygq">已过期</text>
+                            </view>
+                            <view class="order-middle-item">
+                                <image class="order-image" src="/images/tab_my.png"/>
+                                <view class="order-text">
+                                    <text class="order-name">卫生间直接打的舒{{index}}</text>
+                                    <text class="order-name-ygq">已过期的商品名称</text>
+                                    <view class="order-price">
+                                        <text class="money">￥</text>
+                                        <text class="price-now">12.32</text>
+                                        <text class="money-ygq">￥</text>
+                                        <text class="price-now-ygq">12.32</text>
+                                        <text class="line-through price-old">￥16.8</text>
                                     </view>
-
-                                </view>
-                                <view class="btn-wraper">
-                                    <view class="left-empty"></view>
-                                    <text class="pay-right-now" >立即付款</text>
-                                    <text class="lxshr">联系送货人</text>
-                                    <text class="go-stroll">去逛逛</text>
                                 </view>
 
-                                <!--                </view>-->
-                            </navigator>
+                            </view>
+                            <view class="btn-wraper">
+                                <view class="left-empty"></view>
+                                <text class="pay-right-now">立即付款</text>
+                                <text class="lxshr">联系送货人</text>
+                                <text class="go-stroll">去逛逛</text>
+                            </view>
+
+                            <!--                </view>-->
                         </view>
-                    </block>
-                         <view class="cu-load wj-loading {{isLoading?'loading':'over'}}"></view>
-                    </scroll-view>
-<!--                </view>-->
+                    </view>
+                </block>
+                <view class="cu-load wj-loading {{isLoading?'loading':'over'}}"></view>
+            </scroll-view>
+            <!--                </view>-->
 
 
         </van-tab>

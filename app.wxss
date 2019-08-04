@@ -391,3 +391,45 @@ tab-bar{
 
 }
 
+.d-t-bar{
+  height: 90rpx;
+  width: 100%;
+
+  display: flex;
+  align-items: center;
+
+}
+.d-title{
+  /*width:396px;*/
+  /*height:44px;*/
+  font-size:32rpx;
+  font-family:PingFangSC-Regular;
+  font-weight:400;
+  color:rgba(0,0,0,1);
+  line-height:44rpx;
+}
+.d-confirm{
+  /*width:112px;*/
+  /*height:40px;*/
+  font-size:28rpx;
+  font-family:PingFangSC-Medium;
+  font-weight:500;
+  color:rgba(255,155,29,1);
+  /*line-height:40rpx;*/
+  line-height:90rpx;
+
+  padding: 0 30rpx;
+}
+.d-cancel{
+  /*width:56px;*/
+  /*height:40px;*/
+  font-size:28rpx;
+  font-family:PingFangSC-Regular;
+  font-weight:400;
+  color:rgba(34,34,34,1);
+  /*line-height:40rpx;*/
+  line-height: 90rpx;
+
+  padding: 0 30rpx;
+}
+

@@ -11,7 +11,9 @@
         </view>
         <view>
             <button type="primary" class="m_btn va_m wd180rpx gray_btn fl">拒绝</button>
-            <button type="primary" class="m_btn va_m wd180rpx fr" open-type="getUserInfo" withCredentials="true" bindgetuserinfo="bindGetUserInfo">允许</button>
+            <button type="primary" class="m_btn va_m wd180rpx fr" open-type="getUserInfo" withCredentials="true"
+                    bindgetuserinfo="bindGetUserInfo">允许
+            </button>
         </view>
     </block>
     <view wx:else>请升级微信版本</view>

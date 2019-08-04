@@ -4,33 +4,33 @@ const network = require('../../utils/network.js')
 Page({
     data: {
         CustomBar: app.globalData.CustomBar,
-        apiData:null,
+        apiData: null,
     },
     onLoad(option) {
         this.loadData()
     },
-    notifyAddressChanged(){
+    notifyAddressChanged() {
         this.loadData()
     },
-    loadData(){
-        var that=this
-        network.requestGet('/v1/address/findList',{},function (data) {
+    loadData() {
+        var that = this
+        network.requestGet('/v1/address/findList', {}, function (data) {
             that.setData({
-                apiData:data,
+                apiData: data,
             })
-        },function (msg) {
+        }, function (msg) {
 
         })
     },
-    addNewAdress(e){
-        wx.navigateTo({url:"/pages/addAdress/index"})
+    addNewAdress(e) {
+        wx.navigateTo({url: "/pages/addAdress/index"})
     },
-    itemClick(e){
-        var index=e.currentTarget.dataset.index
-        var pages=getCurrentPages();
-        var prevPage=pages[pages.length-2];
+    itemClick(e) {
+        var index = e.currentTarget.dataset.index
+        var pages = getCurrentPages();
+        var prevPage = pages[pages.length - 2];
         prevPage.setData({
-            myAddress:this.data.apiData[index],//收货地址
+            myAddress: this.data.apiData[index],//收货地址
         })
         wx.navigateBack({
             delta: 1,
@@ -38,7 +38,7 @@ Page({
         // app.myAddress=this.data.apiData[index]
 
     },
-    toEdit(e){
+    toEdit(e) {
 
     },
 })

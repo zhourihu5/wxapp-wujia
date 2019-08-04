@@ -1,26 +1,26 @@
 <!--index.wxml-->
-<cu-custom  bgColor="titlebar-white" isBack="{{true}}">
+<cu-custom bgColor="titlebar-white" isBack="{{true}}">
     <view slot="backText"></view>
     <view slot="content">团购成功</view>
 </cu-custom>
 
-<view class="container p-l-r-30">
-    <view class="step-container">
+<view class="body">
+    <view wx:if="{{false}}" class="step-container">
         <view class="step-selected">1</view>
         <view class="step-selected-text">参与活动</view>
         <view class="dash-line-selected"></view>
         <view class="step-selected">2</view>
-<!--        <view class="step-unselected">2</view>-->
-<!--        <view class="step-unselected-text">确认订单</view>-->
+        <!--        <view class="step-unselected">2</view>-->
+        <!--        <view class="step-unselected-text">确认订单</view>-->
         <view class="step-selected-text">确认订单</view>
-<!--        <view class="dash-line"></view>-->
+        <!--        <view class="dash-line"></view>-->
         <view class="dash-line-selected"></view>
         <view class="step-selected">3</view>
         <view class="step-selected-text">团购成功</view>
     </view>
     <view class="round-container center-vertical p-t-b-50 m-t-20">
         <view class="round">
-            <view class="cuIcon-check" />
+            <view class="cuIcon-check"/>
 
         </view>
         <view class="ptcg">拼团成功</view>
@@ -31,12 +31,47 @@
     </view>
 
     <view class="m-t-b-30 djdzp">大家都在拼</view>
-    <block wx:for="12345678asdfasdfasdfasfasdfasdfasd" wx:key="">
-        <view class="m-t-20">
-            todo 这里是自定义商品banner组件
-        </view>
+    <scroll-view scroll-y class="scroll"
+                 bindscrolltoupper='scrolltoupper'
+                 bindscrolltolower='scrolltolower'
+                 lower-threshold="{{lowerThreshold}}"
+    >
+        <block wx:for="{{apiData}}" wx:key="">
 
-    </block>
+            <!--                <activity cover="{{item.cover}}"-->
+            <!--                          title="{{item.commodity.name}}"-->
+            <!--                          priceInt="12"-->
+            <!--                          priceFloat="32"-->
+            <!--                          priceOld="16.68"-->
+            <!--                          labelArr="{{ utils.strSplitToArr(item.commodity.labelsName,'|') }}"-->
+            <!--                          salesNum="{{item.commodity.salesNum}}"-->
+            <!--                          dataId="{{item.id}}"/>-->
+
+            <view class="activity-item m-l-r-30 m-b-20 relative">
+                <image class="activity-banner"
+                       src="{{item.cover}}"/>
+                <view class="m-l-20 m-t-30 m-b-20 activity-title">{{item.commodity.name}}</view>
+                <view class="price">
+                    <text class="dollar m-l-20">￥</text>
+                    <text class="price-integer">{{utils.numBeforeDot(item.commodity.price)}}</text>
+                    <text class="dot" wx:if="{{utils.isNumDot(item.commodity.price)}}">.</text>
+                    <text class="price-float">{{utils.numAfterDot(item.commodity.price)}}</text>
+                    <text class="price-old m-l-20 m-r-30">￥{{item.commodity.initPrice}}</text>
+                    <text class="sell-num">已抢购{{item.commodity.salesNum}}件</text>
+                </view>
+                <view class="m-l-20 p-b-30 m-t-20 lable-container">
+                    <text wx:for="{{ utils.strSplitToArr(item.commodity.labelsName,'|') }}" wx:for-item="labelItem"
+                          wx:key="" class="lable">{{labelItem}}
+                    </text>
+                </view>
+
+                <view class="go-group-buy" bindtap="goBuy" data-id="{{item.id}}">去拼团</view>
+            </view>
+
+
+        </block>
+        <view wx:if="{{reachBottom}}" class="cu-load wj-loading {{isLoading?'loading':'over'}}"></view>
+    </scroll-view>
 
 </view>
 

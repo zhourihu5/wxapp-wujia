@@ -1,4 +1,4 @@
-<cu-custom  bgColor="titlebar-white" isBack="{{true}}">
+<cu-custom bgColor="titlebar-white" isBack="{{true}}">
     <view slot="backText"></view>
     <view slot="content">新增收货地址</view>
 </cu-custom>
@@ -41,7 +41,7 @@
                   border="{{false}}"
                   line-class="tab-line"
                   color="rgba(255,155,29,1)"
-                  lineWidth="17"  swipeThreshold="5"
+                  lineWidth="17" swipeThreshold="5"
                   active="{{active}}"
                   bind:change="tabChange">
             <van-tab
@@ -53,12 +53,12 @@
                     custom-class="custom-tab">
                 <!--                <view class="list">-->
                 <!--                    todo 如果不需要下拉刷新替换为  scroll-view-->
-                <scroll-view scroll-y  class="scroll-view-order" style="height: 750rpx;"
+                <scroll-view scroll-y class="scroll-view-order" style="height: 750rpx;"
                              bindscrolltoupper='scrolltoupper'
                              bindscrolltolower='scrolltolower'
                 >
                     <block wx:for="{{tab.data}}" wx:for-item="item" wx:key="">
-                        <view class="item-area area-checked" data-index="{{index}}"  bindtap="itemClicked" >
+                        <view class="item-area area-checked" data-index="{{index}}" bindtap="itemClicked">
                             <view class="flex" wx:if="{{index==tab.selected}}">
                                 <view class="cuIcon-check checkIcon"></view>
                                 <view class="area-checked">{{item.name}}</view>

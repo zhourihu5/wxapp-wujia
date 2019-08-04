@@ -41,6 +41,11 @@ Component({
    */
   methods: {
     BackPage() {
+      const page = getCurrentPages().pop();
+      if(page.navigateBack){
+        page.navigateBack()
+        return
+      }
       wx.navigateBack({
         delta: 1
       });

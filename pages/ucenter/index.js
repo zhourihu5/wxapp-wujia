@@ -1,18 +1,18 @@
 //index.js
 const util = require('../../utils/util.js')
-const app=getApp()
+const app = getApp()
 Page({
     data: {
         items: [
             {
                 title: "基本资料",
-                icon:"/images/icon_profile.png",
-                url:"/pages/baseInfo/index"
+                icon: "/images/icon_profile.png",
+                url: "/pages/baseInfo/index"
             },
             {
                 title: "社区黄页",
-                icon:"/images/icon_yellow_page.png",
-                url:"/pages/yellowPage/index"
+                icon: "/images/icon_yellow_page.png",
+                url: "/pages/yellowPage/index"
             },
             // {
             //     title: "申请线上开锁",
@@ -20,27 +20,27 @@ Page({
             //     url:"/pages/neibourList/index"
             // },
         ],
-        nickName:'',
-        phone:'',
-        avatarUrl:'',
+        nickName: '',
+        phone: '',
+        avatarUrl: '',
     },
-    onShow(){
+    onShow() {
         if (typeof this.getTabBar === 'function' &&
             this.getTabBar()) {
             this.getTabBar().init()
         }
     },
-    nickNameChanged(){
+    nickNameChanged() {
         this.setData({
-            nickName:app.nickName,
+            nickName: app.nickName,
         })
     },
     onLoad: function () {
-        var userInfo=app.wxUserInfo
+        var userInfo = app.wxUserInfo
         this.setData({
-            nickName:app.nickName||(userInfo&&userInfo.userInfo&&userInfo.userInfo.nickName) ,
-            avatarUrl:userInfo&&userInfo.userInfo&&userInfo.userInfo.avatarUrl,
-            phone:'136****8402',
+            nickName: app.nickName || (userInfo && userInfo.userInfo && userInfo.userInfo.nickName),
+            avatarUrl: userInfo && userInfo.userInfo && userInfo.userInfo.avatarUrl,
+            phone: '136****8402',
         })
     }
 })

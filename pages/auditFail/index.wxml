@@ -1,12 +1,15 @@
-<cu-custom  bgColor="titlebar-white" isBack="{{false}}">
+<cu-custom bgColor="titlebar-white" isBack="{{false}}">
     <view slot="backText"></view>
     <view slot="content">吾家小智</view>
 </cu-custom>
 <view class="body">
-<view class="img-content">
-    <image class="img" src="/images/audit_fail.png"></image>
-    <view class="img-desc">您提交的信息被驳回， 请重新申请～</view>
-</view>
-    <view class="bhyy"><text class="bhyy-title">驳回原因：</text>{{failReason}}</view>
+    <view class="img-content">
+        <image class="img" src="/images/audit_fail.png"></image>
+        <view class="img-desc">您提交的信息被驳回， 请重新申请～</view>
+    </view>
+    <view class="bhyy">
+        <text class="bhyy-title">驳回原因：</text>
+        {{failReason}}
+    </view>
     <view class="btn-apply" bindtap="onClick">立即申请</view>
 </view>

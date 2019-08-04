@@ -31,23 +31,23 @@
     <scroll-view scroll-y class="list"
                  bindscrolltoupper='scrolltoupper'
                  bindscrolltolower='scrolltolower'>
-<!--        <view class="list">-->
+        <!--        <view class="list">-->
         <van-radio-group class="w-p-100" value="{{radio}}">
-            <van-cell-group class="w-p-100 no-border" border="{{false}}" >
+            <van-cell-group class="w-p-100 no-border" border="{{false}}">
                 <van-cell class="w-p-100"
-                        wx:for="{{ list }}"
-                        wx:key="index"
-                        title="单选框 {{ item }}"
-                        value-class="value-class"
-                        clickable
-                        data-name="{{ item }}"
-                        bind:click="onClick"
+                          wx:for="{{ list }}"
+                          wx:key="index"
+                          title="单选框 {{ item }}"
+                          value-class="value-class"
+                          clickable
+                          data-name="{{ item }}"
+                          bind:click="onClick"
                 >
                     <van-radio name="{{ item }}" checkedColor="#FF9B1D"/>
                 </van-cell>
             </van-cell-group>
         </van-radio-group>
-<!--        </view>-->
+        <!--        </view>-->
     </scroll-view>
 
     <view class="b-b">确定</view>

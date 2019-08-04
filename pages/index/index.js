@@ -8,27 +8,26 @@ Page({
         CustomBar: app.globalData.CustomBar,
         getCodeText: '获取验证码',
         isBindEnabled: false,
-        isAuthorized:app.isAuthorized,
-        modalName: "ModalGuideInvite,ModalBindPhone,ModalGuideMore,ModalGuideOpen,",
-        communtityName:'',
-        list: [
-
-        ],
-        failReason:null,
+        isAuthorized: app.isAuthorized,
+        modalName: "ModalGuideInvite,ModalBindPhone,ModalGuideMore,ModalGuideOpen,ModalAddCommunity,",
+        communtityName: '',
+        cummunityIndex: null,
+        apiData: null,
+        failReason: null,
     },
     customData: {
         y: 0,
         phone: null,
         code: null,
         openid: null,
-        wx_user:null
+        wx_user: null
     },
     bindPhone: function (e) {
         var that = this
         if (!this.data.isBindEnabled) {
             return
         }
-        var userInfo =that.customData.wx_user||app.wxUserInfo
+        var userInfo = that.customData.wx_user || app.wxUserInfo
         network.requestPost('/wx/binding/bindingUser',
             {
                 cover: userInfo && userInfo.userInfo && userInfo.userInfo.avatarUrl,
@@ -38,24 +37,26 @@ Page({
                 smsCode: that.customData.code
             },
             function (data) {
-                app.token=data.token
+                app.token = data.token
                 try {
                     app.communtityId = data.communtityList[0].id
                     app.communtityCode = data.communtityList[0].code
                 } catch (e) {
                 }
-                app.nickName=data.userInfo.nickName
+                app.nickName = data.userInfo.nickName
                 that.setData({
-                    communtityName:data.communtityName,
-                    list:data.activityList,
+                    communtityName: data.communtityName,
+                    apiData: data,
                 })
-                if('0'==data.isBindingFamily){
-                    wx.redirectTo({url:'/pages/neibourList/index'})
-                }else if(data.isApplyLock=='0'){//待审核
-                    wx.redirectTo({url:'/pages/auditWait/index'})
-                }else if(data.isApplyLock=='2'){//不通过
-                    that.data.failReason=data.failReason;//todo 驳回原因字段
-                    wx.redirectTo({url:'/pages/auditFail/index'})
+                if ('0' == data.isBindingFamily) {
+                    wx.redirectTo({url: '/pages/neibourList/index'})
+                } else if (data.applyLock) {
+                    if (data.applyLock.status == '0') {//待审核
+                        wx.redirectTo({url: '/pages/auditWait/index'})
+                    } else if (data.applyLock.status == '2') {//不通过
+                        that.data.failReason = data.applyLock.remark
+                        wx.redirectTo({url: '/pages/auditFail/index'})
+                    }
                 }
                 that.hideModal();
                 that.showGuideInvite();
@@ -66,9 +67,14 @@ Page({
         )
 
     },
-    goBuy(e){
-        let id=e.currentTarget.dataset.id;
-        wx.navigateTo({url:'/pages/goodsDetail/index?id='+id})
+    goBuy(e) {
+        var index=e.currentTarget.dataset.index
+        let id =this.data.apiData.activityList[index].id;
+        if(this.data.apiData.activityList[index].isJoin==0){
+            wx.navigateTo({url: '/pages/goodsDetail/index?id=' + id})
+        }else {
+            wx.navigateTo({url: '/pages/goodsDetail1/index?id=' + id})
+        }
     },
     moveChangedOpen(e) {
         console.log(e)
@@ -105,8 +111,40 @@ Page({
         })
         this.isEnableTabBar()
     },
-    showModalAddCommunity(e){
-        showModal('ModalAddCommunity')
+    showModalAddCommunity(e) {
+        // //todo test
+        // this.data.apiData.communtityList =this.data.apiData.communtityList||[]
+        // var i=0;
+        // for(i=0;i<20;i++){
+        //     this.data.apiData.communtityList.push({
+        //         name:'test '+i,
+        //     })
+        // }
+        // this.setData({
+        //     apiData:this.data.apiData,
+        // })
+        // console.log('communtityList 数据')
+        // console.log(this.data.apiData.communtityList)
+        // //todo test
+
+        this.showModal('ModalAddCommunity')
+    },
+    switchCommunity(e) {
+        var index = e.currentTarget.dataset.index
+        if (this.data.cummunityIndex == index) {
+            this.hideModal()
+            return
+        }
+        this.setData({
+            cummunityIndex: index,
+            communtityName: this.data.apiData.communtityList[index].name
+        })
+
+        this.hideModal()
+    },
+    addCommunity(e) {
+        this.hideModal()
+        //todo
     },
     hideModal() {
         this.setData({
@@ -122,12 +160,12 @@ Page({
         wx.getUserInfo({
             withCredentials: true,
             success: function (res_user) {
-                app.wxUserInfo=res_user
+                app.wxUserInfo = res_user
                 that.setData({
-                    isAuthorized:true
+                    isAuthorized: true
                 })
-                app.isAuthorized=true
-                that.customData.wx_user=res_user
+                app.isAuthorized = true
+                that.customData.wx_user = res_user
                 that.bindPhone(e)
             }
         })
@@ -143,25 +181,28 @@ Page({
                     network.requestGet('/wx/binding/checkBinding', {
                         code: res.code
                     }, function (data) {
-                        app.token=data.token
+                        that.setData({
+                            communtityName: data.communtityName,
+                            apiData: data,
+                        })
+                        app.token = data.token
                         try {
                             app.communtityId = data.communtityList[0].id
                             app.communtityCode = data.communtityList[0].code
                         } catch (e) {
                         }
-                        that.setData({
-                            communtityName:data.communtityName,
-                            list:data.activityList,
-                        })
                         that.customData.openid = data.openid
                         if (data.userInfo) {
-                            app.nickName=data.userInfo.nickName
-                            if('0'==data.isBindingFamily){
-                                wx.redirectTo({url:'/pages/neibourList/index'})
-                            }else if(data.isApplyLock=='0'){//待审核
-                                wx.redirectTo({url:'/pages/auditWait/index'})
-                            }else if(data.isApplyLock=='2'){//不通过
-                                wx.redirectTo({url:'/pages/auditFail/index'})
+                            app.nickName = data.userInfo.nickName
+                            if ('0' == data.isBindingFamily) {
+                                wx.redirectTo({url: '/pages/neibourList/index'})
+                            } else if (data.applyLock) {
+                                if (data.applyLock.status == '0') {//待审核
+                                    wx.redirectTo({url: '/pages/auditWait/index'})
+                                } else if (data.applyLock.status == '2') {//不通过
+                                    that.data.failReason = data.applyLock.remark
+                                    wx.redirectTo({url: '/pages/auditFail/index'})
+                                }
                             }
                             that.enableTabBar(true)
                             that.hideModal();

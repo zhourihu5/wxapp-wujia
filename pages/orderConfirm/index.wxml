@@ -6,7 +6,7 @@
 </cu-custom>
 
 <view class="container p-l-r-30">
-    <view class="step-container">
+    <view wx:if="{{false}}" class="step-container">
         <view class="step-selected">1</view>
         <view class="step-selected-text">参与活动</view>
         <view class="dash-line-selected"></view>
@@ -18,14 +18,17 @@
     </view>
     <navigator url="/pages/myAdress/index" hover-class="navigator-hover"
                open-type="navigateTo">
-        <view class="item-1" >
+        <view class="item-1">
             <view wx:if="{{myAddress}}" class="flex-1">
                 <view>{{myAddress.address}}</view>
                 <view class="uname">{{myAddress.name}}{{myAddress.phone}}</view>
             </view>
-            <view wx:else  class="flex flex-1">
-                <view class="cuIcon-location location"/>
-                <view class="">请填写收货地址</view>
+            <view wx:else class="flex-1">
+                <view class="flex">
+                    <view class="cuIcon-location location"/>
+                    <view class="">请填写收货地址</view>
+                </view>
+               <view class="jxszsqnbpsdz">*仅限所在社区内部配送地址</view>
             </view>
             <view class="cuIcon-right right"></view>
         </view>
@@ -54,7 +57,7 @@
             <image class="icon-pay" src="/images/icon_wechat.png"/>
             <view class="flex-1 wechat-pay">微信支付</view>
             <view class="cuIcon-check roundcheckfill"></view>
-<!--            <van-radio name="1" value="1" checkedColor="#FF951C" custom-class="demo-radio"></van-radio>-->
+            <!--            <van-radio name="1" value="1" checkedColor="#FF951C" custom-class="demo-radio"></van-radio>-->
         </view>
     </view>
 
@@ -76,7 +79,9 @@
         <view class="msg">未填写收货地址信息，请先添加 地址</view>
         <view class="dialog-action">
             <view class="dialog-cancel" bindtap="hideModal" bindtap="hideModal">取消</view>
-            <view class="dialog-add no-border" bindtap="makePhoneCall" data-phone="{{callPhone}}" bindtap="toAddArr">去添加</view>
+            <view class="dialog-add no-border" bindtap="makePhoneCall" data-phone="{{callPhone}}" bindtap="toAddArr">
+                去添加
+            </view>
         </view>
     </view>
 </view>

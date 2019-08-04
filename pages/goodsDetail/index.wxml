@@ -9,7 +9,7 @@
     <!-- wxml -->
     <swiper class='u-wrp-bnr'
             indicator-dots='true' autoplay='true' interval='5000' duration='1000' circular='true'>
-        <block wx:for="{{apiData.activity.commodity.attaInfos}}" >
+        <block wx:for="{{apiData.activity.commodity.attaInfos}}">
             <swiper-item>
                 <image src='{{item.attaAddr}}' class='u-img-slide' mode='aspectFill'></image>
             </swiper-item>
@@ -42,7 +42,9 @@
         <view class="hdbt">{{apiData.activity.commodity.name}}</view>
         <view class="sell-num">已拼{{apiData.activity.commodity.salesNum}}件</view>
         <view class="flex align-center">
-            <text wx:for="{{ utils.strSplitToArr(apiData.activity.commodity.labelsName,'|') }}" wx:for-item="labelItem" wx:key="" class="lable">{{labelItem}}</text>
+            <text wx:for="{{ utils.strSplitToArr(apiData.activity.commodity.labelsName,'|') }}" wx:for-item="labelItem"
+                  wx:key="" class="lable">{{labelItem}}
+            </text>
         </view>
     </view>
 
@@ -61,7 +63,7 @@
         <view class="item3-2">
             <view class="cu-avatar-group item3-2-l">
                 <image class="cu-avatar round round-image" wx:for="{{apiData.userInfoList}}" wx:key
-                      src="{{item.wxCover}}"></image>
+                       src="{{item.wxCover}}"></image>
             </view>
             <!--                //todo 居于底部-->
             <view class="item-3-2-r">...等{{100}}名用户已参与</view>
@@ -87,12 +89,12 @@
 
     <view class="item5">
         <view class="item5-1">商品详情</view>
-        <view class="g-form {{index==0?'g-form-b-t':''}}" wx:for="{{formatTitle}}" wx:key >
+        <view class="g-form {{index==0?'g-form-b-t':''}}" wx:for="{{formatTitle}}" wx:key>
             <view class="g-f-title">{{item}}</view>
             <view class="g-f-value">{{apiData.activity.commodity.formatVals[index]}}</view>
         </view>
         <view class="{{formatTitle?'p-t-40':''}}"></view>
-        <rich-text class="rich-text" nodes="{{  apiData.activity.commodity.infos }}" ></rich-text>
+        <rich-text class="rich-text" nodes="{{  apiData.activity.commodity.infos }}"></rich-text>
     </view>
 
 </view>

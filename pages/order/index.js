@@ -6,34 +6,53 @@ Page({
     data: {
         CustomBar: app.globalData.CustomBar,
         lowerThreshold: util.lowerThreshold(),
-        isLoading: true,
-        isOver: false,
-        tabData: [
-            [],
-            [],
-            [],
-            [],
-            [],
-        ],
         active: 0,
         tabs: [
             {
                 title: "全部",
+                status:null,
+                isOver:false,
+                isLoading: false,
+                reachBottom:false,
+                pageNum: 1,
+                data:[],
             },
             {
                 title: "待付款",
+                status:1,
+                isOver:false,
+                isLoading: false,
+                reachBottom:false,
+                pageNum: 1,
+                data:[],
             },
             {
                 title: "待收获",
+                status:2,
+                isOver:false,
+                reachBottom:false,
+                pageNum: 1,
+                data:[],
             },
             {
                 title: "已收货",
+                status:3,
+                isOver:false,
+                isLoading: false,
+                reachBottom:false,
+                pageNum: 1,
+                data:[],
             },
             {
                 title: "已过期",
+                status:4,
+                isOver:false,
+                isLoading: false,
+                reachBottom:false,
+                pageNum: 1,
+                data:[],
             },
         ],
-        pageNum: 1,
         pageSize: 10,
 
     },
@@ -44,73 +63,55 @@ Page({
         }
     },
     onLoad: function () {
-        this.loadData()
+        this.loadDataIfNeeded()
     },
     loadData() {
-        // if(true){
-        //     this.mockData()
-        //     return;
-        // }
-
-
+        var active=that.data.active;
         var that = this
-        if (that.data.isOver) {
+        if (that.data.tabs[active].isOver) {
             return
         }
+        that.data.tabs[active].isLoading=true
         that.setData({
-            isLoading: true,
+            tabs: that.data.tabs,
         })
         network.requestGet('/v1/order/findList', {
-            pageNum: that.data.pageNum,
-            pageSize: that.data.pageSize,
+            status:that.data.tabs[active].status,
+            pageNum: that.data.tabs[active].pageNum,
+            pageSize:that.data.pageSize,
         }, function (data) {
-            if (that.data.pageSize == 1) {
-                that.data.tabData[that.data.active] = []
+            if (that.data.tabs[active].pageSize == 1) {
+                that.data.tabs[active].data = []
             }
-            that.data.tabData[that.data.active].push.apply(that.data.tabData[that.data.active], data.content);
+            that.data.tabs[active].data.push.apply(that.data.tabs[active].data, data.content);
+            that.data.tabs[active].isLoading=false
+            if(data.content.length>=that.data.pageSize){
+                that.data.tabs[active].pageNum++
+                that.data.tabs[active].isOver=false
+            }else {
+                that.data.tabs[active].isOver=true
+            }
             that.setData({
-                tabData:that.data.tabData,
-                isLoading: false,
+                tabs: that.data.tabs,
             })
-            that.data.pageSize++
         }, function (msg) {
 
         })
     },
-    mockData() {
-        var that = this
-        if (that.data.isOver) {
-            return
-        }
-        that.setData({
-            isLoading: true,
-        })
-        if (that.data.pageSize == 1) {
-            that.data.tabData[that.data.active] = []
-        }
-        var data=[]
-        var i=0
-        for(i=0;i<that.data.pageSize;i++){
-            data[i]=(that.data.pageNum-1)*that.data.pageSize+i
-        }
-        console.log("mockData")
-        console.log(data)
-        that.data.tabData[that.data.active].push.apply(that.data.tabData[that.data.active], data);
-        console.log("push后的数据")
-        console.log(that.data.tabData)
-        that.setData({
-            tabData:that.data.tabData,
-            isLoading: false,
-         })
-        that.data.pageSize++
-    },
     onChange(event) {
         var that = this
         that.data.active = event.detail.index
-        if(that.data.tabData[that.data.active].length<=0){
-            that.loadData()
+        if (that.data.tabs[that.data.active].data.length <= 0) {
+            that.loadDataIfNeeded()
         }
 
+    },
+    itemClicked(e){
+        var index=e.currentTarget.dataset.index
+        var id=this.data.tabs[this.data.active].data[index].id
+        wx.navigateTo({
+            url:"/pages/order/orderDetail/index?id="+id
+        })
     },
     onPullDownRefresh: function () {
         // Do something when pull down.
@@ -125,7 +126,14 @@ Page({
         // console.log("scrolltoupper")
     },
     scrolltolower(e) {
-        if(this.data.isLoading){
+        this.data.tabs[this.data.active].reachBottom=true
+        this.setData({
+            tabs:this.data.tabs
+        })
+        this.loadDataIfNeeded()
+    },
+    loadDataIfNeeded(){
+        if (this.data.tabs[this.data.active].isLoading) {
             return
         }
         this.loadData()

@@ -1,32 +1,29 @@
 //index.js
 const util = require('../../utils/util.js')
-
+const network = require('../../utils/network.js')
 Page({
     data: {
-        items: [
-            {
-                title: "全部",
-                msg:"你的作品最多19个字",
-                icon:"/images/tab/img_doctor.png",
-                time:"30分钟前"
-            },
-            {
-                title: "全部",
-                msg:"你的作品最多19个字",
-                icon:"/images/tab/img_doctor.png",
-                time:"30分钟前"
-            },
-            {
-                title: "全部",
-                msg:"你的作品最多19个字",
-                icon:"/images/tab/img_doctor.png",
-                time:"30分钟前"
-            },
-        ]
+        apiData:null,
+        reachBottom:false,
+        isLoading:false,
     },
     onLoad: function () {
+        var that=this
+        network.requestGet('/v1/activity/findOtherList',{},function (data) {
+            that.setData({
+                apiData:data
+            })
+        },function (msg) {
+
+        })
     },
-    toConfirmOrder: function(e){
-        wx.navigateTo({url:"/pages/orderConfirm/index"})
+    navigateBack(){
+        wx.navigateBack({//从确认订单那里redirect的，跳过商品详情页回到列表页
+            delta: 2
+        });
+        return true
+    },
+    bindscrolltolower(e){
+
     }
 })
