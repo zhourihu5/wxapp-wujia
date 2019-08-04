@@ -66,8 +66,8 @@ Page({
         this.loadDataIfNeeded()
     },
     loadData() {
-        var active=that.data.active;
         var that = this
+        var active=that.data.active;
         if (that.data.tabs[active].isOver) {
             return
         }

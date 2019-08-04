@@ -28,7 +28,7 @@
                          bindscrolltoupper='scrolltoupper'
                          bindscrolltolower='scrolltolower'
             >
-                <block wx:for="{{tabData[tabIndex]}}" wx:for-item="item" wx:key="">
+                <block wx:for="{{tab.data}}" wx:for-item="item" wx:key="">
                     <view class="item-content {{index==0?'p-t-20':''}}">
                         <view class="order-container" url="/pages/order/orderDetail/index"
                                    hover-class="navigator-hover"
@@ -69,7 +69,7 @@
                         </view>
                     </view>
                 </block>
-                <view class="cu-load wj-loading {{isLoading?'loading':'over'}}"></view>
+                <view wx:if="{{tab.reachBottom&&tab.isLoading}}" class="cu-load wj-loading {{isLoading?'loading':'over'}}"></view>
             </scroll-view>
             <!--                </view>-->
 
