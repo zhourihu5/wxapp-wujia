@@ -8,7 +8,7 @@
         <navigator class="item" url="/pages/msg/msgDetail/index" hover-class="navigator-hover"
                    open-type="navigateTo">
             <view class="item-content {{item.extraClass}}">
-                <image class="image" src="/images/tab_my.png"/>
+                <image class="image" src="{{item.icon}}"/>
                 <view class="middle-text">
                     <view class="title">{{item.title}}</view>
                     <text class="desc">{{item.msg}}</text>
