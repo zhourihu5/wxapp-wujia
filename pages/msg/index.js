@@ -17,14 +17,14 @@ Page({
                 msg: "你的作品《插画小总结》未通过审核",
                 icon: "/images/msg_community.png",
                 time: "30分钟前",
-                unread: "0"
+                unread: "99"
             },
             {
                 title: "订单消息",
                 msg: "你的作品《插画小总结》未通过审核",
                 icon: "/images/msg_order.png",
                 time: "30分钟前",
-                unread: "",
+                unread: "999",
                 extraClass: "no-border",
             },
         ]

@@ -22,7 +22,7 @@
                 <text class="price-int">{{utils.numBeforeDot(apiData.activity.price)}}</text>
                 <text class="dot" wx:if="{{utils.isNumDot(apiData.activity.price)}}">.</text>
                 <text class="price-float">{{utils.numAfterDot(apiData.activity.price)}}</text>
-                <text class="line-through price-old">￥{{apiData.activity.commodity.initPrice}}</text>
+                <text class="line-through price-old">￥{{apiData.activity.commodity.price}}</text>
             </view>
             <text wx:if="{{false}}" class="kaituan-num">10人开团</text>
         </view>

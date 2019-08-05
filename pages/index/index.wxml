@@ -63,7 +63,7 @@
                         <text class="price-integer">{{utils.numBeforeDot(item.price)}}</text>
                         <text class="dot" wx:if="{{utils.isNumDot(item.price)}}">.</text>
                         <text class="price-float">{{utils.numAfterDot(item.price)}}</text>
-                        <text class="price-old">￥{{item.commodity.initPrice}}</text>
+                        <text class="price-old">￥{{item.commodity.price}}</text>
                     </view>
                     <view class="m-l-20 lable-container">
                         <text wx:for="{{ utils.strSplitToArr(item.commodity.labelsName,'|') }}" wx:for-item="labelItem"

@@ -33,7 +33,7 @@
                     <text class="price-integer">{{utils.numBeforeDot(item.price)}}</text>
                     <text class="dot" wx:if="{{utils.isNumDot(item.price)}}">.</text>
                     <text class="price-float">{{utils.numAfterDot(item.price)}}</text>
-                    <text class="price-old m-l-20 m-r-30">￥{{item.commodity.initPrice}}</text>
+                    <text class="price-old m-l-20 m-r-30">￥{{item.commodity.price}}</text>
                     <text class="sell-num">已抢购{{item.commodity.salesNum}}件</text>
                 </view>
                 <view class="m-l-20 p-b-30 m-t-20 lable-container">

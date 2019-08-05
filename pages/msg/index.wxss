@@ -75,8 +75,8 @@
 }
 .red-circle{
 
-  width:28rpx;
-  height:28rpx;
+  min-width:28rpx;
+  min-height:28rpx;
   background:rgba(255,65,81,1);
 
   /*width:12px;*/
@@ -87,7 +87,8 @@
   color:rgba(255,255,255,1);
   line-height:28rpx;
 
-  border-radius: 50%;
+  /*border-radius: 50%;*/
+  border-radius: 14rpx;
   /*-webkit-text-fill-color: white;*/
 
   display: flex;
@@ -95,4 +96,6 @@
   align-items: center;
   justify-content: center;
   float: right;
+
+  padding: 0 8rpx;
 }

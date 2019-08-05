@@ -54,11 +54,11 @@
         <view class="goods-content">
             <image class="goods-image" src="/images/tab/img_doctor.png"/>
             <view class="goods-text-container">
-                <view class="goods-name {{apiData.status=='4'?'expired':''}}">{{apiData.commodity.name}}</view>
+                <view class="goods-name {{apiData.status=='4'?'expired':''}}">{{apiData.activity.title}}</view>
                 <view class="price-text">
                     <text class="money {{apiData.status=='4'?'expired':''}}">￥</text>
-                    <text class="price-now {{apiData.status=='4'?'expired':''}}">{{apiData.realPrice}}</text>
-                    <text class="line-through text-gray price-old {{apiData.status=='4'?'expired':''}} ">￥{{apiData.price}}</text>
+                    <text class="price-now {{apiData.status=='4'?'expired':''}}">{{apiData.activity.price}}</text>
+                    <text class="line-through text-gray price-old {{apiData.status=='4'?'expired':''}} ">￥{{apiData.commodity.price}}</text>
                 </view>
             </view>
         </view>

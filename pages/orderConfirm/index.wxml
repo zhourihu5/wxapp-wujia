@@ -47,7 +47,7 @@
                     <text class="t-b">{{utils.numBeforeDot(apiData.price)}}</text>
                     <text class="dot" wx:if="{{utils.isNumDot(apiData.price)}}">.</text>
                     <text class="t-s">{{utils.numAfterDot(apiData.price)}}</text>
-                    <text class="line-through t-g">￥{{apiData.commodity.initPrice}}</text>
+                    <text class="line-through t-g">￥{{apiData.commodity.price}}</text>
                 </view>
             </view>
         </view>
