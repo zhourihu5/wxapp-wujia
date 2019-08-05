@@ -8,30 +8,25 @@ function strSplitToArr(str,token) {
 
 }
 function numBeforeDot(num) {
-  if(num===null){
-    return num
-  }
-  var str=num.toString()
-  if(isNumDot(str)){
+  if(isNumDot(num)){
+    var str=num.toString()
      return str.split('.')[0];
 
   }
-  return str;
+  return num;
 
 }
 function isNumDot(num) {
-  if(num===null){
-    return num
+  if(num===null||num===undefined){
+    return false
   }
   var str=num.toString()
   return str.indexOf(".") != -1;
 }
 function numAfterDot(num) {
-  if(num===null){
-    return num
-  }
+
+  if(isNumDot(num)){
     var str=num.toString()
-  if(isNumDot(str)){
    // console.log('小数')
     return str.split('.')[1];
   }

@@ -51,8 +51,8 @@
             <view class="item-3-2-r align-bottom">...等{{100}}名用户已参与</view>
         </view>
     </view>
-    <view class="w-p-100 flex align-center justify-center m-t-b-30 djdzp">大家都在拼</view>
-        <block wx:for="{{apiData}}" wx:key="">
+    <view wx:if="{{apiOtherListData&&apiOtherListData.length>0}}" class="w-p-100 flex align-center justify-center m-t-b-30 djdzp">大家都在拼</view>
+        <block wx:for="{{apiOtherListData}}" wx:key="">
 
             <!--                <activity cover="{{item.cover}}"-->
             <!--                          title="{{item.commodity.name}}"-->

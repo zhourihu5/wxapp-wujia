@@ -21,11 +21,21 @@ Page({
         var that = this
         var endDate = null
         if (typeof pDate == "string") {
-            endDate = new Date(Date.parse(pDate.replace(/-/g, "/")));
+            try {
+                endDate = new Date(Date.parse(pDate.replace(/-/g, "/")));
+            } catch (e) {
+                console.log('数据时间格式不对：'+pDate)
+                return;
+            }
             console.log('string')
         } else if (typeof pDate == 'number') {
             console.log('number')
-            endDate = new Date(pDate);
+            try {
+                endDate = new Date(pDate);
+            } catch (e) {
+                console.log('数据时间格式不对：'+pDate)
+                return;
+            }
         }
 
         // console.log('解析时间为')
@@ -107,7 +117,7 @@ Page({
         })
     },
     toMore(e) {
-        wx.navigateTo({url: "/pages/activityMore/index"})
+        wx.redirectTo({url: "/pages/activityMore/index"})
     },
     goBuy(e) {
         var index=e.currentTarget.dataset.index

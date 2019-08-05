@@ -5,7 +5,7 @@
     <view slot="content">精选活动</view>
 </cu-custom>
 <view class="body">
-    <stepper wx:if="{{false}}" step1Text="参与活动" step2Text="团购满减" step3Text="团购截至"
+    <stepper wx:if="{{true}}" step1Text="参与活动" step2Text="团购满减" step3Text="团购截至"
              step1Checked="{{true}}" step2Checked="{{true}}" step3Checked="{{true}}"/>
 
     <scroll-view scroll-y class="scroll"
