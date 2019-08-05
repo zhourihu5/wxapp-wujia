@@ -1,5 +1,6 @@
 const util = require('../../../utils/util.js')
 const network = require('../../../utils/network.js')
+const app=getApp()
 Page({
     data: {
         apiData:null,
@@ -16,13 +17,29 @@ Page({
         })
     },
     cancelOrder(e){//todo 取消订单
+        var id=this.data.apiData.id
+        network.requestPost('/v1/order/cancelOrder',{id:id},function (data) {
+            app.showToast('订单已取消')
+            wx.navigateBack({
+                delta:1
+            })
+        },function (msg) {
 
+        })
     },
     goStroll(e){//去逛逛
         wx.redirectTo({url: "/pages/activityMore/index"})
     },
     confirmReceive(e){//TODO 确认收货
+        network.requestPost('/v1/order/receiveOrder',
+            {id:id},function (data) {
+            app.showToast('确认成功')
+            wx.navigateBack({
+                delta:1
+            })
+        },function (msg) {
 
+        })
     },
     toPay(e){
         var that=this
