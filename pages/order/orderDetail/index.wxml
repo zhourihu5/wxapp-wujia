@@ -8,7 +8,7 @@
         <view class="order-status">待付款</view>
         <view class="order-remain-time">
             <text>剩余支付时间为</text>
-            <text class="ramain-time-des">00 : 14 : 42</text>
+            <text class="ramain-time-des">{{apiData.remainTime}}</text>
         </view>
     </view>
     <view wx:elif="{{apiData.status=='2'}}"  class="top-conrainer">
@@ -84,17 +84,17 @@
 <!--        <view class="order-info-item p-b-30">送货时长剩余：24h</view>-->
 
 <!--    </view>-->
-    <view class="goods-info dilivery-container">
+    <view wx:if="{{apiData.status=='2'||apiData.status=='3'}}" class="goods-info dilivery-container">
         <view class="goods-title {{apiData.status=='4'?'expired':''}}">配送信息</view>
-        <view class="order-info-item">送货员：葫芦娃</view>
-        <view class="order-info-item">送货员联系方式：13683218402</view>
-        <view class="order-info-item p-b-30">送货时长剩余：24h</view>
+        <view class="order-info-item">送货员：{{apiData.deliveryPerson}}</view>
+        <view class="order-info-item">送货员联系方式：{{apiData.deliveryPhone}}</view>
+        <view class="order-info-item p-b-30">送货时长剩余：{{apiData.deliveryHour}}h</view>
 
     </view>
 </view>
 <view wx:if="{{apiData.status=='1'}}" class="bottom-button">
     <view class="qxdd" bindtap="cancelOrder">取消订单</view>
-    <view class="bt-pay" bindtap="toPay">付款 14：42</view>
+    <view class="bt-pay" bindtap="toPay">付款 {{apiData.realPrice}}</view>
 </view>
 <view wx:elif="{{apiData.status=='2'}}"  class="bottom-button" bindtap="confirmReceive">确认收货</view>
 <view wx:else class="bottom-button" bindtap="goStroll">去逛逛</view>

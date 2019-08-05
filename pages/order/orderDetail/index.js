@@ -1,6 +1,7 @@
 const util = require('../../../utils/util.js')
 const network = require('../../../utils/network.js')
 const app=getApp()
+var interval = null //倒计时函数
 Page({
     data: {
         apiData:null,
@@ -16,6 +17,37 @@ Page({
 
         })
     },
+    onShow(){
+        this.setTimeRemain()
+    },
+    onHide(){
+        interval && clearInterval(interval)
+        interval=null
+    },
+    setTimeRemain: function () {
+        if(interval){
+            clearInterval(interval)
+            interval=null
+        }
+
+        var that = this
+        interval = setInterval(function () {
+            if(!that.data.apiData){
+                return;
+            }
+            if(that.data.apiData.status!='1'){
+                clearInterval(interval)
+                interval=null
+                return;
+            }
+            that.data.apiData.remainTime=util.calcRemainTime(that.data.apiData.pay_end_date)
+            that.setData({
+                apiData:that.data.apiData
+            })
+
+        }, 1000)
+    },
+
     cancelOrder(e){//todo 取消订单
         var that=this
         var id=this.data.apiData.id
