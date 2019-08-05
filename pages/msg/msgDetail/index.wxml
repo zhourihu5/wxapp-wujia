@@ -1,40 +1,50 @@
 <cu-custom bgColor="titlebar-white" isBack="{{true}}">
     <view slot="backText"></view>
-    <view slot="content">消息详情</view>
+<!--    <view slot="content">消息详情</view>-->
+    <view slot="content">{{typeName}}</view>
 </cu-custom>
-<view class="container p-l-r-30">
-    <view class="msg-time">7-7 21:56</view>
-    <view class="item-container">
-        <view class="notice-text-container">订单消息</view>
-        <block wx:for="1234" wx:for-item="data-item" wx:key="">
-            <view class="order-info-item">订单金额：￥15.30</view>
-        </block>
 
-    </view>
-    <view class="msg-time">7-7 21:56</view>
+<scroll-view scroll-y class="body"
+             lower-threshold="{{lowerThreshold}}"
+             upper-threshold="0"
+             bindscrolltoupper='scrolltoupper'
+             bindscrolltolower='scrolltolower'
+>
+<!--    <view class="msg-time">7-7 21:56</view>-->
+<!--    <view class="item-container">-->
+<!--        <view class="notice-text-container">订单消息</view>-->
+<!--        <block wx:for="1234" wx:for-item="data-item" wx:key="">-->
+<!--            <view class="order-info-item">订单金额：￥15.30</view>-->
+<!--        </block>-->
+
+<!--    </view>-->
+    <block wx:for="{{apiData}}" wx:for-item="item" wx:key="">
+    <view class="msg-time">{{item.createDate}}</view>
     <view class="item-container">
-        <view class="notice-text-container">
-            <text class="notice-text-left">社区通知</text>
-            <view class="center important">重</view>
+        <view wx:if="{{false}}" class="notice-text-container">
+            <text class="notice-text-left">{{typeName}}</text>
+            <view wx:if="{{false}}" class="center important">重</view>
         </view>
-        <van-collapse border="" value="{{ active1 }}" data-key="active1" bind:change="onChange">
+        <van-collapse border="" data-index="{{index}}" value="{{item.collapseValue}}"  bind:change="onChange">
             <van-collapse-item custom-class="custom-collapse-item"
                                top-cell-class="top-cell-class"
                                border="{{false}}"
                                content-class="custom-content"
                                title-class="van-collapse-item-title"
                                right-icon-class="custom-right-icon"
-                               title="社区停水停电通知">
+                               title="{{item.title}}">
                 <!--                    topCellStyle="padding: 10px 0;color:#cccccc"-->
-                啊大大是打发斯蒂芬阿斯顿发生打的费是阿斯
+                {{item.content}}
             </van-collapse-item>
         </van-collapse>
     </view>
+    </block>
+<!--    <view class="msg-time">7-7 21:56</view>-->
+<!--    <view class="item-container">-->
+<!--        <view class="notice-text-container">退款消息</view>-->
+<!--        <view class="order-info-item">爱看大家发开始发大水发斯蒂芬三大地方卡死了地方奥斯卡两地分居</view>-->
 
-    <view class="msg-time">7-7 21:56</view>
-    <view class="item-container">
-        <view class="notice-text-container">退款消息</view>
-        <view class="order-info-item">爱看大家发开始发大水发斯蒂芬三大地方卡死了地方奥斯卡两地分居</view>
+<!--    </view>-->
 
-    </view>
-</view>
+    <view wx:if="{{reachBottom&&isLoading}}" class="cu-load wj-loading {{isLoading?'loading':'over'}}"></view>
+</scroll-view>

@@ -1,8 +1,9 @@
 //index.js
 const util = require('../../utils/util.js')
-
+const network = require('../../utils/network.js')
 Page({
     data: {
+        apiData:null,
         items: [
             {
                 title: "系统通知",
@@ -34,7 +35,16 @@ Page({
             this.getTabBar()) {
             this.getTabBar().init()
         }
+        var that=this
+        network.requestGet('/v1/message/getTypeList',{},function (data) {
+            that.setData({
+                apiData:data,
+            })
+        },function (msg) {
+
+        })
     },
     onLoad: function () {
+
     }
 })

@@ -46,6 +46,7 @@ Page({
                 app.nickName = data.userInfo.nickName
                 app.userName=data.userInfo.userName
                 app.wxCover=data.userInfo.wxCover
+                app.fid=data.userInfo.fid
                 that.setData({
                     communtityName: data.communtityName,
                     apiData: data,
@@ -200,6 +201,7 @@ Page({
                             app.nickName = data.userInfo.nickName
                             app.userName=data.userInfo.userName
                             app.wxCover=data.userInfo.wxCover
+                            app.fid=data.userInfo.fid
                             if ('0' == data.isBindingFamily) {
                                 wx.redirectTo({url: '/pages/neibourList/index'})
                             } else if (data.applyLock) {

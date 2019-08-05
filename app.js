@@ -8,6 +8,7 @@ App({
   wxUserInfo:null,
   nickName:null,
   userName:null,//用户手机号
+  fid:null,//家庭ID
   wxCover:null,//微信头像
   communtityId:null,
   communtityCode:null,

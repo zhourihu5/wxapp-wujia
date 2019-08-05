@@ -8,7 +8,7 @@
   padding: 30rpx 0;
   width: 100%;
   display: flex;
-  border-bottom: #EBEBEB 2rpx solid;
+  border-top: #EBEBEB 2rpx solid;
 }
 .title{
   /*width:112px;*/
