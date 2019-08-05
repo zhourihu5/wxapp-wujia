@@ -20,8 +20,14 @@ Page({
         reachBottom: false,
         lowerThreshold: util.lowerThreshold(),
         currentCommunity: null,
+        isBack:false,
     },
     onLoad: function () {
+        if(getCurrentPages().length>1){
+            this.setData({
+                isBack:true,
+            })
+        }
         this.loadAreaData()
     },
     loadAreaData() {

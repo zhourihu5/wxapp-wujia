@@ -60,8 +60,8 @@
                             </view>
                             <view class="btn-wraper">
                                 <view class="left-empty"></view>
-                                <text wx:if="{{item.status=='1'}}" class="pay-right-now" bindtap="toPay">立即付款</text>
-                                <text wx:elif="{{item.status=='2'}}" class="lxshr" bindtap="askDeliver">联系送货人</text>
+                                <text wx:if="{{item.status=='1'}}" class="pay-right-now" bindtap="toPay" data-id="{{item.id}}">立即付款</text>
+                                <text wx:elif="{{item.status=='2'}}" class="lxshr" bindtap="askDeliver" data-phone="{{item.deliveryUphone}}">联系送货人</text>
                                 <text wx:else class="go-stroll" bindtap="goStroll">去逛逛</text>
                             </view>
 
@@ -80,4 +80,13 @@
 
         </van-tab>
     </van-tabs>
+</view>
+<view class="cu-modal full-screen  {{modalName=='ModalCallPhone'?'show':''}}">
+    <view class="cu-dialog dialog relative">
+        <view class="dialog-title">{{callPhone}}</view>
+        <view class="dialog-action">
+            <view class="dialog-button" bindtap="hideModal">取消</view>
+            <view class="dialog-button no-border" bindtap="makePhoneCall" data-phone="{{callPhone}}">拨打</view>
+        </view>
+    </view>
 </view>

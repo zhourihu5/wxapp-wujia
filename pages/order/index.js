@@ -7,6 +7,8 @@ Page({
         CustomBar: app.globalData.CustomBar,
         lowerThreshold: util.lowerThreshold(),
         active: 0,
+        modalName:null,
+        callPhone:null,
         tabs: [
             {
                 title: "全部",
@@ -121,15 +123,55 @@ Page({
             url:"/pages/order/orderDetail/index?id="+id
         })
     },
-    goStroll(e){//去逛逛 todo 问产品要跳哪
-
+    goStroll(e){//去逛逛
+        wx.navigateTo({url: "/pages/activityMore/index"})
     },
-    askDeliver(e){//TODO 联系送货人 问产品
-
+    askDeliver(e){//联系送货人
+        var phone= e.currentTarget.dataset.phone
+        this.setData({
+            modalName:'ModalCallPhone',
+            callPhone:phone,
+        })
+    },
+    makePhoneCall(e) {
+        this.hideModal(e);
+        const that = this
+        wx.makePhoneCall({
+            phoneNumber: that.data.callPhone
+        })
+    },
+    hideModal(e){
+        this.setData({
+            modalName:null,
+        })
     },
     toPay(e){//todo 立即付款
+        var that=this
+        let id=e.currentTarget.dataset.id
+        wx.requestPayment({
+            timeStamp: '',
+            nonceStr: '',
+            package: '',
+            signType: 'MD5',
+            paySign: '',
+            success(res) {
+                that.payOrder(id)
+            },
+            fail(res) {
 
+            }
+        })
     },
+    payOrder(id){//修改订单状态
+        var that=this
+        network.requestPost('/v1/order/payOrder',{id:id},function (data) {
+            // wx.navigateTo({url: "/pages/paySuccess/index"})
+            wx.redirectTo({url: "/pages/paySuccess/index"})
+        },function (msg) {
+
+        })
+    },
+
     onPullDownRefresh: function () {
         // Do something when pull down.
         console.log('onPullDownRefresh')

@@ -6,12 +6,12 @@
 </cu-custom>
 
 <view class="container p-l-r-30">
-    <view wx:if="{{false}}" class="step-container">
+    <view wx:if="{{true}}" class="step-container">
         <view class="step-selected">1</view>
         <view class="step-selected-text">参与活动</view>
         <view class="dash-line-selected"></view>
-        <view class="step-unselected">2</view>
-        <view class="step-unselected-text">确认订单</view>
+        <view class="step-selected">2</view>
+        <view class="step-selected-text">确认订单</view>
         <view class="dash-line"></view>
         <view class="step-unselected">3</view>
         <view class="step-unselected-text">团购成功</view>
@@ -41,7 +41,7 @@
         <view class="item-2-1">
             <image class="image" src="{{apiData.cover}}"/>
             <view class="item-2-1-r">
-                <view class="goods-name">{{apiData.commodity.name}}</view>
+                <view class="goods-name">{{apiData.title}}</view>
                 <view class="item-2-1-b">
                     <text class="money">￥</text>
                     <text class="t-b">{{utils.numBeforeDot(apiData.price)}}</text>

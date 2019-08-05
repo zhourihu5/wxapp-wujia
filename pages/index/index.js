@@ -144,7 +144,9 @@ Page({
     },
     addCommunity(e) {
         this.hideModal()
-        //todo
+        wx.navigateTo({
+            url:'/pages/neibourList/index'
+        })
     },
     hideModal() {
         this.setData({

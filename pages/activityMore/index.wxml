@@ -27,12 +27,12 @@
             <view class="activity-item m-b-20 relative">
                 <image class="activity-banner"
                        src="{{item.cover}}"/>
-                <view class="m-l-20 m-t-30 m-b-20 activity-title">{{item.commodity.name}}</view>
+                <view class="m-l-20 m-t-30 m-b-20 activity-title">{{item.title}}</view>
                 <view class="price">
                     <text class="dollar m-l-20">￥</text>
-                    <text class="price-integer">{{utils.numBeforeDot(item.commodity.price)}}</text>
-                    <text class="dot" wx:if="{{utils.isNumDot(item.commodity.price)}}">.</text>
-                    <text class="price-float">{{utils.numAfterDot(item.commodity.price)}}</text>
+                    <text class="price-integer">{{utils.numBeforeDot(item.price)}}</text>
+                    <text class="dot" wx:if="{{utils.isNumDot(item.price)}}">.</text>
+                    <text class="price-float">{{utils.numAfterDot(item.price)}}</text>
                     <text class="price-old m-l-20 m-r-30">￥{{item.commodity.initPrice}}</text>
                     <text class="sell-num">已抢购{{item.commodity.salesNum}}件</text>
                 </view>

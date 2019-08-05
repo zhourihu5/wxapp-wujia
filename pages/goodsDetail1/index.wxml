@@ -10,52 +10,48 @@
              bindscrolltolower='scrolltolower'
              lower-threshold="{{lowerThreshold}}">
     <view class="round-container p-l-r-20 m-t-20">
-        <view class="match-parent p-t-b-20" bindtap="toMore">
-            <view class="flex-1 color-orange">每个用户只限参加一次哦，点我查看更多活动哦~</view>
-            <view class="icon-arrow-r"></view>
+        <view class="w-p-100 flex align-center justify-between to-more p-t-20 p-b-40" bindtap="toMore">
+            <view>每个用户只限参加一次哦，点我查看更多活动哦~</view>
+            <view class="cuIcon-right arrow-right"></view>
         </view>
-        <view class="match-parent m-t-20 m-b-50">
+        <view class="w-p-100 flex align-center m-b-50">
             <image class="image" src="{{apiData.activity.cover}}"/>
             <view class="flex-1">
-                <view>{{apiData.activity.commodity.name}}</view>
-                <view class="price-c">
-                    <text>￥</text>
+                <view class="top-shop-name">{{apiData.activity.title}}</view>
+                <view class="price">
+                    <text class="dollar">￥</text>
                     <text class="price-integer">{{utils.numBeforeDot(apiData.activity.price)}}</text>
                     <text class="dot" wx:if="{{utils.isNumDot(apiData.activity.price)}}">.</text>
                     <text class="price-float">{{utils.numAfterDot(apiData.activity.price)}}</text>
-                    <text class="line-through m-l-20">￥{{apiData.activity.commodity.initPrice}}</text>
+                    <text class="line-through top-price-old m-l-20">￥{{apiData.activity.commodity.initPrice}}</text>
                 </view>
             </view>
         </view>
 
 
-        <view class="match-parent">
+        <view class="w-p-100 flex align-center">
             <view class="line flex-1"></view>
-            <view class="center">
-                <view>剩余</view>
+            <view class="flex align-center time-remain">
+                <view class="m-l-r-20">剩余</view>
                 <view class="orange-corner">{{hour}}</view>
                 <view class="comma">:</view>
                 <view class="orange-corner">{{minute}}</view>
                 <view class="comma">:</view>
                 <view class="orange-corner">{{second}}</view>
-                <view>结束</view>
+                <view class="m-l-r-20">结束</view>
             </view>
             <view class="line flex-1"></view>
         </view>
-        <view class="match-parent center p-t-b-40 ">
-            <view class="round-image-container">
-                <block wx:for="123456789abcdefgadasdfsdfsaasdfsdf" wx:key="">
-                    <image wx:for="{{apiData.userInfoList}}" wx:key
-                           src="{{item.wxCover}}" class='round-image' mode='aspectFill'
-                           style="z-index: {{100-index}};left: {{index*18}}px;"/>
-
-                </block>
+        <view class="w-p-100 flex p-t-b-40 ">
+            <view class="cu-avatar-group item3-2-l">
+                <image class="cu-avatar round round-image" wx:for="{{apiData.userInfoList}}" wx:key
+                       src="{{item.wxCover}}"></image>
             </view>
             <!--                //todo 居于底部-->
-            <text class="t-gray-small align-bottom">...等100名用户已参与</text>
+            <view class="item-3-2-r align-bottom">...等{{100}}名用户已参与</view>
         </view>
     </view>
-    <view class="flex align-center m-l-r-auto m-t-b-30">大家都在拼</view>
+    <view class="w-p-100 flex align-center justify-center m-t-b-30 djdzp">大家都在拼</view>
         <block wx:for="{{apiData}}" wx:key="">
 
             <!--                <activity cover="{{item.cover}}"-->
@@ -67,15 +63,15 @@
             <!--                          salesNum="{{item.commodity.salesNum}}"-->
             <!--                          dataId="{{item.id}}"/>-->
 
-            <view class="activity-item m-l-r-30 m-b-20 relative">
+            <view class="activity-item  m-b-20 relative">
                 <image class="activity-banner"
                        src="{{item.cover}}"/>
-                <view class="m-l-20 m-t-30 m-b-20 activity-title">{{item.commodity.name}}</view>
+                <view class="m-l-20 m-t-30 m-b-20 activity-title">{{item.title}}</view>
                 <view class="price">
                     <text class="dollar m-l-20">￥</text>
-                    <text class="price-integer">{{utils.numBeforeDot(item.commodity.price)}}</text>
-                    <text class="dot" wx:if="{{utils.isNumDot(item.commodity.price)}}">.</text>
-                    <text class="price-float">{{utils.numAfterDot(item.commodity.price)}}</text>
+                    <text class="price-integer">{{utils.numBeforeDot(item.price)}}</text>
+                    <text class="dot" wx:if="{{utils.isNumDot(item.price)}}">.</text>
+                    <text class="price-float">{{utils.numAfterDot(item.price)}}</text>
                     <text class="price-old m-l-20 m-r-30">￥{{item.commodity.initPrice}}</text>
                     <text class="sell-num">已抢购{{item.commodity.salesNum}}件</text>
                 </view>

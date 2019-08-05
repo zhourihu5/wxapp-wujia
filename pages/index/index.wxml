@@ -57,7 +57,7 @@
                 <view class="activity-item {{apiData.activityList.length<=1?'activity-only-one':''}}">
                     <image class="activity-banner"
                            src="{{item.cover}}"/>
-                    <view class="m-l-20 activity-title">{{item.commodity.name}}</view>
+                    <view class="m-l-20 activity-title">{{item.title}}</view>
                     <view class="price">
                         <text class="dollar m-l-20">￥</text>
                         <text class="price-integer">{{utils.numBeforeDot(item.price)}}</text>

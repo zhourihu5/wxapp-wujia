@@ -263,11 +263,21 @@ tab-bar{
 .p-t-20{
   padding-top: 20rpx;
 }
+.p-b-40{
+  padding-bottom: 40rpx;
+}
 .p-t-b-40{
   padding: 40rpx 0;
 }
+.m-l-r-20{
+  margin-left: 20rpx;
+  margin-right: 20rpx;
+}
 .m-l-20{
   margin-left: 20rpx;
+}
+.m-r-20{
+  margin-right: 20rpx;
 }
 .m-t-b-30{
   margin-top: 30rpx;

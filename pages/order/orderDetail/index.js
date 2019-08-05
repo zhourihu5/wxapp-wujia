@@ -18,8 +18,8 @@ Page({
     cancelOrder(e){//todo 取消订单
 
     },
-    goStroll(e){//去逛逛 todo 问产品要跳哪
-
+    goStroll(e){//去逛逛
+        wx.redirectTo({url: "/pages/activityMore/index"})
     },
     confirmReceive(e){//TODO 确认收货
 

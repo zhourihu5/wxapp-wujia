@@ -1,33 +1,22 @@
-const date = new Date()
-const years = []
-const months = []
-const days = []
 const network = require('../../utils/network.js')
+const util = require('../../utils/util.js')
 const app = getApp()
-for (let i = date.getFullYear() - 100; i <= date.getFullYear(); i++) {
-    years.push(i)
-}
-
-for (let i = 1; i <= 12; i++) {
-    months.push(i)
-}
-
-for (let i = 1; i <= 31; i++) {
-    days.push(i)
-}
+const now=new Date()
+const start=new Date()
+start.setFullYear(now.getFullYear()-120)
+start.setMonth(1)
+start.setDate(1)
 
 Page({
     data: {
         modalName: null,
         // modalName: 'bottomModal',
         apiData: null,
-        years: years,
-        months: months,
-        days: days,
         // radioChecked:null,
         birthDay: null,
-        value: [9999, 0, 0],
-        valueTmp:null,
+        start:util.formatDate(start),
+        end:util.formatDate(now),
+        value:util.formatDate(now),
         isBtnEnabled:false,
     },
     pickerChange: function (e) {
@@ -37,17 +26,8 @@ Page({
         }
 
         const val = e.detail.value
-        this.data.valueTmp=val
 
-    },
-    pickerConfirm(e){
-        this.hideModal()
-        const val = this.data.valueTmp
-        if(!val){
-            return
-        }
-        //todo 选择月份时动态改变日的可选范围，判断日期是否合法
-        this.data.apiData.birthday = `${this.data.years[val[0]]}-${this.data.months[val[1]]}-${this.data.days[val[2]]}`
+        this.data.apiData.birthday =val
         this.data.value=val
         this.setData({
             apiData: this.data.apiData,
@@ -61,6 +41,11 @@ Page({
             that.setData({
                 apiData: data,
             })
+            if(that.data.apiData.birthday){
+                that.setData({
+                    value:that.data.apiData.birthday
+                })
+            }
             that.canClickSave()
         }, function (msg) {
             that.setData({
