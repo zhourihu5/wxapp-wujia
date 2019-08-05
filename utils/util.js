@@ -20,6 +20,10 @@ const formatNumber = n => {
   n = n.toString()
   return n[1] ? n : '0' + n
 }
+function desensitization(phone) {
+  var pat=/(\d{3})\d*(\d{4})/
+  return  phone.replace(pat,'$1****$2')
+}
 
 
 const app = getApp()
@@ -41,6 +45,7 @@ function isTel(value){
 module.exports = {
   // formatTime: formatTime,
   formatDate:formatDate,
+  desensitization:desensitization,
   rpxToPx:rpxToPx,
   isTel:isTel,
   lowerThreshold:lowerThreshold

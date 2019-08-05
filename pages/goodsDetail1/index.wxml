@@ -6,7 +6,6 @@
 </cu-custom>
 
 <scroll-view class="body" scroll-y
-             bindscrolltoupper='scrolltoupper'
              bindscrolltolower='scrolltolower'
              lower-threshold="{{lowerThreshold}}">
     <view class="round-container p-l-r-20 m-t-20">

@@ -7,6 +7,8 @@ App({
   myAddress:null,//我的收获地址
   wxUserInfo:null,
   nickName:null,
+  userName:null,//用户手机号
+  wxCover:null,//微信头像
   communtityId:null,
   communtityCode:null,
   showToast(msg){

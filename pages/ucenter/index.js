@@ -39,8 +39,8 @@ Page({
         var userInfo = app.wxUserInfo
         this.setData({
             nickName: app.nickName || (userInfo && userInfo.userInfo && userInfo.userInfo.nickName),
-            avatarUrl: userInfo && userInfo.userInfo && userInfo.userInfo.avatarUrl,
-            phone: '136****8402',
+            avatarUrl:app.wxCover || (userInfo && userInfo.userInfo && userInfo.userInfo.avatarUrl),
+            phone: util.desensitization(app.userName),
         })
     }
 })

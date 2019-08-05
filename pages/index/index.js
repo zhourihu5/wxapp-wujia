@@ -44,6 +44,8 @@ Page({
                 } catch (e) {
                 }
                 app.nickName = data.userInfo.nickName
+                app.userName=data.userInfo.userName
+                app.wxCover=data.userInfo.wxCover
                 that.setData({
                     communtityName: data.communtityName,
                     apiData: data,
@@ -196,6 +198,8 @@ Page({
                         that.customData.openid = data.openid
                         if (data.userInfo) {
                             app.nickName = data.userInfo.nickName
+                            app.userName=data.userInfo.userName
+                            app.wxCover=data.userInfo.wxCover
                             if ('0' == data.isBindingFamily) {
                                 wx.redirectTo({url: '/pages/neibourList/index'})
                             } else if (data.applyLock) {
