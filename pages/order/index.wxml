@@ -38,8 +38,14 @@
                                     data-index="{{index}}">
                             <!--                <view class="round-container order-container">-->
                             <view class="top-item">
-                                <text>付款剩余时间：</text>
-                                <text class="sysj">{{index}}  00:14:30</text>
+                                <text wx:if="{{item.status=='1'}}">付款剩余时间：</text>
+                                <text wx:elif="{{item.status=='2'}}">送货人：葫芦娃</text>
+                                <text wx:elif="{{item.status=='3'}}">收货时间：2019.06.25 21:02:20</text>
+                                <text wx:else >过期时间：{{item.pay_end_date}}</text>
+
+
+
+                                <text wx:if="{{item.status=='1'}}" class="sysj">{{item.remainTime}}</text>
                                 <view class="flex-1"></view>
                                 <text wx:if="{{item.status=='1'}}"  class="dfk">待付款</text>
                                 <text wx:elif="{{item.status=='2'}}"  class="dfk">待收货</text>

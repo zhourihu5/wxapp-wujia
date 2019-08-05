@@ -24,7 +24,29 @@ function desensitization(phone) {
   var pat=/(\d{3})\d*(\d{4})/
   return  phone.replace(pat,'$1****$2')
 }
+function calcRemainTime(pDate) {//
+  if (typeof pDate == "string") {
+    endDate = new Date(Date.parse(pDate.replace(/-/g, "/")));
+  } else if (typeof pDate == 'number') {
+    endDate = new Date(pDate);
+  }else if(typeof pDate == 'date'){
+    endDate = pDate;
+  }
+  var now = new Date();
+  var milli = endDate.getTime() - now.getTime()
+  if (milli <= 0) {
+    return '00:00:00'
+  }
+  var hour = Math.floor(milli / 1000 / 3600)
+  var minute = Math.floor(milli % (3600 * 1000) / (60 * 1000))
+  var second = Math.floor(milli % (1000 * 60) / 1000)
 
+  hour=formatNumber(hour)
+  minute=formatNumber(minute)
+  second=formatNumber(second)
+
+  return `${hour}:${minute}:${second}`
+}
 
 const app = getApp()
 function rpxToPx(x){
@@ -45,6 +67,7 @@ function isTel(value){
 module.exports = {
   // formatTime: formatTime,
   formatDate:formatDate,
+  calcRemainTime:calcRemainTime,
   desensitization:desensitization,
   rpxToPx:rpxToPx,
   isTel:isTel,

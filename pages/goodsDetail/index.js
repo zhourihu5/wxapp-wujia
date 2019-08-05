@@ -80,7 +80,8 @@ Page({
                 second: that.formatTime(second),
             })
         }, 1000)
-    }, onLoad: function (query) {
+    },
+    onLoad: function (query) {
         console.log('商品详情页接收参数')
         console.log(query)
         var that = this

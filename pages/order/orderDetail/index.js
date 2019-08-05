@@ -33,13 +33,18 @@ Page({
         var pages = getCurrentPages() // 获取栈中全部界面的, 然后把数据写入相应界面
         // var currentPage  = pages[pages.length - 1]  //当前界面
         var prePage = pages[pages.length - 2]  //上一个界面
-        prePage.loadDataIfNeeded&&prePage.loadDataIfNeeded()
+        if(prePage.refreshData){
+            prePage.refreshData()
+            console.log('订单列表页刷新数据')
+        }
+
     },
     goStroll(e){//去逛逛
         wx.redirectTo({url: "/pages/activityMore/index"})
     },
     confirmReceive(e){//TODO 确认收货
         var that=this
+        var id=that.data.apiData.id
         network.requestPost('/v1/order/receiveOrder',
             {id:id},function (data) {
             that.refreshPrePageData()

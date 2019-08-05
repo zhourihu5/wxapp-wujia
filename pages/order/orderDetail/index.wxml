@@ -52,7 +52,7 @@
     <view class="goods-info">
         <view class="goods-title {{apiData.status=='4'?'expired':''}}">商品信息</view>
         <view class="goods-content">
-            <image class="goods-image" src="/images/tab/img_doctor.png"/>
+            <image class="goods-image" src="{{apiData.activity.cover}}"/>
             <view class="goods-text-container">
                 <view class="goods-name {{apiData.status=='4'?'expired':''}}">{{apiData.activity.title}}</view>
                 <view class="price-text">
