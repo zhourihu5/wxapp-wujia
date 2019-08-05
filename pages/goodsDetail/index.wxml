@@ -24,7 +24,7 @@
                 <text class="price-float">{{utils.numAfterDot(apiData.activity.price)}}</text>
                 <text class="line-through price-old">￥{{apiData.activity.commodity.price}}</text>
             </view>
-            <text wx:if="{{false}}" class="kaituan-num">10人开团</text>
+            <text wx:if="{{false}}" class="kaituan-num">{{apiData.activity.commodity.salesNum}}人开团</text>
         </view>
 
         <view class="item1-r">
@@ -66,7 +66,7 @@
                        src="{{item.wxCover}}"></image>
             </view>
             <!--                //todo 居于底部-->
-            <view class="item-3-2-r">...等{{100}}名用户已参与</view>
+            <view class="item-3-2-r">...等{{apiData.activity.commodity.salesNum}}名用户已参与</view>
         </view>
         <view class="center zlyrctghd">再来{{1}}人参团该活动商品立减
             <text class="lijian">{{6}}</text>

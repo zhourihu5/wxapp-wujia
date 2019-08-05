@@ -44,7 +44,6 @@
                                 <text wx:else >过期时间：{{item.pay_end_date}}</text>
 
 
-
                                 <text wx:if="{{item.status=='1'}}" class="sysj">{{item.remainTime}}</text>
                                 <view class="flex-1"></view>
                                 <text wx:if="{{item.status=='1'}}"  class="dfk">待付款</text>

@@ -16,64 +16,47 @@ Page({
         modalName: null,
         formatTitle: ['产地', '规格', '重量', '包装', '保质期', '贮存方式'],
     },
-    setTimeRemain: function (pDate) {
+    setTimeRemain: function () {
+        interval && clearInterval(interval)
+        interval=null
         var that = this
-        var endDate = null
-        if (typeof pDate == "string") {
-            endDate = new Date(Date.parse(pDate.replace(/-/g, "/")));
-            console.log('string')
-        } else if (typeof pDate == 'number') {
-            console.log('number')
-            endDate = new Date(pDate);
-        }
-
-        // console.log('解析时间为')
-        // console.log(endDate)
-        // console.log('时间戳')
-        // console.log(endDate.getTime())
-        // var dateTest=new Date(endDate.getTime())
-        // console.log('由时间戳构造的')
-        // console.log(dateTest)
-
-        var now = new Date();
-        var milli = endDate.getTime() - now.getTime()
-        if (milli <= 0) {
-            that.data.isBtnEnabled = false
-            that.setData({
-                hour: '00',
-                minute: '00',
-                second: '00',
-                // isBtnEnabled:false,
-            })
-            return
-        }
-        var hour = Math.floor(milli / 1000 / 3600)
-        var minute = Math.floor(milli % (3600 * 1000) / (60 * 1000))
-        var second = Math.floor(milli % (1000 * 60) / 1000)
         interval = setInterval(function () {
-            if (hour == 0 && minute == 0 && second == 0) {
+            var pDate=null
+            if(!that.data.apiData){
+                return;
+            }
+            if(!that.data.apiData.activity){
+                return;
+            }
+            if(!that.data.apiData.activity.endDate){
+                return;
+            }
+
+            pDate= that.data.apiData.activity.endDate
+            var endDate = null
+            if (typeof pDate == "string") {
+                endDate = new Date(Date.parse(pDate.replace(/-/g, "/")));
+                console.log('string')
+            } else if (typeof pDate == 'number') {
+                console.log('number')
+                endDate = new Date(pDate);
+            }
+
+            var now = new Date();
+            var milli = endDate.getTime() - now.getTime()
+            if (milli <= 0) {
                 that.data.isBtnEnabled = false
                 that.setData({
                     hour: '00',
                     minute: '00',
                     second: '00',
+                    // isBtnEnabled:false,
                 })
-                clearInterval(interval)
                 return
             }
-            if (second > 0) {
-                second--;
-            } else {
-                second = 59
-                if (minute > 0) {
-                    minute--
-                } else {
-                    minute = 59
-                    if (hour > 0) {
-                        hour--
-                    }
-                }
-            }
+            var hour = Math.floor(milli / 1000 / 3600)
+            var minute = Math.floor(milli % (3600 * 1000) / (60 * 1000))
+            var second = Math.floor(milli % (1000 * 60) / 1000)
             that.setData({
                 hour: that.formatTime(hour),
                 minute: that.formatTime(minute),
@@ -90,7 +73,6 @@ Page({
         let id = query.id
         network.requestGet('/v1/activity/findByActivityId', {activityId: id}, function (data) {
 
-            that.setTimeRemain(data.activity.endDate);
             that.setData({
                 apiData: data,
 
@@ -98,6 +80,13 @@ Page({
         }, function (msg) {
 
         })
+    },
+    onShow(){
+        this.setTimeRemain()
+    },
+    onHide(){
+        interval && clearInterval(interval)
+        interval=null
     },
     hideModal(e) {
         this.setData({
@@ -115,10 +104,6 @@ Page({
         }
         return num
     },
-    onUnload() {
-        interval && clearInterval(interval)
-    },
-
     toConfirmOrder: function (e) {
         if (!this.data.apiData) {
             app.showToast('数据正在加载中，请稍等')
@@ -130,7 +115,7 @@ Page({
         }
         var startDate = new Date(Date.parse(this.data.apiData.activity.startDate.replace(/-/g, "/")));
         var dateNow=new Date()
-        if(dateNow.getTime()-startDate.getTime()>0){
+        if(dateNow.getTime()-startDate.getTime()<0){
             app.showToast('活动还未开始，请等待活动开始')
             return
         }
