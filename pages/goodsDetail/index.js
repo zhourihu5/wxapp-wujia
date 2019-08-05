@@ -127,6 +127,13 @@ Page({
             app.showToast('活动已结束，下次再来吧')
             return
         }
+        var startDate = new Date(Date.parse(this.data.apiData.activity.startDate.replace(/-/g, "/")));
+        var dateNow=new Date()
+        if(dateNow.getTime()-startDate.getTime()>0){
+            app.showToast('活动还未开始，请等待活动开始')
+            return
+        }
+
         var id = e.currentTarget.dataset.id
         wx.navigateTo({url: "/pages/orderConfirm/index?id=" + id})
     },

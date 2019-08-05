@@ -17,9 +17,11 @@ Page({
         })
     },
     cancelOrder(e){//todo 取消订单
+        var that=this
         var id=this.data.apiData.id
         network.requestPost('/v1/order/cancelOrder',{id:id},function (data) {
             app.showToast('订单已取消')
+            that.refreshPrePageData()
             wx.navigateBack({
                 delta:1
             })
@@ -27,12 +29,20 @@ Page({
 
         })
     },
+    refreshPrePageData(){
+        var pages = getCurrentPages() // 获取栈中全部界面的, 然后把数据写入相应界面
+        // var currentPage  = pages[pages.length - 1]  //当前界面
+        var prePage = pages[pages.length - 2]  //上一个界面
+        prePage.loadDataIfNeeded&&prePage.loadDataIfNeeded()
+    },
     goStroll(e){//去逛逛
         wx.redirectTo({url: "/pages/activityMore/index"})
     },
     confirmReceive(e){//TODO 确认收货
+        var that=this
         network.requestPost('/v1/order/receiveOrder',
             {id:id},function (data) {
+            that.refreshPrePageData()
             app.showToast('确认成功')
             wx.navigateBack({
                 delta:1
