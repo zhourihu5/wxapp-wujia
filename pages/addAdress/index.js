@@ -27,6 +27,16 @@ Page({
 
         ]
     },
+    showNavigationBarLoading(){
+        this.setData({
+            navigationBarLoading:true
+        })
+    },
+    hideNavigationBarLoading(){
+        this.setData({
+            navigationBarLoading:false
+        })
+    },
     onLoad() {
         var that = this
         network.requestGet('/v1/address/findCommuntity', {}, function (data) {

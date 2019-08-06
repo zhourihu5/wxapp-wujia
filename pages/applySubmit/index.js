@@ -26,6 +26,16 @@ Page({
         ],
 
     },
+    showNavigationBarLoading(){
+        this.setData({
+            navigationBarLoading:true
+        })
+    },
+    hideNavigationBarLoading(){
+        this.setData({
+            navigationBarLoading:false
+        })
+    },
     onLoad() {
         var pages = getCurrentPages() // 获取栈中全部界面的, 然后把数据写入相应界面
         // var currentPage  = pages[pages.length - 1]  //当前界面

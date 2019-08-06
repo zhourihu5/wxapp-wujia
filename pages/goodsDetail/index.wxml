@@ -2,7 +2,7 @@
 
 <cu-custom style="position: fixed;z-index: 100" isBack="{{true}}">
     <view slot="backText"></view>
-    <view slot="content"></view>
+    <view slot="content"><text class="{{navigationBarLoading?'wj-loading-icon':''}}"/></view>
 </cu-custom>
 
 <view class="container" style="margin-top:{{StatusBar}}px;padding-bottom:calc(98rpx + {{StatusBar}}px) ">

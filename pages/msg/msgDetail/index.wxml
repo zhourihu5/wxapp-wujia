@@ -1,7 +1,7 @@
 <cu-custom bgColor="titlebar-white" isBack="{{true}}">
     <view slot="backText"></view>
 <!--    <view slot="content">消息详情</view>-->
-    <view slot="content">{{typeName}}</view>
+    <view slot="content"><text class="{{navigationBarLoading?'wj-loading-icon':''}}"/>{{typeName}}</view>
 </cu-custom>
 
 <scroll-view scroll-y class="body"

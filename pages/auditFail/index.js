@@ -5,6 +5,16 @@ Page({
     data: {
         failReason: null,
     },
+    showNavigationBarLoading(){
+        this.setData({
+            navigationBarLoading:true
+        })
+    },
+    hideNavigationBarLoading(){
+        this.setData({
+            navigationBarLoading:false
+        })
+    },
     onShow() {
     },
     onLoad: function (options) {

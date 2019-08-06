@@ -17,6 +17,16 @@ Page({
         modalName: null,
         formatTitle: ['产地', '规格', '重量', '包装', '保质期', '贮存方式'],
     },
+    showNavigationBarLoading(){
+        this.setData({
+            navigationBarLoading:true
+        })
+    },
+    hideNavigationBarLoading(){
+        this.setData({
+            navigationBarLoading:false
+        })
+    },
     setTimeRemain: function (pDate) {
         var that = this
         var endDate = null

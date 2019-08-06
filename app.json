@@ -50,8 +50,7 @@
     "pages/msg/msgDetail/index",
     "pages/goodsDetail1/index",
     "pages/ucenter/index",
-    "pages/msg/index",
-    "pages/authorize/authorize"
+    "pages/msg/index"
   ],
   "permission": {
     "scope.userLocation": {

@@ -6,6 +6,16 @@ Page({
     data: {
         apiData:null,
     },
+    showNavigationBarLoading(){
+        this.setData({
+            navigationBarLoading:true
+        })
+    },
+    hideNavigationBarLoading(){
+        this.setData({
+            navigationBarLoading:false
+        })
+    },
     onLoad: function (options) {
         let id=options.id;
         var that=this

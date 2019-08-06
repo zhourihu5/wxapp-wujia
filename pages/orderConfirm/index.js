@@ -22,6 +22,16 @@ Page({
 
         ]
     },
+    showNavigationBarLoading(){
+        this.setData({
+            navigationBarLoading:true
+        })
+    },
+    hideNavigationBarLoading(){
+        this.setData({
+            navigationBarLoading:false
+        })
+    },
     onLoad(query) {
         console.log("接收参数")
         console.log(query)

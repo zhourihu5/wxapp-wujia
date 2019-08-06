@@ -24,6 +24,16 @@ Page({
         phone: '',
         avatarUrl: '',
     },
+    showNavigationBarLoading(){
+        this.setData({
+            navigationBarLoading:true
+        })
+    },
+    hideNavigationBarLoading(){
+        this.setData({
+            navigationBarLoading:false
+        })
+    },
     onShow() {
         if (typeof this.getTabBar === 'function' &&
             this.getTabBar()) {

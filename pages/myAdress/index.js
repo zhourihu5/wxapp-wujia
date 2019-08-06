@@ -6,6 +6,16 @@ Page({
         CustomBar: app.globalData.CustomBar,
         apiData: null,
     },
+    showNavigationBarLoading(){
+        this.setData({
+            navigationBarLoading:true
+        })
+    },
+    hideNavigationBarLoading(){
+        this.setData({
+            navigationBarLoading:false
+        })
+    },
     onLoad(option) {
         this.loadData()
     },

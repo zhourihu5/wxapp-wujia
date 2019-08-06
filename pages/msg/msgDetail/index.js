@@ -14,6 +14,16 @@ Page({
         typeName:null,
         lowerThreshold: util.lowerThreshold(),
     },
+    showNavigationBarLoading(){
+        this.setData({
+            navigationBarLoading:true
+        })
+    },
+    hideNavigationBarLoading(){
+        this.setData({
+            navigationBarLoading:false
+        })
+    },
     onChange(event) {
         console.log('collapseChange')
         var index=event.currentTarget.dataset.index

@@ -22,6 +22,16 @@ Page({
         currentCommunity: null,
         isBack:false,
     },
+    showNavigationBarLoading(){
+        this.setData({
+            navigationBarLoading:true
+        })
+    },
+    hideNavigationBarLoading(){
+        this.setData({
+            navigationBarLoading:false
+        })
+    },
     onLoad: function () {
         if(getCurrentPages().length>1){
             this.setData({

@@ -8,6 +8,16 @@ Page({
         callPhone: null,
         modalName: null,
     },
+    showNavigationBarLoading(){
+        this.setData({
+            navigationBarLoading:true
+        })
+    },
+    hideNavigationBarLoading(){
+        this.setData({
+            navigationBarLoading:false
+        })
+    },
     makePhoneCall(e) {
         this.hideModal();
         const that = this

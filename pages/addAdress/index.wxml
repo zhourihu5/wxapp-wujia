@@ -1,6 +1,6 @@
 <cu-custom bgColor="titlebar-white" isBack="{{true}}">
     <view slot="backText"></view>
-    <view slot="content">新增收货地址</view>
+    <view slot="content"><text class="{{navigationBarLoading?'wj-loading-icon':''}}"/>新增收货地址</view>
 </cu-custom>
 <view class="container">
     <view class="w-b">

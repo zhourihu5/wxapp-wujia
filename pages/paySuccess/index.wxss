@@ -16,10 +16,6 @@ page{
     padding:0 30rpx;
 
 }
-.scroll{
-    width: 100%;
-    flex: 1;
-}
 .activity-item{
     width:690rpx;
     /*height:568rpx;*/

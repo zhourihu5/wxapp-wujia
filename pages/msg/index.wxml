@@ -1,7 +1,7 @@
 <!--index.wxml-->
 <cu-custom bgColor="titlebar-white" isBack="{{false}}">
     <view slot="backText">返回</view>
-    <view slot="content">消息</view>
+    <view slot="content"><text class="{{navigationBarLoading?'wj-loading-icon':''}}"/>消息</view>
 </cu-custom>
 <view class="container p-t-20">
     <block wx:for="{{apiData}}" wx:for-item="item" wx:key="">
