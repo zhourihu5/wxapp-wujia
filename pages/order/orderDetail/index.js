@@ -40,7 +40,7 @@ Page({
                 interval=null
                 return;
             }
-            that.data.apiData.remainTime=util.calcRemainTime(that.data.apiData.pay_end_date)
+            that.data.apiData.remainTime=util.calcRemainTime(that.data.apiData.payEndDate)
             that.setData({
                 apiData:that.data.apiData
             })

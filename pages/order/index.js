@@ -30,7 +30,7 @@ Page({
                 data:[],
             },
             {
-                title: "待收获",
+                title: "待收货",
                 status:2,
                 isOver:false,
                 isLoading: false,
@@ -87,7 +87,7 @@ Page({
             for(i=0;i<that.data.tabs[0].data.length;i++){
                 orderData=that.data.tabs[0].data[i]
                 if(orderData.status=='1'){
-                    orderData.remainTime=util.calcRemainTime(orderData.pay_end_date)
+                    orderData.remainTime=util.calcRemainTime(orderData.payEndDate)
                     if(orderData.remainTime=='00:00:00'){
                         that.refreshAllData()
                         return;
@@ -97,7 +97,7 @@ Page({
             for(i=0;i<that.data.tabs[1].data.length;i++){
                 orderData=that.data.tabs[1].data[i]
                 if(orderData.status=='1'){
-                    orderData.remainTime=util.calcRemainTime(orderData.pay_end_date)
+                    orderData.remainTime=util.calcRemainTime(orderData.payEndDate)
                     if(orderData.remainTime=='00:00:00'){
                         that.refreshAllData()
                         return;

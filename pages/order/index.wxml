@@ -41,7 +41,7 @@
                                 <text wx:if="{{item.status=='1'}}">付款剩余时间：</text>
                                 <text wx:elif="{{item.status=='2'}}">送货人：葫芦娃</text>
                                 <text wx:elif="{{item.status=='3'}}">收货时间：2019.06.25 21:02:20</text>
-                                <text wx:else >过期时间：{{item.pay_end_date}}</text>
+                                <text wx:else >过期时间：{{item.payEndDate}}</text>
 
 
                                 <text wx:if="{{item.status=='1'}}" class="sysj">{{item.remainTime}}</text>
@@ -65,9 +65,9 @@
                             </view>
                             <view class="btn-wraper">
                                 <view class="left-empty"></view>
-                                <text wx:if="{{item.status=='1'}}" class="pay-right-now" bindtap="toPay" data-id="{{item.id}}">立即付款</text>
-                                <text wx:elif="{{item.status=='2'}}" class="lxshr" bindtap="askDeliver" data-phone="{{item.deliveryPhone}}">联系送货人</text>
-                                <text wx:else class="go-stroll" bindtap="goStroll">去逛逛</text>
+                                <text wx:if="{{item.status=='1'}}" class="pay-right-now" catchtap="toPay" data-id="{{item.id}}">立即付款</text>
+                                <text wx:elif="{{item.status=='2'}}" class="lxshr" catchtap="askDeliver" data-phone="{{item.deliveryPhone}}">联系送货人</text>
+                                <text wx:else class="go-stroll" catchtap="goStroll">去逛逛</text>
                             </view>
 
                             <!--                </view>-->

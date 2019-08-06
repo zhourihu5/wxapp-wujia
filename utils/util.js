@@ -25,6 +25,7 @@ function desensitization(phone) {
   return  phone.replace(pat,'$1****$2')
 }
 function calcRemainTime(pDate) {//
+  var endDate=null
   if (typeof pDate == "string") {
     endDate = new Date(Date.parse(pDate.replace(/-/g, "/")));
   } else if (typeof pDate == 'number') {
