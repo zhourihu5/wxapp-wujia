@@ -8,12 +8,13 @@ Page({
         lowerThreshold: util.lowerThreshold(),
         list: [],
         isLoading: true,
+        isOver: false,
         reachBottom: false,
     },
     customData: {
         pageNum: 1,
         pageSize: 3,
-        isOver: false,
+
     },
     onLoad: function () {
         this.loadData()
@@ -21,15 +22,15 @@ Page({
     goBuy(e) {
         var index=e.currentTarget.dataset.index
         let id =this.data.list[index].id;
-        if(this.data.list[index].isJoin==0){
-            wx.navigateTo({url: '/pages/goodsDetail/index?id=' + id})
-        }else {
+        if(this.data.list[index].isJoin==1){
             wx.navigateTo({url: '/pages/goodsDetail1/index?id=' + id})
+        }else {
+            wx.navigateTo({url: '/pages/goodsDetail/index?id=' + id})
         }
     },
     loadData() {
         var that = this
-        if (that.customData.isOver) {
+        if (that.data.isOver) {
             return
         }
         that.setData({
@@ -54,9 +55,9 @@ Page({
                 console.log(data.content.length)
                 if (data.content && data.content.length >= that.customData.pageSize) {
                     that.customData.pageNum++
-                    that.customData.isOver = false
+                    that.data.isOver = false
                 } else {
-                    that.customData.isOver = true
+                    that.data.isOver = true
                 }
                 console.log('list 数据')
                 console.log(that.data.list)

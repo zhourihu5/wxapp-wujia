@@ -73,10 +73,10 @@ Page({
     goBuy(e) {
         var index=e.currentTarget.dataset.index
         let id =this.data.apiData.activityList[index].id;
-        if(this.data.apiData.activityList[index].isJoin==0){
-            wx.navigateTo({url: '/pages/goodsDetail/index?id=' + id})
-        }else {
+        if(this.data.apiData.activityList[index].isJoin==1){
             wx.navigateTo({url: '/pages/goodsDetail1/index?id=' + id})
+        }else {
+            wx.navigateTo({url: '/pages/goodsDetail/index?id=' + id})
         }
     },
     moveChangedOpen(e) {

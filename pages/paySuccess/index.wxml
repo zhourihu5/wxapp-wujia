@@ -65,7 +65,7 @@
                     </text>
                 </view>
 
-                <view class="go-group-buy" bindtap="goBuy" data-index="{{index}}">去拼团</view>
+                <view class="go-group-buy" bindtap="goBuy" data-index="{{index}}">去参团</view>
             </view>
 
 

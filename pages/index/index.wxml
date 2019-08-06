@@ -71,7 +71,7 @@
                         </text>
                     </view>
                     <view class="sell-num m-l-20">已拼{{item.commodity.salesNum}}件</view>
-                    <view class="go-group-buy" bindtap="goBuy"  data-index="{{index}}">去拼团</view>
+                    <view class="go-group-buy" bindtap="goBuy"  data-index="{{index}}">去参团</view>
                 </view>
             </block>
             <view wx:if="{{apiData.activityList.length>1}}" class="end-hint">

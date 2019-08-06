@@ -17,14 +17,6 @@ page{
     padding:0 30rpx;
 
 }
-.scroll{
-    /*position: fixed;*/
-    /*top: 0;*/
-    /*left: 0;*/
-    /*right: 0;*/
-    /*bottom: 0;*/
-    flex:1
-}
 .activity-item{
     width:690rpx;
     /*height:568rpx;*/

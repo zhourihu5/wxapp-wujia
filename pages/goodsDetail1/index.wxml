@@ -47,7 +47,7 @@
                        src="{{item.wxCover}}"></image>
             </view>
             <!--                //todo 居于底部-->
-            <view class="item-3-2-r align-bottom">...等{{100}}名用户已参与</view>
+            <view class="item-3-2-r align-bottom">...等{{apiData.activity.commodity.salesNum}}名用户已参与</view>
         </view>
     </view>
     <view wx:if="{{apiOtherListData&&apiOtherListData.length>0}}" class="w-p-100 flex align-center justify-center m-t-b-30 djdzp">大家都在拼</view>
@@ -80,7 +80,7 @@
                     </text>
                 </view>
 
-                <view class="go-group-buy" bindtap="goBuy" data-index="{{index}}">去拼团</view>
+                <view class="go-group-buy" bindtap="goBuy" data-index="{{index}}">去参团</view>
             </view>
 
 
