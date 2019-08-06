@@ -40,7 +40,7 @@
                             <view class="top-item">
                                 <text wx:if="{{item.status=='1'}}">付款剩余时间：</text>
                                 <text wx:elif="{{item.status=='2'}}">送货人：{{item.deliveryPerson}}</text>
-                                <text wx:elif="{{item.status=='3'}}">收货时间：{{item.receivedate}}</text>
+                                <text wx:elif="{{item.status=='3'}}">收货时间：{{item.receiveDate}}</text>
                                 <text wx:else >过期时间：{{item.payEndDate}}</text>
 
 
@@ -52,7 +52,7 @@
                                 <text wx:else  class="ygq">已过期</text>
                             </view>
                             <view class="order-middle-item">
-                                <image class="order-image" src="/images/tab_my.png"/>
+                                <image class="order-image" src="{{item.activity.cover}}"/>
                                 <view class="order-text">
                                     <view class="{{item.status=='4'?'order-name-ygq':'order-name'}} ">{{item.activity.title}}</view>
                                     <view class="order-price">

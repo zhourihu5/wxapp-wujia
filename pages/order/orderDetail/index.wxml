@@ -26,13 +26,14 @@
             <text>您的商品已收到~</text>
         </view>
     </view>
-    <view wx:else class="top-conrainer">
+    <view wx:elif="{{apiData.status=='4'}}" class="top-conrainer">
         <image class="logo-car" src="/images/logo_expired.png"/>
         <view class="order-status expired">已过期</view>
         <view class="order-remain-time">
             <text>您的商品已过期~</text>
         </view>
     </view>
+    <view wx:else />
 
 
 <!--    <view class="goods-info">-->
@@ -88,7 +89,8 @@
         <view class="goods-title {{apiData.status=='4'?'expired':''}}">配送信息</view>
         <view class="order-info-item">送货员：{{apiData.deliveryPerson}}</view>
         <view class="order-info-item">送货员联系方式：{{apiData.deliveryPhone}}</view>
-        <view class="order-info-item p-b-30">送货时长剩余：{{apiData.deliveryHour}}h</view>
+        <view wx:if="{{apiData.status=='2'}}" class="order-info-item p-b-30">送货周期：{{apiData.activity.deliveryHour}}h</view>
+        <view wx:if="{{apiData.status=='3'}}" class="order-info-item p-b-30">收货时间：{{apiData.receiveDate}}</view>
 
     </view>
 </view>
@@ -97,5 +99,6 @@
     <view class="bt-pay" bindtap="toPay">付款 {{apiData.realPrice}}</view>
 </view>
 <view wx:elif="{{apiData.status=='2'}}"  class="bottom-button" bindtap="confirmReceive">确认收货</view>
-<view wx:else class="bottom-button" bindtap="goStroll">去逛逛</view>
+<view wx:elif="{{apiData.status=='3'||apiData.status=='4'}}" class="bottom-button" bindtap="goStroll">去逛逛</view>
+<view wx:else/>
 

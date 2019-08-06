@@ -72,7 +72,6 @@ Page({
         // that.setTimeRemain(1564576703000)
         let id = query.id
         network.requestGet('/v1/activity/findByActivityId', {activityId: id}, function (data) {
-
             that.setData({
                 apiData: data,
 
@@ -110,7 +109,7 @@ Page({
             return
         }
         if (!this.data.isBtnEnabled) {
-            app.showToast('活动已结束，下次再来吧')
+            app.showToast('本活动已结束，下次再来吧')
             return
         }
         var startDate = new Date(Date.parse(this.data.apiData.activity.startDate.replace(/-/g, "/")));

@@ -98,6 +98,7 @@ Page({
     payOrder(){//修改订单状态
         var that=this
         network.requestPost('/v1/order/payOrder',{id:that.data.apiPayOrderData.id},function (data) {
+            app.activityChanged=true
             // wx.navigateTo({url: "/pages/paySuccess/index"})
             wx.redirectTo({url: "/pages/paySuccess/index"})
         },function (msg) {

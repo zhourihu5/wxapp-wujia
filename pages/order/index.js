@@ -289,6 +289,7 @@ Page({
     payOrder(id){//修改订单状态
         var that=this
         network.requestPost('/v1/order/payOrder',{id:id},function (data) {
+            app.activityChanged=true
             // wx.navigateTo({url: "/pages/paySuccess/index"})
             // wx.redirectTo({url: "/pages/paySuccess/index"})
             that.refreshAllData()

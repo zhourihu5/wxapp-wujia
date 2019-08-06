@@ -29,6 +29,11 @@ Page({
     onLoad: function () {
         this.loadData()
     },
+    onShow(){
+        if(app.activityChanged=true){
+            this.loadData()
+        }
+    },
     goBuy(e) {
         var index=e.currentTarget.dataset.index
         let id =this.data.list[index].id;

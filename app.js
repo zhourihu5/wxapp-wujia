@@ -13,6 +13,7 @@ App({
   communtityId:null,
   communtityCode:null,
   orderChanged:false,
+  activityChanged:false,
   showToast(msg){
     wx.showToast({
       title: msg,

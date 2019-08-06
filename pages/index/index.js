@@ -238,13 +238,15 @@ Page({
         })
     },
     onShow() {
-
         if (typeof this.getTabBar === 'function' &&
             this.getTabBar()) {
             this.getTabBar().init()
             console.log("自定义tabbar")
         }
-
+        if(app.activityChanged){
+            app.activityChanged=false
+            this.showOrHideBindPhone();
+        }
     },
     phoneInput(e) {
         this.customData.phone = e.detail.value
