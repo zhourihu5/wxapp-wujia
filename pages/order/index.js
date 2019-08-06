@@ -263,7 +263,8 @@ Page({
         var that=this
         network.requestPost('/v1/order/payOrder',{id:id},function (data) {
             // wx.navigateTo({url: "/pages/paySuccess/index"})
-            wx.redirectTo({url: "/pages/paySuccess/index"})
+            // wx.redirectTo({url: "/pages/paySuccess/index"})
+            that.refreshAllData()
         },function (msg) {
 
         })

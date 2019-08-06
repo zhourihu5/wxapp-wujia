@@ -32,6 +32,8 @@ function calcRemainTime(pDate) {//
     endDate = new Date(pDate);
   }else if(typeof pDate == 'date'){
     endDate = pDate;
+  }else {
+    return pDate
   }
   var now = new Date();
   var milli = endDate.getTime() - now.getTime()
