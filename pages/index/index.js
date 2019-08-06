@@ -22,6 +22,16 @@ Page({
         openid: null,
         wx_user: null
     },
+    showNavigationBarLoading(){
+        this.setData({
+            navigationBarLoading:true
+        })
+    },
+    hideNavigationBarLoading(){
+        this.setData({
+            navigationBarLoading:false
+        })
+    },
     bindPhone: function (e) {
         var that = this
         if (!this.data.isBindEnabled) {

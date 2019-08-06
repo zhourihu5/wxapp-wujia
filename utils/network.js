@@ -19,7 +19,12 @@ const app = getApp()
 * requestTask:返回一个 requestTask 对象，通过 requestTask，可中断请求任务
 */
 function requestLoading(url, data,method, message, successCallBack, failCallBack, completeCallBack = function (res) {}) {
-    var session_id = (getApp().globalData.session);
+    var pages = getCurrentPages() // 获取栈中全部界面的, 然后把数据写入相应界面
+    var currentPage  = pages[pages.length - 1]  //当前界面
+    // var prePage = pages[pages.length - 2]  //上一个界面
+    if(currentPage.showNavigationBarLoading){
+        currentPage.showNavigationBarLoading()
+    }
     wx.showNavigationBarLoading();
     if (message != "") {
         wx.showLoading({
@@ -41,6 +46,9 @@ function requestLoading(url, data,method, message, successCallBack, failCallBack
             console.log("请求成功")
             console.log(res)
             wx.hideNavigationBarLoading();
+            if(currentPage.hideNavigationBarLoading){
+                currentPage.hideNavigationBarLoading()
+            }
             if (message != "") {
                 wx.hideLoading()
             }
@@ -63,6 +71,9 @@ function requestLoading(url, data,method, message, successCallBack, failCallBack
             console.log("请求失败")
             console.log(res)
             wx.hideNavigationBarLoading();
+            if(currentPage.hideNavigationBarLoading){
+                currentPage.hideNavigationBarLoading()
+            }
             if (message != "") {
                 // setTimeout(function () {
                 //   wx.hideLoading()

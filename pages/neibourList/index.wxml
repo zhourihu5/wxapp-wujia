@@ -38,7 +38,7 @@
             </view>
         </block>
     </view>
-    <view wx:if="{{reachBottom&&apiSearchData}}" class="cu-load wj-loading {{isLoadingSearch?'loading':'over'}}"></view>
+    <view wx:if="{{reachBottom&&apiSearchData&&isLoadingSearch}}" class="cu-load wj-loading {{isLoadingSearch?'loading':'over'}}"></view>
 </scroll-view>
 <view class="cu-modal bottom-modal {{modalName=='bottomModal'?'show':''}}">
     <view class="cu-dialog bottom-dialog">

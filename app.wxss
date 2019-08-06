@@ -7,9 +7,13 @@ tab-bar{
 }
 
 
-.scrollPage {
-  height: 100vh;
+.wj-loading-icon::before {
+  font-family: "cuIcon";
+  margin-right: 6rpx;
+  content: "\e67a";
+  animation: cuIcon-spin 2s infinite linear;
 }
+
 /**app.wxss**/
 .container {
   width: 100%;

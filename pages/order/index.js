@@ -60,6 +60,16 @@ Page({
         pageSize: 10,
 
     },
+    showNavigationBarLoading(){
+        this.setData({
+            navigationBarLoading:true
+        })
+    },
+    hideNavigationBarLoading(){
+        this.setData({
+            navigationBarLoading:false
+        })
+    },
     onShow() {
         if (typeof this.getTabBar === 'function' &&
             this.getTabBar()) {
@@ -92,22 +102,25 @@ Page({
                 orderData=that.data.tabs[0].data[i]
                 if(orderData.status=='1'){
                     orderData.remainTime=util.calcRemainTime(orderData.payEndDate)
-                    if(orderData.remainTime=='00:00:00'){
-                        that.refreshAllData()
-                        return;
-                    }
+                    // if(orderData.remainTime=='00:00:00'){
+                    //     that.refreshAllData()
+                    //     return;
+                    // }
                 }
             }
             for(i=0;i<that.data.tabs[1].data.length;i++){
                 orderData=that.data.tabs[1].data[i]
                 if(orderData.status=='1'){
                     orderData.remainTime=util.calcRemainTime(orderData.payEndDate)
-                    if(orderData.remainTime=='00:00:00'){
-                        that.refreshAllData()
-                        return;
-                    }
+                    // if(orderData.remainTime=='00:00:00'){
+                    //     that.refreshAllData()
+                    //     return;
+                    // }
                 }
             }
+            that.setData({
+                tabs:that.data.tabs
+            })
 
         }, 1000)
     },
@@ -120,53 +133,55 @@ Page({
     },
     refreshAllData(){
         var that = this
-        that.data.tabs= [
-            {
-                title: "全部",
-                status:null,
-                isOver:false,
-                isLoading: false,
-                reachBottom:false,
-                pageNum: 1,
-                data:[],
-            },
-            {
-                title: "待付款",
-                status:1,
-                isOver:false,
-                isLoading: false,
-                reachBottom:false,
-                pageNum: 1,
-                data:[],
-            },
-            {
-                title: "待收获",
-                status:2,
-                isOver:false,
-                isLoading: false,
-                reachBottom:false,
-                pageNum: 1,
-                data:[],
-            },
-            {
-                title: "已收货",
-                status:3,
-                isOver:false,
-                isLoading: false,
-                reachBottom:false,
-                pageNum: 1,
-                data:[],
-            },
-            {
-                title: "已过期",
-                status:4,
-                isOver:false,
-                isLoading: false,
-                reachBottom:false,
-                pageNum: 1,
-                data:[],
-            },
-        ]
+        that.setData({
+            tabs: [
+                {
+                    title: "全部",
+                    status:null,
+                    isOver:false,
+                    isLoading: false,
+                    reachBottom:false,
+                    pageNum: 1,
+                    data:[],
+                },
+                {
+                    title: "待付款",
+                    status:1,
+                    isOver:false,
+                    isLoading: false,
+                    reachBottom:false,
+                    pageNum: 1,
+                    data:[],
+                },
+                {
+                    title: "待收货",
+                    status:2,
+                    isOver:false,
+                    isLoading: false,
+                    reachBottom:false,
+                    pageNum: 1,
+                    data:[],
+                },
+                {
+                    title: "已收货",
+                    status:3,
+                    isOver:false,
+                    isLoading: false,
+                    reachBottom:false,
+                    pageNum: 1,
+                    data:[],
+                },
+                {
+                    title: "已过期",
+                    status:4,
+                    isOver:false,
+                    isLoading: false,
+                    reachBottom:false,
+                    pageNum: 1,
+                    data:[],
+                },
+            ],
+        })
         that.loadData()
     },
     loadData() {
@@ -249,6 +264,13 @@ Page({
     toPay(e){//todo 立即付款
         var that=this
         let id=e.currentTarget.dataset.id
+        let index=e.currentTarget.dataset.index
+        var orderData=that.data.tabs[that.data.active].data[index]
+        if(util.calcRemainTime(orderData.payEndDate)=='00:00:00'){
+            app.showToast('订单已过期，请重新下单')
+            return
+        }
+
         this.payOrder(id)//todo test
         wx.requestPayment({
             timeStamp: '',

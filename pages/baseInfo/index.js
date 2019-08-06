@@ -19,6 +19,16 @@ Page({
         value:util.formatDate(now),
         isBtnEnabled:false,
     },
+    showNavigationBarLoading(){
+        this.setData({
+            navigationBarLoading:true
+        })
+    },
+    hideNavigationBarLoading(){
+        this.setData({
+            navigationBarLoading:false
+        })
+    },
     pickerChange: function (e) {
         if (!this.data.apiData) {
             app.showToast('数据正在加载中，请稍等')

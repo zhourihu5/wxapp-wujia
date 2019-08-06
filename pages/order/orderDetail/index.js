@@ -32,10 +32,6 @@ Page({
 
         var that = this
         var endDate=null
-        if(that.data.apiData.status=='2'){
-            endDate=new Date(Date.parse(that.data.apiData.activity.endDate.replace(/-/g, "/")));
-            endDate.setTime(endDate.getTime()+that.data.apiData.deliveryHour*3600*1000)
-        }
         interval = setInterval(function () {
             if(!that.data.apiData){
                 return;
@@ -46,6 +42,10 @@ Page({
                     apiData:that.data.apiData
                 })
             }else if(that.data.apiData.status=='2'){
+                if(!endDate){
+                    endDate=new Date(Date.parse(that.data.apiData.activity.endDate.replace(/-/g, "/")));
+                    endDate.setTime(endDate.getTime()+that.data.apiData.activity.deliveryHour*3600*1000)
+                }
                 that.data.apiData.remainTime=util.calcRemainTime(endDate)
                 that.setData({
                     apiData:that.data.apiData

@@ -85,7 +85,7 @@
 
 
         </block>
-        <view wx:if="{{reachBottom}}" class="cu-load wj-loading {{isLoading?'loading':'over'}}"></view>
+        <view wx:if="{{reachBottom&&isLoading}}" class="cu-load wj-loading {{isLoading?'loading':'over'}}"></view>
 
 </scroll-view>
 

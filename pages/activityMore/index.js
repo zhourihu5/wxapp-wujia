@@ -16,6 +16,16 @@ Page({
         pageSize: 3,
 
     },
+    showNavigationBarLoading(){
+        this.setData({
+            navigationBarLoading:true
+        })
+    },
+    hideNavigationBarLoading(){
+        this.setData({
+            navigationBarLoading:false
+        })
+    },
     onLoad: function () {
         this.loadData()
     },

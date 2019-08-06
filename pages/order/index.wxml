@@ -1,7 +1,7 @@
 <view class="container">
     <cu-custom bgColor="titlebar-white" isBack="{{false}}">
         <view slot="backText">返回</view>
-        <view slot="content">订单</view>
+        <view slot="content"><text class="{{navigationBarLoading?'wj-loading-icon':''}}"/>订单</view>
     </cu-custom>
     <van-tabs class="tab-layout"
               custom-class="custom-tabs"
@@ -65,7 +65,7 @@
                             </view>
                             <view class="btn-wraper">
                                 <view class="left-empty"></view>
-                                <text wx:if="{{item.status=='1'}}" class="pay-right-now" catchtap="toPay" data-id="{{item.id}}">立即付款</text>
+                                <text wx:if="{{item.status=='1'}}" class="pay-right-now" catchtap="toPay" data-index="{{index}}"  data-id="{{item.id}}">立即付款</text>
                                 <text wx:elif="{{item.status=='2'}}" class="lxshr" catchtap="askDeliver" data-phone="{{item.deliveryPhone}}">联系送货人</text>
                                 <text wx:else class="go-stroll" catchtap="goStroll">去逛逛</text>
                             </view>
