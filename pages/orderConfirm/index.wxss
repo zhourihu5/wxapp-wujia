@@ -80,7 +80,7 @@
 
 .item-1{
     /*width:690px;*/
-    height:128rpx;
+    /*height:128rpx;*/
     background:rgba(255,255,255,1);
     border-radius:16rpx;
 
@@ -92,8 +92,6 @@
     color:rgba(34,34,34,1);
     line-height:28rpx;
 
-    align-items: center;
-    display: flex;
     width: 100%;
     box-sizing: border-box;
 }
@@ -158,7 +156,6 @@
     /*height:32rpx;*/
     /*background:rgba(34,34,34,1);*/
 
-    margin-left: 20rpx;
     margin-right: 14rpx;
 }
 .jxszsqnbpsdz{
@@ -212,12 +209,11 @@
     /*background:rgba(219,219,219,1);*/
     color: rgba(219,219,219,1);
 
-    margin-right: 24rpx;
 }
 .colored-dash{
     /*background: url(/images/tab_order.png)  bottom repeat;*/
     /*background:rgba(248,114,125,1);*/
-    position: relative;
+    position: absolute;
     bottom: 0;
     width: 100%;
     height: 6rpx;

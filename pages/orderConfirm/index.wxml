@@ -18,22 +18,25 @@
     </view>
     <navigator url="/pages/myAdress/index" hover-class="navigator-hover"
                open-type="navigateTo">
-        <view class="item-1">
-            <view wx:if="{{myAddress}}" class="flex-1">
-                <view>{{myAddress.address}}</view>
-                <view class="uname">{{myAddress.name}}{{myAddress.phone}}</view>
-            </view>
-            <view wx:else class="flex-1">
-                <view class="flex">
-                    <view class="cuIcon-location location"/>
-                    <view class="">请填写收货地址</view>
+        <view class="relative w-p-100">
+            <view class="item-1 p-t-b-50 p-l-r-20 flex align-center w-p-100">
+                <view wx:if="{{myAddress}}" class="flex-1">
+                    <view>{{myAddress.address}}</view>
+                    <view class="uname">{{myAddress.name}}{{myAddress.phone}}</view>
                 </view>
-               <view class="jxszsqnbpsdz">*仅限所在社区内部配送地址</view>
+                <view wx:else class="flex-1">
+                    <view class="flex">
+                        <view class="cuIcon-location location"/>
+                        <view class="">请填写收货地址</view>
+                    </view>
+                    <view class="jxszsqnbpsdz">*仅限所在社区内部配送地址</view>
+                </view>
+                <view class="cuIcon-right right"></view>
+
             </view>
-            <view class="cuIcon-right right"></view>
-        </view>
-        <view class="flex justify-between colored-dash">
-            <view wx:for="{{14}}" wx:key class="{{index%2?'red-dash':'blue-dash'}}"></view>
+            <view class="flex justify-between colored-dash p-l-r-8">
+                <view wx:for="{{14}}" wx:key class="{{index%2?'red-dash':'blue-dash'}}"></view>
+            </view>
         </view>
     </navigator>
 

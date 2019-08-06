@@ -8,7 +8,7 @@
 <view class="container" style="margin-top:{{StatusBar}}px;padding-bottom:calc(98rpx + {{StatusBar}}px) ">
     <!-- wxml -->
     <swiper class='u-wrp-bnr'
-            indicator-dots='true' autoplay='true' interval='5000' duration='1000' circular='true'>
+            indicator-dots='true' autoplay='false' interval='5000' duration='1000' circular='true'>
         <block wx:for="{{apiData.activity.commodity.attaInfos}}">
             <swiper-item>
                 <image src='{{item.attaAddr}}' class='u-img-slide' mode='aspectFill'></image>
@@ -60,13 +60,13 @@
             <view class="flex align-center text-underline hdsm" bindtap="showModal">活动说明</view>
         </view>
 
-        <view class="item3-2">
+        <view wx:if="{{apiData.userInfoList.length>0}}" class="item3-2">
             <view class="cu-avatar-group item3-2-l">
                 <image class="cu-avatar round round-image" wx:for="{{apiData.userInfoList}}" wx:key
                        src="{{item.wxCover}}"></image>
             </view>
             <!--                //todo 居于底部-->
-            <view class="item-3-2-r">...等{{apiData.activity.commodity.salesNum}}名用户已参与</view>
+            <view  class="item-3-2-r">...等{{apiData.activity.commodity.salesNum}}名用户已参与</view>
         </view>
         <view class="center zlyrctghd">再来{{1}}人参团该活动商品立减
             <text class="lijian">{{6}}</text>

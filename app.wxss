@@ -77,6 +77,10 @@ tab-bar{
 .m-l-30{
   margin-left: 30rpx;
 }
+.p-l-r-8{
+  padding-left: 8rpx;
+  padding-right: 8rpx;
+}
 .w-750{
   width: 750rpx;
 }
@@ -357,6 +361,9 @@ tab-bar{
 }
 .absolute{
   position: absolute;
+}
+.bottom-0{
+  bottom: 0;
 }
 .inline-block{
   display:inline-block ;

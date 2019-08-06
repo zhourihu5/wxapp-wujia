@@ -33,6 +33,7 @@
   },
   "pages": [
     "pages/index/index",
+    "pages/orderConfirm/index",
     "pages/addAdress/index",
     "pages/baseInfo/index",
     "pages/applySubmit/index",
@@ -41,7 +42,6 @@
     "pages/auditWait/index",
     "pages/auditFail/index",
     "pages/goodsDetail/index",
-    "pages/orderConfirm/index",
     "pages/activityMore/index",
     "pages/order/orderDetail/index",
     "pages/yellowPage/index",
