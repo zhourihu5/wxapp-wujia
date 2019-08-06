@@ -25,12 +25,20 @@ function desensitization(phone) {
   return  phone.replace(pat,'$1****$2')
 }
 function calcRemainTime(pDate) {//
+  // console.log('date 数据类型')
+  // var date= new Date()
+  // console.log(typeof date)
+  // console.log(date instanceof Date)
+  // console.log('2019-03-21' instanceof Date)
+
+
+
   var endDate=null
   if (typeof pDate == "string") {
     endDate = new Date(Date.parse(pDate.replace(/-/g, "/")));
   } else if (typeof pDate == 'number') {
     endDate = new Date(pDate);
-  }else if(typeof pDate == 'date'){
+  }else if(pDate instanceof Date){
     endDate = pDate;
   }else {
     return pDate

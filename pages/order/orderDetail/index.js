@@ -31,19 +31,32 @@ Page({
         }
 
         var that = this
+        var endDate=null
+        if(that.data.apiData.status=='2'){
+            endDate=new Date(Date.parse(that.data.apiData.activity.endDate.replace(/-/g, "/")));
+            endDate.setTime(endDate.getTime()+that.data.apiData.deliveryHour*3600*1000)
+        }
         interval = setInterval(function () {
             if(!that.data.apiData){
                 return;
             }
-            if(that.data.apiData.status!='1'){
+            if(that.data.apiData.status=='1'){
+                that.data.apiData.remainTime=util.calcRemainTime(that.data.apiData.payEndDate)
+                that.setData({
+                    apiData:that.data.apiData
+                })
+            }else if(that.data.apiData.status=='2'){
+                that.data.apiData.remainTime=util.calcRemainTime(endDate)
+                that.setData({
+                    apiData:that.data.apiData
+                })
+            }
+            else {
                 clearInterval(interval)
                 interval=null
                 return;
             }
-            that.data.apiData.remainTime=util.calcRemainTime(that.data.apiData.payEndDate)
-            that.setData({
-                apiData:that.data.apiData
-            })
+
 
         }, 1000)
     },

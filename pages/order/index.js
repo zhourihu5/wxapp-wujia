@@ -249,6 +249,7 @@ Page({
     toPay(e){//todo 立即付款
         var that=this
         let id=e.currentTarget.dataset.id
+        this.payOrder(id)//todo test
         wx.requestPayment({
             timeStamp: '',
             nonceStr: '',

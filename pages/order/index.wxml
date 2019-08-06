@@ -40,7 +40,7 @@
                             <view class="top-item">
                                 <text wx:if="{{item.status=='1'}}">付款剩余时间：</text>
                                 <text wx:elif="{{item.status=='2'}}">送货人：{{item.deliveryPerson}}</text>
-                                <text wx:elif="{{item.status=='3'}}">收货时间：{{'收货时间现在没有'}}</text>
+                                <text wx:elif="{{item.status=='3'}}">收货时间：{{item.receivedate}}</text>
                                 <text wx:else >过期时间：{{item.payEndDate}}</text>
 
 
@@ -70,7 +70,6 @@
                                 <text wx:else class="go-stroll" catchtap="goStroll">去逛逛</text>
                             </view>
 
-                            <!--                </view>-->
                         </view>
                     </view>
                 </block>

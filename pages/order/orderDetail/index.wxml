@@ -16,7 +16,7 @@
         <view class="order-status">待收货</view>
         <view class="order-remain-time">
             <text>剩余系统默认收货时间</text>
-            <text class="ramain-time-des">1天3时2分</text>
+            <text class="ramain-time-des">{{apiData.remainTime}}</text>
         </view>
     </view>
     <view wx:elif="{{apiData.status=='3'}}" class="top-conrainer">
