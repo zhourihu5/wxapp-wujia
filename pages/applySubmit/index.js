@@ -39,6 +39,11 @@ Page({
         this.data.flagList = this.data.currentCommunity.flag.split('-')
         this.loadAddrData()
     },
+    // navigateBack(){
+    //     wx.navigateBack({
+    //         delta:2//跳过小区列表页
+    //     })
+    // },
     relationInput(e) {
         this.data.relation = e.detail.value
         this.canClickSave()

@@ -66,6 +66,10 @@ Page({
             this.getTabBar().init()
         }
         this.setTimeRemain()
+        if(app.orderChanged){
+            app.orderChanged=false
+            this.refreshAllData()
+        }
     },
     onHide(){
         interval && clearInterval(interval)

@@ -49,11 +49,6 @@ Page({
             url: "/pages/myAdress/index",
         })
     },
-    nextStep() {
-        this.setData({
-            active: ++this.data.active % 4
-        });
-    },
     toPay(e) {
         if (!this.data.myAddress) {
             this.showModal()
@@ -68,6 +63,7 @@ Page({
             commodityId: that.data.apiData.commodity.id,
 
         }, function (data) {
+            app.orderChanged=true
             that.data.apiPayOrderData=data
 
             that.payOrder();//todo just for test,please delete it if online
@@ -92,7 +88,6 @@ Page({
         })
 
 
-        // wx.navigateTo({url:"/pages/paySuccess/index"})
     },
     payOrder(){//修改订单状态
         var that=this
