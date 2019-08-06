@@ -8,7 +8,7 @@
 <view class="container" style="margin-top:{{StatusBar}}px;padding-bottom:calc(98rpx + {{StatusBar}}px) ">
     <!-- wxml -->
     <swiper class='u-wrp-bnr'
-            indicator-dots='true' autoplay='{{false}}' interval='5000' duration='1000' circular='true'>
+            indicator-dots='true' autoplay='false' interval='5000' duration='1000' circular='true'>
         <block wx:for="{{apiData.activity.commodity.attaInfos}}">
             <swiper-item>
                 <image src='{{item.attaAddr}}' class='u-img-slide' mode='aspectFill'></image>
@@ -68,8 +68,8 @@
             <!--                //todo 居于底部-->
             <view  class="item-3-2-r">...等{{apiData.activity.commodity.salesNum}}名用户已参与</view>
         </view>
-        <view wx:if="{{saleTip.length>1}}" class="center zlyrctghd">再来{{saleTip[0]}}人参团该活动商品立减
-            <text class="lijian">{{saleTip[1]}}</text>
+        <view class="center zlyrctghd">再来{{1}}人参团该活动商品立减
+            <text class="lijian">{{6}}</text>
             元
         </view>
     </view>
@@ -104,53 +104,49 @@
 <view class="cu-modal full-screen  {{modalName=='ModalIntro'?'show':''}}">
     <view class="cu-dialog dialog relative">
         <view class="dialog-title">活动说明</view>
-<!--        <view class="dialog-content">-->
-<!--            <view>-->
-<!--                <view class="d-c-t">1. 限时支付：</view>-->
-<!--                <view class="d-c-c p-b-30">-->
-<!--                    团购商品成功下单后需要在10分钟之内完成支付，否则该订单会自动取消。-->
-<!--                </view>-->
-<!--            </view>-->
-<!--            <view>-->
-<!--                <view class="d-c-t">2. 返现标准:</view>-->
-<!--                <view class="d-c-c p-b-30">-->
-<!--                    根据用户参加团购的数量而变化。 参加团购人数越多，则返现越多。-->
-<!--                </view>-->
-<!--            </view>-->
-<!--            <view>-->
-<!--                <view class="d-c-t">3. 支付方式：</view>-->
-<!--                <view class="d-c-c p-b-30">-->
-<!--                    仅限通过“微信支付 ”方式付款，根据参团人数变化并给予相应的团购返现。-->
-<!--                </view>-->
-<!--            </view>-->
-<!--            <view>-->
-<!--                <view class="d-c-t">4. 返现方式：</view>-->
-<!--                <view class="d-c-c p-b-30">-->
-<!--                    是以参团人员团购满减部分退款的形式原路返还买家。-->
-<!--                </view>-->
-<!--            </view>-->
-<!--            <view>-->
-<!--                <view class="d-c-t">5. 返现时间：</view>-->
-<!--                <view class="d-c-c p-b-30">-->
-<!--                    将在活动结束后立即返回用户参与团购后所满减的金额。-->
-<!--                </view>-->
-<!--            </view>-->
-<!--            <view>-->
-<!--                <view class="d-c-t">6. 名额限制：</view>-->
-<!--                <view class="d-c-c p-b-30">-->
-<!--                    此活动对每个用户ID参与次数有数量上限，每个ID参与每种团购商品仅限一次。 *此活动一经成功下单不得退款、修改、申诉，请买家慎重支付订单。-->
-<!--                </view>-->
-<!--            </view>-->
-<!--            <view>-->
-<!--                <view class="d-c-t">7. 配送时间：</view>-->
-<!--                <view class="d-c-c p-b-30">-->
-<!--                    团购时间以每次活动页面公告的时间为准。活动结束后48小时内送货上门。-->
-<!--                </view>-->
-<!--            </view>-->
-<!--        </view>-->
         <view class="dialog-content">
-            <rich-text class="rich-text" nodes="{{  apiData.activity.remark }}"></rich-text>
-<!--            <rich-text class="rich-text" nodes="{{  nodes }}"></rich-text>-->
+            <view>
+                <view class="d-c-t">1. 限时支付：</view>
+                <view class="d-c-c p-b-30">
+                    团购商品成功下单后需要在10分钟之内完成支付，否则该订单会自动取消。
+                </view>
+            </view>
+            <view>
+                <view class="d-c-t">2. 返现标准:</view>
+                <view class="d-c-c p-b-30">
+                    根据用户参加团购的数量而变化。 参加团购人数越多，则返现越多。
+                </view>
+            </view>
+            <view>
+                <view class="d-c-t">3. 支付方式：</view>
+                <view class="d-c-c p-b-30">
+                    仅限通过“微信支付 ”方式付款，根据参团人数变化并给予相应的团购返现。
+                </view>
+            </view>
+            <view>
+                <view class="d-c-t">4. 返现方式：</view>
+                <view class="d-c-c p-b-30">
+                    是以参团人员团购满减部分退款的形式原路返还买家。
+                </view>
+            </view>
+            <view>
+                <view class="d-c-t">5. 返现时间：</view>
+                <view class="d-c-c p-b-30">
+                    将在活动结束后立即返回用户参与团购后所满减的金额。
+                </view>
+            </view>
+            <view>
+                <view class="d-c-t">6. 名额限制：</view>
+                <view class="d-c-c p-b-30">
+                    此活动对每个用户ID参与次数有数量上限，每个ID参与每种团购商品仅限一次。 *此活动一经成功下单不得退款、修改、申诉，请买家慎重支付订单。
+                </view>
+            </view>
+            <view>
+                <view class="d-c-t">7. 配送时间：</view>
+                <view class="d-c-c p-b-30">
+                    团购时间以每次活动页面公告的时间为准。活动结束后48小时内送货上门。
+                </view>
+            </view>
         </view>
         <view class="dialog-action" bindtap="hideModal">我知道了</view>
     </view>

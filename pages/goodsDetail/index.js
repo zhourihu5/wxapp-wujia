@@ -14,6 +14,7 @@ Page({
         second: '00',
         isBtnEnabled: true,
         modalName: null,
+        saleTip:null,
         formatTitle: ['产地', '规格', '重量', '包装', '保质期', '贮存方式'],
     },
     showNavigationBarLoading(){
@@ -82,9 +83,65 @@ Page({
         // that.setTimeRemain(1564576703000)
         let id = query.id
         network.requestGet('/v1/activity/findByActivityId', {activityId: id}, function (data) {
+            // data.activity.remark=   "" +
+            //     " <div>\n" +
+            // "                    <span class='d-c-t'> 1. 限时支付：\n" +
+            // "                    <span class='d-c-c p-b-30'>团购商品成功下单后需要在10分钟之内完成支付，否则该订单会自动取消。</span>\n" +
+            // "                </div>\n" +
+            // "                <div>\n" +
+            // "                    <span class='d-c-t'> 1. 限时支付：\n" +
+            // "                    <span class='d-c-c p-b-30'>团购商品成功下单后需要在10分钟之内完成支付，否则该订单会自动取消。</span>\n" +
+            // "                </div>\n" +
+            // "                <div>\n" +
+            // "                    <span class='d-c-t'> 1. 限时支付：\n" +
+            // "                    <span class='d-c-c p-b-30'>团购商品成功下单后需要在10分钟之内完成支付，否则该订单会自动取消。</span>\n" +
+            // "                </div>\n" +
+            // "                <div>\n" +
+            // "                    <span class='d-c-t'> 1. 限时支付：\n" +
+            // "                    <span class='d-c-c p-b-30'>团购商品成功下单后需要在10分钟之内完成支付，否则该订单会自动取消。</span>\n" +
+            // "                </div>\n" +
+            // "                <div>\n" +
+            // "                    <span class='d-c-t'> 1. 限时支付：\n" +
+            // "                    <span class='d-c-c p-b-30'>团购商品成功下单后需要在10分钟之内完成支付，否则该订单会自动取消。</span>\n" +
+            // "                </div>\n" +
+            // "                <div>\n" +
+            // "                    <span class='d-c-t'> 1. 限时支付：\n" +
+            // "                    <span class='d-c-c p-b-30'>团购商品成功下单后需要在10分钟之内完成支付，否则该订单会自动取消。</span>\n" +
+            // "                </div>"
+            // "                <div>\n" +
+            // "                    <span class='d-c-t'> 1. 限时支付：\n" +
+            // "                    <span class='d-c-c p-b-30'>团购商品成功下单后需要在10分钟之内完成支付，否则该订单会自动取消。</span>\n" +
+            // "                </div>"
+            // "                <div>\n" +
+            // "                    <span class='d-c-t'> 1. 限时支付：\n" +
+            // "                    <span class='d-c-c p-b-30'>团购商品成功下单后需要在10分钟之内完成支付，否则该订单会自动取消。</span>\n" +
+            // "                </div>"
+            // "                <div>\n" +
+            // "                    <span class='d-c-t'> 1. 限时支付：\n" +
+            // "                    <span class='d-c-c p-b-30'>团购商品成功下单后需要在10分钟之内完成支付，否则该订单会自动取消。</span>\n" +
+            // "                </div>"
+            // "                <div>\n" +
+            // "                    <span class='d-c-t'> 1. 限时支付：\n" +
+            // "                    <span class='d-c-c p-b-30'>团购商品成功下单后需要在10分钟之内完成支付，否则该订单会自动取消。</span>\n" +
+            // "                </div>"
+            // "                <div>\n" +
+            // "                    <span class='d-c-t'> 1. 限时支付：\n" +
+            // "                    <span class='d-c-c p-b-30'>团购商品成功下单后需要在10分钟之内完成支付，否则该订单会自动取消。</span>\n" +
+            // "                </div>"
+            // "                <div>\n" +
+            // "                    <span class='d-c-t'> 1. 限时支付：\n" +
+            // "                    <span class='d-c-c p-b-30'>团购商品成功下单后需要在10分钟之内完成支付，否则该订单会自动取消。</span>\n" +
+            // "                </div>"
+            // "                <div>\n" +
+            // "                    <span class='d-c-t'> 1. 限时支付：\n" +
+            // "                    <span class='d-c-c p-b-30'>团购商品成功下单后需要在10分钟之内完成支付，否则该订单会自动取消。</span>\n" +
+            // "                </div>"
+
+            console.log('remark')
+            console.log(data.activity.remark)
             that.setData({
                 apiData: data,
-
+                saleTip:data.activity.saleTip&&data.activity.saleTip.split(','),
             })
         }, function (msg) {
 

@@ -41,7 +41,7 @@
             </view>
             <view class="line flex-1"></view>
         </view>
-        <view class="w-p-100 flex p-t-b-40 ">
+        <view wx:if="{{apiData.userInfoList.length>0}}" class="w-p-100 flex p-t-b-40 ">
             <view class="cu-avatar-group item3-2-l">
                 <image class="cu-avatar round round-image" wx:for="{{apiData.userInfoList}}" wx:key
                        src="{{item.wxCover}}"></image>

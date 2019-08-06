@@ -113,7 +113,7 @@ Page({
             that.setTimeRemain(data.activity.endDate);
             that.setData({
                 apiData: data,
-
+                // saleTip:data.saleTip.split(',')
             })
         }, function (msg) {
 
