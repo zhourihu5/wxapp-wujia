@@ -11,5 +11,5 @@
         <text class="bhyy-title">驳回原因：</text>
         {{failReason}}
     </view>
-    <view class="btn-apply" bindtap="onClick">立即申请</view>
+    <view class="btn-apply" hover-class="navigator-hover" hover-stop-propagation="{{true}}" bindtap="onClick">立即申请</view>
 </view>

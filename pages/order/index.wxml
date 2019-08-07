@@ -32,9 +32,8 @@
 <!--                <block wx:for="{{10}}" wx:for-item="item" wx:key="">-->
                     <view class="item-content {{index==0?'p-t-20':''}}">
                         <view class="order-container" url="/pages/order/orderDetail/index"
-                                   hover-class="navigator-hover"
                                    open-type="navigateTo"
-                                   bindtap="itemClicked"
+                              hover-class="navigator-hover" hover-stop-propagation="{{true}}"  bindtap="itemClicked"
                                     data-index="{{index}}">
                             <!--                <view class="round-container order-container">-->
                             <view class="top-item">
@@ -65,9 +64,9 @@
                             </view>
                             <view class="btn-wraper">
                                 <view class="left-empty"></view>
-                                <text wx:if="{{item.status=='1'}}" class="pay-right-now" catchtap="toPay" data-index="{{index}}"  data-id="{{item.id}}">立即付款</text>
-                                <text wx:elif="{{item.status=='2'}}" class="lxshr" catchtap="askDeliver" data-phone="{{item.deliveryPhone}}">联系送货人</text>
-                                <text wx:else class="go-stroll" catchtap="goStroll">去逛逛</text>
+                                <view wx:if="{{item.status=='1'}}" class="pay-right-now" hover-class="navigator-hover" hover-stop-propagation="{{true}}" catchtap="toPay" data-index="{{index}}"  data-id="{{item.id}}">立即付款</view>
+                                <view wx:elif="{{item.status=='2'}}" class="lxshr" hover-class="navigator-hover" hover-stop-propagation="{{true}}" catchtap="askDeliver" data-phone="{{item.deliveryPhone}}">联系送货人</view>
+                                <view wx:else class="go-stroll" hover-class="navigator-hover" hover-stop-propagation="{{true}}"  catchtap="goStroll">去逛逛</view>
                             </view>
 
                         </view>
@@ -89,8 +88,8 @@
     <view class="cu-dialog dialog relative">
         <view class="dialog-title">{{callPhone}}</view>
         <view class="dialog-action">
-            <view class="dialog-button" bindtap="hideModal">取消</view>
-            <view class="dialog-button no-border" bindtap="makePhoneCall" data-phone="{{callPhone}}">拨打</view>
+            <view class="dialog-button" hover-class="navigator-hover" hover-stop-propagation="{{true}}" bindtap="hideModal">取消</view>
+            <view class="dialog-button no-border" hover-class="navigator-hover" hover-stop-propagation="{{true}}" bindtap="makePhoneCall" data-phone="{{callPhone}}">拨打</view>
         </view>
     </view>
 </view>

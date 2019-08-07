@@ -57,7 +57,7 @@
                 <text class="discount-num">{{apiData.activity.largeMoney}}</text>
                 <text class="mrzgs">元</text>
             </view>
-            <view class="flex align-center text-underline hdsm" bindtap="showModal">活动说明</view>
+            <view class="flex align-center text-underline hdsm" hover-class="navigator-hover" hover-stop-propagation="{{true}}" bindtap="showModal">活动说明</view>
         </view>
 
         <view wx:if="{{apiData.userInfoList.length>0}}" class="item3-2">
@@ -99,7 +99,7 @@
 
 </view>
 
-<view class="bottom-button" bindtap="toConfirmOrder" data-id="{{apiData.activity.id}}">去参团</view>
+<view class="bottom-button" hover-class="navigator-hover" hover-stop-propagation="{{true}}" bindtap="toConfirmOrder" data-id="{{apiData.activity.id}}">去参团</view>
 
 <view class="cu-modal full-screen  {{modalName=='ModalIntro'?'show':''}}">
     <view class="cu-dialog dialog relative">
@@ -152,6 +152,6 @@
             <rich-text class="rich-text" nodes="{{  apiData.activity.remark }}"></rich-text>
 <!--            <rich-text class="rich-text" nodes="{{  nodes }}"></rich-text>-->
         </view>
-        <view class="dialog-action" bindtap="hideModal">我知道了</view>
+        <view class="dialog-action" hover-class="navigator-hover" hover-stop-propagation="{{true}}" bindtap="hideModal">我知道了</view>
     </view>
 </view>

@@ -9,7 +9,8 @@
              bindscrolltolower='scrolltolower'
              lower-threshold="{{lowerThreshold}}">
     <view class="round-container p-l-r-20 m-t-20">
-        <view class="w-p-100 flex align-center justify-between to-more p-t-20 p-b-40" bindtap="toMore">
+        <view class="w-p-100 flex align-center justify-between to-more p-t-20 p-b-40"
+              hover-class="navigator-hover" hover-stop-propagation="{{true}}" bindtap="toMore">
             <view>每个用户只限参加一次哦，点我查看更多活动哦~</view>
             <view class="cuIcon-right arrow-right"></view>
         </view>
@@ -80,7 +81,7 @@
                     </text>
                 </view>
 
-                <view class="go-group-buy" bindtap="goBuy" data-index="{{index}}">去参团</view>
+                <view class="go-group-buy" hover-class="navigator-hover" hover-stop-propagation="{{true}}" bindtap="goBuy" data-index="{{index}}">去参团</view>
             </view>
 
 

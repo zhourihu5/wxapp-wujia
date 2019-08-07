@@ -95,10 +95,10 @@
     </view>
 </view>
 <view wx:if="{{apiData.status=='1'}}" class="bottom-button">
-    <view class="qxdd" bindtap="cancelOrder">取消订单</view>
-    <view class="bt-pay" bindtap="toPay">付款 {{apiData.realPrice}}</view>
+    <view class="qxdd" hover-class="navigator-hover" hover-stop-propagation="{{true}}" bindtap="cancelOrder">取消订单</view>
+    <view class="bt-pay" hover-class="navigator-hover" hover-stop-propagation="{{true}}" bindtap="toPay">付款 {{apiData.realPrice}}</view>
 </view>
-<view wx:elif="{{apiData.status=='2'}}"  class="bottom-button" bindtap="confirmReceive">确认收货</view>
-<view wx:elif="{{apiData.status=='3'||apiData.status=='4'}}" class="bottom-button" bindtap="goStroll">去逛逛</view>
+<view wx:elif="{{apiData.status=='2'}}" hover-class="navigator-hover" hover-stop-propagation="{{true}}"  class="bottom-button" bindtap="confirmReceive">确认收货</view>
+<view wx:elif="{{apiData.status=='3'||apiData.status=='4'}}" class="bottom-button" hover-class="navigator-hover" hover-stop-propagation="{{true}}" bindtap="goStroll">去逛逛</view>
 <view wx:else/>
 

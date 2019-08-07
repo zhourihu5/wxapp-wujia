@@ -13,5 +13,5 @@
     <text wx:for="{{ labelArr }}" wx:for-item="labelItem" wx:key="" class="lable">{{labelItem}}</text>
   </view>
   <view class="sell-num m-l-20">已拼{{salesNum}}件</view>
-  <view class="go-group-buy" bindtap="goBuy" data-id="{{dataId}}">去拼团</view>
+  <view class="go-group-buy" hover-class="navigator-hover" hover-stop-propagation="{{true}}" bindtap="goBuy" data-id="{{dataId}}">去拼团</view>
 </view>

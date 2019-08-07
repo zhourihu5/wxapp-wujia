@@ -64,7 +64,7 @@
                 </text>
             </view>
 
-            <view class="go-group-buy" bindtap="goBuy" data-index="{{index}}">去参团</view>
+            <view class="go-group-buy" hover-class="navigator-hover" hover-stop-propagation="{{true}}" bindtap="goBuy" data-index="{{index}}">去参团</view>
         </view>
 
 

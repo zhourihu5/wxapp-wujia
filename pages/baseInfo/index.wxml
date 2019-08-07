@@ -44,7 +44,7 @@
 
 
     </view>
-    <view class="b-b-{{isBtnEnabled?'enabled':'disabled'}}" bindtap="onClickSave">保存</view>
+    <view class="b-b-{{isBtnEnabled?'enabled':'disabled'}}" hover-class="navigator-hover" hover-stop-propagation="{{true}}" bindtap="onClickSave">保存</view>
 
 
 </view>

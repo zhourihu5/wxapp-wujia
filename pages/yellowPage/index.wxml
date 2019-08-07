@@ -8,7 +8,7 @@
         <view class="w-c">
             <view class="item-c border-bottom">
                 <view class="item-c-l">{{item.name}}电话</view>
-                <view class="phone" bindtap="showModal" data-phone="{{item.phone}}">{{item.phone}}</view>
+                <view class="phone" hover-class="navigator-hover" hover-stop-propagation="{{true}}" bindtap="showModal" data-phone="{{item.phone}}">{{item.phone}}</view>
             </view>
             <view class="item-c">
                 <view class="item-c-l">{{item.name}}地址</view>
@@ -21,8 +21,8 @@
     <view class="cu-dialog dialog relative">
         <view class="dialog-title">{{callPhone}}</view>
         <view class="dialog-action">
-            <view class="dialog-button" bindtap="hideModal">取消</view>
-            <view class="dialog-button no-border" bindtap="makePhoneCall" data-phone="{{callPhone}}">拨打</view>
+            <view class="dialog-button" hover-class="navigator-hover" hover-stop-propagation="{{true}}" bindtap="hideModal">取消</view>
+            <view class="dialog-button no-border" hover-class="navigator-hover" hover-stop-propagation="{{true}}" bindtap="makePhoneCall" data-phone="{{callPhone}}">拨打</view>
         </view>
     </view>
 </view>
