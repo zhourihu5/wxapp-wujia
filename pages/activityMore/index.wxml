@@ -4,11 +4,14 @@
     <view slot="backText"></view>
     <view slot="content"><text class="{{navigationBarLoading?'wj-loading-icon':''}}"/>精选活动</view>
 </cu-custom>
+<include src="../../refreshview/refreshHeaderView.wxml"/>
 <scroll-view scroll-y class="body"
              bindscrolltoupper='scrolltoupper'
              bindscrolltolower='scrolltolower'
              lower-threshold="{{lowerThreshold}}"
->
+             bindscroll="scroll"  bindscrolltoupper="upper" bindtouchstart="start" bindtouchend="end"
+             bindtouchmove="move">
+<!--    bindscrolltolower="lower"-->
     <stepper wx:if="{{true}}" step1Text="参与活动" step2Text="团购满减" step3Text="团购截至"
              step1Checked="{{true}}" step2Checked="{{true}}" step3Checked="{{true}}"/>
 

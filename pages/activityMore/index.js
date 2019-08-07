@@ -1,6 +1,7 @@
 //index.js
 const util = require('../../utils/util.js')
 const network = require('../../utils/network.js')
+var register = require('../../refreshview/refreshLoadRegister.js');
 const app = getApp();
 Page({
     data: {
@@ -26,7 +27,17 @@ Page({
             navigationBarLoading:false
         })
     },
+    //下拉刷新数据
+    refresh:function(){
+        this.customData.pageNum=1
+        this.setData({
+            isOver: false,
+            reachBottom: false,
+        });
+        this.loadData();
+    },
     onLoad: function () {
+        register.register(this);
         this.loadData()
     },
     onShow(){
@@ -58,10 +69,9 @@ Page({
             },
             function (data) {
                 if (that.customData.pageNum == 1) {
-                    that.data.list = data.content
-                } else {
-                    that.data.list.push.apply(that.data.list, data.content);
+                    that.data.list = []
                 }
+                that.data.list.push.apply(that.data.list, data.content);
                 that.setData({
                     list: that.data.list,
                     isLoading: false,
@@ -74,6 +84,7 @@ Page({
                 } else {
                     that.data.isOver = true
                 }
+                register&&register.loadFinish(that,true)
                 console.log('list 数据')
                 console.log(that.data.list)
             },
@@ -81,6 +92,7 @@ Page({
                 that.setData({
                     isLoading: false,
                 })
+                register&&register.loadFinish(that,false)
             }
         )
     },

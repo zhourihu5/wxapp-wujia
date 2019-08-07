@@ -88,8 +88,8 @@ Page({
         var pages = getCurrentPages() // 获取栈中全部界面的, 然后把数据写入相应界面
         // var currentPage  = pages[pages.length - 1]  //当前界面
         var prePage = pages[pages.length - 2]  //上一个界面
-        if(prePage.refreshData){
-            prePage.refreshData()
+        if(prePage.refresh){
+            prePage.refresh()
             console.log('订单列表页刷新数据')
         }
 

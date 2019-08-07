@@ -1,6 +1,6 @@
 @import "colorui/main.wxss";
 @import "colorui/icon.wxss";
-
+@import '/refreshview/refreshView.wxss';
 tab-bar{
   z-index: 1020;
   height: 98rpx;

@@ -2,6 +2,7 @@
 const util = require('../../utils/util.js')
 const network = require('../../utils/network.js')
 const app = getApp();
+var register = require('../../refreshview/refreshLoadRegister.js');
 var interval = null //倒计时函数
 Page({
     data: {
@@ -86,7 +87,18 @@ Page({
         interval=null
     },
     onLoad: function () {
+        register.register(this)
         this.refreshAllData()
+    },
+    //下拉刷新数据
+    refresh:function(){
+        this.data.tabs[this.data.active].isOver=false
+        this.data.tabs[this.data.active].reachBottom=false
+        this.data.tabs[this.data.active].pageNum=1
+        this.setData({
+            tabs: this.data.tabs,
+        });
+        this.loadData();
     },
     setTimeRemain: function () {
         if(interval){
@@ -123,13 +135,6 @@ Page({
             })
 
         }, 1000)
-    },
-    refreshData(){
-        var that = this
-        var active=that.data.active;
-        that.data.tabs[active].isOver=false
-        that.data.tabs[active].pageNum = 1
-        that.loadData()
     },
     refreshAllData(){
         var that = this
@@ -217,12 +222,15 @@ Page({
             that.setData({
                 tabs: that.data.tabs,
             })
+            register&&register.loadFinish(that,true)
         }, function (msg) {
             that.data.tabs[active].isLoading=false
+            register&&register.loadFinish(that,false)
         })
     },
     onChangeTab(event) {
         var that = this
+        register&&register.cancel(that)
         that.data.active = event.detail.index
         that.setData({
             active:event.detail.index
