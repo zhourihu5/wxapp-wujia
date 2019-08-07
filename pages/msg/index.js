@@ -1,34 +1,10 @@
 //index.js
 const util = require('../../utils/util.js')
 const network = require('../../utils/network.js')
+var register = require('../../refreshview/refreshLoadRegister.js');
 Page({
     data: {
         apiData:null,
-        items: [
-            {
-                title: "系统通知",
-                msg: "你的作品最多19个字啊啊啊啊啊啊啊啊啊啊啊啊",
-                icon: "/images/msg_system.png",
-                time: "30分钟前",
-                unread: "2",
-
-            },
-            {
-                title: "社区通知",
-                msg: "你的作品《插画小总结》未通过审核",
-                icon: "/images/msg_community.png",
-                time: "30分钟前",
-                unread: "99"
-            },
-            {
-                title: "订单消息",
-                msg: "你的作品《插画小总结》未通过审核",
-                icon: "/images/msg_order.png",
-                time: "30分钟前",
-                unread: "999",
-                extraClass: "no-border",
-            },
-        ]
     },
     showNavigationBarLoading(){
         this.setData({
@@ -45,16 +21,24 @@ Page({
             this.getTabBar()) {
             this.getTabBar().init()
         }
+        this.loadData()
+    },
+    loadData(){
         var that=this
         network.requestGet('/v1/message/getTypeList',{},function (data) {
             that.setData({
                 apiData:data,
             })
+            register&&register.loadFinish(that,true)
         },function (msg) {
-
+            register&&register.loadFinish(that,false)
         })
     },
     onLoad: function () {
-
-    }
+        register.register(this)
+    },
+    //下拉刷新数据
+    refresh:function(){
+        this.loadData();
+    },
 })

@@ -33,7 +33,7 @@ page{
     color: rgba(136, 136, 136, 1);
     line-height: 34rpx;
 
-    margin-top: 50rpx;
+    padding-top: 50rpx;
     margin-bottom: 30rpx;
     width: 100%;
     text-align: center;

@@ -3,7 +3,15 @@
     <view slot="backText">返回</view>
     <view slot="content"><text class="{{navigationBarLoading?'wj-loading-icon':''}}"/>消息</view>
 </cu-custom>
-<view class="container p-t-20">
+<include src="../../refreshview/refreshHeaderView.wxml"/>
+
+<scroll-view scroll-y class="body p-t-20"
+             bindscrolltoupper='scrolltoupper'
+             bindscrolltolower='scrolltolower'
+             lower-threshold="{{lowerThreshold}}"
+             bindscroll="scroll"  bindscrolltoupper="upper" bindtouchstart="start" bindtouchend="end"
+             bindtouchmove="move">
+<!--<view class="container p-t-20">-->
     <block wx:for="{{apiData}}" wx:for-item="item" wx:key="">
         <navigator class="item" url="/pages/msg/msgDetail/index?typeNo={{item.typeNo}}&typeName={{item.typeName}}" hover-class="navigator-hover"
                    open-type="navigateTo">
@@ -20,4 +28,5 @@
             </view>
         </navigator>
     </block>
-</view>
+<!--</view>-->
+</scroll-view>

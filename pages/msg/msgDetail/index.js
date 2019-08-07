@@ -2,6 +2,7 @@
 const network = require('../../../utils/network.js')
 const util = require('../../../utils/util.js')
 const app=getApp()
+var register = require('../../../refreshview/refreshLoadRegister.js');
 Page({
     data: {
         pageNum:1,
@@ -45,11 +46,21 @@ Page({
         })
     },
     onLoad(option){
+        register&&register.register(this)
         this.data.typeNo=option.typeNo
         this.setData({
             typeName:option.typeName
         })
         this.loadData()
+    },
+    //下拉刷新数据
+    refresh:function(){
+        this.data.pageNum=1
+        this.setData({
+            isOver: false,
+            reachBottom: false,
+        });
+        this.loadData();
     },
     loadData(){
         var paramData={
@@ -68,7 +79,7 @@ Page({
             for(i=0;i<data.length;i++){
                 data[i].collapseValue=[]//默认都不展开
             }
-            if(that.pageNum==1){
+            if(that.data.pageNum==1){
                 that.data.apiData=[]
             }
             that.data.apiData.push.apply(that.data.apiData,data.content)
@@ -82,8 +93,10 @@ Page({
                 apiData:that.data.apiData,
             })
             that.data.isLoading=false
+            register&&register.loadFinish(that,true)
         },function (msg) {
             that.data.isLoading=false
+            register&&register.loadFinish(that,false)
         })
     },
     scrolltolower(e){

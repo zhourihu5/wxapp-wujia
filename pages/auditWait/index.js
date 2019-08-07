@@ -16,7 +16,10 @@ Page({
         })
     },
     onLoad(){
-        if(getCurrentPages().length>1){
+        var pages=getCurrentPages()
+        console.log('页面栈')
+        console.log(pages)
+        if(pages.length>1){
             this.setData({
                 isBack:true
             })
