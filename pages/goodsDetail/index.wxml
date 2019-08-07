@@ -62,8 +62,9 @@
 
         <view wx:if="{{apiData.userInfoList.length>0}}" class="item3-2">
             <view class="cu-avatar-group item3-2-l">
-                <image class="cu-avatar round round-image" wx:for="{{apiData.userInfoList}}" wx:key
-                       src="{{item.wxCover}}"></image>
+<!--                <image class="cu-avatar round round-image" wx:for="{{apiData.userInfoList}}" wx:key-->
+<!--                       src="{{item.wxCover}}"></image>-->
+                <view class="cu-avatar round round-image" wx:for="{{apiData.userInfoList}}" wx:key style="background-image:url('{{item.wxCover}}');"></view>
             </view>
             <!--                //todo 居于底部-->
             <view  class="item-3-2-r">...等{{apiData.activity.commodity.salesNum}}名用户已参与</view>

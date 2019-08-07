@@ -71,12 +71,8 @@ page{
   line-height:40rpx;
 }
 .round-image{
-  width: 62rpx;
-  height: 62rpx;
-  display: inline-block;
-  margin-right: -24px;
-  /* left: 12px;*/
-  /*position: absolute;*/
+  width: 62rpx !important;
+  height: 62rpx !important;
 }
 .item3-2-l{
   max-width: calc(100% - 232rpx);
