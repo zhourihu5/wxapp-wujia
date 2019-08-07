@@ -30,7 +30,7 @@ Page({
         this.loadData()
     },
     onShow(){
-        if(app.activityChanged=true){
+        if(app.activityChanged){
             this.loadData()
         }
     },

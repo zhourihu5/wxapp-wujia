@@ -77,7 +77,7 @@ Page({
             that.data.apiPayOrderData=data
 
             var random=Math.round(Math.random()*10)
-            if(random>7){//todo test for random payorder
+            if(random>6){//todo test for random payorder
                 that.payOrder();//todo just for test,please delete it if online
                 console.log('随机支付了')
             }else {

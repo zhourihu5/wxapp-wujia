@@ -12,6 +12,9 @@ tab-bar{
   margin-right: 6rpx;
   content: "\e67a";
   animation: cuIcon-spin 2s infinite linear;
+  /*不放这个没有动画效果*/
+  display: inline-block;
+
 }
 
 /**app.wxss**/
