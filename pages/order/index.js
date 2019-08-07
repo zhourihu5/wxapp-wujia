@@ -290,8 +290,7 @@ Page({
         var that=this
         network.requestPost('/v1/order/payOrder',{id:id},function (data) {
             app.activityChanged=true
-            // wx.navigateTo({url: "/pages/paySuccess/index"})
-            // wx.redirectTo({url: "/pages/paySuccess/index"})
+            // wx.navigateTo({url: "/pages/paySuccess/index?id="+id})
             that.refreshAllData()
         },function (msg) {
 

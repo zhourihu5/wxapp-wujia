@@ -134,8 +134,7 @@ Page({
         var that=this
         network.requestPost('/v1/order/payOrder',{id:that.data.apiData.id},function (data) {
             app.activityChanged=true
-            // wx.navigateTo({url: "/pages/paySuccess/index"})
-            wx.redirectTo({url: "/pages/paySuccess/index"})
+            wx.redirectTo({url: "/pages/paySuccess/index?id="+that.data.apiData.id})
         },function (msg) {
 
         })

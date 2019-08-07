@@ -6,6 +6,7 @@ Page({
         apiData:null,
         reachBottom:false,
         isLoading:false,
+        orderId:null,
     },
     showNavigationBarLoading(){
         this.setData({
@@ -17,7 +18,8 @@ Page({
             navigationBarLoading:false
         })
     },
-    onLoad: function () {
+    onLoad: function (options) {
+        this.data.orderId=options.id
         var that=this
         network.requestGet('/v1/activity/findOtherList',{},function (data) {
             that.setData({
@@ -44,5 +46,11 @@ Page({
         }else {
             wx.redirectTo({url: '/pages/goodsDetail/index?id=' + id})
         }
+    },
+    toOrderDetail(e){
+        wx.redirectTo({url: '/pages/order/orderDetail/index?id=' +this.data.orderId})
+    },
+    goStroll(e){
+        wx.redirectTo({url: '/pages/activityMore/index'})
     },
 })

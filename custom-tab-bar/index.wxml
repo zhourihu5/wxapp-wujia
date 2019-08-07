@@ -15,7 +15,7 @@
 <!--</van-tabbar>-->
 
 <view class="cu-bar tabbar bg-white foot wj-tabbar " >
-  <view class="wj-tabitem" bindtap="NavChange" data-active="{{index}}" wx:for="{{ list }}" wx:key="index">
+  <view class="wj-tabitem" hover-class="navigator-hover" hover-stop-propagation="{{true}}"  bindtap="NavChange" data-active="{{index}}" wx:for="{{ list }}" wx:key="index">
     <view class='cuIcon-cu-image'>
       <image class="tab-image" src="{{index===active?item.selectedIconPath:item.iconPath }}"></image>
     </view>

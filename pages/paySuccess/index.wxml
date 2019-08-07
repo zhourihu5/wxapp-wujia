@@ -28,8 +28,8 @@
         </view>
         <view class="ptcg">拼团成功</view>
         <view class="flex align-center">
-            <view class="ckdd">查看订单</view>
-            <view class="jxgg">继续逛逛</view>
+            <view class="ckdd" hover-class="navigator-hover" hover-stop-propagation="{{true}}" bindtap="toOrderDetail" >查看订单</view>
+            <view class="jxgg" hover-class="navigator-hover" hover-stop-propagation="{{true}}" bindtap="goStroll">继续逛逛</view>
         </view>
     </view>
 
