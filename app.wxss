@@ -307,6 +307,9 @@ tab-bar{
 .p-t-b-20{
   padding: 20rpx 0;
 }
+.p-l-20{
+  padding-left: 20rpx;
+}
 .p-t-b-50{
   padding-top: 50rpx;
   padding-bottom: 50rpx;

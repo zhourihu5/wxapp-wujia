@@ -14,7 +14,8 @@
                         <view>{{item.address}}</view>
                         <view class="t-gray-b">{{item.name}}{{item.phone}}</view>
                     </view>
-                    <view class="cuIcon-edit" hover-class="navigator-hover" hover-stop-propagation="{{true}}" bindtap="toEdit"></view>
+                    <view class="cuIcon-edit icon-edit" data-index="{{index}}"
+                          hover-class="navigator-hover" hover-stop-propagation="{{true}}" catchtap="toEdit"></view>
                 </view>
 
             </view>

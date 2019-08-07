@@ -83,61 +83,53 @@ Page({
         // that.setTimeRemain(1564576703000)
         let id = query.id
         network.requestGet('/v1/activity/findByActivityId', {activityId: id}, function (data) {
-            // data.activity.remark=   "" +
-            //     " <div>\n" +
-            // "                    <span class='d-c-t'> 1. 限时支付：\n" +
-            // "                    <span class='d-c-c p-b-30'>团购商品成功下单后需要在10分钟之内完成支付，否则该订单会自动取消。</span>\n" +
-            // "                </div>\n" +
-            // "                <div>\n" +
-            // "                    <span class='d-c-t'> 1. 限时支付：\n" +
-            // "                    <span class='d-c-c p-b-30'>团购商品成功下单后需要在10分钟之内完成支付，否则该订单会自动取消。</span>\n" +
-            // "                </div>\n" +
-            // "                <div>\n" +
-            // "                    <span class='d-c-t'> 1. 限时支付：\n" +
-            // "                    <span class='d-c-c p-b-30'>团购商品成功下单后需要在10分钟之内完成支付，否则该订单会自动取消。</span>\n" +
-            // "                </div>\n" +
-            // "                <div>\n" +
-            // "                    <span class='d-c-t'> 1. 限时支付：\n" +
-            // "                    <span class='d-c-c p-b-30'>团购商品成功下单后需要在10分钟之内完成支付，否则该订单会自动取消。</span>\n" +
-            // "                </div>\n" +
-            // "                <div>\n" +
-            // "                    <span class='d-c-t'> 1. 限时支付：\n" +
-            // "                    <span class='d-c-c p-b-30'>团购商品成功下单后需要在10分钟之内完成支付，否则该订单会自动取消。</span>\n" +
-            // "                </div>\n" +
-            // "                <div>\n" +
-            // "                    <span class='d-c-t'> 1. 限时支付：\n" +
-            // "                    <span class='d-c-c p-b-30'>团购商品成功下单后需要在10分钟之内完成支付，否则该订单会自动取消。</span>\n" +
-            // "                </div>"
-            // "                <div>\n" +
-            // "                    <span class='d-c-t'> 1. 限时支付：\n" +
-            // "                    <span class='d-c-c p-b-30'>团购商品成功下单后需要在10分钟之内完成支付，否则该订单会自动取消。</span>\n" +
-            // "                </div>"
-            // "                <div>\n" +
-            // "                    <span class='d-c-t'> 1. 限时支付：\n" +
-            // "                    <span class='d-c-c p-b-30'>团购商品成功下单后需要在10分钟之内完成支付，否则该订单会自动取消。</span>\n" +
-            // "                </div>"
-            // "                <div>\n" +
-            // "                    <span class='d-c-t'> 1. 限时支付：\n" +
-            // "                    <span class='d-c-c p-b-30'>团购商品成功下单后需要在10分钟之内完成支付，否则该订单会自动取消。</span>\n" +
-            // "                </div>"
-            // "                <div>\n" +
-            // "                    <span class='d-c-t'> 1. 限时支付：\n" +
-            // "                    <span class='d-c-c p-b-30'>团购商品成功下单后需要在10分钟之内完成支付，否则该订单会自动取消。</span>\n" +
-            // "                </div>"
-            // "                <div>\n" +
-            // "                    <span class='d-c-t'> 1. 限时支付：\n" +
-            // "                    <span class='d-c-c p-b-30'>团购商品成功下单后需要在10分钟之内完成支付，否则该订单会自动取消。</span>\n" +
-            // "                </div>"
-            // "                <div>\n" +
-            // "                    <span class='d-c-t'> 1. 限时支付：\n" +
-            // "                    <span class='d-c-c p-b-30'>团购商品成功下单后需要在10分钟之内完成支付，否则该订单会自动取消。</span>\n" +
-            // "                </div>"
-            // "                <div>\n" +
-            // "                    <span class='d-c-t'> 1. 限时支付：\n" +
-            // "                    <span class='d-c-c p-b-30'>团购商品成功下单后需要在10分钟之内完成支付，否则该订单会自动取消。</span>\n" +
-            // "                </div>"
+            // data.activity.remark=
+            //     // "<div style='max-height: 300rpx;overflow: scroll'>" +
+            //     "<div>" +
+            //     "     <p>" +
+            //     "        <strong>标题1</strong>" +
+            //     "        ：第1行内容 很长爱上的看法阿斯蒂芬阿斯顿发送到奥德赛a奥德赛阿斯蒂芬阿斯顿发送到发送到是发送到发送到发" +
+            //     "         送到发送到阿斯蒂芬撒旦法撒旦法是大法师的阿斯蒂芬sad阿斯顿发斯蒂芬第三方咖啡馆的开发大家观看法国进口非关键是看到；付过款东方国际" +
+            //     "      </p>" +
+            //     "      <p><strong>标题2</strong>" +
+            //     "        ：第2行内容 很长爱上的看法"+
+            //     "      </p>" +
+            //     // "     <div>\n" +
+            //     // "          <span class='d-c-t'> 2. 限时支付：</span>\n" +
+            //     // "          <span class='d-c-c p-b-30'>团购商品成功下单后需要在10分钟之内完成支付，否则该订单会自动取消。</span>\n" +
+            //     // "     </div>\n" +
+            //     // "     <div>\n" +
+            //     // "          <span class='d-c-t'> 3. 限时支付：</span>\n" +
+            //     // "          <span class='d-c-c p-b-30'>团购商品成功下单后需要在10分钟之内完成支付，否则该订单会自动取消。</span>\n" +
+            //     // "     </div>\n" +
+            //     // "     <div>\n" +
+            //     // "          <span class='d-c-t'> 4. 限时支付：</span>\n" +
+            //     // "          <span class='d-c-c p-b-30'>团购商品成功下单后需要在10分钟之内完成支付，否则该订单会自动取消。</span>\n" +
+            //     // "     </div>\n" +
+            //     // "     <div>\n" +
+            //     // "          <span class='d-c-t'> 5. 限时支付：</span>\n" +
+            //     // "          <span class='d-c-c p-b-30'>团购商品成功下单后需要在10分钟之内完成支付，否则该订单会自动取消。</span>\n" +
+            //     // "     </div>\n" +
+            //     // "     <div>\n" +
+            //     // "          <span class='d-c-t'> 6. 限时支付：</span>\n" +
+            //     // "          <span class='d-c-c p-b-30'>团购商品成功下单后需要在10分钟之内完成支付，否则该订单会自动取消。</span>\n" +
+            //     // "     </div>\n" +
+            //     // "     <div>\n" +
+            //     // "          <span class='d-c-t'> 7. 限时支付：</span>\n" +
+            //     // "          <span class='d-c-c p-b-30'>团购商品成功下单后需要在10分钟之内完成支付，否则该订单会自动取消。</span>\n" +
+            //     // "     </div>\n" +
+            //     // "     <div>\n" +
+            //     // "          <span class='d-c-t'> 8. 限时支付：</span>\n" +
+            //     // "          <span class='d-c-c p-b-30'>团购商品成功下单后需要在10分钟之内完成支付，否则该订单会自动取消。</span>\n" +
+            //     // "     </div>\n" +
+            //     "     <div>\n" +
+            //     "          <span class='d-c-t'> 9. 限时支付：</span>\n" +
+            //     "          <span class='d-c-c p-b-30'>团购商品成功下单后需要在10分钟之内完成支付，否则该订单会自动取消。</span>\n" +
+            //     "     </div>\n" +
+            // " </div>"
 
-            console.log('remark')
+            // data.activity.remark='这是第一行内容\n这是第二行内容'//todo 换行符不起作用
+                console.log('remark')
             console.log(data.activity.remark)
             that.setData({
                 apiData: data,

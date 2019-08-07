@@ -372,6 +372,11 @@
   justify-content: left;
 
   overflow: scroll;
+  text-align: left;
+}
+.rich-text-intro{
+  max-height: 652rpx;
+  overflow: scroll;
 }
 .d-c-t{
   /*width:436px;*/

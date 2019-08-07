@@ -5,6 +5,7 @@ Page({
     data: {
         CustomBar: app.globalData.CustomBar,
         apiData: null,
+        currentAddr:null,
     },
     showNavigationBarLoading(){
         this.setData({
@@ -49,6 +50,11 @@ Page({
 
     },
     toEdit(e) {
-
+        console.log('编辑收货地址按钮点击')
+        let index=e.currentTarget.dataset.index
+        this.data.currentAddr=this.data.apiData[index]
+        console.log(this.data.currentAddr)
+        wx.navigateTo({url: "/pages/editAdress/index"})
+        console.log('跳转后')
     },
 })

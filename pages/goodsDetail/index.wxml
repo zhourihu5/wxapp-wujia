@@ -149,8 +149,8 @@
 <!--            </view>-->
 <!--        </view>-->
         <view class="dialog-content">
-            <rich-text class="rich-text" nodes="{{  apiData.activity.remark }}"></rich-text>
-<!--            <rich-text class="rich-text" nodes="{{  nodes }}"></rich-text>-->
+            <rich-text class="rich-text-intro" nodes="{{  apiData.activity.remark }}"></rich-text>
+<!--            <view>{{  apiData.activity.remark }}</view>-->
         </view>
         <view class="dialog-action" hover-class="navigator-hover" hover-stop-propagation="{{true}}" bindtap="hideModal">我知道了</view>
     </view>

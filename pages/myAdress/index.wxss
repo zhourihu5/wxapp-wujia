@@ -21,11 +21,6 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-}
-.item-c{
-    width: 100%;
-    display: flex;
-    align-items: center;
 
     /*width:308px;*/
     /*height:28px;*/
@@ -34,11 +29,34 @@
     font-weight:400;
     color:rgba(34,34,34,1);
     line-height:28rpx;
+}
+.item-c{
+    width: 100%;
+    display: flex;
+    align-items: center;
 
     padding: 30rpx 0;
     border-top: 3rpx rgba(238,238,238,1) solid;
 }
+.icon-edit{
+    /*width:30rpx;*/
+    /*height:30rpx;*/
+    font-size: 30rpx;
+    line-height: 30rpx;
+
+    padding: 50rpx 0;
+    padding-left: 50rpx;
+}
 .item-c-l{
+    /*width:308px;*/
+    /*height:28px;*/
+    font-size:28rpx;
+    font-family:PingFangSC-Regular;
+    font-weight:400;
+    color:rgba(34,34,34,1);
+    line-height:28rpx;
+
+
     flex: 1;
 }
 .t-gray-b{
