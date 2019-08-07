@@ -49,8 +49,9 @@
         </view>
     </view>
 </view>
-<view class="container over-hidden" style="background: #FAFAFA;z-index: 1"></view>
-<view class="container body" style="background: #FAFAFA;z-index: 3">
+<view class="container over-hidden" style="background: #FFFFFF;z-index: 1"></view>
+<!--<view class="container body" style="background: #FAFAFA;z-index: 3">-->
+<view class="container body" style="background: #FFFFFF;z-index: 3">
     <scroll-view class="activity-scroll" scroll-x="true">
         <view class="activity-container">
             <block wx:for="{{apiData.activityList}}" wx:key="">
@@ -77,7 +78,7 @@
                 </view>
             </block>
             <view wx:if="{{apiData.activityList.length>1}}" class="end-hint">
-                <view class="end-hint-text">已经到头了哦～</view>
+                已经到头了哦～
             </view>
 
         </view>
