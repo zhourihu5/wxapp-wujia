@@ -93,7 +93,7 @@
                   bind:touchend="touchendOpen"
                   bindchange="moveChangedOpen"
     >
-        <view class="open-door">
+        <view class="open-door"  hover-class="navigator-hover" hover-stop-propagation="{{true}}">
             <view class="open-text">开门</view>
             <view class="cuIcon-fold up"></view>
             <view class="cuIcon-fold up up2"></view>
