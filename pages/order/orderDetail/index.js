@@ -134,30 +134,50 @@ Page({
     },
     toPay(e){
         var that=this
+        var orderData=that.data.apiData
+        if(util.calcRemainTime(orderData.payEndDate)=='00:00:00'){
+            app.showToast('订单已过期，请重新下单')
+            return
+        }
+        that.wxPay(orderData)
 
-        that.payOrder();//todo just for test,please delete it if online
-
-        wx.requestPayment({
-            timeStamp: '',
-            nonceStr: '',
-            package: '',
-            signType: 'MD5',
-            paySign: '',
-            success(res) {
-                that.payOrder()
-            },
-            fail(res) {
-
-            }
-        })
     },
-    payOrder(){//修改订单状态
+    payOrder(orderData){//修改订单状态
         var that=this
-        network.requestPost('/v1/order/payOrder',{id:that.data.apiData.id},function (data) {
+        network.requestPost('/v1/order/payOrder',{id:orderData.id},function (data) {
             app.activityChanged=true
-            wx.redirectTo({url: "/pages/paySuccess/index?id="+that.data.apiData.id})
+            wx.redirectTo({url: "/pages/paySuccess/index?id="+orderData.id})
         },function (msg) {
 
         })
+    },
+    wxPay(orderData){//获取微信支付参数
+        var that=this
+        network.requestPost(
+            '/wx/wxPay',
+            {
+                id:orderData.id,
+                code:orderData.code,
+            },
+            function (data) {
+
+                wx.requestPayment({
+                    timeStamp: data.timeStamp,
+                    nonceStr: data.nonceStr,
+                    package: data.package,
+                    signType: 'MD5',
+                    paySign: data.paySign,
+                    success(res) {
+                        console.log('微信支付成功')
+                        console.log(res)
+                        that.payOrder(orderData)
+                    },
+                    fail(res) {
+
+                    }
+                })
+            },function (msg) {
+
+            })
     },
 })

@@ -40,9 +40,9 @@ function requestLoading(url, data,method, message, successCallBack, failCallBack
             })
             return
         }
-        header={
-            "Authorization":app.token
-        }
+    }
+    header={
+        "Authorization":app.token
     }
     var requestTask = wx.request({
         url: app.url+url,

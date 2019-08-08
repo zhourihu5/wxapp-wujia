@@ -107,7 +107,8 @@ Page({
     },
     wxPay(){//获取微信支付参数
         var that=this
-        network.requestPost('/wx/wxPay',
+        network.requestPost(
+            '/wx/wxPay',
             {
                 id:that.data.apiPayOrderData.id,
                 code:that.data.apiPayOrderData.code,

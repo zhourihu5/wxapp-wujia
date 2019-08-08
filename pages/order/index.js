@@ -298,30 +298,47 @@ Page({
             return
         }
 
-        this.payOrder(id)//todo test
-        wx.requestPayment({
-            timeStamp: '',
-            nonceStr: '',
-            package: '',
-            signType: 'MD5',
-            paySign: '',
-            success(res) {
-                that.payOrder(id)
-            },
-            fail(res) {
-
-            }
-        })
+        that.wxPay(orderData)
     },
-    payOrder(id){//修改订单状态
+    payOrder(orderData){//修改订单状态
         var that=this
-        network.requestPost('/v1/order/payOrder',{id:id},function (data) {
+        network.requestPost('/v1/order/payOrder',{id:orderData.id,},function (data) {
             app.activityChanged=true
             // wx.navigateTo({url: "/pages/paySuccess/index?id="+id})
             that.refreshAllData()
         },function (msg) {
 
         })
+    },
+
+    wxPay(orderData){//获取微信支付参数
+        var that=this
+        network.requestPost(
+            '/wx/wxPay',
+            {
+                id:orderData.id,
+                code:orderData.code,
+            },
+            function (data) {
+
+                wx.requestPayment({
+                    timeStamp: data.timeStamp,
+                    nonceStr: data.nonceStr,
+                    package: data.package,
+                    signType: 'MD5',
+                    paySign: data.paySign,
+                    success(res) {
+                        console.log('微信支付成功')
+                        console.log(res)
+                        that.payOrder(orderData)
+                    },
+                    fail(res) {
+
+                    }
+                })
+            },function (msg) {
+
+            })
     },
 
     onPullDownRefresh: function () {
