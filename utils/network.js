@@ -18,6 +18,7 @@ const app = getApp()
 * fail：失败的回调
 * requestTask:返回一个 requestTask 对象，通过 requestTask，可中断请求任务
 */
+var isShowingModal=false
 function requestLoading(url, data,method, message, successCallBack, failCallBack, completeCallBack = function (res) {}) {
     var pages = getCurrentPages() // 获取栈中全部界面的, 然后把数据写入相应界面
     var currentPage  = pages[pages.length - 1]  //当前界面
@@ -57,14 +58,15 @@ function requestLoading(url, data,method, message, successCallBack, failCallBack
                 console.log(res.data.data)
                 successCallBack(res.data.data);
             } else {
-                app.showToast(res.data.message||res.errMsg)
+                var msg= (res.data&&res.data.message)||'服务器开小差，请稍后再试'
+                app.showToast(msg)
+                failCallBack(msg);
                 if(res.data&&res.data.code<0){//token is expired
                     wx.reLaunch({
                         url:'/pages/index/index'
                     })
-                    return
                 }
-                failCallBack(res.data.message||res.errMsg);
+
             }
         },
         fail: function (res) {
@@ -75,17 +77,27 @@ function requestLoading(url, data,method, message, successCallBack, failCallBack
                 currentPage.hideNavigationBarLoading()
             }
             if (message != "") {
-                // setTimeout(function () {
-                //   wx.hideLoading()
-                // }, 2000);
                 wx.hideLoading()
             }
-            wx.showModal({
-                title:'提示:',
-                showCancel:false,
-                content:'网络异常~~'
-            });
-            failCallBack(res.errMsg||res);
+            var msg='网络异常~~'
+            if(!isShowingModal){
+                isShowingModal=true
+                wx.showModal({
+                    title:'提示:',
+                    showCancel:false,
+                    content:msg,
+                    success (res) {
+                        if (res.confirm) {
+                            console.log('用户点击确定')
+                            isShowingModal=false
+                        } else if (res.cancel) {
+                            console.log('用户点击取消')
+                            isShowingModal=false
+                        }
+                    }
+                });
+            }
+            failCallBack(msg);
         },
         complete: function (res) {
           completeCallBack(res.data)

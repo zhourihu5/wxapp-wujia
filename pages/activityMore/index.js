@@ -37,6 +37,9 @@ Page({
         this.loadData();
     },
     onLoad: function () {
+        var pages=getCurrentPages()
+        console.log('getCurrentPages')
+        console.log(pages)
         register.register(this);
         this.loadData()
     },

@@ -249,6 +249,10 @@ Page({
     },
     goStroll(e){//去逛逛
         wx.navigateTo({url: "/pages/activityMore/index"})
+        // if(!util.navibackTo("/pages/activityMore/index")){
+        //
+        // }
+
     },
     askDeliver(e){//联系送货人
         var phone= e.currentTarget.dataset.phone

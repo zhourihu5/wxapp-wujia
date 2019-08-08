@@ -74,10 +74,48 @@ function isTel(value){
   return true;
 }
 
+/**
+ *
+ * @param pagePath 要定位的页面
+ * @param url 要定位的页面重新启动的url
+ */
+function navibackTo(url){
+
+  var pagePath=url
+  if(url.indexOf("?") != -1){
+    pagePath = url.split("?")[0];
+  }
+
+  var pages=getCurrentPages()
+  var i=0
+  for(i=0;i<pages.length;i++){
+    if(`/${pages[i].route}`==pagePath){
+      break
+    }
+  }
+  if(i<pages.length){
+    wx.navigateBack({
+      delta:pages.length-i,
+      success(res) {
+        wx.navigateTo({
+          url:url||pagePath
+        })
+      }
+    })
+    return true
+  }else {
+    return false
+    // wx.navigateTo({
+    //   url:url||pagePath
+    // })
+  }
+}
+
 
 module.exports = {
   // formatTime: formatTime,
   formatDate:formatDate,
+  navibackTo:navibackTo,
   calcRemainTime:calcRemainTime,
   desensitization:desensitization,
   rpxToPx:rpxToPx,

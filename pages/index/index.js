@@ -324,6 +324,7 @@ Page({
     },
     toMore(e) {
         wx.navigateTo({url: "/pages/activityMore/index"})
+        // util.navibackTo("/pages/activityMore/index")
     },
     inviteVisitor(e) {
         console.log("邀请访客")

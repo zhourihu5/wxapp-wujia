@@ -17,6 +17,9 @@ Page({
         })
     },
     onLoad: function (options) {
+        var pages=getCurrentPages()
+        console.log('getCurrentPages')
+        console.log(pages)
         let id=options.id;
         var that=this
         network.requestGet('/v1/order/findOrderDetail',{orderId:id},function (data) {
@@ -95,7 +98,10 @@ Page({
 
     },
     goStroll(e){//去逛逛
-        wx.redirectTo({url: "/pages/activityMore/index"})
+        if(!util.navibackTo("/pages/activityMore/index")){
+            wx.redirectTo({url: "/pages/activityMore/index"})
+        }
+
     },
     confirmReceive(e){//TODO 确认收货
         var that=this

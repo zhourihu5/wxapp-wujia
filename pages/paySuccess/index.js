@@ -42,15 +42,24 @@ Page({
         var index=e.currentTarget.dataset.index
         let id =this.data.apiData[index].id;
         if(this.data.apiData[index].isJoin==1){
-            wx.redirectTo({url: '/pages/goodsDetail1/index?id=' + id})
+            if(!util.navibackTo('/pages/goodsDetail1/index?id=' + id)){
+                wx.redirectTo({url: '/pages/goodsDetail1/index?id=' + id})
+            }
         }else {
-            wx.redirectTo({url: '/pages/goodsDetail/index?id=' + id})
+            if(!util.navibackTo('/pages/goodsDetail/index?id=' + id)){
+                wx.redirectTo({url: '/pages/goodsDetail/index?id=' + id})
+            }
+
         }
     },
     toOrderDetail(e){
-        wx.redirectTo({url: '/pages/order/orderDetail/index?id=' +this.data.orderId})
+        if(!util.navibackTo('/pages/order/orderDetail/index?id=' +this.data.orderId)){
+            wx.redirectTo({url: '/pages/order/orderDetail/index?id=' +this.data.orderId})
+        }
     },
     goStroll(e){
-        wx.redirectTo({url: '/pages/activityMore/index'})
+        if(!util.navibackTo('/pages/activityMore/index')){
+            wx.redirectTo({url: '/pages/activityMore/index'})
+        }
     },
 })

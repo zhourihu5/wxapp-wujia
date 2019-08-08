@@ -127,7 +127,9 @@ Page({
         })
     },
     toMore(e) {
-        wx.redirectTo({url: "/pages/activityMore/index"})
+       if(!util.navibackTo("/pages/activityMore/index")) {
+           wx.redirectTo({url: "/pages/activityMore/index"})
+       }
     },
     goBuy(e) {
         var index=e.currentTarget.dataset.index

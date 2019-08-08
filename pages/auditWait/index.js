@@ -16,8 +16,8 @@ Page({
         })
     },
     onLoad(){
-        var pages=getCurrentPages()
         console.log('页面栈')
+        var pages=getCurrentPages()
         console.log(pages)
         if(pages.length>1){
             this.setData({
@@ -26,7 +26,5 @@ Page({
         }
     },
     onShow() {
-    },
-    onLoad: function () {
     },
 })
