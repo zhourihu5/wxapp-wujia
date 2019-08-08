@@ -115,12 +115,14 @@ Page({
             function (data) {
 
                 wx.requestPayment({
-                    timeStamp: '',
-                    nonceStr: '',
-                    package: '',
+                    timeStamp: data.timeStamp,
+                    nonceStr: data.nonceStr,
+                    package: data.package,
                     signType: 'MD5',
-                    paySign: '',
+                    paySign: data.paySign,
                     success(res) {
+                        console.log('微信支付成功')
+                        console.log(res)
                         that.payOrder()
                     },
                     fail(res) {
