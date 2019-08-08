@@ -1,8 +1,7 @@
 //app.js
 App({
-  // url:'http://192.168.1.75:8081',
-  // url:'http://192.168.1.54:8081',
-  url:'http://192.168.1.20:8081',
+  url:'http://192.168.1.18:8081',
+  // url:'http://192.168.1.20:8081',
   token:null,
   isAuthorized:false,
   myAddress:null,//我的收获地址
