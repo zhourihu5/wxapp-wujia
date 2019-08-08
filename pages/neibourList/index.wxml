@@ -5,12 +5,12 @@
 </cu-custom>
 <view class="search-container">
     <view class="item-1">
-        <view class="flex align-center h-p-100" hover-class="navigator-hover" hover-stop-propagation="{{true}}" bindtap="showModal">
-            <view class="item-1-l">{{currentArea?currentArea:'请选择'}}</view>
+        <view class="flex align-center h-p-100 item-1-l-wrap" hover-class="navigator-hover" hover-stop-propagation="{{true}}" bindtap="showModal">
+            <view class="item-1-l">{{currentArea?currentArea:'选地区'}}</view>
             <view class="cuIcon-triangledownfill sjx"></view>
             <view class="v-line"></view>
         </view>
-        <input class="input" placeholder-class="placeholder" placeholder="南十里居"
+        <input class="input" placeholder-class="placeholder" placeholder="搜索小区名称"
                confirm-type="search" bindconfirm="search"/>
     </view>
 </view>

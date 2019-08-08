@@ -36,6 +36,9 @@
     line-height:40rpx;
 
 }
+.item-1-l-wrap{
+    border-radius:34rpx 0 0 34rpx ;
+}
 .item-1-l{
     /*width:84px;*/
     /*height:40px;*/
