@@ -57,7 +57,7 @@
         <view class="activity-container">
             <block wx:for="{{apiData.activityList}}" wx:key="">
 <!--            <block wx:for="{{3}}" wx:key="">-->
-
+                <view class="activity-item-wraper">
                 <view class="activity-item {{apiData.activityList.length<=1?'activity-only-one':''}}">
                     <image class="activity-banner"
                            src="{{item.cover}}"/>
@@ -76,6 +76,7 @@
                     </view>
                     <view class="sell-num m-l-20">已拼{{item.commodity.salesNum}}件</view>
                     <view class="go-group-buy" hover-class="navigator-hover" hover-stop-propagation="{{true}}" bindtap="goBuy"  data-index="{{index}}">去参团</view>
+                </view>
                 </view>
             </block>
             <view wx:if="{{apiData.activityList.length>1}}" class="end-hint">
