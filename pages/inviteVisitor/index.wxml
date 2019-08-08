@@ -1,0 +1,17 @@
+<cu-custom bgColor="titlebar-white" isBack="{{true}}">
+    <view slot="backText"></view>
+    <view slot="content"><text class="{{navigationBarLoading?'wj-loading-icon':''}}"/>邀请访客</view>
+</cu-custom>
+<view class="body">
+<!--    <view class="img-content">-->
+<!--        <image class="img" src="/images/audit_fail.png"></image>-->
+<!--        <view class="img-desc">您提交的信息被驳回， 请重新申请～</view>-->
+<!--    </view>-->
+<!--    <view class="bhyy">-->
+<!--        <text class="bhyy-title">驳回原因：</text>-->
+<!--        {{failReason}}-->
+<!--    </view>-->
+    <button class="btn-apply" hover-class="navigator-hover" hover-stop-propagation="{{true}}"
+            open-type="{{canNotShare?'':'share'}}"
+            bindtap="onClick">分享开锁密码</button>
+</view>

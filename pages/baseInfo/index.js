@@ -29,6 +29,21 @@ Page({
             navigationBarLoading:false
         })
     },
+    onShareAppMessage: function(res) {
+        console.log('onShareAppMessage')
+        console.log(res)
+        if (res.from === 'button') {//邀请好友
+            console.log('button onShareAppMessage')
+        }
+        return {
+            // title: '吾家小智',//默认当前小程序名称
+            path: '/pages/index/index' ,
+            success: function(res) {
+                console.log('onShareAppMessage success')
+                console.log(res)
+            }
+        }
+    },
     pickerChange: function (e) {
         if (!this.data.apiData) {
             app.showToast('数据正在加载中，请稍等')

@@ -13,9 +13,10 @@
                 <image class="icon" src="/images/index_pos.png"></image>
                 <text class="location-text">{{communtityName}}</text>
             </view>
-            <view class="text-underline invite-visitor {{modalName=='ModalGuideInvite'?'show-invite':'m-r-30'}}"
+            <button class="text-underline invite-visitor {{modalName=='ModalGuideInvite'?'show-invite':'m-r-30 button-no-border'}}"
                   hover-class="navigator-hover" hover-stop-propagation="{{true}}"  bindtap="{{modalName=='ModalGuideInvite'?'':'inviteVisitor'}}">邀请访客
-            </view>
+            </button>
+<!--            open-type="{{modalName=='ModalGuideInvite'?'':'share'}}"-->
             <view wx:if="{{modalName=='ModalAddCommunity'}}" class="switchCommunity">
                 <view class="triangle-up"></view>
                 <view  class="communityList">

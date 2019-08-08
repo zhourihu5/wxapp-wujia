@@ -22,7 +22,7 @@ App({
       duration: 2000
     })
   },
-  onLaunch: function() {
+  onLaunch: function(option) {
     wx.getSystemInfo({
       success: e => {
         console.log(e);
@@ -37,6 +37,27 @@ App({
     })
 
     this.judgeAuth();
+
+    console.log('app onLaunch')
+    console.log(option)
+    wx.showShareMenu({
+      withShareTicket: true,
+      success:function (res) {
+        console.log('showShareMenu success')
+      }
+    })
+    var shareTicket=null
+    shareTicket=option&&option.shareTicket
+    if(shareTicket){
+      wx.getShareInfo({
+        shareTicket:shareTicket,
+        success:function (res) {
+          console.log('getShareInfo success')
+          console.log(res)
+        }
+      })
+    }
+
   },
   /**
    * 判断用户是否给了获取用户信息的授权

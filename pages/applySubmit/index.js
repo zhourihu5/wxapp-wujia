@@ -36,6 +36,21 @@ Page({
             navigationBarLoading:false
         })
     },
+    onShareAppMessage: function(res) {
+        console.log('onShareAppMessage')
+        console.log(res)
+        if (res.from === 'button') {//邀请好友
+            console.log('button onShareAppMessage')
+        }
+        return {
+            // title: '吾家小智',//默认当前小程序名称
+            path: '/pages/index/index' ,
+            success: function(res) {
+                console.log('onShareAppMessage success')
+                console.log(res)
+            }
+        }
+    },
     onLoad() {
         var pages = getCurrentPages() // 获取栈中全部界面的, 然后把数据写入相应界面
         // var currentPage  = pages[pages.length - 1]  //当前界面

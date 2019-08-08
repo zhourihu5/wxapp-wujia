@@ -46,6 +46,9 @@ page{
     border-radius: 5rpx;
     z-index: 2000;
 }
+.show-invite::after{
+    border-radius: 5rpx;
+}
 .z-2000{
     z-index: 2000;
 }
@@ -655,7 +658,16 @@ movable-area {
     font-weight:400;
     color:rgba(255,255,255,1);
     line-height:40rpx;
+
 }
+.button-no-border{
+    background: none;
+    border: none;
+}
+.button-no-border::after{
+    border: none;
+}
+
 .text-white {
     color: white;
 }

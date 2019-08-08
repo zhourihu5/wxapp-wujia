@@ -14,6 +14,7 @@ Page({
         cummunityIndex: null,
         apiData: null,
         failReason: null,
+        applyCode:null,//todo 动态开锁密码
     },
     customData: {
         y: 0,
@@ -34,12 +35,33 @@ Page({
     },
     //转发
     onShareAppMessage: function(res) {
-        if (res.from === 'button') {}
+        console.log('onShareAppMessage')
+        console.log(res)
+        if (res.from === 'button') {//邀请好友
+            console.log('button onShareAppMessage')
+            return {
+                // title: '吾家小智',//默认当前小程序名称
+                path: '/pages/index/index?applyCode=111',//todo
+                success: function (res) {
+                    console.log('onShareAppMessage success')
+                    console.log(res)
+                }
+            }
+        }
         return {
             // title: '吾家小智',//默认当前小程序名称
             path: '/pages/index/index' ,
-            success: function(res) {}
+            success: function(res) {
+                console.log('onShareAppMessage success')
+                console.log(res)
+            }
         }
+    },
+    inviteVisitor(e) {
+        console.log("邀请访客")
+        wx.navigateTo({
+            url:"/pages/inviteVisitor/index"
+        })
     },
     bindPhone: function (e) {
         var that = this
@@ -176,8 +198,21 @@ Page({
         })
         this.isEnableTabBar()
     },
-    onLoad: function () {
+    onLoad: function (options) {
+        console.log('index onLoad')
+        console.log(options)
+        var applyCode=options&&options.applyCode
+        if(applyCode){//todo 动态开锁密码
+            this.data.applyCode=applyCode
+        }
+        wx.showShareMenu({
+            withShareTicket: true,
+            success:function () {
+                console.log('showShareMenu success')
+            }
+        })
         this.showOrHideBindPhone();
+        // this.showGuideInvite()
     },
     bindGetUserInfo: function (e) {
         var that = this;
@@ -335,8 +370,5 @@ Page({
         wx.navigateTo({url: "/pages/activityMore/index"})
         // util.navibackTo("/pages/activityMore/index")
     },
-    inviteVisitor(e) {
-        console.log("邀请访客")
 
-    },
 })
