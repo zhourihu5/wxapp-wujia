@@ -469,7 +469,15 @@
 
 .rich-text{
   width: 690rpx;
+  max-width: 100%;
   margin: auto;
+  overflow: scroll;
+}
+.rich-text img{
+  max-width: 100%;
+}
+img{
+  max-width: 100%;
 }
 .tgjd{
   /*width:112px;*/

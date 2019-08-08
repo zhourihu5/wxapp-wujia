@@ -32,6 +32,15 @@ Page({
             navigationBarLoading:false
         })
     },
+    //转发
+    onShareAppMessage: function(res) {
+        if (res.from === 'button') {}
+        return {
+            // title: '吾家小智',//默认当前小程序名称
+            path: '/pages/index/index' ,
+            success: function(res) {}
+        }
+    },
     bindPhone: function (e) {
         var that = this
         if (!this.data.isBindEnabled) {

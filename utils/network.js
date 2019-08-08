@@ -34,6 +34,12 @@ function requestLoading(url, data,method, message, successCallBack, failCallBack
     }
     var header=null
     if(url.startsWith("/v1/")){
+        if(!app.token){
+            wx.reLaunch({
+                url:'/pages/index/index'
+            })
+            return
+        }
         header={
             "Authorization":app.token
         }

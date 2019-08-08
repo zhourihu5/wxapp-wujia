@@ -1,6 +1,3 @@
-//index.js
-import {isNumber} from "../../dist/common/utils";
-
 const util = require('../../utils/util.js')
 const network = require('../../utils/network.js')
 var interval = null //倒计时函数
@@ -131,6 +128,17 @@ Page({
             // data.activity.remark='这是第一行内容\n这是第二行内容'//todo 换行符不起作用
                 console.log('remark')
             console.log(data.activity.remark)
+
+            // data.activity.commodity.infos="" +
+            //     "<p>这是一个段咯</p>" +
+            //     "<div>" +
+            //     "<img " +"alt='图片的 alt'"+
+            //     "src='https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1565250388091&di=79dda0ba1c5826644bcad971f68941ed&imgtype=0&src=http%3A%2F%2Fimg.3727.cc%2FImages%2FPicture%2Ffengjinggaoqingzhuomianbizhi%2Fpubumeijingzhuomianbizhi%2F3-141213103043.jpg'/>" +
+            //     "</div>" +
+            //     "<p>这是尾端内容</p>"
+            console.log('infos')
+            data.activity.commodity.infos=that.adaptRichText(data.activity.commodity.infos)
+            console.log(data.activity.commodity.infos)
             that.setData({
                 apiData: data,
                 saleTip:data.activity.saleTip&&data.activity.saleTip.split(','),
@@ -183,6 +191,9 @@ Page({
     },
 
     adaptRichText: function (richtext) {//todo 限制富文本图片不超出屏幕宽度
-        return richtext.replace('<img ', '<img style="max-width:100%;height:auto"')
+        if(!richtext){
+            return richtext
+        }
+        return richtext.replace('<img ', '<img style="max-width:100%;height:auto" ')
     }
 })
