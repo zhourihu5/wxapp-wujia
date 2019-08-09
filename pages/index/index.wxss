@@ -277,16 +277,6 @@ page{
     white-space: nowrap;/*不放这个不能横排*/
     /*margin-bottom: 40rpx;*/
 }
-.activity-container{
-    padding-left: 30rpx;
-    padding-right: 10rpx;
-    height:540rpx;
-    overflow: scroll;
-    position: relative;
-
-    /*display: inline-block;!*不放这个不能横排*!*/
-    display: inline-block;/*不放这个不能横排*/
-}
 .activity-item-wraper{
     margin-right: 20rpx;
     display: inline-block;/*不放这个不能横排*/
@@ -320,7 +310,8 @@ page{
 
     display: inline-block;/*不放这个不能横排*/
 
-    position: absolute;
+    /*position: absolute;*/
+    padding-right: 30rpx;
 }
 .activity-only-one{
     width:690rpx;

@@ -3,37 +3,43 @@
 <view class="bg-gradual-orange">
     <cu-custom isBack="{{false}}">
         <view slot="backText"></view>
-        <view  slot="content">
-            <text class="{{navigationBarLoading?'wj-loading-icon':''}}"/>吾家小智
+        <view slot="content">
+            <text class="{{navigationBarLoading?'wj-loading-icon':''}}"/>
+            吾家小智
         </view>
     </cu-custom>
     <view class="top-title-bg  {{modalName=='ModalGuideInvite'?'p-t-24': 'p-t-34'}}">
         <view class="top-title  flex align-center  justify-between relative">
-            <view class="flex align-center" hover-class="navigator-hover" hover-stop-propagation="{{true}}" bindtap="showModalAddCommunity">
+            <view class="flex align-center" hover-class="navigator-hover" hover-stop-propagation="{{true}}"
+                  bindtap="showModalAddCommunity">
                 <image class="icon" src="/images/index_pos.png"></image>
                 <text class="location-text">{{communtityName}}</text>
             </view>
             <button class="text-underline invite-visitor {{modalName=='ModalGuideInvite'?'show-invite':'m-r-30 button-no-border'}}"
-                  hover-class="navigator-hover" hover-stop-propagation="{{true}}"  bindtap="{{modalName=='ModalGuideInvite'?'':'inviteVisitor'}}">邀请访客
+                    hover-class="navigator-hover" hover-stop-propagation="{{true}}"
+                    bindtap="{{modalName=='ModalGuideInvite'?'':'inviteVisitor'}}">邀请访客
             </button>
-<!--            open-type="{{modalName=='ModalGuideInvite'?'':'share'}}"-->
+            <!--            open-type="{{modalName=='ModalGuideInvite'?'':'share'}}"-->
             <view wx:if="{{modalName=='ModalAddCommunity'}}" class="switchCommunity">
                 <view class="triangle-up"></view>
-                <view  class="communityList">
+                <view class="communityList">
                     <scroll-view scroll-y class="scroll-view"
                                  lower-threshold="0"
                                  upper-threshold="0"
                                  bindscrolltoupper='scrolltoupper'
                                  bindscrolltolower='scrolltolower'
                     >
-                    <view wx:for="{{apiData.communtityList}}" class="flex align-center item-community {{index==0?'no-border':''}}"
-                          hover-class="navigator-hover" hover-stop-propagation="{{true}}" bindtap="switchCommunity" data-index="{{index}}">
-                        <image wx:if="{{false}}" class="addres-img" src="/images/tab_my"></image>
-                        <view class="flex-1 adr-name">{{item.name}}</view>
-                        <view wx:if="{{cummunityIndex==index}}" class="cuIcon-check round-bg"></view>
-                    </view>
+                        <view wx:for="{{apiData.communtityList}}"
+                              class="flex align-center item-community {{index==0?'no-border':''}}"
+                              hover-class="navigator-hover" hover-stop-propagation="{{true}}" bindtap="switchCommunity"
+                              data-index="{{index}}">
+                            <image wx:if="{{false}}" class="addres-img" src="/images/tab_my"></image>
+                            <view class="flex-1 adr-name">{{item.name}}</view>
+                            <view wx:if="{{cummunityIndex==index}}" class="cuIcon-check round-bg"></view>
+                        </view>
                     </scroll-view>
-                    <view class="add-addr-btn" hover-class="navigator-hover" hover-stop-propagation="{{true}}" bindtap="addCommunity">
+                    <view class="add-addr-btn" hover-class="navigator-hover" hover-stop-propagation="{{true}}"
+                          bindtap="addCommunity">
                         <view class="cuIcon-add add-icon"></view>
                         <view class="xzsq">新增社区</view>
                     </view>
@@ -42,7 +48,8 @@
         </view>
     </view>
     <view class="activity-more flex  justify-between {{modalName=='ModalGuideMore'?'p-t-b-show':'p-t-b-normal'}}  {{modalName}}123"
-          hover-class="navigator-hover" hover-stop-propagation="{{true}}" bindtap="{{modalName!='ModalGuideMore'?'toMore':''}}">
+          hover-class="navigator-hover" hover-stop-propagation="{{true}}"
+          bindtap="{{modalName!='ModalGuideMore'?'toMore':''}}">
         <view class="jxhd">精选活动</view>
         <view class="more {{modalName=='ModalGuideMore'?'showMore':'m-r-30'}}">
             <text>更多</text>
@@ -51,52 +58,51 @@
     </view>
 </view>
 <view class="container over-hidden" style="background: #FFFFFF;z-index: 1"></view>
-<!--<view class="container body" style="background: #FAFAFA;z-index: 3">-->
-<view class="container body" style="background: #FFFFFF;z-index: 3">
-    <scroll-view class="activity-scroll" scroll-x="true">
-        <view class="activity-container">
-            <block wx:for="{{apiData.activityList}}" wx:key="">
-<!--            <block wx:for="{{3}}" wx:key="">-->
-                <view class="activity-item-wraper">
-                <view class="activity-item {{apiData.activityList.length<=1?'activity-only-one':''}}">
-                    <image class="activity-banner"
-                           src="{{item.cover}}"/>
-                    <view class="m-l-20 activity-title">{{item.title}}</view>
-                    <view class="price">
-                        <text class="dollar m-l-20">￥</text>
-                        <text class="price-integer">{{utils.numBeforeDot(item.price)}}</text>
-                        <text class="dot" wx:if="{{utils.isNumDot(item.price)}}">.</text>
-                        <text class="price-float">{{utils.numAfterDot(item.price)}}</text>
-                        <text class="price-old">￥{{item.commodity.price}}</text>
-                    </view>
-                    <view class="m-l-20 lable-container">
-                        <text wx:for="{{ utils.strSplitToArr(item.commodity.labelsName,'|') }}" wx:for-item="labelItem"
-                              wx:key="" class="lable">{{labelItem}}
-                        </text>
-                    </view>
-                    <view class="sell-num m-l-20">已拼{{item.commodity.salesNum}}件</view>
-                    <view class="go-group-buy" hover-class="navigator-hover" hover-stop-propagation="{{true}}" bindtap="goBuy"  data-index="{{index}}">去参团</view>
+<scroll-view class="activity-scroll" scroll-x="true" style="z-index: 3;position: fixed">
+    <block wx:for="{{apiData.activityList}}" wx:key="">
+        <!--            <block wx:for="{{1}}" wx:key="">-->
+        <view class="activity-item-wraper {{index==0?'p-l-30':''}} ">
+            <view class="activity-item {{apiData.activityList.length<=1?'activity-only-one':''}}">
+                <!--            <view class="activity-item activity-only-one">-->
+                <image class="activity-banner"
+                       src="{{item.cover}}"/>
+                <view class="m-l-20 activity-title">{{item.title}}</view>
+                <view class="price">
+                    <text class="dollar m-l-20">￥</text>
+                    <text class="price-integer">{{utils.numBeforeDot(item.price)}}</text>
+                    <text class="dot" wx:if="{{utils.isNumDot(item.price)}}">.</text>
+                    <text class="price-float">{{utils.numAfterDot(item.price)}}</text>
+                    <text class="price-old">￥{{item.commodity.price}}</text>
                 </view>
+                <view class="m-l-20 lable-container">
+                    <text wx:for="{{ utils.strSplitToArr(item.commodity.labelsName,'|') }}" wx:for-item="labelItem"
+                          wx:key="" class="lable">{{labelItem}}
+                    </text>
                 </view>
-            </block>
-            <view wx:if="{{apiData.activityList.length>1}}" class="end-hint">
-                已经到头了哦～
+                <view class="sell-num m-l-20">已拼{{item.commodity.salesNum}}件</view>
+                <view class="go-group-buy" hover-class="navigator-hover" hover-stop-propagation="{{true}}"
+                      bindtap="goBuy" data-index="{{index}}">去参团
+                </view>
             </view>
-
         </view>
-    </scroll-view>
+    </block>
+    <view wx:if="{{apiData.activityList.length>1}}" class="end-hint">
+        已经到头了哦～
+    </view>
 
-</view>
+</scroll-view>
+
+<!--</view>-->
 <view class="round-backgroud" style="z-index: 2"></view>
 <movable-area class="{{modalName=='ModalGuideOpen'?'z-2000':'z-4'}}">
-    <movable-view class="open-door"  hover-class="navigator-hover" hover-stop-propagation="{{true}}"
-            x="{{0}}" y="{{y}}"
+    <movable-view class="open-door" hover-class="navigator-hover" hover-stop-propagation="{{true}}"
+                  x="{{0}}" y="{{y}}"
                   direction="vertical"
                   disabled="{{modalName=='ModalGuideOpen'}}"
                   bind:touchend="touchendOpen"
                   bindchange="moveChangedOpen"
     >
-        <view class="open-door" >
+        <view class="open-door">
             <view class="open-text">开门</view>
             <view class="cuIcon-fold up"></view>
             <view class="cuIcon-fold up up2"></view>
@@ -115,7 +121,9 @@
         <view class="input-container">
             <input class="input" placeholder-class="placeholder" bindinput="codeInput"
                    placeholder="请输入验证码"/>
-            <view class="{{getCodeText=='获取验证码'?'get-code':'djs'}}" hover-class="navigator-hover" hover-stop-propagation="{{true}}" bindtap="getVcode">{{getCodeText}}</view>
+            <view class="{{getCodeText=='获取验证码'?'get-code':'djs'}}" hover-class="navigator-hover"
+                  hover-stop-propagation="{{true}}" bindtap="getVcode">{{getCodeText}}
+            </view>
         </view>
         <view wx:if="{{isAuthorized}}" class="center dialog-button-{{isBindEnabled?'enabled':'disabled'}} m-t-40"
               hover-class="navigator-hover" hover-stop-propagation="{{true}}" bindtap="bindPhone">立即绑定
@@ -132,7 +140,9 @@
             <view class="guide-invite-line"></view>
         </view>
         <view class="djkyqhyo">点击可邀请好友哦～</view>
-        <view class="i-know-invite" hover-class="navigator-hover" hover-stop-propagation="{{true}}" bindtap="hideModalGuideInvite">我知道了</view>
+        <view class="i-know-invite" hover-class="navigator-hover" hover-stop-propagation="{{true}}"
+              bindtap="hideModalGuideInvite">我知道了
+        </view>
     </view>
 
 </view>
@@ -142,7 +152,9 @@
             <view class="guide-invite-line" style="right: 46rpx;"></view>
         </view>
         <view class="djkyqhyo">点击可查看更多商品哦～</view>
-        <view class="i-know-invite" hover-class="navigator-hover" hover-stop-propagation="{{true}}" bindtap="hideModalGuideMore">我知道了</view>
+        <view class="i-know-invite" hover-class="navigator-hover" hover-stop-propagation="{{true}}"
+              bindtap="hideModalGuideMore">我知道了
+        </view>
     </view>
 
 </view>
@@ -153,7 +165,9 @@
 <view class="modal-top0  {{modalName=='ModalGuideOpen'?'show':''}}">
     <view class="open-hint">
         <view class="djkyqhyo">向上滑动可以开门哦</view>
-        <view class="i-know-invite" hover-class="navigator-hover" hover-stop-propagation="{{true}}" bindtap="hideModalGuideOpen">我知道了</view>
+        <view class="i-know-invite" hover-class="navigator-hover" hover-stop-propagation="{{true}}"
+              bindtap="hideModalGuideOpen">我知道了
+        </view>
     </view>
     <view class="guide-open-line"></view>
 

@@ -46,6 +46,9 @@ tab-bar{
 .p-l-r-30{
   padding: 0 30rpx;
 }
+.p-l-30{
+  padding-left: 30rpx;
+}
 .m-t-40{
   margin-top: 40rpx !important;
 }
