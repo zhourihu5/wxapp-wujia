@@ -22,18 +22,21 @@ App({
     })
   },
   onLaunch: function(option) {
-    wx.getSystemInfo({
-      success: e => {
-        console.log(e);
-        this.globalData.StatusBar = e.statusBarHeight;
-        let custom = wx.getMenuButtonBoundingClientRect();
-        this.globalData.Custom = custom;  
-        this.globalData.CustomBar = custom.bottom + custom.top - e.statusBarHeight;
-        this.globalData.screenWidth=e.screenWidth;
-        this.globalData.windowWidth=e.windowWidth;
-        this.globalData.pixelRatio=e.pixelRatio;
-      }
-    })
+    try {
+      const e = wx.getSystemInfoSync()
+      console.log('获取设备系统信息success')
+      console.log(e);
+      this.globalData.StatusBar = e.statusBarHeight;
+      let custom = wx.getMenuButtonBoundingClientRect();
+      this.globalData.Custom = custom;
+      this.globalData.CustomBar = custom.bottom + custom.top - e.statusBarHeight;
+      this.globalData.screenWidth = e.screenWidth;
+      this.globalData.windowWidth = e.windowWidth;
+      this.globalData.pixelRatio = e.pixelRatio;
+    } catch (e) {
+      console.log('获取设备系统信息fail')
+      console.log(e)
+    }
 
     this.judgeAuth();
 
