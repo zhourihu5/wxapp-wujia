@@ -84,7 +84,7 @@ Page({
             activityId: that.data.apiData.id,
             deliveryUname: that.data.myAddress.name,
             deliveryUphone: that.data.myAddress.phone,
-            deliveryAddress: that.data.myAddress.address,
+            deliveryAddress:that.data.myAddress.communtityName+that.data.myAddress.address,
             // deliveryArea: that.data.myAddress.address,
             commodityId: that.data.apiData.commodity.id,
 

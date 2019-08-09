@@ -235,6 +235,7 @@ Page({
             city: that.data.currentCommunity.city,
             area: that.data.currentCommunity.area,
             communtityId: that.data.currentCommunity.id,
+            communtityName: that.data.currentCommunity.name,
 
         }, function (data) {
             var pages = getCurrentPages() // 获取栈中全部界面的, 然后把数据写入相应界面

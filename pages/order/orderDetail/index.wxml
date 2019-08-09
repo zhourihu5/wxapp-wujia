@@ -76,7 +76,7 @@
         <view class="order-info-item">订单金额：￥{{apiData.realPrice}}</view>
         <view class="order-info-item">创建时间：{{apiData.createDate}}</view>
         <view class="order-info-item">订单编号：{{apiData.code}}</view>
-        <view class="order-info-item  p-b-30">收货地址：{{apiData.deliveryArea}}</view>
+        <view class="order-info-item  p-b-30">收货地址：{{apiData.deliveryAddress}}</view>
     </view>
 <!--    <view class="goods-info dilivery-container">-->
 <!--        <view class="goods-title">配送信息</view>-->
