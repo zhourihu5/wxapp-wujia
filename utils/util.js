@@ -73,6 +73,51 @@ function isTel(value){
   }
   return true;
 }
+function customTabBarHeight(){
+  if (app.isCustomTabBar) {
+    return rpxToPx(98)
+  }
+  return 0
+}
+function getCurrentActiveTab(){
+  console.log('获取当前tab')
+  var pages=getCurrentPages()
+  console.log(pages)
+  if(!pages){
+    return 0
+  }
+  if(pages.length==0){
+    return 0
+  }
+  var currentPage=pages[pages.length-1]
+  var list=[
+    {
+      "pagePath": "/pages/index/index",
+      // "text": "首页",
+      // "iconPath": "/images/tab_home.png",
+      // "selectedIconPath": "/images/tab_home_selected.png"
+    },
+    {
+      "pagePath": "/pages/order/index",
+      // "text": "订单",
+      // "iconPath": "/images/tab_order.png",
+      // "selectedIconPath": "/images/tab_order_selected.png"
+    },
+    {
+      "pagePath": "/pages/msg/index",
+      // "text": "消息",
+      // "iconPath": "/images/tab_msg.png",
+      // "selectedIconPath": "/images/tab_msg_selected.png"
+    },
+    {
+      "pagePath": "/pages/ucenter/index",
+      // "text": "我的",
+      // "iconPath": "/images/tab_my.png",
+      // "selectedIconPath": "/images/tab_my_selected.png"
+    }
+  ]
+  return  list.findIndex(item => item.pagePath === `/${currentPage.route}`)
+}
 
 /**
  *
@@ -114,11 +159,13 @@ function navibackTo(url){
 
 module.exports = {
   // formatTime: formatTime,
+  getCurrentActiveTab:getCurrentActiveTab,
   formatDate:formatDate,
   navibackTo:navibackTo,
   calcRemainTime:calcRemainTime,
   desensitization:desensitization,
   rpxToPx:rpxToPx,
   isTel:isTel,
-  lowerThreshold:lowerThreshold
+  lowerThreshold:lowerThreshold,
+  customTabBarHeight:customTabBarHeight,
 }

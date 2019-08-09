@@ -1,3 +1,4 @@
+<wxs src="../wxs/utils.wxs" module="utils"/>
 <!--<van-tabbar active="{{ active }}" bind:change="onChange">-->
 <!--  <van-tabbar-item wx:for="{{ list }}" wx:key="index">-->
 <!--    <image-->
@@ -17,7 +18,8 @@
 <view class="cu-bar tabbar bg-white foot wj-tabbar " >
   <view class="wj-tabitem" hover-class="navigator-hover" hover-stop-propagation="{{true}}"  bindtap="NavChange" data-active="{{index}}" wx:for="{{ list }}" wx:key="index">
     <view class='cuIcon-cu-image'>
-      <image class="tab-image" src="{{index===active?item.selectedIconPath:item.iconPath }}"></image>
+      <image class="tab-image" src="{{index==active?item.selectedIconPath:item.iconPath }}"></image>
+<!--      <image class="tab-image" src="{{index==utils.getCurrentActiveTab(active,thiz)?item.selectedIconPath:item.iconPath }}"></image>-->
     </view>
     <view class="{{index===active?'tab-selected':'tab-unselected'}} m-t-b-4">{{item.text}}</view>
   </view>

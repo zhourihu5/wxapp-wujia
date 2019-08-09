@@ -1,7 +1,10 @@
+const util = require('../utils/util.js')
 Component({
   data: {
-    active: 0,
+    // active:util.getCurrentActiveTab(),
+    active:0,//todo 自定义tabbar 有第一次切换时闪动的问题，官方还未解决
     isEnabled:true,
+    thiz:this,
     list: [
       {
         "pagePath": "/pages/index/index",
@@ -29,7 +32,28 @@ Component({
       }
     ]
   },
-
+  created(){
+    console.log('custom-tab-bar created')
+    this.data.active=util.getCurrentActiveTab()
+    this.setData({
+      active:this.data.active
+    })
+    console.log(this.data)
+  },
+  invokeByWxs(){
+    return getCurrentPages()
+  },
+  ready(){
+    console.log('custom-tab-bar ready')
+    this.setData({
+      thiz:this,
+    })
+    // this.data.active=util.getCurrentActiveTab()
+    // this.setData({
+    //   active:this.data.active
+    // })
+    console.log(this.data)
+  },
   methods: {
     onChange(event) {
       console.log(event);
@@ -47,15 +71,20 @@ Component({
         console.log("没有切换tab");
         return;
       }
-      // if(e.currentTarget.dataset.active==3){
-      //
-      // }
 
       const data = e.currentTarget.dataset
       const url = this.data.list[data.active].pagePath
-      wx.switchTab({url})
       this.setData({
         active: data.active
+      })
+      var that=this
+      wx.switchTab({
+        url:url,
+        success(res) {
+          that.setData({
+            active: data.active
+          })
+        }
       })
       console.log("当前tab");
       console.log(this.data.active);
@@ -80,6 +109,10 @@ Component({
     attached: function() {
       // 在组件实例进入页面节点树时执行
       console.log("lifetimes attached")
+      // console.log(this)
+      // this.setData({
+      //   active:util.getCurrentActiveTab(),
+      // })
     },
     detached: function() {
       // 在组件实例被从页面节点树移除时执行
@@ -90,6 +123,10 @@ Component({
   attached: function() {
     // 在组件实例进入页面节点树时执行
     console.log("attached")
+    // console.log(this)
+    // this.setData({
+    //   active:util.getCurrentActiveTab(),
+    // })
   },
   detached: function() {
     // 在组件实例被从页面节点树移除时执行

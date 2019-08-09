@@ -31,12 +31,22 @@ Page({
             }
         }
     },
-    onShow() {
+    setBottomTabBar(){
         if (typeof this.getTabBar === 'function' &&
             this.getTabBar()) {
-            this.getTabBar().init()
+            // this.getTabBar().init()
+            this.getTabBar().setData({
+                active: 2,
+            })
         }
+    },
+    onShow() {
+        console.log('msg onShow')
+        this.setBottomTabBar()
         this.loadData()
+    },
+    onHide(){
+        console.log('msg onHide')
     },
     loadData(){
         var that=this
@@ -50,7 +60,12 @@ Page({
         })
     },
     onLoad: function () {
+        console.log('msg onLoad')
+        this.setBottomTabBar()
         register.register(this)
+    },
+    onUnload(){
+        console.log('msg onUnload')
     },
     //下拉刷新数据
     refresh:function(){

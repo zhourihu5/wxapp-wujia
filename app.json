@@ -1,9 +1,10 @@
 {
   "tabBar": {
-    "custom": true,
+    "custom": false,
     "color": "#888888",
-    "selectedColor": "#3c3c3c",
+    "selectedColor": "#222222",
     "backgroundColor": "#FFFFFF",
+    "borderStyle": "white",
     "list": [
       {
         "pagePath": "pages/index/index",
@@ -33,6 +34,7 @@
   },
   "pages": [
     "pages/index/index",
+    "pages/order/index",
     "pages/inviteVisitor/index",
     "pages/template/index",
     "pages/editAdress/index",
@@ -41,7 +43,6 @@
     "pages/baseInfo/index",
     "pages/applySubmit/index",
     "pages/neibourList/index",
-    "pages/order/index",
     "pages/auditWait/index",
     "pages/auditFail/index",
     "pages/goodsDetail/index",
@@ -69,7 +70,6 @@
   },
   "usingComponents": {
     "cu-custom": "/colorui/components/cu-custom",
-    "activity": "/components/activity/index",
     "stepper": "/components/stepper/index",
 
 

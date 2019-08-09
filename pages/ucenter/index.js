@@ -49,11 +49,21 @@ Page({
             }
         }
     },
-    onShow() {
+    setBottomTabBar(){
         if (typeof this.getTabBar === 'function' &&
             this.getTabBar()) {
-            this.getTabBar().init()
+            // this.getTabBar().init()
+            this.getTabBar().setData({
+                active: 3,
+            })
         }
+    },
+    onShow() {
+        console.log('ucenter onShow')
+        this.setBottomTabBar()
+    },
+    onHide(){
+        console.log('ucenter onHide')
     },
     nickNameChanged() {
         this.setData({
@@ -61,11 +71,16 @@ Page({
         })
     },
     onLoad: function () {
+        console.log('ucenter onLoad')
+        this.setBottomTabBar()
         var userInfo = app.wxUserInfo
         this.setData({
             nickName: app.nickName || (userInfo && userInfo.userInfo && userInfo.userInfo.nickName),
             avatarUrl:app.wxCover || (userInfo && userInfo.userInfo && userInfo.userInfo.avatarUrl),
             phone: util.desensitization(app.userName),
         })
-    }
+    },
+    onUnload(){
+        console.log('ucenter onUnload')
+    },
 })

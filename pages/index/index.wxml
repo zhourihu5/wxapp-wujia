@@ -102,8 +102,8 @@
 </scroll-view>
 
 <!--</view>-->
-<view class="round-backgroud" style="z-index: 2"></view>
-<movable-area class="{{modalName=='ModalGuideOpen'?'z-2000':'z-4'}}">
+<view class="round-backgroud" style="z-index: 2;bottom: calc( {{customTabBarHeight}}px - 98rpx  );"></view>
+<movable-area class="{{modalName=='ModalGuideOpen'?'z-2000':'z-4'}}" style="bottom: calc( 32rpx + {{customTabBarHeight}}px );">
     <movable-view class="open-door" hover-class="navigator-hover" hover-stop-propagation="{{true}}"
                   x="{{0}}" y="{{y}}"
                   direction="vertical"

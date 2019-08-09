@@ -14,6 +14,7 @@ App({
   communtityCode:null,
   orderChanged:false,
   activityChanged:false,
+  isCustomTabBar:false,
   showToast(msg){
     wx.showToast({
       title: msg,
@@ -27,12 +28,12 @@ App({
       console.log('获取设备系统信息success')
       console.log(e);
       this.globalData.StatusBar = e.statusBarHeight;
-      let custom = wx.getMenuButtonBoundingClientRect();
-      this.globalData.Custom = custom;
-      this.globalData.CustomBar = custom.bottom + custom.top - e.statusBarHeight;
       this.globalData.screenWidth = e.screenWidth;
       this.globalData.windowWidth = e.windowWidth;
       this.globalData.pixelRatio = e.pixelRatio;
+      let custom = wx.getMenuButtonBoundingClientRect();
+      this.globalData.Custom = custom;
+      this.globalData.CustomBar = custom.bottom + custom.top - e.statusBarHeight;
     } catch (e) {
       console.log('获取设备系统信息fail')
       console.log(e)

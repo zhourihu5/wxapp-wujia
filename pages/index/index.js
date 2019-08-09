@@ -6,6 +6,7 @@ Page({
     data: {
         y: util.rpxToPx(40),
         CustomBar: app.globalData.CustomBar,
+        customTabBarHeight:util.customTabBarHeight(),
         getCodeText: '获取验证码',
         isBindEnabled: false,
         isAuthorized: app.isAuthorized,
@@ -224,22 +225,7 @@ Page({
         })
         this.isEnableTabBar()
     },
-    onLoad: function (options) {
-        console.log('index onLoad')
-        console.log(options)
-        var applyCode=options&&options.applyCode
-        if(applyCode){//todo 动态开锁密码
-            this.data.applyCode=applyCode
-        }
-        wx.showShareMenu({
-            withShareTicket: true,
-            success:function () {
-                console.log('showShareMenu success')
-            }
-        })
-        this.showOrHideBindPhone();
-        // this.showGuideInvite()
-    },
+
     bindGetUserInfo: function (e) {
         var that = this;
         wx.getUserInfo({
@@ -307,16 +293,49 @@ Page({
             }
         })
     },
-    onShow() {
+    setBottomTabBar(){
         if (typeof this.getTabBar === 'function' &&
             this.getTabBar()) {
-            this.getTabBar().init()
-            console.log("自定义tabbar")
+            app.isCustomTabBar=true
+            this.setData({
+                customTabBarHeight:util.customTabBarHeight(),
+            })
+            // this.getTabBar().init()
+            this.getTabBar().setData({
+                active: 0,
+            })
         }
+    },
+    onShow() {
+        console.log('index onShow')
+        this.setBottomTabBar()
         if(app.activityChanged){
             app.activityChanged=false
             this.showOrHideBindPhone();
         }
+    },
+    onHide(){
+        console.log('index onHide')
+    },
+    onLoad: function (options) {
+        console.log('index onLoad')
+        this.setBottomTabBar()
+        console.log(options)
+        var applyCode=options&&options.applyCode
+        if(applyCode){//todo 动态开锁密码
+            this.data.applyCode=applyCode
+        }
+        wx.showShareMenu({
+            withShareTicket: true,
+            success:function () {
+                console.log('showShareMenu success')
+            }
+        })
+        this.showOrHideBindPhone();
+        // this.showGuideInvite()
+    },
+    onUnload(){
+        console.log('index onUnload')
     },
     phoneInput(e) {
         this.customData.phone = e.detail.value

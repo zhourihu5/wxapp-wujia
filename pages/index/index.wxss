@@ -447,7 +447,8 @@ page{
 .round-backgroud{
     position: fixed;
 
-    bottom:0;
+    /*bottom:0;*/
+    bottom:-98rpx;
     width: 100%;
     height:410rpx;
     background:rgba(255,255,255,1);
@@ -468,7 +469,8 @@ movable-area {
     width:  240rpx;
 
     position: fixed;
-    bottom: 130rpx;
+    /*bottom: 130rpx;*/
+    bottom: 32rpx;
     /*bottom: 0rpx;*/
     left: 255rpx;
     right: 0;

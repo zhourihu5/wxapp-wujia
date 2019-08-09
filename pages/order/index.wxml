@@ -21,7 +21,7 @@
                 title="{{tab.title}}"
                 custom-class="custom-tab">
             <include src="../../refreshview/refreshHeaderView.wxml"/>
-            <scroll-view scroll-y class="scroll-view-order" style="top: calc( {{CustomBar}}px + 84rpx + {{refreshHeight}}px  )"
+            <scroll-view scroll-y class="scroll-view-order" style="top: calc( {{CustomBar}}px + 84rpx + {{refreshHeight}}px  );bottom: {{customTabBarHeight}}px"
                          lower-threshold="{{lowerThreshold}}"
                          upper-threshold="0"
                          bindscrolltolower='scrolltolower'

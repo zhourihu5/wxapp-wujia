@@ -8,6 +8,7 @@ Page({
     data: {
         CustomBar: app.globalData.CustomBar,
         lowerThreshold: util.lowerThreshold(),
+        customTabBarHeight:util.customTabBarHeight(),
         active: 0,
         modalName:null,
         callPhone:null,
@@ -87,23 +88,37 @@ Page({
         }
     },
     onShow() {
-        if (typeof this.getTabBar === 'function' &&
-            this.getTabBar()) {
-            this.getTabBar().init()
-        }
+        console.log('order onShow')
+        this.setBottomTabBar()
         this.setTimeRemain()
         if(app.orderChanged){
             app.orderChanged=false
             this.refreshAllData()
         }
     },
+    setBottomTabBar(){
+        if (typeof this.getTabBar === 'function' &&
+            this.getTabBar()) {
+            // this.getTabBar().init()
+            this.getTabBar().setData({
+                active: 1,
+            })
+        }
+    },
+
     onHide(){
+        console.log('order onHide')
         interval && clearInterval(interval)
         interval=null
     },
     onLoad: function () {
+        console.log('order onLoad')
+        this.setBottomTabBar()
         register.register(this)
         this.refreshAllData()
+    },
+    onUnload(){
+        console.log('order onUnload')
     },
     //下拉刷新数据
     refresh:function(){
