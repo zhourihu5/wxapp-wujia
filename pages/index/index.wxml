@@ -31,7 +31,7 @@
                     >
                         <view wx:for="{{apiData.communtityList}}"
                               class="flex align-center item-community {{index==0?'no-border':''}}"
-                              hover-class="navigator-hover" hover-stop-propagation="{{true}}" bindtap="switchCommunity"
+                              hover-class="navigator-hover" hover-stop-propagation="{{true}}" catchtap="switchCommunity"
                               data-index="{{index}}">
                             <image wx:if="{{false}}" class="addres-img" src="/images/tab_my"></image>
                             <view class="flex-1 adr-name">{{item.name}}</view>
@@ -39,7 +39,7 @@
                         </view>
                     </scroll-view>
                     <view class="add-addr-btn" hover-class="navigator-hover" hover-stop-propagation="{{true}}"
-                          bindtap="addCommunity">
+                          catchtap="addCommunity">
                         <view class="cuIcon-add add-icon"></view>
                         <view class="xzsq">新增社区</view>
                     </view>
@@ -158,7 +158,7 @@
     </view>
 
 </view>
-<view class="modal-top0  {{modalName=='ModalAddCommunity'?'show':''}}">
+<view class="modal-top0  {{modalName=='ModalAddCommunity'?'show':''}}" catchtap="hideModal">
 
 </view>
 

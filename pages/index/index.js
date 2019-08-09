@@ -192,7 +192,7 @@ Page({
             url:'/pages/neibourList/index'
         })
     },
-    hideModal() {
+    hideModal(e) {
         this.setData({
             modalName: null
         })
