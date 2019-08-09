@@ -15,10 +15,10 @@
                 <image class="icon" src="/images/index_pos.png"></image>
                 <text class="location-text">{{communtityName}}</text>
             </view>
-            <button class="text-underline invite-visitor {{modalName=='ModalGuideInvite'?'show-invite':'m-r-30 button-no-border'}}"
+            <view class="text-underline invite-visitor {{modalName=='ModalGuideInvite'?'show-invite':'m-r-30 button-no-border'}}"
                     hover-class="navigator-hover" hover-stop-propagation="{{true}}"
-                    bindtap="{{modalName=='ModalGuideInvite'?'':'inviteVisitor'}}">邀请访客
-            </button>
+                    catchtap="{{modalName=='ModalGuideInvite'?'':'inviteVisitor'}}">邀请访客
+            </view>
             <!--            open-type="{{modalName=='ModalGuideInvite'?'':'share'}}"-->
             <view wx:if="{{modalName=='ModalAddCommunity'}}" class="switchCommunity">
                 <view class="triangle-up"></view>
@@ -45,6 +45,15 @@
                     </view>
                 </view>
             </view>
+<!--            <view wx:if="{{modalName=='ModalInviteVisitor'}}" class="switchCommunity">-->
+<!--                <view class="triangle-up i-v-triangle"></view>-->
+<!--                <view class="communityList" >-->
+<!--                    <button class="btn-share" hover-class="navigator-hover" hover-stop-propagation="{{true}}"-->
+<!--                          open-type="{{canNotShare?'':'share'}}" catchtap="onClickInviteShare" >-->
+<!--                        <view class="xzsq">选择访客并分享</view>-->
+<!--                    </button>-->
+<!--                </view>-->
+<!--            </view>-->
         </view>
     </view>
     <view class="activity-more flex  justify-between {{modalName=='ModalGuideMore'?'p-t-b-show':'p-t-b-normal'}}  {{modalName}}123"
@@ -134,6 +143,22 @@
         </button>
     </view>
 </view>
+<view class="cu-modal full-screen  {{modalName=='ModalInviteVisitor'?'show':''}}">
+    <view class="cu-dialog dialog-invite relative">
+        <view class="dialog-title-invite m-t-50 m-b-30">提示</view>
+        <view class="dialog-msg">请先申请访客的邀请码，再发送给好友</view>
+        <view class="dialog-action">
+            <view class="dialog-cancel" hover-class="navigator-hover" hover-stop-propagation="{{true}}" bindtap="hideModal">取消</view>
+            <button class="dialog-add no-border" hover-class="navigator-hover" hover-stop-propagation="{{true}}" bindtap="toAddArr"
+                    open-type="{{canNotShare?'':'share'}}"
+                    catchtap="onClickInviteShare" >
+                去申请
+            </button>
+        </view>
+    </view>
+</view>
+
+
 <view class="full-screen modal-top0  {{modalName=='ModalGuideInvite'?'show':''}}">
     <view class="invite-hint" style="top: calc( 130rpx + {{CustomBar}}px - 65rpx );">
         <view class="guide-invite-line-container">
@@ -161,6 +186,9 @@
 <view class="modal-top0  {{modalName=='ModalAddCommunity'?'show':''}}" catchtap="hideModal">
 
 </view>
+<!--<view class="modal-top0  {{modalName=='ModalInviteVisitor'?'show':''}}" catchtap="hideModal">-->
+
+<!--</view>-->
 
 <view class="modal-top0  {{modalName=='ModalGuideOpen'?'show':''}}">
     <view class="open-hint">

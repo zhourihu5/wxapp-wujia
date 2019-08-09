@@ -4,8 +4,6 @@ const app = getApp()
 const network = require('../../utils/network.js')
 Page({
     data: {
-        failReason: null,
-        canNotShare:true,
         apiData:null,
     },
     showNavigationBarLoading(){
@@ -21,16 +19,24 @@ Page({
     onShow() {
     },
     onLoad: function (options) {
-        var that=this
-        network.requestGet('/v1/user/findWxUserInfo',//todo 获取开锁code url
-            {},function (data) {
-            that.setData({
-                apiData:data,
-                canNotShare:false,
-            })
-        },function (msg) {
+        console.log('inviteVisitor page options')
+        console.log(options)
+        // options=options||{}//todo test
+        // options.applyCode='1234'
+        // options.communityName='天通苑小区'
 
+        if(options){
+            this.data.apiData={}
+            this.data.apiData.applyCode=options.applyCode
+            this.data.apiData.communityName=options.communityName
+            // this.data.apiData.applyCodeSplit=options.applyCode&&options.applyCode.split('')
+            this.data.apiData.applyCodeSplit=options.applyCode
+        }
+        this.setData({
+            apiData:this.data.apiData
         })
+        console.log('inviteVisitor page apiData')
+        console.log(this.data.apiData)
     },
     //转发
     onShareAppMessage: function(res) {
@@ -38,14 +44,6 @@ Page({
         console.log(res)
         if (res.from === 'button') {//邀请好友
             console.log('button onShareAppMessage')
-            return {
-                // title: '吾家小智',//默认当前小程序名称
-                path: '/pages/index/index?applyCode=111',//todo 获取开锁code
-                success: function (res) {
-                    console.log('onShareAppMessage success')
-                    console.log(res)
-                }
-            }
         }
         return {
             // title: '吾家小智',//默认当前小程序名称
@@ -56,11 +54,18 @@ Page({
             }
         }
     },
-    onClick(e) {
-        if(this.data.canNotShare){
-            app.showToast('数据正在加载中，请稍等')
-            return
-        }
-
+    copyCode(e) {
+        var that=this
+        wx.setClipboardData({
+            data:that.data.apiData.applyCode,
+            success (res) {
+                wx.getClipboardData({
+                    success (res) {
+                        console.log('复制成功')
+                        console.log(res.data) // data
+                    }
+                })
+            }
+        })
     }
 })

@@ -9,12 +9,15 @@ Page({
         getCodeText: '获取验证码',
         isBindEnabled: false,
         isAuthorized: app.isAuthorized,
-        modalName: "ModalGuideInvite,ModalBindPhone,ModalGuideMore,ModalGuideOpen,ModalAddCommunity,",
+        // modalName: "ModalGuideInvite,ModalBindPhone,ModalGuideMore,ModalGuideOpen,ModalAddCommunity,ModalInviteVisitor",
+        modalName: null,
         communtityName: '',
         cummunityIndex: null,
         apiData: null,
         failReason: null,
         applyCode:null,//todo 动态开锁密码
+        canNotShare:true,
+        inviteData:null,//邀请访客时需要的数据
     },
     customData: {
         y: 0,
@@ -35,13 +38,15 @@ Page({
     },
     //转发
     onShareAppMessage: function(res) {
+        var that=this
         console.log('onShareAppMessage')
         console.log(res)
         if (res.from === 'button') {//邀请好友
             console.log('button onShareAppMessage')
             return {
                 // title: '吾家小智',//默认当前小程序名称
-                path: '/pages/index/index?applyCode=111',//todo
+                // path: '/pages/index/index?applyCode=111',//todo
+                path: `/pages/inviteVisitor/index?applyCode=${that.data.applyCode}&communityName=${that.data.communtityName}`,//todo
                 success: function (res) {
                     console.log('onShareAppMessage success')
                     console.log(res)
@@ -58,10 +63,31 @@ Page({
         }
     },
     inviteVisitor(e) {
+        var that=this
         console.log("邀请访客")
-        wx.navigateTo({
-            url:"/pages/inviteVisitor/index"
-        })
+        // wx.navigateTo({
+        //     url:"/pages/inviteVisitor/index"
+        // })
+        this.showModal('ModalInviteVisitor')
+        network.requestGet('/v1/user/findWxUserInfo',//todo 获取开锁code url
+            {},function (data) {
+                that.setData({
+                    inviteData:data,
+                    canNotShare:false,
+                })
+                that.data.applyCode='1234'//todo test,
+            },function (msg) {
+                that.setData({
+                    canNotShare:true,
+                })
+            })
+    },
+    onClickInviteShare(e){
+        if(this.data.canNotShare){
+            app.showToast('还未生成邀请码，请稍等')
+            return
+        }
+        this.hideModal()
     },
     bindPhone: function (e) {
         var that = this

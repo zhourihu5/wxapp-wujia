@@ -1,17 +1,25 @@
-<cu-custom bgColor="titlebar-white" isBack="{{true}}">
-    <view slot="backText"></view>
-    <view slot="content"><text class="{{navigationBarLoading?'wj-loading-icon':''}}"/>邀请访客</view>
-</cu-custom>
+<image class="img-bg" src="/images/invite_visitor_bg.png"/>
+
 <view class="body">
-<!--    <view class="img-content">-->
-<!--        <image class="img" src="/images/audit_fail.png"></image>-->
-<!--        <view class="img-desc">您提交的信息被驳回， 请重新申请～</view>-->
-<!--    </view>-->
-<!--    <view class="bhyy">-->
-<!--        <text class="bhyy-title">驳回原因：</text>-->
-<!--        {{failReason}}-->
-<!--    </view>-->
-    <button class="btn-apply" hover-class="navigator-hover" hover-stop-propagation="{{true}}"
-            open-type="{{canNotShare?'':'share'}}"
-            bindtap="onClick">分享开锁密码</button>
+    <cu-custom  isBack="{{false}}">
+        <view slot="backText"></view>
+        <view slot="content"><text class="{{navigationBarLoading?'wj-loading-icon':''}}"/></view>
+    </cu-custom>
+    <image class="image-wj m-t-50" src="/images/image_wj.png" />
+    <view class="logo-text">吾 家</view>
+    <view class="container-t">
+        <view class="c-name">{{apiData.communityName}}</view>
+        <view class="ndsyms">您的受邀码是</view>
+        <view class="flex" >
+            <text wx:for="{{apiData.applyCodeSplit}}" class="code-text">{{item}}</text>
+        </view>
+        <view class="btn-copy" hover-class="navigator-hover" hover-stop-propagation="{{true}}" catchtap="copyCode" >复制受邀码</view>
+        <view class="flex align-center w-p-100 m-t-b-30">
+            <view class="l-corner"></view>
+            <view class="dash-line-y flex-1"></view>
+            <view class="r-corner"></view>
+        </view>
+        <view class="b-text p-b-30">快去拜访你的朋友吧～</view>
+
+    </view>
 </view>
