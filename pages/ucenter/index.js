@@ -23,6 +23,7 @@ Page({
         nickName: '',
         phone: '',
         avatarUrl: '',
+        customTabBarHeight:util.customTabBarHeight(),
     },
     showNavigationBarLoading(){
         this.setData({

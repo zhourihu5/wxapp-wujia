@@ -27,7 +27,7 @@
             </view>
         </navigator>
     </block>
-    <view class="wjrsqshgmh">
+    <view class="wjrsqshgmh" style="bottom: calc( 100rpx + {{customTabBarHeight}}px );">
         吾家让社区生活更美好～
     </view>
     <!--    <view style="width: 740rpx;background: red;">test</view>-->
