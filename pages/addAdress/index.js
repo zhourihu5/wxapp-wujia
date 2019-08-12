@@ -8,7 +8,7 @@ Page({
         communityList: null,
         currentCommunity: null,
         value: [0,],//社区位置
-        valueTmp:null,
+        valueTmp:[0,],
         flagList: null,
         sex: null,
         receiveName: null,

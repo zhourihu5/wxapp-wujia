@@ -7,7 +7,7 @@ Page({
     data: {
         CustomBar: app.globalData.CustomBar,
         pickerValue: [0, 0, 0],
-        pickerValueTmp:null,
+        pickerValueTmp:[0, 0, 0],
         modalName: null,
         currentArea: null,//展示
         apiAreaData: null,
