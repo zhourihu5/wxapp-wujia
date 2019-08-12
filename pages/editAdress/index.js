@@ -139,6 +139,7 @@ Page({
             that.setData({
                 tabs: that.data.tabs
             })
+            that.canClickSave()
             console.log('tabData')
             console.log(that.data.tabs)
         }, function (msg) {
@@ -266,7 +267,8 @@ Page({
             city: that.data.currentCommunity.city,
             area: that.data.currentCommunity.area,
             communtityId: that.data.currentCommunity.id,
-            id:that.data.currentAddr.id
+            communtityName: that.data.currentCommunity.name,
+            id:that.data.currentAddr.id,
 
         }, function (data) {
             var pages = getCurrentPages() // 获取栈中全部界面的, 然后把数据写入相应界面

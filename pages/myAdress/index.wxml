@@ -11,7 +11,7 @@
             <view class="w-b">
                 <view class="item-c {{index==0?'no-border':''}}" hover-class="navigator-hover" hover-stop-propagation="{{true}}" bindtap="itemClick" data-index="{{index}}">
                     <view class="item-c-l">
-                        <view>{{item.communtityName}}{{item.address}}</view>
+                        <view class="t-addr">{{item.communtityName}}{{item.address}}</view>
                         <view class="t-gray-b">{{item.name}}{{item.phone}}</view>
                     </view>
                     <view class="cuIcon-edit icon-edit" data-index="{{index}}"
