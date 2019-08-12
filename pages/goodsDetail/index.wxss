@@ -286,7 +286,7 @@
   align-items: center|bottom;
   box-sizing: border-box;
 
-  margin: 40rpx 0;
+  /*margin: 40rpx 0;*/
 }
 .item3-2-l{
   max-width: calc(100% - 232rpx);

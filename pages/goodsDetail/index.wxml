@@ -60,7 +60,7 @@
             <view class="flex align-center text-underline hdsm" hover-class="navigator-hover" hover-stop-propagation="{{true}}" bindtap="showModal">活动说明</view>
         </view>
 
-        <view wx:if="{{apiData.userInfoList.length>0}}" class="item3-2">
+        <view wx:if="{{apiData.userInfoList.length>0}}" class="item3-2 m-t-40">
             <view class="cu-avatar-group item3-2-l">
 <!--                <image class="cu-avatar round round-image" wx:for="{{apiData.userInfoList}}" wx:key-->
 <!--                       src="{{item.wxCover}}"></image>-->
@@ -69,7 +69,7 @@
             <!--                //todo 居于底部-->
             <view  class="item-3-2-r">...等{{apiData.activity.commodity.salesNum}}名用户已参与</view>
         </view>
-        <view wx:if="{{saleTip.length>1}}" class="center zlyrctghd">再来{{saleTip[0]}}人参团该活动商品立减
+        <view wx:if="{{saleTip.length>1}}" class="center zlyrctghd m-t-40">再来{{saleTip[0]}}人参团该活动商品立减
             <text class="lijian">{{saleTip[1]}}</text>
             元
         </view>

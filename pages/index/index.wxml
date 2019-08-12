@@ -16,7 +16,7 @@
                 <text class="location-text">{{communtityName}}</text>
             </view>
             <view class="text-underline invite-visitor {{modalName=='ModalGuideInvite'?'show-invite':'m-r-30 button-no-border'}}"
-                    hover-class="navigator-hover" hover-stop-propagation="{{true}}"
+                    hover-class="{{modalName=='ModalGuideInvite'?'':'navigator-hover'}}" hover-stop-propagation="{{true}}"
                     catchtap="{{modalName=='ModalGuideInvite'?'':'inviteVisitor'}}">邀请访客
             </view>
             <!--            open-type="{{modalName=='ModalGuideInvite'?'':'share'}}"-->
@@ -56,8 +56,8 @@
 <!--            </view>-->
         </view>
     </view>
-    <view class="activity-more flex  justify-between {{modalName=='ModalGuideMore'?'p-t-b-show':'p-t-b-normal'}}  {{modalName}}123"
-          hover-class="navigator-hover" hover-stop-propagation="{{true}}"
+    <view class="activity-more flex  justify-between {{modalName=='ModalGuideMore'?'p-t-b-show':'p-t-b-normal'}}"
+          hover-class="{{modalName=='ModalGuideMore'?'':'navigator-hover'}}" hover-stop-propagation="{{true}}"
           bindtap="{{modalName!='ModalGuideMore'?'toMore':''}}">
         <view class="jxhd">精选活动</view>
         <view class="more {{modalName=='ModalGuideMore'?'showMore':'m-r-30'}}">
