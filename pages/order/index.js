@@ -59,7 +59,7 @@ Page({
                 data:[],
             },
         ],
-        pageSize: 10,
+        pageSize: 20,
 
     },
     showNavigationBarLoading(){

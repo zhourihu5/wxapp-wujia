@@ -14,7 +14,7 @@ Page({
     },
     customData: {
         pageNum: 1,
-        pageSize: 3,
+        pageSize: 20,
 
     },
     showNavigationBarLoading(){

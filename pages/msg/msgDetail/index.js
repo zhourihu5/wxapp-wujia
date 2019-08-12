@@ -6,7 +6,7 @@ var register = require('../../../refreshview/refreshLoadRegister.js');
 Page({
     data: {
         pageNum:1,
-        pageSize:10,
+        pageSize:20,
         apiData:[],
         reachBottom:false,
         isLoading:false,
