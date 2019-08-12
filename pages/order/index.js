@@ -89,6 +89,16 @@ Page({
     },
     onShow() {
         console.log('order onShow')
+        if(!app.isTabEnabled){
+            console.log('getCurrentPages')
+            console.log(getCurrentPages())
+            wx.switchTab({
+                url:'/pages/index/index'
+            })
+            return
+        }
+
+
         this.setBottomTabBar()
         this.setTimeRemain()
         if(app.orderChanged){

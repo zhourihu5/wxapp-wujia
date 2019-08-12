@@ -42,6 +42,14 @@ Page({
     },
     onShow() {
         console.log('msg onShow')
+        if(!app.isTabEnabled){
+            console.log('getCurrentPages')
+            console.log(getCurrentPages())
+            wx.switchTab({
+                url:'/pages/index/index'
+            })
+            return
+        }
         this.setBottomTabBar()
         this.loadData()
     },

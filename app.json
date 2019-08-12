@@ -71,6 +71,7 @@
   "usingComponents": {
     "cu-custom": "/colorui/components/cu-custom",
     "stepper": "/components/stepper/index",
+    "custom-tab-bar": "/custom-tab-bar/index",
 
 
     "van-action-sheet": "../../dist/action-sheet/index",

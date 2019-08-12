@@ -174,11 +174,25 @@ Page({
         if (typeof this.getTabBar === 'function' &&
             this.getTabBar()) {
             this.getTabBar().enable(enabled)
+        }else {
+           app.isTabEnabled=enabled
         }
     },
     showModal(name) {
+        // app.isCustomTabBar=true
+        // var that=this
+        // wx.hideTabBar({
+        //     aniamtion:false,
+        //     success(res) {
+        //         console.log('hideTabBar success')
+        //         that.setData({
+        //             modalName: name,
+        //             customTabBarHeight:util.customTabBarHeight(),
+        //         })
+        //     }
+        // })
         this.setData({
-            modalName: name
+            modalName: name,
         })
         this.isEnableTabBar()
     },
@@ -220,9 +234,22 @@ Page({
         })
     },
     hideModal(e) {
+        // app.isCustomTabBar=false
         this.setData({
-            modalName: null
+            modalName: null,
+            // customTabBarHeight:util.customTabBarHeight(),
         })
+        // var that=this
+        // wx.showTabBar({
+        //     aniamtion:false,
+        //     success(res) {
+        //         console.log('showTabBar success')
+        //         that.setData({
+        //             modalName: name,
+        //             // customTabBarHeight:util.customTabBarHeight(),
+        //         })
+        //     }
+        // })
         this.isEnableTabBar()
     },
 

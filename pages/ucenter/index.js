@@ -61,6 +61,14 @@ Page({
     },
     onShow() {
         console.log('ucenter onShow')
+        if(!app.isTabEnabled){
+            console.log('getCurrentPages')
+            console.log(getCurrentPages())
+            wx.switchTab({
+                url:'/pages/index/index'
+            })
+            return
+        }
         this.setBottomTabBar()
     },
     onHide(){

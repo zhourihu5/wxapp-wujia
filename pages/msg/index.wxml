@@ -30,3 +30,4 @@
     </block>
 <!--</view>-->
 </scroll-view>
+<custom-tab-bar wx:if="{{false}}" isModalMode="{{false}}" activeTab="{{2}}"></custom-tab-bar>

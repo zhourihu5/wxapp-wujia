@@ -119,7 +119,7 @@
         </view>
     </movable-view>
 </movable-area>
-
+<custom-tab-bar wx:if="{{false&&modalName}}" isModalMode="{{false}}" activeTab="{{0}}"></custom-tab-bar>
 
 <view class="cu-modal full-screen  {{modalName=='ModalBindPhone'?'show':''}}">
     <view class="cu-dialog dialog">
@@ -191,12 +191,12 @@
 <!--</view>-->
 
 <view class="modal-top0  {{modalName=='ModalGuideOpen'?'show':''}}">
-    <view class="open-hint">
+    <view class="open-hint" style="bottom: calc( 390rpx - 98rpx + {{customTabBarHeight}}px )">
         <view class="djkyqhyo">向上滑动可以开门哦</view>
         <view class="i-know-invite" hover-class="navigator-hover" hover-stop-propagation="{{true}}"
               bindtap="hideModalGuideOpen">我知道了
         </view>
     </view>
-    <view class="guide-open-line"></view>
+    <view class="guide-open-line" style="bottom: calc( 290rpx - 98rpx + {{customTabBarHeight}}px )"></view>
 
 </view>

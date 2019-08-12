@@ -83,6 +83,9 @@
         </van-tab>
     </van-tabs>
 </view>
+<custom-tab-bar wx:if="{{false}}" isModalMode="{{false}}" activeTab="{{1}}"></custom-tab-bar>
+
+
 <view class="cu-modal full-screen  {{modalName=='ModalCallPhone'?'show':''}}">
     <view class="cu-dialog dialog relative">
         <view class="dialog-title">{{callPhone}}</view>

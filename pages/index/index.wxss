@@ -758,7 +758,8 @@ movable-area {
     color:rgba(255,255,255,1);
     line-height:40rpx;
 
-    padding: 0 0;
+    /*just for button*/
+    /*padding: 0 0;*/
 }
 .button-no-border{
     background: none;

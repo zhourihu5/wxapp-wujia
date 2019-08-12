@@ -33,3 +33,4 @@
     <!--    <view style="width: 740rpx;background: red;">test</view>-->
     <!--    <view style="width: 750rpx;background: red;">test</view>-->
 </view>
+<custom-tab-bar wx:if="{{false}}" isModalMode="{{false}}" activeTab="{{3}}"></custom-tab-bar>

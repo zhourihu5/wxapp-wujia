@@ -19,11 +19,14 @@
   <view class="wj-tabitem" hover-class="navigator-hover" hover-stop-propagation="{{true}}"  bindtap="NavChange" data-active="{{index}}" wx:for="{{ list }}" wx:key="index">
     <view class='cuIcon-cu-image'>
       <image class="tab-image" src="{{index==active?item.selectedIconPath:item.iconPath }}"></image>
-<!--      <image class="tab-image" src="{{index==utils.getCurrentActiveTab(active,thiz)?item.selectedIconPath:item.iconPath }}"></image>-->
     </view>
     <view class="{{index===active?'tab-selected':'tab-unselected'}} m-t-b-4">{{item.text}}</view>
+<!--    <view class='cuIcon-cu-image'>-->
+<!--      <image class="tab-image" src="{{index==activeTab?item.selectedIconPath:item.iconPath }}"></image>-->
+<!--    </view>-->
+<!--    <view class="{{index===activeTab?'tab-selected':'tab-unselected'}} m-t-b-4">{{item.text}}</view>-->
   </view>
 </view>
-<view wx:if="{{!isEnabled}}" class="cu-bar foot cu-modal show bg-modal">
+<view wx:if="{{!isEnabled||isModalMode}}" class="cu-bar foot cu-modal show bg-modal">
 
 </view>

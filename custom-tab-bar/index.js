@@ -32,27 +32,37 @@ Component({
       }
     ]
   },
+  properties: {
+    isModalMode: {
+      type: [Boolean],
+      default: false
+    },
+    activeTab: {
+      type: [Number],
+      default: 0
+    },
+  },
   created(){
     console.log('custom-tab-bar created')
-    this.data.active=util.getCurrentActiveTab()
-    this.setData({
-      active:this.data.active
-    })
-    console.log(this.data)
+    // this.data.active=util.getCurrentActiveTab()
+    // this.setData({
+    //   active:this.data.active
+    // })
+    // console.log(this.data)
   },
   invokeByWxs(){
     return getCurrentPages()
   },
   ready(){
     console.log('custom-tab-bar ready')
-    this.setData({
-      thiz:this,
-    })
+    // this.setData({
+    //   thiz:this,
+    // })
     // this.data.active=util.getCurrentActiveTab()
     // this.setData({
     //   active:this.data.active
     // })
-    console.log(this.data)
+    // console.log(this.data)
   },
   methods: {
     onChange(event) {

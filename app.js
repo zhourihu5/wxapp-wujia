@@ -15,6 +15,7 @@ App({
   orderChanged:false,
   activityChanged:false,
   isCustomTabBar:false,
+  isTabEnabled:true,
   showToast(msg){
     wx.showToast({
       title: msg,
@@ -23,6 +24,9 @@ App({
     })
   },
   onLaunch: function(option) {
+    // wx.hideTabBar({
+    //   aniamtion:false
+    // })
     try {
       const e = wx.getSystemInfoSync()
       console.log('获取设备系统信息success')
