@@ -21,7 +21,7 @@
         <view class="relative w-p-100">
             <view class="item-1 p-t-b-50 p-l-r-20 flex align-center w-p-100">
                 <view wx:if="{{myAddress}}" class="flex-1">
-                    <view>{{myAddress.address}}</view>
+                    <view>{{myAddress.communtityName}}{{myAddress.address}}</view>
                     <view class="uname">{{myAddress.name}}{{myAddress.phone}}</view>
                 </view>
                 <view wx:else class="flex-1">
