@@ -123,6 +123,14 @@ Page({
     },
     onLoad: function () {
         console.log('order onLoad')
+        if(!app.isTabEnabled){
+            console.log('getCurrentPages')
+            console.log(getCurrentPages())
+            wx.switchTab({
+                url:'/pages/index/index'
+            })
+            return
+        }
         this.setBottomTabBar()
         register.register(this)
         this.refreshAllData()

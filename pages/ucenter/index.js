@@ -81,6 +81,14 @@ Page({
     },
     onLoad: function () {
         console.log('ucenter onLoad')
+        if(!app.isTabEnabled){
+            console.log('getCurrentPages')
+            console.log(getCurrentPages())
+            wx.switchTab({
+                url:'/pages/index/index'
+            })
+            return
+        }
         this.setBottomTabBar()
         var userInfo = app.wxUserInfo
         this.setData({

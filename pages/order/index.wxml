@@ -71,7 +71,7 @@
                         </view>
                     </view>
                 </block>
-                <view wx:if="{{tab.reachBottom&&tab.isLoading}}" class="cu-load wj-loading {{isLoading?'loading':'over'}}"></view>
+                <view wx:if="{{tab.reachBottom&&tab.isLoading}}" class="cu-load wj-loading {{tab.isLoading?'loading':'over'}}"></view>
                 <view wx:if="{{tab.isOver&&tab.data.length<=0}}" class="empty-container">
                     <image class="empty-img" src="/images/empty_order.png"></image>
                     <view class="empty-text">您还没有订单哦～</view>

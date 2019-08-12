@@ -2,6 +2,7 @@
 const util = require('../../utils/util.js')
 const network = require('../../utils/network.js')
 var register = require('../../refreshview/refreshLoadRegister.js');
+const app=getApp()
 Page({
     data: {
         apiData:null,
@@ -69,6 +70,14 @@ Page({
     },
     onLoad: function () {
         console.log('msg onLoad')
+        if(!app.isTabEnabled){
+            console.log('getCurrentPages')
+            console.log(getCurrentPages())
+            wx.switchTab({
+                url:'/pages/index/index'
+            })
+            return
+        }
         this.setBottomTabBar()
         register.register(this)
     },
