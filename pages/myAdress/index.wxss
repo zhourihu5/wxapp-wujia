@@ -50,10 +50,12 @@
     /*width:30rpx;*/
     /*height:30rpx;*/
     font-size: 30rpx;
-    line-height: 30rpx;
+    /*line-height: 30rpx;*/
+    line-height: 60rpx;
 
-    padding: 50rpx 0;
-    padding-left: 50rpx;
+    text-align: center;
+
+    padding-left: 30rpx;
 }
 .item-c-l{
     flex: 1;
