@@ -20,7 +20,8 @@ Page({
                 desc: ''
             },
 
-        ]
+        ],
+        isClicked:false,
     },
     showNavigationBarLoading(){
         this.setData({
@@ -80,6 +81,10 @@ Page({
             return
         }
         var that = this
+        if(that.data.isClicked){
+            return;
+        }
+        that.data.isClicked=true
         network.requestPost('/v1/order/saveOrder', {
             activityId: that.data.apiData.id,
             deliveryUname: that.data.myAddress.name,
@@ -89,6 +94,7 @@ Page({
             commodityId: that.data.apiData.commodity.id,
 
         }, function (data) {
+            that.data.isClicked=false
             app.orderChanged=true
             that.data.apiPayOrderData=data
 
@@ -101,7 +107,7 @@ Page({
             // }
             that.wxPay()
         }, function (msg) {
-
+            that.data.isClicked=false
         })
 
 

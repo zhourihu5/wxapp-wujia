@@ -25,7 +25,8 @@ Page({
                 selected: null,
             },
 
-        ]
+        ],
+        isClicked:false,
     },
     showNavigationBarLoading(){
         this.setData({
@@ -226,6 +227,10 @@ Page({
             return
         }
         var that = this
+        if(that.data.isClicked){
+            return;
+        }
+        that.data.isClicked=true
         network.requestPost('/v1/address/saveAddress', {
             name: that.data.receiveName,
             phone: that.data.phone,
@@ -238,6 +243,7 @@ Page({
             communtityName: that.data.currentCommunity.name,
 
         }, function (data) {
+            that.data.isClicked=false
             var pages = getCurrentPages() // 获取栈中全部界面的, 然后把数据写入相应界面
             // var currentPage  = pages[pages.length - 1]  //当前界面
             var prePage = pages[pages.length - 2]  //上一个界面
@@ -247,7 +253,7 @@ Page({
                 delta: 1
             });
         }, function (msg) {
-
+            that.data.isClicked=false
         })
 
     },

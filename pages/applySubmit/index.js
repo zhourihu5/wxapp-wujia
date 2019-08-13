@@ -24,6 +24,7 @@ Page({
             },
 
         ],
+        isClicked:false,
 
     },
     showNavigationBarLoading(){
@@ -189,6 +190,10 @@ Page({
             return
         }
         var that = this
+        if(that.data.isClicked){
+            return;
+        }
+        that.data.isClicked=true
         network.requestPost('/v1/apply/applyUnLock', {
             applyName: that.data.applyName,
             ownName: that.data.ownName,
@@ -196,11 +201,12 @@ Page({
             familyId: that.data.familyId,
             familyName: that.data.showAddress,
         }, function (data) {
+            that.data.isClicked=false
             wx.redirectTo({
                 url: "/pages/auditWait/index"
             });
         }, function (msg) {
-
+            that.data.isClicked=false
         })
 
     },
