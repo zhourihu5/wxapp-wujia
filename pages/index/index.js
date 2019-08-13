@@ -158,10 +158,18 @@ Page({
     touchendOpen(e) {
         console.log(e)
         console.log(this.customData)
+        var that=this
         if (this.customData.y < util.rpxToPx(20)) {
-            //todo 请求开锁接口，成功后回弹
-            this.setData({// 回弹
-                y: util.rpxToPx(40),
+            network.requestGet('/v1/apply/openDoor',{},function (data) {
+                //todo 请求开锁接口，成功后回弹
+                that.setData({// 回弹
+                    y: util.rpxToPx(40),
+                })
+                app.showToast('锁已开')
+            },function (msg) {
+                that.setData({// 回弹
+                    y: util.rpxToPx(40),
+                })
             })
         } else {
 
