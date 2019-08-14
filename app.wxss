@@ -130,7 +130,7 @@ tab-bar{
   /*height:28px;*/
   font-size:20rpx;
   font-family:PingFangSC-Regular;
-  font-weight:400;
+  font-weight:500;
   color:rgba(136,136,136,1);
   line-height:28rpx;
 

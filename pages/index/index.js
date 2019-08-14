@@ -98,7 +98,8 @@ Page({
                 app.showToast('正在生成邀请码，请稍等')
                 return
             }else {
-                app.showToast('生成邀请码失败，请重新生成')
+                app.showToast('生成邀请码失败，正在重新生成')
+                that.inviteVisitor()
                 return
             }
         }
