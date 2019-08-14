@@ -64,7 +64,7 @@
                             <view class="btn-wraper">
                                 <view class="left-empty"></view>
                                 <view wx:if="{{item.status=='1'}}" class="pay-right-now" hover-class="navigator-hover" hover-stop-propagation="{{true}}" catchtap="toPay" data-index="{{index}}"  data-id="{{item.id}}">立即付款</view>
-                                <view wx:elif="{{item.status=='2'}}" class="lxshr" hover-class="navigator-hover" hover-stop-propagation="{{true}}" catchtap="askDeliver" data-phone="{{item.deliveryPhone}}">联系送货人</view>
+                                <view wx:elif="{{item.status=='2'&&item.deliveryPhone}}" class="lxshr" hover-class="navigator-hover" hover-stop-propagation="{{true}}" catchtap="askDeliver" data-phone="{{item.deliveryPhone}}">联系送货人</view>
                                 <view wx:else class="go-stroll" hover-class="navigator-hover" hover-stop-propagation="{{true}}"  catchtap="goStroll">去逛逛</view>
                             </view>
 

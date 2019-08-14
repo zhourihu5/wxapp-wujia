@@ -27,6 +27,7 @@ tab-bar{
   /*justify-content: space-between;*/
   box-sizing: border-box;
   overflow: scroll;
+  -webkit-overflow-scrolling: touch;
   position: fixed;
   background-color: #F6F7F9;
 }

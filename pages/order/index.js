@@ -304,10 +304,15 @@ Page({
     },
     askDeliver(e){//联系送货人
         var phone= e.currentTarget.dataset.phone
-        this.setData({
-            modalName:'ModalCallPhone',
-            callPhone:phone,
-        })
+        if(phone){
+            this.setData({
+                modalName:'ModalCallPhone',
+                callPhone:phone,
+            })
+        }else {
+            app.showToast('快递小哥拼命抢单中')
+        }
+
     },
     makePhoneCall(e) {
         this.hideModal(e);

@@ -70,23 +70,37 @@ Page({
         //     url:"/pages/inviteVisitor/index"
         // })
         this.showModal('ModalInviteVisitor')
-        network.requestGet('/v1/user/findWxUserInfo',//todo 获取开锁code url
-            {},function (data) {
-                that.setData({
-                    inviteData:data,
-                    canNotShare:false,
-                })
-                that.data.applyCode='1234'//todo test,
-            },function (msg) {
-                that.setData({
-                    canNotShare:true,
-                })
+        if(that.data.isGeneratingCode){
+            return
+        }
+        that.data.isGeneratingCode=true
+        that.setData({
+            canNotShare:true,
+        })
+        network.requestGet('/v1/apply/secretCodeWithOpenDoor',{communtityCode:app.communtityCode},function (data) {
+            that.data.isGeneratingCode=false
+            that.setData({
+                inviteData:data,
+                canNotShare:false,
             })
+            // that.data.applyCode='1234'//todo test,
+        },function (msg) {
+            that.data.isGeneratingCode=false
+            that.setData({
+                canNotShare:true,
+            })
+        })
     },
     onClickInviteShare(e){
+        var that=this
         if(this.data.canNotShare){
-            app.showToast('还未生成邀请码，请稍等')
-            return
+            if(that.data.isGeneratingCode){
+                app.showToast('正在生成邀请码，请稍等')
+                return
+            }else {
+                app.showToast('生成邀请码失败，请重新生成')
+                return
+            }
         }
         this.hideModal()
     },
@@ -159,21 +173,25 @@ Page({
         console.log(e)
         console.log(this.customData)
         var that=this
+        that.setData({// 回弹
+            y: util.rpxToPx(40),
+        })
         if (this.customData.y < util.rpxToPx(20)) {
-            network.requestGet('/v1/apply/openDoor',{},function (data) {
-                //todo 请求开锁接口，成功后回弹
-                that.setData({// 回弹
-                    y: util.rpxToPx(40),
-                })
+            if(that.data.isOpeningDoor){
+                app.showToast('正在开锁，请稍等')
+                return
+            }
+            that.data.isOpeningDoor=true
+            network.requestGet('/v1/apply/openDoor',{communtityCode:app.communtityCode},function (data) {
+                that.data.isOpeningDoor=false
                 app.showToast('锁已开')
             },function (msg) {
-                that.setData({// 回弹
-                    y: util.rpxToPx(40),
-                })
+                that.data.isOpeningDoor=false
             })
         } else {
 
         }
+
     },
     isEnableTabBar() {
         this.enableTabBar(!this.data.modalName);
