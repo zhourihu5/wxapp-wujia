@@ -47,7 +47,7 @@ Page({
             return {
                 // title: '吾家小智',//默认当前小程序名称
                 // path: '/pages/index/index?applyCode=111',//todo
-                path: `/pages/inviteVisitor/index?applyCode=${that.data.applyCode}&communityName=${that.data.communtityName}`,//todo
+                path: `/pages/inviteVisitor/index?applyCode=${that.data.inviteData.code}&communityName=${that.data.inviteData.address}`,
                 success: function (res) {
                     console.log('onShareAppMessage success')
                     console.log(res)
@@ -83,7 +83,6 @@ Page({
                 inviteData:data,
                 canNotShare:false,
             })
-            // that.data.applyCode='1234'//todo test,
         },function (msg) {
             that.data.isGeneratingCode=false
             that.setData({
