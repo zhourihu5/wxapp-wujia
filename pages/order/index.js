@@ -356,6 +356,7 @@ Page({
             {
                 id:orderData.id,
                 code:orderData.code,
+                activityId: orderData.activity.id,
             },
             function (data) {
 

@@ -33,7 +33,7 @@
         </view>
     </view>
 
-    <view class="m-t-b-30 djdzp">大家都在拼</view>
+    <view class="m-t-b-30 djdzp" wx:if="{{apiData.length>0}}">大家都在拼</view>
 
     <block wx:for="{{apiData}}" wx:key="">
 

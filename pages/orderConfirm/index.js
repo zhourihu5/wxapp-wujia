@@ -119,6 +119,7 @@ Page({
             {
                 id:that.data.apiPayOrderData.id,
                 code:that.data.apiPayOrderData.code,
+                activityId: that.data.apiData.id,
             },
             function (data) {
 
