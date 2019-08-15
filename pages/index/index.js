@@ -410,9 +410,10 @@ Page({
         })
     },
     onPullDownRefresh: function() {
+        wx.stopPullDownRefresh()
         // 触发下拉刷新时执行
         wx.reLaunch({
-            url:'pages/index/index',
+            url:'/pages/index/index',
         })
     },
 

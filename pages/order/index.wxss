@@ -248,7 +248,7 @@
   height:140rpx;
   background:rgba(216,216,216,1);
   border-radius:16rpx;
-  border:2rpx solid rgba(151,151,151,1);
+  /*border:2rpx solid rgba(151,151,151,1);*/
   margin-right: 20rpx;
 }
 .order-name{
@@ -316,7 +316,7 @@
   line-height:28rpx;
 }
 .order-text{
-  display: inline-block;
+  /*display: inline-block;*/
   /*height: 100%;*/
   /*position: relative;*/
 }
@@ -324,6 +324,7 @@
   /*position: absolute;*/
   /*bottom: 0;*/
   margin-top: 19px;
+    display: flex;
 }
 .order-middle-item{
   /*width:650px;*/
