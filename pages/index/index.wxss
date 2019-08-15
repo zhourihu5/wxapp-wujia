@@ -332,7 +332,7 @@ page{
     height:284rpx;
     background:rgba(216,216,216,1);
     border-radius:16rpx 16rpx 0px 0px;
-    border:2rpx solid rgba(151,151,151,1);
+    /*border:2rpx solid rgba(151,151,151,1);*/
 
 
     display: block;

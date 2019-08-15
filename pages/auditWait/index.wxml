@@ -3,7 +3,9 @@
     <view slot="content"><text class="{{navigationBarLoading?'wj-loading-icon':''}}"/>吾家小智</view>
 </cu-custom>
 <view class="body">
-    <view class="img-content">
+    <include src="../../refreshview/refreshHeaderView.wxml"/>
+    <view class="img-content" bindscroll="scroll"  bindscrolltoupper="upper" bindtouchstart="start" bindtouchend="end"
+          bindtouchmove="move">
         <image class="img" src="/images/audit_wait.png"></image>
         <view class="img-desc">您已成功提交申请！</view>
         <view class="img-desc">等待审核~</view>

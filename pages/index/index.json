@@ -1,4 +1,5 @@
 {
   "navigationBarTitleText": "吾家小智",
+  "enablePullDownRefresh": false,
   "usingComponents": {}
 }

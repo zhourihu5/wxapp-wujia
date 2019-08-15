@@ -1,6 +1,7 @@
 //index.js
 const util = require('../../utils/util.js')
 const app = getApp()
+var register = require('../../refreshview/refreshLoadRegister.js');
 Page({
     data: {
         isBack:false
@@ -32,6 +33,7 @@ Page({
     },
     onLoad(){
         console.log('页面栈')
+        register.register(this);
         var pages=getCurrentPages()
         console.log(pages)
         if(pages.length>1){
@@ -40,6 +42,37 @@ Page({
             })
         }
     },
-    onShow() {
+    //下拉刷新数据
+    refresh:function(){
+        var that=this
+        register&&register.loadFinish(that,true)
+        wx.reLaunch({
+            url:'/pages/index/index',
+        })
     },
+    onShow() {
+        // wx.onAppHide(this.onAppHide)
+    },
+    // onAppHide(){
+    //     console.log('应用切入后台')
+    //     wx.reLaunch({//can not relaunch in background
+    //         url:'/pages/index/index',
+    //     })
+    // },
+    // navigateBack(){
+    //     this.data.isNaviback=true
+    //     wx.navigateBack({
+    //         delta: 1
+    //     });
+    // },
+    // onHide(){
+    //     // wx.offAppHide(this.onAppHide)
+    //     console.log('auditWait onHide')
+    //     if(this.data.isNaviback){
+    //         return
+    //     }
+    //     wx.reLaunch({//can not relaunch in background
+    //         url:'/pages/index/index',
+    //     })
+    // },
 })

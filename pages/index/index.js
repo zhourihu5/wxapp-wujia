@@ -411,6 +411,12 @@ Page({
             isBindEnabled: false,
         })
     },
+    onPullDownRefresh: function() {
+        // 触发下拉刷新时执行
+        wx.reLaunch({
+            url:'pages/index/index',
+        })
+    },
 
 
     getVcode(e) {
