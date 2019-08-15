@@ -33,6 +33,7 @@
     ]
   },
   "pages": [
+    "pages/auditFail/index",
     "pages/index/index",
     "pages/auditWait/index",
     "pages/order/index",
@@ -44,7 +45,6 @@
     "pages/baseInfo/index",
     "pages/applySubmit/index",
     "pages/neibourList/index",
-    "pages/auditFail/index",
     "pages/goodsDetail/index",
     "pages/activityMore/index",
     "pages/order/orderDetail/index",

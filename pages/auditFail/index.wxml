@@ -3,7 +3,9 @@
     <view slot="content"><text class="{{navigationBarLoading?'wj-loading-icon':''}}"/>吾家小智</view>
 </cu-custom>
 <view class="body">
-    <view class="img-content">
+    <include src="../../refreshview/refreshHeaderView.wxml"/>
+    <view class="img-content" bindscroll="scroll"  bindscrolltoupper="upper" bindtouchstart="start" bindtouchend="end"
+          bindtouchmove="move">
         <image class="img" src="/images/audit_fail.png"></image>
         <view class="img-desc">您提交的信息被驳回， 请重新申请～</view>
     </view>
