@@ -45,8 +45,7 @@ Page({
         if (res.from === 'button') {//邀请好友
             console.log('button onShareAppMessage')
             return {
-                // title: '吾家小智',//默认当前小程序名称
-                // path: '/pages/index/index?applyCode=111',//todo
+                title: '开锁邀请码',//默认当前小程序名称
                 path: `/pages/inviteVisitor/index?applyCode=${that.data.inviteData.code}&communityName=${that.data.inviteData.address}`,
                 success: function (res) {
                     console.log('onShareAppMessage success')

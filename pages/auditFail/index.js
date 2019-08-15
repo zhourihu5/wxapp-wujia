@@ -1,6 +1,7 @@
 //index.js
 const util = require('../../utils/util.js')
 const app = getApp()
+var register = require('../../refreshview/refreshLoadRegister.js');
 Page({
     data: {
         failReason: null,
@@ -32,7 +33,16 @@ Page({
     },
     onShow() {
     },
+    //下拉刷新数据
+    refresh:function(){
+        var that=this
+        register&&register.loadFinish(that,true)
+        wx.reLaunch({
+            url:'/pages/index/index',
+        })
+    },
     onLoad: function (options) {
+        register.register(this);
         var pages = getCurrentPages() // 获取栈中全部界面的, 然后把数据写入相应界面
         // var currentPage  = pages[pages.length - 1]  //当前界面
         var prePage = pages[pages.length - 2]  //上一个界面
