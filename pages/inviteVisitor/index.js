@@ -59,7 +59,8 @@ Page({
     copyCode(e) {
         var that=this
         wx.setClipboardData({
-            data:that.data.apiData.applyCode,
+            // data:that.data.apiData.applyCode,
+            data:'*'+that.data.apiData.applyCode+'*',
             success (res) {
                 wx.getClipboardData({
                     success (res) {
