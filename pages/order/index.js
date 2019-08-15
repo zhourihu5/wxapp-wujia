@@ -33,7 +33,7 @@ Page({
             },
             {
                 title: "待收货",
-                status:2,
+                status:'2,5',
                 isOver:false,
                 isLoading: false,
                 reachBottom:false,
@@ -208,7 +208,7 @@ Page({
                 },
                 {
                     title: "待收货",
-                    status:2,
+                    status:'2,5',
                     isOver:false,
                     isLoading: false,
                     reachBottom:false,

@@ -14,7 +14,7 @@
             <view class="flex align-center" hover-class="navigator-hover" hover-stop-propagation="{{true}}"
                   bindtap="showModalAddCommunity">
                 <image class="icon" src="/images/index_pos.png"></image>
-                <text class="location-text">{{communtityName}}</text>
+                <text class="location-text">{{communtityName?communtityName:'暂无社区'}}</text>
             </view>
             <view class="text-underline invite-visitor {{modalName=='ModalGuideInvite'?'show-invite':'m-r-30 button-no-border'}}"
                     hover-class="{{modalName=='ModalGuideInvite'?'':'navigator-hover'}}" hover-stop-propagation="{{true}}"
