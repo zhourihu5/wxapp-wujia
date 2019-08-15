@@ -84,6 +84,9 @@ tab-bar{
 .m-l-30{
   margin-left: 30rpx;
 }
+.m-t-10{
+  margin-top: 10rpx;
+}
 .p-l-r-8{
   padding-left: 8rpx;
   padding-right: 8rpx;
@@ -297,6 +300,10 @@ tab-bar{
 .m-t-b-30{
   margin-top: 30rpx;
   margin-bottom: 30rpx;
+}
+.m-t-b-50{
+  margin-top: 50rpx;
+  margin-bottom: 50rpx;
 }
 .p-t-40{
   padding-top: 40rpx;

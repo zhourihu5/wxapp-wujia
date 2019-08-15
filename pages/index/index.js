@@ -46,7 +46,7 @@ Page({
             console.log('button onShareAppMessage')
             return {
                 title: '开锁邀请码',//默认当前小程序名称
-                path: `/pages/inviteVisitor/index?applyCode=${that.data.inviteData.code}&communityName=${that.data.inviteData.address}`,
+                path: `/pages/inviteVisitor/index?applyCode=${that.data.inviteData.code}&communityName=${that.data.inviteData.address}&endDate=${that.data.inviteData.endDate}`,
                 success: function (res) {
                     console.log('onShareAppMessage success')
                     console.log(res)

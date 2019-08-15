@@ -10,16 +10,19 @@
     <view class="container-t">
         <view class="c-name">{{apiData.communityName}}</view>
         <view class="ndsyms">您的受邀码是</view>
-        <view class="flex" >
+        <view class="flex code-container m-t-b-50" >
+            <text class="code-text asterisk">*</text>
             <text wx:for="{{apiData.applyCodeSplit}}" class="code-text">{{item}}</text>
+            <text class="code-text asterisk">*</text>
         </view>
         <view class="btn-copy" hover-class="navigator-hover" hover-stop-propagation="{{true}}" catchtap="copyCode" >复制受邀码</view>
-        <view class="flex align-center w-p-100 m-t-b-30">
+        <view class="flex align-center w-p-100 m-t-30">
             <view class="l-corner"></view>
             <view class="dash-line-y flex-1"></view>
             <view class="r-corner"></view>
         </view>
-        <view class="b-text p-b-30">快去拜访你的朋友吧～</view>
+        <view class="b-text">输入六位邀请码开锁</view>
+        <view class="b-text p-b-30">邀请码截止时间：{{apiData.endDate}}</view>
 
     </view>
 </view>

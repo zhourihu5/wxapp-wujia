@@ -65,23 +65,29 @@
   color:rgba(85,85,85,1);
   line-height:48rpx;
 }
-.code-text{
-  width:100rpx;
-  height:100rpx;
+.code-container{
+  /*width:400px;*/
+  height:96rpx;
   background:rgba(243,243,243,1);
   border-radius:8rpx;
 
-  /*width:54px;*/
-  /*height:100px;*/
-  font-size:72rpx;
+  padding: 0 24rpx;
+}
+.code-text{
+  /*width:38px;*/
+  /*height:84px;*/
+  font-size:60rpx;
   font-family:PingFangSC-Semibold;
   font-weight:600;
   color:rgba(85,85,85,1);
-  line-height:100rpx;
+  line-height:84rpx;
 
-  text-align: center;
-
-  margin: 50rpx 12rpx;
+  margin: 0 8rpx;
+  margin-top: 4rpx;
+  margin-bottom: 8rpx;
+}
+.asterisk{
+  margin-top: 14rpx;
 }
 .btn-copy{
   /*width:140px;*/
@@ -129,12 +135,13 @@
   margin-right: -30rpx;
 }
 .b-text{
-  /*width:280px;*/
-  /*height:40px;*/
+  /*width:424px;*/
+  /*height:100px;*/
   font-size:28rpx;
   font-family:PingFangSC-Regular;
   font-weight:400;
   color:rgba(136,136,136,1);
-  line-height:40rpx;
+  line-height:50rpx;
 
+  text-align: center;
 }

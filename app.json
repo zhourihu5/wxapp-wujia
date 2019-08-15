@@ -34,10 +34,10 @@
   },
   "pages": [
     "pages/index/index",
+    "pages/inviteVisitor/index",
     "pages/auditFail/index",
     "pages/auditWait/index",
     "pages/order/index",
-    "pages/inviteVisitor/index",
     "pages/template/index",
     "pages/editAdress/index",
     "pages/orderConfirm/index",

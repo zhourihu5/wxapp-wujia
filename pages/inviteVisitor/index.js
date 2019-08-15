@@ -24,6 +24,7 @@ Page({
         // options=options||{}//todo test
         // options.applyCode='1234'
         // options.communityName='天通苑小区'
+        // options.endDate='2019.8.11 20:00'
 
         if(options){
             this.data.apiData={}
@@ -31,6 +32,7 @@ Page({
             this.data.apiData.communityName=options.communityName
             // this.data.apiData.applyCodeSplit=options.applyCode&&options.applyCode.split('')
             this.data.apiData.applyCodeSplit=options.applyCode
+            this.data.apiData.endDate=options.endDate
         }
         this.setData({
             apiData:this.data.apiData
