@@ -37,7 +37,7 @@
                             <!--                <view class="round-container order-container">-->
                             <view class="top-item">
                                 <text wx:if="{{item.status=='1'}}">付款剩余时间：</text>
-                                <text wx:elif="{{item.status=='2'&&item.deliveryPerson}}">送货人：{{item.deliveryPerson}}</text>
+                                <text wx:elif="{{item.status=='5'}}">送货人：{{item.deliveryPerson}}</text>
                                 <text wx:elif="{{item.status=='2'}}">配送小哥正在取货中…</text>
                                 <text wx:elif="{{item.status=='3'}}">收货时间：{{item.receiveDate}}</text>
                                 <text wx:else >过期时间：{{item.payEndDate}}</text>
@@ -47,10 +47,11 @@
                                 <view class="flex-1"></view>
                                 <text wx:if="{{item.status=='1'}}"  class="dfk">待付款</text>
                                 <text wx:elif="{{item.status=='2'}}"  class="dfk">待收货</text>
+                                <text wx:elif="{{item.status=='5'}}"  class="dfk">待收货</text>
                                 <text wx:elif="{{item.status=='3'}}"  class="dfk">已收货</text>
                                 <text wx:else  class="ygq">已过期</text>
                             </view>
-                            <view class="order-middle-item {{item.status=='2'&& !item.deliveryPerson?'no-border':''}}">
+                            <view class="order-middle-item {{item.status=='2'?'no-border':''}}">
                                 <image class="order-image" src="{{item.activity.cover}}"/>
                                 <view class="order-text">
                                     <view class="{{item.status=='4'?'order-name-ygq':'order-name'}} ">{{item.activity.title}}</view>
@@ -62,11 +63,11 @@
                                 </view>
 
                             </view>
-                            <view wx:if="{{item.status=='2'&& !item.deliveryPerson}}"/>
+                            <view wx:if="{{item.status=='2'}}"/>
                             <view wx:else class="btn-wraper">
                                 <view class="left-empty"></view>
                                 <view wx:if="{{item.status=='1'}}" class="pay-right-now" hover-class="navigator-hover" hover-stop-propagation="{{true}}" catchtap="toPay" data-index="{{index}}"  data-id="{{item.id}}">立即付款</view>
-                                <view wx:elif="{{item.status=='2'&&item.deliveryPhone}}" class="lxshr" hover-class="navigator-hover" hover-stop-propagation="{{true}}" catchtap="askDeliver" data-phone="{{item.deliveryPhone}}">联系送货人</view>
+                                <view wx:elif="{{item.status=='5'}}" class="lxshr" hover-class="navigator-hover" hover-stop-propagation="{{true}}" catchtap="askDeliver" data-phone="{{item.deliveryPhone}}">联系送货人</view>
                                 <view wx:elif="{{item.status=='2'}}"  />
                                 <view wx:else class="go-stroll" hover-class="navigator-hover" hover-stop-propagation="{{true}}"  catchtap="goStroll">去逛逛</view>
                             </view>

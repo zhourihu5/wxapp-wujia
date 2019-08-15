@@ -19,6 +19,14 @@
             <text class="ramain-time-des">{{apiData.remainTime}}</text>
         </view>
     </view>
+    <view wx:elif="{{apiData.status=='5'}}"  class="top-conrainer">
+        <image class="logo-car" src="/images/logo_to_receive.png"/>
+        <view class="order-status">待收货</view>
+        <view class="order-remain-time">
+            <text>剩余系统默认收货时间</text>
+            <text class="ramain-time-des">{{apiData.remainTime}}</text>
+        </view>
+    </view>
     <view wx:elif="{{apiData.status=='3'}}" class="top-conrainer">
         <image class="logo-car" src="/images/logo_received.png"/>
         <view class="order-status">已收货</view>
@@ -85,11 +93,11 @@
 <!--        <view class="order-info-item p-b-30">送货时长剩余：24h</view>-->
 
 <!--    </view>-->
-    <view wx:if="{{ (apiData.status=='2'||apiData.status=='3')&&apiData.deliveryPerson }}" class="goods-info dilivery-container">
+    <view wx:if="{{ apiData.status=='5'||apiData.status=='3'}}" class="goods-info dilivery-container">
         <view class="goods-title {{apiData.status=='4'?'expired':''}}">配送信息</view>
         <view class="order-info-item">送货员：{{apiData.deliveryPerson}}</view>
         <view class="order-info-item">送货员联系方式：{{apiData.deliveryPhone}}</view>
-        <view wx:if="{{apiData.status=='2'}}" class="order-info-item p-b-30">送货周期：{{apiData.activity.deliveryHour}}h</view>
+        <view wx:if="{{apiData.status=='5'}}" class="order-info-item p-b-30">送货周期：{{apiData.activity.deliveryHour}}h</view>
         <view wx:if="{{apiData.status=='3'}}" class="order-info-item p-b-30">收货时间：{{apiData.receiveDate}}</view>
 
     </view>
@@ -99,6 +107,7 @@
     <view class="bt-pay" hover-class="navigator-hover" hover-stop-propagation="{{true}}" bindtap="toPay">付款 {{apiData.realPrice}}</view>
 </view>
 <view wx:elif="{{apiData.status=='2'}}" hover-class="navigator-hover" hover-stop-propagation="{{true}}"  class="bottom-button" bindtap="confirmReceive">确认收货</view>
+<view wx:elif="{{apiData.status=='5'}}" hover-class="navigator-hover" hover-stop-propagation="{{true}}"  class="bottom-button" bindtap="confirmReceive">确认收货</view>
 <view wx:elif="{{apiData.status=='3'||apiData.status=='4'}}" class="bottom-button" hover-class="navigator-hover" hover-stop-propagation="{{true}}" bindtap="goStroll">去逛逛</view>
 <view wx:else/>
 
