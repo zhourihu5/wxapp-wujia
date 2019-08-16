@@ -13,7 +13,7 @@
     padding: 20rpx 30rpx;
     width: 100%;
 
-    /*position: fixed;*/
+    position: fixed;
 }
 .item-1{
     /*width:690rpx;*/

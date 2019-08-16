@@ -132,15 +132,15 @@ Page({
                     communtityName: data.communtityName,
                     apiData: data,
                 })
-                if ('0' == data.isBindingFamily) {
-                    wx.redirectTo({url: '/pages/neibourList/index'})
-                } else if (data.applyLock) {
+                if (data.applyLock) {
                     if (data.applyLock.status == '0') {//待审核
                         wx.redirectTo({url: '/pages/auditWait/index'})
                     } else if (data.applyLock.status == '2') {//不通过
                         that.data.failReason = data.applyLock.remark
                         wx.redirectTo({url: '/pages/auditFail/index'})
                     }
+                }else if ('0' == data.isBindingFamily) {
+                    wx.redirectTo({url: '/pages/neibourList/index'})
                 }
                 that.hideModal();
                 that.showGuideInvite();
@@ -320,16 +320,17 @@ Page({
                             app.userName=data.userInfo.userName
                             app.wxCover=data.userInfo.wxCover
                             app.fid=data.userInfo.fid
-                            if ('0' == data.isBindingFamily) {
-                                wx.redirectTo({url: '/pages/neibourList/index'})
-                            } else if (data.applyLock) {
+                            if (data.applyLock) {
                                 if (data.applyLock.status == '0') {//待审核
                                     wx.redirectTo({url: '/pages/auditWait/index'})
                                 } else if (data.applyLock.status == '2') {//不通过
                                     that.data.failReason = data.applyLock.remark
                                     wx.redirectTo({url: '/pages/auditFail/index'})
                                 }
+                            }else if ('0' == data.isBindingFamily) {
+                                wx.redirectTo({url: '/pages/neibourList/index'})
                             }
+
                             that.enableTabBar(true)
                             that.hideModal();
                         } else {
