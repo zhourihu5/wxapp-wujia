@@ -53,7 +53,7 @@ Page({
         }
         let messageId=this.data.apiData[index].id
         var that=this
-        network.requestPost('/v1/message/updateIsRead',{messageId:messageId},function (data) {
+        network.requestPost('/v1/message/updateWxIsRead',{messageId:messageId},function (data) {
             that.data.apiData[index].isRead=1
 
         },function (msg) {
