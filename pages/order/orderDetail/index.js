@@ -69,7 +69,7 @@ Page({
                 that.setData({
                     apiData:that.data.apiData
                 })
-            }else if(that.data.apiData.status=='2'){
+            }else if(that.data.apiData.status=='2'||that.data.apiData.status=='5'){
                 if(!endDate){
                     endDate=new Date(Date.parse(that.data.apiData.activity.endDate.replace(/-/g, "/")));
                     endDate.setTime(endDate.getTime()+that.data.apiData.activity.deliveryHour*3600*1000)

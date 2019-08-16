@@ -23,10 +23,9 @@
             <include src="../../refreshview/refreshHeaderView.wxml"/>
             <scroll-view scroll-y class="scroll-view-order" style="top: calc( {{CustomBar}}px + 84rpx + {{refreshHeight}}px  );bottom: {{customTabBarHeight}}px"
                          lower-threshold="{{lowerThreshold}}"
-                         upper-threshold="0"
                          bindscrolltolower='scrolltolower'
-                         bindscroll="scroll"  bindscrolltoupper="upper" bindtouchstart="start" bindtouchend="end"
-                         bindtouchmove="move">
+                         bindscroll="scrollP"  bindscrolltoupper="upperP" bindtouchstart="start" bindtouchend="end"
+                         bindtouchmove="move" data-index="{{tabIndex}}">
                 <block wx:for="{{tab.data}}" wx:for-item="item" wx:key="">
 <!--                <block wx:for="{{10}}" wx:for-item="item" wx:key="">-->
                     <view class="item-content {{index==0?'p-t-20':''}}">

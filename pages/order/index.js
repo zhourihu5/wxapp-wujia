@@ -196,6 +196,8 @@ Page({
                     reachBottom:false,
                     pageNum: 1,
                     data:[],
+                    scrolling:false,
+                    isUpper:true,
                 },
                 {
                     title: "待付款",
@@ -205,6 +207,8 @@ Page({
                     reachBottom:false,
                     pageNum: 1,
                     data:[],
+                    scrolling:false,
+                    isUpper:true,
                 },
                 {
                     title: "待收货",
@@ -214,6 +218,8 @@ Page({
                     reachBottom:false,
                     pageNum: 1,
                     data:[],
+                    scrolling:false,
+                    isUpper:true,
                 },
                 {
                     title: "已收货",
@@ -223,6 +229,8 @@ Page({
                     reachBottom:false,
                     pageNum: 1,
                     data:[],
+                    scrolling:false,
+                    isUpper:true,
                 },
                 {
                     title: "已过期",
@@ -232,6 +240,8 @@ Page({
                     reachBottom:false,
                     pageNum: 1,
                     data:[],
+                    scrolling:false,
+                    isUpper:true,
                 },
             ],
         })
@@ -286,7 +296,26 @@ Page({
         if (that.data.tabs[that.data.active].data.length <= 0) {
             that.loadDataIfNeeded()
         }
-
+        var scrolling=this.data.tabs[that.data.active].scrolling
+        var isUpper=this.data.tabs[that.data.active].isUpper
+        this.data.scrolling = scrolling;
+        this.data.isUpper =isUpper;
+    },
+    scrollP(e){
+        var tabIndex=e.currentTarget.dataset.index
+        this.data.tabs[tabIndex].isUpper=false
+        this.data.tabs[tabIndex].scrolling=true
+        if(this.scroll){
+            this.scroll(e)
+        }
+    },
+    upperP(e){
+        var tabIndex=e.currentTarget.dataset.index
+        this.data.tabs[tabIndex].isUpper=true
+        this.data.tabs[tabIndex].scrolling=false
+        if(this.upper){
+            this.upper(e)
+        }
     },
     itemClicked(e){
         var index=e.currentTarget.dataset.index

@@ -171,6 +171,8 @@ function cancel(context) {
 
 
 function move(context,e) {
+  // console.log('下拉刷新正在move')
+  // console.log(e)
   console.log("move:", "isUpper = "+context.data.isUpper + "  isLower = "+context.data.isLower+ " scrolling = "+context.data.scrolling);
   if (context.data.scrolling){
     return;
