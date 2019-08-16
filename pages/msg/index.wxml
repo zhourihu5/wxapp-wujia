@@ -19,7 +19,7 @@
                 <image class="image" src="{{item.icon}}"/>
                 <view class="middle-text">
                     <view class="title">{{item.typeName}}</view>
-                    <text class="desc">{{ (item.unReadList&&item.unReadList.length>0&&item.unReadList[0].title)||'暂无消息' }}</text>
+                    <text class="desc">{{ (item.unReadList&&item.unReadList.length>0&&item.unReadList[0].title)||'暂无未读消息' }}</text>
                 </view>
                 <view class="right-text">
                     <view class="time">{{item.unReadList[0].createDate}}</view>
