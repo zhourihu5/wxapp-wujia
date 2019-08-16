@@ -2,6 +2,8 @@
 page{
     height: 100%;
     background-color: var(--white);
+
+    position: fixed;
 }
 .modal-top0{
     position: fixed;
