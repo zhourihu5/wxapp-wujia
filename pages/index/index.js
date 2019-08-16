@@ -54,7 +54,7 @@ Page({
             }
         }
         return {
-            // title: '吾家小智',//默认当前小程序名称
+            // title: '吾家W+',//默认当前小程序名称
             path: '/pages/index/index' ,
             success: function(res) {
                 console.log('onShareAppMessage success')
