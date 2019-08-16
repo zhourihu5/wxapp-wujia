@@ -17,6 +17,8 @@ App({
   activityChanged:false,
   isCustomTabBar:false,
   isTabEnabled:true,
+    failReason:null,
+
   showToast(msg){
     wx.showToast({
       title: msg,

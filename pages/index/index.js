@@ -136,7 +136,7 @@ Page({
                     if (data.applyLock.status == '0') {//待审核
                         wx.redirectTo({url: '/pages/auditWait/index'})
                     } else if (data.applyLock.status == '2') {//不通过
-                        that.data.failReason = data.applyLock.remark
+                        app.failReason = data.applyLock.remark
                         wx.redirectTo({url: '/pages/auditFail/index'})
                     }
                 }else if ('0' == data.isBindingFamily) {
@@ -324,7 +324,7 @@ Page({
                                 if (data.applyLock.status == '0') {//待审核
                                     wx.redirectTo({url: '/pages/auditWait/index'})
                                 } else if (data.applyLock.status == '2') {//不通过
-                                    that.data.failReason = data.applyLock.remark
+                                    app.failReason = data.applyLock.remark
                                     wx.redirectTo({url: '/pages/auditFail/index'})
                                 }
                             }else if ('0' == data.isBindingFamily) {
