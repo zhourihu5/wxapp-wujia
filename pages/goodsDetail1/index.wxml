@@ -66,7 +66,7 @@
             <!--                          salesNum="{{item.commodity.salesNum}}"-->
             <!--                          dataId="{{item.id}}"/>-->
 
-            <view class="activity-item  m-b-20 relative">
+            <view class="activity-item  m-b-20 relative"  hover-class="navigator-hover" hover-stop-propagation="{{true}}" bindtap="goBuy" data-index="{{index}}">
                 <image class="activity-banner"
                        src="{{item.cover}}"/>
                 <view class="m-l-20 m-t-30 m-b-20 activity-title">{{item.title}}</view>
@@ -84,7 +84,7 @@
                     </text>
                 </view>
 
-                <view class="go-group-buy" hover-class="navigator-hover" hover-stop-propagation="{{true}}" bindtap="goBuy" data-index="{{index}}">去参团</view>
+                <view class="go-group-buy">去参团</view>
             </view>
 
 
