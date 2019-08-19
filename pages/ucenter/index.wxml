@@ -27,9 +27,10 @@
             </view>
         </navigator>
     </block>
-    <view class="wjrsqshgmh" style="bottom: calc( 100rpx + {{customTabBarHeight}}px );">
-        吾家让社区生活更美好～
-    </view>
+<!--    <view class="wjrsqshgmh" style="bottom: calc( 100rpx + {{customTabBarHeight}}px );">-->
+<!--        吾家让社区生活更美好～-->
+<!--    </view>-->
+    <image class="wjrsqshgmh" src="/images/text_make_life_better.png" style="bottom: calc( 100rpx + {{customTabBarHeight}}px );" />
     <!--    <view style="width: 740rpx;background: red;">test</view>-->
     <!--    <view style="width: 750rpx;background: red;">test</view>-->
 </view>

@@ -1,1 +1,10 @@
 /* colorui/components/cu-custom.wxss */
+.wj-title{
+    /*width:128px;*/
+    /*height:44px;*/
+    font-size:32rpx;
+    font-family:PingFangSC;
+    font-weight:500;
+    /*color:rgba(255,255,255,1);*/
+    line-height:44rpx;
+}

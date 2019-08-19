@@ -182,9 +182,11 @@ page{
 
     width: 0;
     height: 0;
-    border-width: 28rpx;
+    border-width: 18rpx;
     border-style: solid;
     border-color: transparent transparent rgba(255,255,255,1) transparent;
+
+    margin-bottom: -5rpx;
 }
 .i-v-triangle{
     margin-left: 600rpx;
@@ -227,6 +229,10 @@ page{
     width: 30rpx;
     height: 30rpx;
     border-radius: 50%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 .xzsq{
     /*width:112px;*/
@@ -749,7 +755,7 @@ movable-area {
     color:rgba(255,255,255,1);
     line-height:28rpx;
 
-    margin-left: 4rpx;
+    margin-left: 12rpx;
 }
 .invite-visitor{
     /*width:112px;*/

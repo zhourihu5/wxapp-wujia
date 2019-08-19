@@ -15,7 +15,9 @@
 
 
     box-sizing: border-box;
-    padding: 24rpx 30rpx;
+    padding-left: 30rpx;
+    padding-right: 30rpx;
+    padding-bottom: 24rpx;
     width: 100%;
 }
 .w-c{
@@ -60,12 +62,12 @@
 
 }
 .item-c-r{
-    /*width:112px;*/
+    /*width:316px;*/
     /*height:40px;*/
     font-size:28rpx;
-    font-family:PingFangSC-Regular;
-    font-weight:400;
-    color:rgba(136,136,136,1);
+    font-family:PingFangSC;
+    font-weight:500;
+    color:rgba(34,34,34,1);
     line-height:40rpx;
 }
 .dialog{

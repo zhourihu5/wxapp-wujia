@@ -34,6 +34,7 @@
   },
   "pages": [
     "pages/index/index",
+    "pages/goodsDetail/index",
     "pages/inviteVisitor/index",
     "pages/auditFail/index",
     "pages/auditWait/index",
@@ -45,7 +46,6 @@
     "pages/baseInfo/index",
     "pages/applySubmit/index",
     "pages/neibourList/index",
-    "pages/goodsDetail/index",
     "pages/activityMore/index",
     "pages/order/orderDetail/index",
     "pages/yellowPage/index",

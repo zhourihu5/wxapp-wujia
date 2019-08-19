@@ -73,6 +73,7 @@
             <text class="lijian">{{saleTip[1]}}</text>
             元
         </view>
+        <view wx:else class="zlyrctghd"></view>
     </view>
     <view wx:if="{{false}}" class="item4">
         <view class="tgjd">团购进度</view>

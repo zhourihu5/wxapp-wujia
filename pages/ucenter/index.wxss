@@ -114,4 +114,9 @@
   left: 0;
   right: 0;
   text-align: center;
+
+  width: 364rpx;
+  height: 44rpx;
+
+  margin: 0 auto;
 }

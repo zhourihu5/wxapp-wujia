@@ -368,11 +368,15 @@
   width: 436rpx;
   max-height: 652rpx;
   margin: 0 62rpx;
+  /*margin-bottom: 40rpx;*/
   margin-bottom: 90rpx;
+  padding-bottom: 40rpx;
   justify-content: left;
 
   overflow: scroll;
   text-align: left;
+
+
 }
 .rich-text-intro{
   max-height: 652rpx;

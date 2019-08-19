@@ -45,15 +45,6 @@
                     </view>
                 </view>
             </view>
-<!--            <view wx:if="{{modalName=='ModalInviteVisitor'}}" class="switchCommunity">-->
-<!--                <view class="triangle-up i-v-triangle"></view>-->
-<!--                <view class="communityList" >-->
-<!--                    <button class="btn-share" hover-class="navigator-hover" hover-stop-propagation="{{true}}"-->
-<!--                          open-type="{{canNotShare?'':'share'}}" catchtap="onClickInviteShare" >-->
-<!--                        <view class="xzsq">选择访客并分享</view>-->
-<!--                    </button>-->
-<!--                </view>-->
-<!--            </view>-->
         </view>
     </view>
     <view class="activity-more flex  justify-between {{modalName=='ModalGuideMore'?'p-t-b-show':'p-t-b-normal'}}"
@@ -70,8 +61,10 @@
 <scroll-view class="activity-scroll" scroll-x="true" style="z-index: 3;position: fixed">
     <block wx:for="{{apiData.activityList}}" wx:key="">
         <!--            <block wx:for="{{1}}" wx:key="">-->
-        <view class="activity-item-wraper {{index==0?'p-l-30':''}} ">
-            <view class="activity-item {{apiData.activityList.length<=1?'activity-only-one':''}}">
+        <view class="activity-item-wraper {{index==0?'p-l-30':''}} " >
+            <view class="activity-item {{apiData.activityList.length<=1?'activity-only-one':''}}"
+                  hover-class="navigator-hover" hover-stop-propagation="{{true}}"
+                  bindtap="goBuy" data-index="{{index}}">
                 <!--            <view class="activity-item activity-only-one">-->
                 <image class="activity-banner"
                        src="{{item.cover}}"/>
@@ -89,8 +82,7 @@
                     </text>
                 </view>
                 <view class="sell-num m-l-20">已拼{{item.commodity.salesNum}}件</view>
-                <view class="go-group-buy" hover-class="navigator-hover" hover-stop-propagation="{{true}}"
-                      bindtap="goBuy" data-index="{{index}}">去参团
+                <view class="go-group-buy" >去参团
                 </view>
             </view>
         </view>
@@ -146,13 +138,14 @@
 <view class="cu-modal full-screen  {{modalName=='ModalInviteVisitor'?'show':''}}">
     <view class="cu-dialog dialog-invite relative">
         <view class="dialog-title-invite m-t-50 m-b-30">提示</view>
-        <view class="dialog-msg">请先申请访客的邀请码，再发送给好友</view>
+<!--        <view class="dialog-msg">请先申请访客的邀请码，再发送给好友</view>-->
+        <view class="dialog-msg">将邀请码发送给好友</view>
         <view class="dialog-action">
             <view class="dialog-cancel" hover-class="navigator-hover" hover-stop-propagation="{{true}}" bindtap="hideModal">取消</view>
             <button class="dialog-add no-border" hover-class="navigator-hover" hover-stop-propagation="{{true}}" bindtap="toAddArr"
                     open-type="{{canNotShare?'':'share'}}"
                     catchtap="onClickInviteShare" >
-                去申请
+                确定
             </button>
         </view>
     </view>
