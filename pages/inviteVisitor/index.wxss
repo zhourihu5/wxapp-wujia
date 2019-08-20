@@ -17,6 +17,11 @@
 
   position: relative;
 }
+.content{
+  position: fixed;
+  width: 100%;
+  bottom: 154rpx;
+}
 .image-wj{
   width: 130rpx;
   height: 98rpx;
@@ -54,7 +59,8 @@
 
   width: 100%;
 
-  padding: 50rpx;
+  padding: 50rpx 40rpx;
+  padding-bottom: 82rpx;
 }
 .ndsyms{
   /*width:204px;*/
@@ -72,6 +78,9 @@
   border-radius:8rpx;
 
   padding: 0 24rpx;
+
+  margin-top: 52rpx;
+  margin-bottom: 62rpx;
 }
 .code-text{
   /*width:38px;*/

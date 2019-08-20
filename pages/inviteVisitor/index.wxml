@@ -10,7 +10,7 @@
     <view class="container-t">
         <view class="c-name">{{apiData.communityName}}</view>
         <view class="ndsyms">您的受邀码是</view>
-        <view class="flex code-container m-t-b-50" >
+        <view class="flex code-container" >
             <text class="code-text asterisk">*</text>
             <text wx:for="{{apiData.applyCodeSplit}}" class="code-text">{{item}}</text>
             <text class="code-text asterisk">*</text>
@@ -25,4 +25,5 @@
         <view class="b-text p-b-30">邀请码截止时间：{{apiData.endDate}}</view>
 
     </view>
+
 </view>
