@@ -34,11 +34,12 @@
   },
   "pages": [
     "pages/index/index",
+    "pages/ucenter/index",
+    "pages/order/index",
     "pages/inviteVisitor/index",
     "pages/auditFail/index",
     "pages/auditWait/index",
     "pages/goodsDetail/index",
-    "pages/order/index",
     "pages/template/index",
     "pages/editAdress/index",
     "pages/orderConfirm/index",
@@ -53,7 +54,6 @@
     "pages/paySuccess/index",
     "pages/msg/msgDetail/index",
     "pages/goodsDetail1/index",
-    "pages/ucenter/index",
     "pages/msg/index"
   ],
   "permission": {

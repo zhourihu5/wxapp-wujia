@@ -249,8 +249,18 @@ Page({
             cummunityIndex: index,
             communtityName: this.data.apiData.communtityList[index].name
         })
+        app.communtityId=this.data.apiData.communtityList[index].id
+        app.communtityCode=this.data.apiData.communtityList[index].code
 
         this.hideModal()
+        var that=this
+        network.requestGet('/v1/activity/wxIndex',{communityId:app.communtityId} , function (data) {
+            that.setData({
+                apiData: data,
+            })
+        }, function (msg) {
+
+        })
     },
     addCommunity(e) {
         this.hideModal()
@@ -301,9 +311,11 @@ Page({
                     console.log('微信登录成功')
                     console.log(res)
                     //发起网络请求
-                    network.requestGet('/wx/binding/checkBinding', {
-                        code: res.code
-                    }, function (data) {
+                    var paramData={
+                        code: res.code,
+                    }
+
+                    network.requestGet('/wx/binding/checkBinding',paramData , function (data) {
                         that.setData({
                             communtityName: data.communtityName,
                             apiData: data,

@@ -1,10 +1,10 @@
 <image class="img-bg" src="/images/invite_visitor_bg.png"/>
-
+<cu-custom  isBack="{{false}}">
+    <view slot="backText"></view>
+    <view slot="content"><text class="{{navigationBarLoading?'wj-loading-icon':''}}"/></view>
+</cu-custom>
 <view class="body">
-    <cu-custom  isBack="{{false}}">
-        <view slot="backText"></view>
-        <view slot="content"><text class="{{navigationBarLoading?'wj-loading-icon':''}}"/></view>
-    </cu-custom>
+
     <image class="image-wj m-t-50" src="/images/image_wj.png" />
     <view class="logo-text">吾 家</view>
     <view class="container-t">

@@ -6,6 +6,9 @@ tab-bar{
   height: 98rpx;
 }
 
+page{
+  position: fixed;
+}
 
 .wj-loading-icon::before {
   font-family: "cuIcon";
