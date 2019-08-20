@@ -115,6 +115,7 @@ Page({
             that.setData({
                 tabs: that.data.tabs
             })
+
             console.log('tabData')
             console.log(that.data.tabs)
         }, function (msg) {
@@ -212,9 +213,14 @@ Page({
 
     },
     showModalDoorNum(e) {
+        var that=this
+
         this.setData({
-            modalName: 'doorNumModal'
+            modalName: 'doorNumModal',
+            // tabs: this.data.tabs,
+            // active: this.data.active
         })
+        //todo 第一次加载时tab 线的宽度计算不对
     },
     hideModal() {
         this.setData({

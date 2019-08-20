@@ -449,7 +449,7 @@ page{
     /*right: 20rpx;*/
     /*bottom: 60rpx;*/
 
-    float: right;
+    /*float: right;*/
     position: absolute;
     right: 20rpx;
     bottom: 30rpx;

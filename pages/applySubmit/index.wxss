@@ -28,7 +28,7 @@
     color:rgba(34,34,34,1);
     line-height:40rpx;
 
-    width: 162rpx;
+    width: 200rpx;
     /*background: white;*/
 }
 .placeholder{
