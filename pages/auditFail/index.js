@@ -5,6 +5,7 @@ var register = require('../../refreshview/refreshLoadRegister.js');
 Page({
     data: {
         failReason: null,
+        CustomBar: app.globalData.CustomBar,
     },
     showNavigationBarLoading(){
         this.setData({

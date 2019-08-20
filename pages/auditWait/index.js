@@ -4,7 +4,8 @@ const app = getApp()
 var register = require('../../refreshview/refreshLoadRegister.js');
 Page({
     data: {
-        isBack:false
+        isBack:false,
+        CustomBar: app.globalData.CustomBar,
     },
     showNavigationBarLoading(){
         this.setData({

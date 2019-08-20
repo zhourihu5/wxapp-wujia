@@ -4,7 +4,8 @@
 </cu-custom>
 <view class="body">
     <include src="../../refreshview/refreshHeaderView.wxml"/>
-    <view class="img-content" bindscroll="scroll"  bindscrolltoupper="upper" bindtouchstart="start" bindtouchend="end"
+    <view class="img-content" style="padding-bottom: calc( {{CustomBar/2}}px )"
+          bindscroll="scroll"  bindscrolltoupper="upper" bindtouchstart="start" bindtouchend="end"
           bindtouchmove="move">
         <image class="img" src="/images/audit_wait.png"></image>
         <view class="img-desc">您已成功提交申请！</view>

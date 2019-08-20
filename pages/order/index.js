@@ -60,6 +60,7 @@ Page({
             },
         ],
         pageSize: 20,
+        tabLineWidth:util.rpxToPx(28),
 
     },
     showNavigationBarLoading(){

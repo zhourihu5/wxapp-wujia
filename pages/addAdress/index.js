@@ -27,6 +27,7 @@ Page({
 
         ],
         isClicked:false,
+        tabLineWidth:util.rpxToPx(28),
     },
     showNavigationBarLoading(){
         this.setData({

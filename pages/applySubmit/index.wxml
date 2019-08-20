@@ -13,7 +13,7 @@
             <input class="input" placeholder-class="placeholder" placeholder="请输入申请人的名字"
                    bindinput="nameInput"/>
         </view>
-        <view class="item no-border">
+        <view class="item">
             <view class="item-l">与户主关系</view>
             <input class="input" placeholder-class="placeholder" placeholder="请输入与户主的关系"
                    bindinput="relationInput"/>
@@ -41,7 +41,8 @@
                   border="{{false}}"
                   line-class="tab-line"
                   color="rgba(255,155,29,1)"
-                  lineWidth="17" swipeThreshold="5"
+                  lineWidth="{{tabLineWidth}}"
+                   swipeThreshold="6"
                   active="{{active}}"
                   bind:change="tabChange">
             <van-tab

@@ -29,6 +29,7 @@ Page({
         communtityId:null,
         currentAddr:null,
         isClicked:false,
+        tabLineWidth:util.rpxToPx(28),
     },
     showNavigationBarLoading(){
         this.setData({

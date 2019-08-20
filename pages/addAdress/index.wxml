@@ -62,7 +62,8 @@
                   border="{{false}}"
                   line-class="tab-line"
                   color="rgba(255,155,29,1)"
-                  lineWidth="17" swipeThreshold="5"
+                   swipeThreshold="5"
+                  lineWidth="{{tabLineWidth}}"
                   active="{{active}}"
                   bind:change="tabChange">
             <van-tab
