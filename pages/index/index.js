@@ -161,6 +161,9 @@ Page({
         }
     },
     moveChangedOpen(e) {
+        if(this.data.modalName=='ModalGuideOpen'){
+            return;
+        }
         console.log(e)
         // event.detail = {x, y, source}
         if (e.detail.source) {//表示非setdata改变的
@@ -169,6 +172,10 @@ Page({
         }
     },
     touchendOpen(e) {
+        if(this.data.modalName=='ModalGuideOpen'){
+            return;
+        }
+
         console.log(e)
         console.log(this.customData)
         var that=this
