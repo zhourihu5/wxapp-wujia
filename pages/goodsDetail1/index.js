@@ -133,9 +133,9 @@ Page({
         }, function (msg) {
 
         })
-        network.requestGet('/v1/activity/findOtherList',{},function (data) {
+        network.requestGet('/v1/activity/findOtherList',{communityId:app.communtityId},function (data) {
             that.setData({
-                apiOtherListData:data
+                apiOtherListData:data,
             })
         },function (msg) {
 

@@ -1,6 +1,7 @@
 //index.js
 const util = require('../../utils/util.js')
 const network = require('../../utils/network.js')
+const app=getApp()
 Page({
     data: {
         apiData:null,
@@ -36,7 +37,7 @@ Page({
     onLoad: function (options) {
         this.data.orderId=options.id
         var that=this
-        network.requestGet('/v1/activity/findOtherList',{},function (data) {
+        network.requestGet('/v1/activity/findOtherList',{communityId:app.communtityId},function (data) {
             that.setData({
                 apiData:data
             })

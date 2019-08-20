@@ -1,5 +1,5 @@
 {
   "navigationBarTitleText": "吾家W+",
-  "enablePullDownRefresh": false,
+  "enablePullDownRefresh": true,
   "usingComponents": {}
 }

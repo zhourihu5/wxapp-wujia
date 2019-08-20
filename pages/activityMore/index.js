@@ -84,6 +84,7 @@ Page({
             {
                 pageNum: that.customData.pageNum,
                 pageSize: that.customData.pageSize,
+                communityId:app.communtityId
             },
             function (data) {
                 if (that.customData.pageNum == 1) {
