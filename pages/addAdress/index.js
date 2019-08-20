@@ -119,9 +119,6 @@ Page({
     },
     itemClicked(e) {//期区楼等的选择点击事件
         var index = e.currentTarget.dataset.index;
-        if (!index) {
-            console.log(e)
-        }
         if (this.data.tabs[this.data.active].selected == index) {
             return;
         }
@@ -137,7 +134,9 @@ Page({
                 showAddress += item.data[item.selected].name
             }
             this.setData({
-                showAddress: showAddress
+                showAddress: showAddress,
+                tabs: this.data.tabs,
+                active: this.data.active,
             })
             this.canClickSave()
 
@@ -148,13 +147,11 @@ Page({
         for (; i > 0; i--) {
             this.data.tabs.pop()
         }
-        // if(this.data.tabs[this.data.tabs.length-1].title!="请选择"){
         this.data.tabs.push({
             title: "请选择",
             data: [],
             selected: null,
         })
-        // }
         this.data.active++
 
         this.loadAddrData()

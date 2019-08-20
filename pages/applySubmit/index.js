@@ -144,7 +144,9 @@ Page({
                 showAddress += item.data[item.selected].name
             }
             this.setData({
-                showAddress: showAddress
+                showAddress: showAddress,
+                tabs: this.data.tabs,
+                active: this.data.active,
             })
             this.canClickSave()
 

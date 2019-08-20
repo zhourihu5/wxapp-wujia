@@ -424,9 +424,13 @@ Page({
     },
     onPullDownRefresh: function() {
         wx.stopPullDownRefresh()
-        // 触发下拉刷新时执行
-        wx.reLaunch({
-            url:'/pages/index/index',
+        var that=this
+        network.requestGet('/v1/activity/wxIndex',{communityId:app.communtityId} , function (data) {
+            that.setData({
+                apiData: data,
+            })
+        }, function (msg) {
+
         })
     },
 
