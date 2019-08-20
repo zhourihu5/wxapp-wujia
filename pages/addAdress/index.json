@@ -1,4 +1,10 @@
+
+
 {
+  "navigationBarBackgroundColor": "#FFFFFF",
   "navigationBarTitleText": "新增收货地址",
+  "navigationBarTextStyle": "black",
+  "backgroundTextStyle": "dark",
+  "backgroundColor": "#FFFFFF",
   "usingComponents": {}
 }

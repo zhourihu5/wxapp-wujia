@@ -1,4 +1,11 @@
+
+
 {
+  "navigationBarBackgroundColor": "#FFFFFF",
   "navigationBarTitleText": "小区列表",
+  "navigationBarTextStyle": "black",
+  "backgroundTextStyle": "dark",
+  "backgroundColor": "#FFFFFF",
   "usingComponents": {}
 }
+

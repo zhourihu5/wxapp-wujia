@@ -1,4 +1,9 @@
+
 {
+  "navigationBarBackgroundColor": "#FFFFFF",
   "navigationBarTitleText": "提交申请",
+  "navigationBarTextStyle": "black",
+  "backgroundTextStyle": "dark",
+  "backgroundColor": "#FFFFFF",
   "usingComponents": {}
 }

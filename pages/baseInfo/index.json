@@ -1,4 +1,9 @@
+
 {
+  "navigationBarBackgroundColor": "#FFFFFF",
   "navigationBarTitleText": "基本资料",
+  "navigationBarTextStyle": "black",
+  "backgroundTextStyle": "dark",
+  "backgroundColor": "#FFFFFF",
   "usingComponents": {}
 }

@@ -1,3 +1,10 @@
+
+
 {
-  "navigationBarTitleText": "精选活动"
+  "navigationBarBackgroundColor": "#FFFFFF",
+  "navigationBarTitleText": "精选活动",
+  "navigationBarTextStyle": "black",
+  "backgroundTextStyle": "dark",
+  "backgroundColor": "#FFFFFF",
+  "usingComponents": {}
 }

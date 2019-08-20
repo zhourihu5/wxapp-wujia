@@ -1,3 +1,9 @@
+
 {
-  "navigationBarTitleText": "付款成功"
+  "navigationBarBackgroundColor": "#FFFFFF",
+  "navigationBarTitleText": "付款成功",
+  "navigationBarTextStyle": "black",
+  "backgroundTextStyle": "dark",
+  "backgroundColor": "#FFFFFF",
+  "usingComponents": {}
 }
