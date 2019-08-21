@@ -29,6 +29,9 @@ Page({
         wx_user: null
     },
     showNavigationBarLoading(){
+        if(this.data.loading){//下拉刷新
+            return
+        }
         this.setData({
             navigationBarLoading:true
         })
