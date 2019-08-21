@@ -2,6 +2,7 @@
 const util = require('../../utils/util.js')
 const app = getApp()
 var register = require('../../refreshview/refreshLoadRegister.js');
+const network = require('../../utils/network.js')
 Page({
     data: {
         isBack: false,
