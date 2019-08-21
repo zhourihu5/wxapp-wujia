@@ -50,52 +50,54 @@
 <!--    hover-class="{{modalName=='ModalGuideMore'?'':'navigator-hover'}}" hover-stop-propagation="{{true}}"-->
 </view>
 <include src="../../refreshview/refreshHeaderView.wxml"/>
-<view class="activity-more flex  justify-between {{modalName=='ModalGuideMore'?'p-t-b-show':'p-t-b-normal'}}"
-      bindtap="{{modalName!='ModalGuideMore'?'toMore':''}}">
-    <view class="jxhd">精选活动</view>
-    <view class="more {{modalName=='ModalGuideMore'?'showMore':'m-r-30'}}">
-        <text>更多</text>
-        <text class="cuIcon-right lg"></text>
+<view class="container over-hidden" style="background: #FFFFFF;border-radius: 16rpx 16rpx 0 0;margin-top: -16rpx;position: relative"
+      bindscroll="scroll"  bindscrolltoupper="upper" bindtouchstart="start" bindtouchend="end"
+      bindtouchmove="{{modalName?'':'move'}}">
+    <view class="activity-more flex align-center  justify-between {{modalName=='ModalGuideMore'?'p-t-b-show':'p-t-b-normal'}}"
+          bindtap="{{modalName!='ModalGuideMore'?'toMore':''}}">
+        <view class="jxhd">精选活动</view>
+        <view class="more {{modalName=='ModalGuideMore'?'showMore':'m-r-30'}}">
+            <text>更多</text>
+            <text class="cuIcon-right lg"></text>
+        </view>
     </view>
-</view>
-<view class="container over-hidden" style="background: #FFFFFF;z-index: 1"></view>
-
-<scroll-view class="activity-scroll" scroll-x="true" style="z-index: 3;position: fixed">
-    <block wx:for="{{apiData.activityList}}" wx:key="">
-        <!--            <block wx:for="{{1}}" wx:key="">-->
-        <view class="activity-item-wraper {{index==0?'p-l-30':''}} " >
-            <view class="activity-item {{apiData.activityList.length<=1?'activity-only-one':''}}"
-                  hover-class="navigator-hover" hover-stop-propagation="{{true}}"
-                  bindtap="goBuy" data-index="{{index}}">
-                <!--            <view class="activity-item activity-only-one">-->
-                <image class="activity-banner"
-                       src="{{item.cover}}"/>
-                <view class="m-l-20 activity-title">{{item.title}}</view>
-                <view class="price">
-                    <text class="dollar m-l-20">￥</text>
-                    <text class="price-integer">{{utils.numBeforeDot(item.price)}}</text>
-                    <text class="dot" wx:if="{{utils.isNumDot(item.price)}}">.</text>
-                    <text class="price-float">{{utils.numAfterDot(item.price)}}</text>
-                    <text class="price-old">￥{{item.commodity.price}}</text>
-                </view>
-                <view class="m-l-20 lable-container">
-                    <text wx:for="{{ utils.strSplitToArr(item.commodity.labelsName,'|') }}" wx:for-item="labelItem"
-                          wx:key="" class="lable">{{labelItem}}
-                    </text>
-                </view>
-                <view class="sell-num m-l-20">已拼{{item.commodity.salesNum}}件</view>
-<!--                todo 这里不好点击，为什么-->
-                <view class="go-group-buy" hover-class="navigator-hover" hover-stop-propagation="{{true}}"
-                      catchtap="goBuy" data-index="{{index}}">去参团
+    <scroll-view class="activity-scroll" scroll-x="true" >
+        <block wx:for="{{apiData.activityList}}" wx:key="">
+            <!--            <block wx:for="{{1}}" wx:key="">-->
+            <view class="activity-item-wraper {{index==0?'p-l-30':''}} " >
+                <view class="activity-item {{apiData.activityList.length<=1?'activity-only-one':''}}"
+                      hover-class="navigator-hover" hover-stop-propagation="{{true}}"
+                      bindtap="goBuy" data-index="{{index}}">
+                    <!--            <view class="activity-item activity-only-one">-->
+                    <image class="activity-banner"
+                           src="{{item.cover}}"/>
+                    <view class="m-l-20 activity-title">{{item.title}}</view>
+                    <view class="price">
+                        <text class="dollar m-l-20">￥</text>
+                        <text class="price-integer">{{utils.numBeforeDot(item.price)}}</text>
+                        <text class="dot" wx:if="{{utils.isNumDot(item.price)}}">.</text>
+                        <text class="price-float">{{utils.numAfterDot(item.price)}}</text>
+                        <text class="price-old">￥{{item.commodity.price}}</text>
+                    </view>
+                    <view class="m-l-20 lable-container">
+                        <text wx:for="{{ utils.strSplitToArr(item.commodity.labelsName,'|') }}" wx:for-item="labelItem"
+                              wx:key="" class="lable">{{labelItem}}
+                        </text>
+                    </view>
+                    <view class="sell-num m-l-20">已拼{{item.commodity.salesNum}}件</view>
+                    <!--                todo 这里不好点击，为什么-->
+                    <view class="go-group-buy" hover-class="navigator-hover" hover-stop-propagation="{{true}}"
+                          catchtap="goBuy" data-index="{{index}}">去参团
+                    </view>
                 </view>
             </view>
+        </block>
+        <view wx:if="{{apiData.activityList.length>1}}" class="end-hint">
+            已经到头了哦～
         </view>
-    </block>
-    <view wx:if="{{apiData.activityList.length>1}}" class="end-hint">
-        已经到头了哦～
-    </view>
 
-</scroll-view>
+    </scroll-view>
+</view>
 
 <!--</view>-->
 <view class="round-backgroud" style="z-index: 2;bottom: calc( {{customTabBarHeight}}px - 98rpx  );"></view>
@@ -169,7 +171,7 @@
 
 </view>
 <view class="modal-top0  {{modalName=='ModalGuideMore'?'show':''}}">
-    <view class="invite-hint" style="top: calc( 130rpx - 16rpx + {{CustomBar}}px + 52rpx + 16rpx );right: 76rpx;">
+    <view class="invite-hint" style="top: calc( 130rpx - 16rpx + {{CustomBar}}px + 40rpx + 16rpx );right: 76rpx;">
         <view class="guide-invite-line-container">
             <view class="guide-invite-line" style="right: 46rpx;"></view>
         </view>

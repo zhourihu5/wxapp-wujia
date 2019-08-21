@@ -2,6 +2,7 @@ const app = getApp()
 const util = require('../../utils/util.js')
 const network = require('../../utils/network.js')
 var interval = null //倒计时函数
+var register = require('../../refreshview/refreshLoadRegister.js');
 Page({
     data: {
         y: util.rpxToPx(40),
@@ -391,6 +392,7 @@ Page({
     },
     onLoad: function (options) {
         console.log('index onLoad')
+        register.register(this);
         this.setBottomTabBar()
         console.log(options)
         var applyCode=options&&options.applyCode
@@ -430,14 +432,18 @@ Page({
         })
     },
     onPullDownRefresh: function() {
+        this.refresh()
+    },
+    refresh(){//下拉刷新
         wx.stopPullDownRefresh()
         var that=this
         network.requestGet('/v1/activity/wxIndex',{communityId:app.communtityId} , function (data) {
             that.setData({
                 apiData: data,
             })
+            register && register.loadFinish(that, true)
         }, function (msg) {
-
+            register && register.loadFinish(that, false)
         })
     },
 
