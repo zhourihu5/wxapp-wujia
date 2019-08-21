@@ -18,13 +18,23 @@ page{
 }
 
 .to-more{
+  /*width:690rpx;*/
+  height:82rpx;
+  background:rgba(255,249,233,1);
+  /*border-radius:2rpx;*/
+
   /*width:516px;*/
   /*height:34px;*/
   font-size:24rpx;
-  font-family:PingFangSC-Regular;
+  font-family:PingFangSC;
   font-weight:400;
-  color:rgba(255,99,41,1);
+  color:rgba(85,85,85,1);
   line-height:34rpx;
+
+  border-radius: 16rpx 16rpx 0 0;
+}
+.one-time{
+  color: #FF9B1D;
 }
 .arrow-right{
   font-size:24rpx;

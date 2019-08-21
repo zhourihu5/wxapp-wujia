@@ -2,19 +2,25 @@
 
 <cu-custom bgColor="titlebar-white" isBack="{{true}}">
     <view slot="backText"></view>
-    <view slot="content"><text class="{{navigationBarLoading?'wj-loading-icon':''}}"/>商品详情</view>
+    <view slot="content">
+        <text class="{{navigationBarLoading?'wj-loading-icon':''}}"/>
+        商品详情
+    </view>
 </cu-custom>
 
 <scroll-view class="body" scroll-y
              bindscrolltolower='scrolltolower'
              lower-threshold="{{lowerThreshold}}">
-    <view class="round-container p-l-r-20 m-t-20">
-        <view class="w-p-100 flex align-center justify-between to-more p-t-20 p-b-40"
+    <view class="round-container m-t-20  p-b-50">
+        <view class="w-p-100 flex align-center justify-between to-more p-l-r-20"
               hover-class="navigator-hover" hover-stop-propagation="{{true}}" bindtap="toMore">
-            <view>每个用户只限参加一次哦，点我查看更多活动哦~</view>
+            <view>每个用户只限参加
+                <text class="one-time">一次</text>
+                哦，点我查看更多活动哦~
+            </view>
             <view class="cuIcon-right arrow-right"></view>
         </view>
-        <view class="w-p-100 flex align-center m-b-50">
+        <view class="w-p-100 flex align-center p-t-40 p-l-r-20">
             <image class="image" src="{{apiData.activity.cover}}"/>
             <view class="flex-1">
                 <view class="top-shop-name">{{apiData.activity.title}}</view>
@@ -29,8 +35,11 @@
         </view>
 
 
-        <view class="w-p-100 flex align-center">
-            <view class="line flex-1"></view>
+    </view>
+    <view class="round-container p-l-r-20 m-t-20">
+
+        <view class="w-p-100 flex align-center justify-center  p-t-50">
+            <!--            <view class="line flex-1"></view>-->
             <view class="flex align-center time-remain">
                 <view class="m-l-r-20">剩余</view>
                 <view class="orange-corner">{{hour}}</view>
@@ -42,56 +51,65 @@
                 <view class="m-l-r-20">结束</view>
 
             </view>
-            <view class="line flex-1"></view>
+            <!--            <view class="line flex-1"></view>-->
         </view>
         <view wx:if="{{apiData.userInfoList.length>0}}" class="w-p-100 flex p-t-b-40 ">
             <view class="cu-avatar-group item3-2-l">
-<!--                <image class="cu-avatar round round-image" wx:for="{{apiData.userInfoList}}" wx:key-->
-<!--                       src="{{item.wxCover}}" ></image>-->
-<!--                <view class="cu-avatar round lg" wx:for="{{apiData.userInfoList}}" wx:key style="background-image:url('{{item.wxCover}}');"></view>-->
-                <view class="cu-avatar round round-image" wx:for="{{apiData.userInfoList}}" wx:key style="background-image:url('{{item.wxCover}}');"></view>
+                <!--                <image class="cu-avatar round round-image" wx:for="{{apiData.userInfoList}}" wx:key-->
+                <!--                       src="{{item.wxCover}}" ></image>-->
+                <!--                <view class="cu-avatar round lg" wx:for="{{apiData.userInfoList}}" wx:key style="background-image:url('{{item.wxCover}}');"></view>-->
+                <view class="cu-avatar round round-image" wx:for="{{apiData.userInfoList}}" wx:key
+                      style="background-image:url('{{item.wxCover}}');"></view>
 
             </view>
             <!--                //todo 居于底部-->
             <view class="item-3-2-r align-bottom">...等{{apiData.activity.commodity.salesNum}}名用户已参与</view>
         </view>
     </view>
-    <view wx:if="{{apiOtherListData&&apiOtherListData.length>0}}" class="w-p-100 flex align-center justify-center m-t-b-30 djdzp">大家都在拼</view>
-        <block wx:for="{{apiOtherListData}}" wx:key="">
 
-            <!--                <activity cover="{{item.cover}}"-->
-            <!--                          title="{{item.commodity.name}}"-->
-            <!--                          priceInt="12"-->
-            <!--                          priceFloat="32"-->
-            <!--                          priceOld="16.68"-->
-            <!--                          labelArr="{{ utils.strSplitToArr(item.commodity.labelsName,'|') }}"-->
-            <!--                          salesNum="{{item.commodity.salesNum}}"-->
-            <!--                          dataId="{{item.id}}"/>-->
 
-            <view class="activity-item  m-b-20 relative"  hover-class="navigator-hover" hover-stop-propagation="{{true}}" bindtap="goBuy" data-index="{{index}}">
-                <image class="activity-banner"
-                       src="{{item.cover}}"/>
-                <view class="m-l-20 m-t-30 m-b-20 activity-title">{{item.title}}</view>
-                <view class="price">
-                    <text class="dollar m-l-20">￥</text>
-                    <text class="price-integer">{{utils.numBeforeDot(item.price)}}</text>
-                    <text class="dot" wx:if="{{utils.isNumDot(item.price)}}">.</text>
-                    <text class="price-float">{{utils.numAfterDot(item.price)}}</text>
-                    <text class="price-old m-l-20 m-r-30">￥{{item.commodity.price}}</text>
-                    <text class="sell-num">已抢购{{item.commodity.salesNum}}件</text>
-                </view>
-                <view class="m-l-20 p-b-30 m-t-20 lable-container">
-                    <text wx:for="{{ utils.strSplitToArr(item.commodity.labelsName,'|') }}" wx:for-item="labelItem"
-                          wx:key="" class="lable">{{labelItem}}
-                    </text>
-                </view>
+    <view wx:if="{{apiOtherListData&&apiOtherListData.length>0}}"
+          class="w-p-100 flex align-center justify-center m-t-b-30 djdzp">
+        <view class="line flex-1"/>
+        <view style="margin: 0 22rpx;">大家都在拼</view>
+        <view class="line flex-1"/>
+    </view>
+    <block wx:for="{{apiOtherListData}}" wx:key="">
 
-                <view class="go-group-buy">去参团</view>
+        <!--                <activity cover="{{item.cover}}"-->
+        <!--                          title="{{item.commodity.name}}"-->
+        <!--                          priceInt="12"-->
+        <!--                          priceFloat="32"-->
+        <!--                          priceOld="16.68"-->
+        <!--                          labelArr="{{ utils.strSplitToArr(item.commodity.labelsName,'|') }}"-->
+        <!--                          salesNum="{{item.commodity.salesNum}}"-->
+        <!--                          dataId="{{item.id}}"/>-->
+
+        <view class="activity-item  m-b-20 relative" hover-class="navigator-hover" hover-stop-propagation="{{true}}"
+              bindtap="goBuy" data-index="{{index}}">
+            <image class="activity-banner"
+                   src="{{item.cover}}"/>
+            <view class="m-l-20 m-t-30 m-b-20 activity-title">{{item.title}}</view>
+            <view class="price">
+                <text class="dollar m-l-20">￥</text>
+                <text class="price-integer">{{utils.numBeforeDot(item.price)}}</text>
+                <text class="dot" wx:if="{{utils.isNumDot(item.price)}}">.</text>
+                <text class="price-float">{{utils.numAfterDot(item.price)}}</text>
+                <text class="price-old m-l-20 m-r-30">￥{{item.commodity.price}}</text>
+                <text class="sell-num">已抢购{{item.commodity.salesNum}}件</text>
+            </view>
+            <view class="m-l-20 p-b-30 m-t-20 lable-container">
+                <text wx:for="{{ utils.strSplitToArr(item.commodity.labelsName,'|') }}" wx:for-item="labelItem"
+                      wx:key="" class="lable">{{labelItem}}
+                </text>
             </view>
 
+            <view class="go-group-buy">去参团</view>
+        </view>
 
-        </block>
-        <view wx:if="{{reachBottom&&isLoading}}" class="cu-load wj-loading {{isLoading?'loading':'over'}}"></view>
+
+    </block>
+    <view wx:if="{{reachBottom&&isLoading}}" class="cu-load wj-loading {{isLoading?'loading':'over'}}"></view>
 
 </scroll-view>
 
