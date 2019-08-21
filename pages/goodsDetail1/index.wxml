@@ -38,8 +38,9 @@
                 <view class="orange-corner">{{minute}}</view>
                 <view class="comma">分</view>
                 <view class="orange-corner">{{second}}</view>
+                <view class="comma" style="margin-right: 0px;">秒</view>
                 <view class="m-l-r-20">结束</view>
-                <view class="comma">秒</view>
+
             </view>
             <view class="line flex-1"></view>
         </view>

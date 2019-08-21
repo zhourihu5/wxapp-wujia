@@ -541,38 +541,46 @@ movable-area {
 
 .dialog-invite{
     width:560rpx;
-    height:334rpx;
+    height:596rpx;
     background:rgba(255,255,255,1);
     border-radius:16rpx;
     filter:blur(0px);
+
+    /*display: flex;*/
+    /*flex-direction: column;*/
+    /*align-items: center;*/
+}
+.close{
+    font-size: 42rpx;
+    line-height: 42rpx;
+    color:rgba(136,136,136,1);
+
+    margin-bottom: 6rpx;
+}
+.img-invite{
+    width: 214rpx;
+    height: 164rpx;
 }
 .dialog-title-invite{
-    /*width:396px;*/
-    /*height:44px;*/
-    font-size:32rpx;
-    font-family:PingFangSC-Regular;
-    font-weight:400;
-    color:rgba(0,0,0,1);
-    line-height:44rpx;
+    /*width:160px;*/
+    /*height:56px;*/
+    font-size:40rpx;
+    font-family:PingFangSC;
+    font-weight:500;
+    color:rgba(34,34,34,1);
+    line-height:56rpx;
 
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
+    margin-top: 48rpx;
+    margin-bottom: 20rpx;
 }
 .dialog-msg{
-    /*width:392px;*/
-    /*height:80px;*/
-    font-size:28rpx;
-    font-family:PingFangSC-Regular;
+    /*width:288px;*/
+    /*height:44px;*/
+    font-size:32rpx;
+    font-family:PingFangSC;
     font-weight:400;
     color:rgba(136,136,136,1);
-    line-height:40rpx;
-
-    margin: 0 84rpx;
-    margin-top: 30rpx;
-    margin-bottom: 40rpx;
+    line-height:44rpx;
 }
 .dialog-action{
     width: 100%;
@@ -602,28 +610,30 @@ movable-area {
     justify-content: center;
 }
 .dialog-add{
-    /*width:56px;*/
-    height: 90rpx;
-    font-size:28rpx;
-    font-family:PingFangSC-Medium;
-    font-weight:500;
-    color:rgba(255,155,29,1);
-    line-height:40rpx;
+    /*width:96px;*/
+    /*height:44px;*/
+    font-size:32rpx;
+    font-family:PingFangSC;
+    font-weight:400;
+    color:rgba(255,255,255,1);
+    line-height:44rpx;
 
-    /*border-right:1rpx rgba(238,238,238,1) solid;*/
-
-    flex: 1;
+    width:256rpx;
+    height:76rpx;
+    background:linear-gradient(180deg,rgba(255,185,19,1) 0%,rgba(255,155,29,1) 100%);
+    box-shadow:0rpx 2rpx 16rpx 0rpx rgba(255,193,83,1);
+    border-radius:40rpx;
 
     display: flex;
     align-items: center;
     justify-content: center;
 
     padding: 0;
-    background: none;
     border: none;
+
+    margin-top: 60rpx;
 }
 .dialog-add::after{
-    background: none;
     border: none;
 }
 
