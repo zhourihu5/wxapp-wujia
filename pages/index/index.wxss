@@ -197,7 +197,7 @@ page{
     background:rgba(255,255,255,1);
     border-radius:16rpx;
 
-    padding: 0 30rpx;
+    /*padding: 0 30rpx;*/
 }
 .scroll-view{
     max-height:750rpx ;
@@ -205,6 +205,7 @@ page{
 .item-community{
     height: 100rpx;
     border-top: 1rpx rgba(238,238,238,1) solid;
+    padding: 0 30rpx;
 }
 .addres-img{
     width:80rpx;
@@ -256,7 +257,7 @@ page{
     align-items: center;
     justify-content: center;
 
-    padding: 30rpx 0;
+    padding: 30rpx 30rpx;
 }
 .btn-share{
     display: flex;

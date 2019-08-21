@@ -47,9 +47,9 @@
         </view>
     </view>
 
-<!--    hover-class="{{modalName=='ModalGuideMore'?'':'navigator-hover'}}" hover-stop-propagation="{{true}}"-->
+    <include src="../../refreshview/refreshHeaderView.wxml"/>
 </view>
-<include src="../../refreshview/refreshHeaderView.wxml"/>
+
 <view class="container over-hidden" style="background: #FFFFFF;border-radius: 16rpx 16rpx 0 0;margin-top: -16rpx;position: relative"
       bindscroll="scroll"  bindscrolltoupper="upper" bindtouchstart="start" bindtouchend="end"
       bindtouchmove="{{modalName?'':'move'}}">

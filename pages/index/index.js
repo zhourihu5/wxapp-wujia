@@ -386,7 +386,8 @@ Page({
         this.setBottomTabBar()
         if(app.activityChanged){
             app.activityChanged=false
-            this.showOrHideBindPhone();
+            // this.showOrHideBindPhone();
+            this.refresh()
         }
     },
     onHide(){
