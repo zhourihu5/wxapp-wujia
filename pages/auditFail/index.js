@@ -70,7 +70,10 @@ Page({
                                     return
                                 } else if (data.applyLock.status == '2') {//不通过
                                     app.failReason = data.applyLock.remark
-                                    wx.redirectTo({url: '/pages/auditFail/index'})
+                                    // wx.redirectTo({url: '/pages/auditFail/index'})
+                                    that.setData({
+                                        failReason: app.failReason,
+                                    })
                                     return;
                                 }
                             }else if ('0' == data.isBindingFamily) {

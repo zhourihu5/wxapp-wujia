@@ -74,7 +74,7 @@ Page({
                             app.fid = data.userInfo.fid
                             if (data.applyLock) {
                                 if (data.applyLock.status == '0') {//待审核
-                                    wx.redirectTo({url: '/pages/auditWait/index'})
+                                    // wx.redirectTo({url: '/pages/auditWait/index'})
                                     return;
                                 } else if (data.applyLock.status == '2') {//不通过
                                     app.failReason = data.applyLock.remark

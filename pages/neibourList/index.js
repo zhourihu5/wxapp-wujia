@@ -3,6 +3,7 @@
 const app = getApp()
 const network = require('../../utils/network.js')
 const util = require('../../utils/util.js')
+var register = require('../../refreshview/refreshLoadRegister.js');
 Page({
     data: {
         CustomBar: app.globalData.CustomBar,
@@ -48,6 +49,7 @@ Page({
         }
     },
     onLoad: function () {
+        register.register(this);
         if(getCurrentPages().length>1){
             this.setData({
                 isBack:true,
@@ -57,6 +59,9 @@ Page({
     },
     onPullDownRefresh(){
         wx.stopPullDownRefresh()
+        this.refresh()
+    },
+    refresh(){
         var that=this
         wx.login({
             success(res) {
@@ -94,7 +99,7 @@ Page({
                                     return
                                 }
                             }else if ('0' == data.isBindingFamily) {
-                                wx.redirectTo({url: '/pages/neibourList/index'})
+                                // wx.redirectTo({url: '/pages/neibourList/index'})
                                 return;
                             }
                         }
