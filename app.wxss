@@ -286,6 +286,10 @@ page{
   font-weight:400;
   color:rgba(255,255,255,1);
   line-height:22rpx;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 .line{
   /*width:140px;*/

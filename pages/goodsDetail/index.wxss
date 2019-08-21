@@ -152,10 +152,16 @@
   font-weight:400;
   color:rgba(255,255,255,1);
   -webkit-text-fill-color:rgba(255,255,255,1);
-  line-height:22rpx;
+  /*line-height:22rpx;*/
+  line-height: 46rpx;
 
   text-align: center;
   padding: 0 6rpx;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
 }
 .comma{
 
