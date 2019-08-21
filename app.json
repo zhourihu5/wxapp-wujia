@@ -34,6 +34,8 @@
   },
   "pages": [
     "pages/index/index",
+    "pages/orderConfirm/index",
+    "pages/paySuccess/index",
     "pages/openRecord/index",
     "pages/inviteVisitor/index",
     "pages/ucenter/index",
@@ -43,7 +45,6 @@
     "pages/goodsDetail/index",
     "pages/template/index",
     "pages/editAdress/index",
-    "pages/orderConfirm/index",
     "pages/addAdress/index",
     "pages/baseInfo/index",
     "pages/applySubmit/index",
@@ -52,7 +53,6 @@
     "pages/order/orderDetail/index",
     "pages/yellowPage/index",
     "pages/myAdress/index",
-    "pages/paySuccess/index",
     "pages/msg/msgDetail/index",
     "pages/goodsDetail1/index",
     "pages/msg/index"

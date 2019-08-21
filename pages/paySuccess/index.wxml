@@ -22,10 +22,12 @@
         <view class="step-selected-text">团购成功</view>
     </view>
     <view class="round-container center-vertical p-t-b-50 m-t-20">
-        <view class="round">
-            <view class="cuIcon-check"/>
+<!--        <view class="round">-->
+<!--            <view class="cuIcon-check"/>-->
 
-        </view>
+<!--        </view>-->
+            <image class="pay-success" src="/images/pay_success.png"/>
+
         <view class="ptcg">拼团成功</view>
         <view class="flex align-center">
             <view class="ckdd" hover-class="navigator-hover" hover-stop-propagation="{{true}}" bindtap="toOrderDetail" >查看订单</view>

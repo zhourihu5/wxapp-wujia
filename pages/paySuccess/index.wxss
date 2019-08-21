@@ -151,7 +151,8 @@ page{
 .step-selected{
     width:30rpx;
     height:30rpx;
-    background:rgba(255,155,29,1);
+    /*background:rgba(255,155,29,1);*/
+    background:#FFB65A;
 
     /*width:10px;*/
     /*height:32px;*/
@@ -222,7 +223,10 @@ page{
 }
 
 
-
+.pay-success{
+    width: 138rpx;
+    height: 138rpx;
+}
 
 
 
@@ -270,7 +274,7 @@ page{
     width:200rpx;
     height:72rpx;
     border-radius:44rpx;
-    border:2px solid rgba(255,155,29,1);
+    border:2rpx solid rgba(255,155,29,1);
 
     /*width:112px;*/
     /*height:40px;*/

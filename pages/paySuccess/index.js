@@ -37,6 +37,9 @@ Page({
     onLoad: function (options) {
         this.data.orderId=options.id
         var that=this
+        // if(true){
+        //     return
+        // }
         network.requestGet('/v1/activity/findOtherList',{communityId:app.communtityId},function (data) {
             that.setData({
                 apiData:data

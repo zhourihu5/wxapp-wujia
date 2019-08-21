@@ -8,7 +8,8 @@
 .step-selected{
     width:30rpx;
     height:30rpx;
-    background:rgba(255,155,29,1);
+    /*background:rgba(255,155,29,1);*/
+    background:#FFB65A;
 
     /*width:10px;*/
     /*height:32px;*/
@@ -88,7 +89,8 @@
     /*height:28px;*/
     font-size:28rpx;
     font-family:PingFangSC-Regular;
-    font-weight:400;
+    /*font-weight:400;*/
+    font-weight:500;
     color:rgba(34,34,34,1);
     line-height:28rpx;
 

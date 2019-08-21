@@ -53,6 +53,9 @@ Page({
         console.log(query)
         let that = this
         let id = query.id
+        // if(true){
+        //     return
+        // }
         network.requestGet('/v1/activity/isOrder', {activityId: id}, function (data) {
             that.setData({
                 apiData: data,
