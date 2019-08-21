@@ -1,9 +1,8 @@
 {
   "navigationBarBackgroundColor": "#FFFFFF",
-  "navigationBarTitleText": "订单",
+  "navigationBarTitleText": "门禁记录",
   "navigationBarTextStyle": "black",
   "backgroundTextStyle": "dark",
   "backgroundColor": "#FFFFFF",
-  "enablePullDownRefresh": false,
   "usingComponents": {}
 }

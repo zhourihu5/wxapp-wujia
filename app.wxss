@@ -62,6 +62,9 @@ page{
 .m-t-50{
   margin-top: 50rpx;
 }
+.p-b-50{
+  padding-bottom: 50rpx;
+}
 .p-t-30{
   padding-top: 30rpx;
 }

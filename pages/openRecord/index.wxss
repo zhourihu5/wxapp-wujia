@@ -1,7 +1,5 @@
 
-/*page{*/
-/*    position: fixed;*/
-/*}*/
+
 
 
 .empty-container{
@@ -33,22 +31,7 @@
   width: 100%;
   /*position: fixed !important;*/
   /*overflow: scroll;*/
-
-    /*height: 100%;*/
-    /*display: flex;*/
-    /*flex-direction: column;*/
-
 }
-.van-tabs__content {
-/*./dist/tabs/index.wxss: 95*/
-    overflow: hidden;
-
-    /*flex: 1;*/
-    /*display: flex;*/
-    /*flex-direction: column;*/
-}
-
-
 .tab-custom{
 
 }
@@ -65,18 +48,7 @@
   height: 100%;
   /*position: fixed;*/
   overflow: scroll;
-
-    /*flex: 1;*/
-
-    /*position: relative;*/
 }
-.van-tab__pane--active {
-/*./dist/tab/index.wxss: 8*/
-/*height: auto;*/
-    height: 100%;
-
-}
-
 .tab-layout{
   width: 100%;
   /*padding-bottom: 98rpx;*/
@@ -183,19 +155,15 @@
 
 .scroll-view-order{
     position: fixed;
-    /*bottom: 0;*/
+    bottom: 0;
     left: 0;
     right: 0;
-    width: 100%;
-    /*top: 0;*/
+    top: 0;
 
     padding-left: 30rpx;
     padding-right: 30rpx;
 
-    /*position: absolute;*/
-    /*height: 100%;*/
-
-    /*background:rgba(246,247,249,1) !important;*/
+    background:rgba(246,247,249,1) !important;
 }
 .scroll-view {
 /*./refurbish-load/refurbish-load.wxss: 2*/

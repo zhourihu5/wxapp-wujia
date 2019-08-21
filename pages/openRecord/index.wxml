@@ -1,7 +1,7 @@
 <view class="container">
-    <cu-custom bgColor="titlebar-white" isBack="{{false}}">
-        <view slot="backText">返回</view>
-        <view slot="content"><text class="{{navigationBarLoading?'wj-loading-icon':''}}"/>订单</view>
+    <cu-custom bgColor="titlebar-white" isBack="{{true}}">
+        <view slot="backText"></view>
+        <view slot="content"><text class="{{navigationBarLoading?'wj-loading-icon':''}}"/>门禁记录</view>
     </cu-custom>
     <van-tabs class="tab-layout"
               custom-class="custom-tabs"
@@ -10,7 +10,7 @@
               border="{{false}}"
               line-class="tab-line"
               color="rgba(255,155,29,1)"
-              lineWidth="{{tabLineWidth}}" swipeable swipeThreshold="5"
+              lineWidth="{{tabLineWidth}}" swipeable swipeThreshold="2"
               active="{{active}}"
               bind:change="onChangeTab"
     >
@@ -21,17 +21,14 @@
                 title="{{tab.title}}"
                 custom-class="custom-tab">
             <include src="../../refreshview/refreshHeaderView.wxml"/>
-            <scroll-view scroll-y class="scroll-view-order"
-                         style="position: relative;height:calc( {{windowHeight}}px - {{CustomBar}}px - 84rpx )"
+            <scroll-view scroll-y class="scroll-view-order" style="top: calc( {{CustomBar}}px + 84rpx + {{refreshHeight}}px  );bottom: {{customTabBarHeight}}px"
                          lower-threshold="{{lowerThreshold}}"
                          bindscrolltolower='scrolltolower'
                          bindscroll="scrollP"  bindscrolltoupper="upperP" bindtouchstart="start" bindtouchend="end"
                          bindtouchmove="move" data-index="{{tabIndex}}">
-<!--                style="top: calc( {{CustomBar}}px + 84rpx + {{refreshHeight}}px  );bottom: {{customTabBarHeight}}px"-->
                 <block wx:for="{{tab.data}}" wx:for-item="item" wx:key="">
 <!--                <block wx:for="{{10}}" wx:for-item="item" wx:key="">-->
-                    <view class="item-content {{index==0?'p-t-20':''}}"
-                          >
+                    <view class="item-content {{index==0?'p-t-20':''}}">
                         <view class="order-container" url="/pages/order/orderDetail/index"
                                    open-type="navigateTo"
                               hover-class="navigator-hover" hover-stop-propagation="{{true}}"  bindtap="itemClicked"

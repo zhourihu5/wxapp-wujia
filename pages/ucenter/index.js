@@ -14,11 +14,11 @@ Page({
                 icon: "/images/icon_yellow_page.png",
                 url: "/pages/yellowPage/index"
             },
-            // {
-            //     title: "申请线上开锁",
-            //     icon:"/images/icon_lock.png",
-            //     url:"/pages/neibourList/index"
-            // },
+            {
+                title: "门禁记录",
+                icon: "/images/icon_open_record.png",
+                url: "/pages/openRecord/index"
+            },
         ],
         nickName: '',
         phone: '',

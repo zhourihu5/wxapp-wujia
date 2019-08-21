@@ -34,9 +34,10 @@
   },
   "pages": [
     "pages/index/index",
+    "pages/inviteVisitor/index",
+    "pages/openRecord/index",
     "pages/ucenter/index",
     "pages/order/index",
-    "pages/inviteVisitor/index",
     "pages/auditFail/index",
     "pages/auditWait/index",
     "pages/goodsDetail/index",

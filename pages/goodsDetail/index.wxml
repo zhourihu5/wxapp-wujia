@@ -31,10 +31,11 @@
             <view class="jlhd">距离活动结束仅剩</view>
             <view>
                 <text class="djs">{{hour}}</text>
-                <text class="comma">:</text>
+                <text class="comma">时</text>
                 <text class="djs">{{minute}}</text>
-                <text class="comma">:</text>
+                <text class="comma">分</text>
                 <text class="djs">{{second}}</text>
+                <text class="comma">秒</text>
             </view>
         </view>
     </view>

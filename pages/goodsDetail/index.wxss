@@ -158,16 +158,17 @@
   padding: 0 6rpx;
 }
 .comma{
+
   /*width:24px;*/
   /*height:32px;*/
   font-size:22rpx;
-  font-family:PingFangSC-Regular;
+  font-family:PingFangSC;
   font-weight:400;
-  color:rgba(255,155,29,1);
-  -webkit-text-fill-color:rgba(255,155,29,1);
+  color:rgba(255,99,41,1);
   line-height:32rpx;
 
-  margin: 0 9rpx;
+
+  margin: 0 8rpx;
 }
 .jlhd{
   /*width:154px;*/

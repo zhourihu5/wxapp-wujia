@@ -14,7 +14,7 @@ Page({
         callPhone:null,
         tabs: [
             {
-                title: "全部",
+                title: "小区门禁",
                 status:null,
                 isOver:false,
                 isLoading: false,
@@ -23,7 +23,7 @@ Page({
                 data:[],
             },
             {
-                title: "待付款",
+                title: "单元门禁",
                 status:1,
                 isOver:false,
                 isLoading: false,
@@ -31,36 +31,8 @@ Page({
                 pageNum: 1,
                 data:[],
             },
-            {
-                title: "待收货",
-                status:'2,5',
-                isOver:false,
-                isLoading: false,
-                reachBottom:false,
-                pageNum: 1,
-                data:[],
-            },
-            {
-                title: "已收货",
-                status:3,
-                isOver:false,
-                isLoading: false,
-                reachBottom:false,
-                pageNum: 1,
-                data:[],
-            },
-            {
-                title: "已过期",
-                status:4,
-                isOver:false,
-                isLoading: false,
-                reachBottom:false,
-                pageNum: 1,
-                data:[],
-            },
         ],
-        windowHeight:app.globalData.windowHeight,
-        pageSize: 3,
+        pageSize: 20,
         tabLineWidth:util.rpxToPx(28),
 
     },
@@ -124,18 +96,7 @@ Page({
         interval=null
     },
     onLoad: function () {
-        console.log('order onLoad')
-        if(!app.isTabEnabled){
-            console.log('getCurrentPages')
-            console.log(getCurrentPages())
-            wx.switchTab({
-                url:'/pages/index/index'
-            })
-            return
-        }
-        this.setBottomTabBar()
         register.register(this)
-        this.refreshAllData()
     },
     onUnload(){
         console.log('order onUnload')
@@ -185,69 +146,6 @@ Page({
             })
 
         }, 1000)
-    },
-    refreshAllData(){
-        var that = this
-        that.setData({
-            tabs: [
-                {
-                    title: "全部",
-                    status:null,
-                    isOver:false,
-                    isLoading: false,
-                    reachBottom:false,
-                    pageNum: 1,
-                    data:[],
-                    scrolling:false,
-                    isUpper:true,
-                },
-                {
-                    title: "待付款",
-                    status:1,
-                    isOver:false,
-                    isLoading: false,
-                    reachBottom:false,
-                    pageNum: 1,
-                    data:[],
-                    scrolling:false,
-                    isUpper:true,
-                },
-                {
-                    title: "待收货",
-                    status:'2,5',
-                    isOver:false,
-                    isLoading: false,
-                    reachBottom:false,
-                    pageNum: 1,
-                    data:[],
-                    scrolling:false,
-                    isUpper:true,
-                },
-                {
-                    title: "已收货",
-                    status:3,
-                    isOver:false,
-                    isLoading: false,
-                    reachBottom:false,
-                    pageNum: 1,
-                    data:[],
-                    scrolling:false,
-                    isUpper:true,
-                },
-                {
-                    title: "已过期",
-                    status:4,
-                    isOver:false,
-                    isLoading: false,
-                    reachBottom:false,
-                    pageNum: 1,
-                    data:[],
-                    scrolling:false,
-                    isUpper:true,
-                },
-            ],
-        })
-        that.loadData()
     },
     loadData() {
         var that = this

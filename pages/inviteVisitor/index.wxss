@@ -23,8 +23,8 @@ page{
 
   padding: 0 60rpx;
 
-  position: fixed;
-  bottom: 154rpx;
+  /*position: fixed;*/
+  /*bottom: 154rpx;*/
 }
 .content{
   position: fixed;
@@ -79,6 +79,9 @@ page{
   font-weight:500;
   color:rgba(85,85,85,1);
   line-height:48rpx;
+}
+.six-bit{
+  color:#FF9B1D;
 }
 .code-container{
   /*width:400px;*/

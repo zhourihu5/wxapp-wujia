@@ -41,9 +41,13 @@ Page({
         })
     },
     showModal(e) {
-        this.setData({
-            modalName: 'ModalCallPhone',
-            callPhone: e.currentTarget.dataset.phone,
+        // this.setData({
+        //     modalName: 'ModalCallPhone',
+        //     callPhone: e.currentTarget.dataset.phone,
+        // })
+        const callPhone=e.currentTarget.dataset.phone
+        wx.makePhoneCall({
+            phoneNumber: callPhone
         })
     },
     hideModal(e) {

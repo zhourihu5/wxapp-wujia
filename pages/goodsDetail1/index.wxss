@@ -101,13 +101,14 @@ page{
   margin-top: 26rpx;
 }
 .comma{
-  width:24rpx;
-  height:32rpx;
   font-size:22rpx;
-  font-family:PingFangSC-Regular;
+  font-family:PingFangSC;
   font-weight:400;
   color:rgba(255,99,41,1);
   line-height:32rpx;
+
+
+  margin: 0 8rpx;
 }
 
 
