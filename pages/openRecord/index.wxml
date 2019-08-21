@@ -26,17 +26,33 @@
                          bindscrolltolower='scrolltolower'
                          bindscroll="scrollP"  bindscrolltoupper="upperP" bindtouchstart="start" bindtouchend="end"
                          bindtouchmove="move" data-index="{{tabIndex}}">
-                <block wx:for="{{tab.data}}" wx:for-item="item" wx:key="">
-<!--                <block wx:for="{{10}}" wx:for-item="item" wx:key="">-->
+<!--                <block wx:for="{{tab.data}}" wx:for-item="item" wx:key="">-->
+                <block wx:for="{{10}}" wx:for-item="item" wx:key="">
                     <view class="item-content {{index==0?'p-t-20':''}}">
+                        <view class="w-p-100 flex align-center">
+                            <view class="t-l-1 flex-1">
+                                <view class="line-v-d"></view>
+                                <view class="item-title flex">
+                                    <image class="icon-in-out" src="/images/icon_door_in.png"></image>
+                                    <view class="in-out-text">进门</view>
+                                </view>
+                                <view class="flex">
+                                    <view class="line-v-d"></view>
+                                    <view class="t-time">2019/08/19 15:54:47</view>
+                                </view>
+                                <view class="line-v-d"></view>
+                            </view>
+                            <image class="image-t" src="/images/tab_my.png"></image>
+                            <view class="cuIcon-fold"></view>
+                        </view>
+                        <view class="w-p-100 flex align-center">
+                            <view class="line-v-d"></view>
+                            <view class="gray-content">
 
+                            </view>
+                        </view>
                     </view>
                 </block>
-                <view wx:if="{{tab.reachBottom&&tab.isLoading}}" class="cu-load wj-loading {{tab.isLoading?'loading':'over'}}"></view>
-                <view wx:if="{{tab.isOver&&tab.data.length<=0}}" class="empty-container">
-                    <image class="empty-img" src="/images/empty_order.png"></image>
-                    <view class="empty-text">您还没有订单哦～</view>
-                </view>
             </scroll-view>
             <!--                </view>-->
 

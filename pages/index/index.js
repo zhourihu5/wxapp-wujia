@@ -22,7 +22,7 @@ Page({
         inviteData:null,//邀请访客时需要的数据
     },
     customData: {
-        y: 0,
+        y: util.rpxToPx(40),
         phone: null,
         code: null,
         openid: null,
@@ -167,9 +167,9 @@ Page({
         if(this.data.modalName=='ModalGuideOpen'){
             return;
         }
-        console.log(e)
-        // event.detail = {x, y, source}
         if (e.detail.source) {//表示非setdata改变的
+            // event.detail = {x, y, source}
+            console.log(e)
             this.customData.y = e.detail.y;
 
         }
@@ -185,6 +185,8 @@ Page({
         that.setData({// 回弹
             y: util.rpxToPx(40),
         })
+
+
         if (this.customData.y < util.rpxToPx(20)) {
             if(that.data.isOpeningDoor){
                 app.showToast('正在开锁，请稍等')
@@ -200,7 +202,7 @@ Page({
         } else {
 
         }
-
+        this.customData.y =util.rpxToPx(40)
     },
     isEnableTabBar() {
         this.enableTabBar(!this.data.modalName);
