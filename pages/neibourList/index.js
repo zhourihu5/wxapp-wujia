@@ -194,6 +194,7 @@ Page({
     showModal(e) {
         this.setData({
             modalName: 'bottomModal',
+            pickerValueTmp:this.data.pickerValue
         })
     },
     hideModal(e) {
@@ -205,15 +206,18 @@ Page({
 
         const val = e.detail.value
         this.data.pickerValueTmp=val
-
+        this.setData({
+            pickerValueTmp: val,
+        })
 
     },
     pickerConfirm(e){
         this.hideModal()
         const val = this.data.pickerValueTmp
         this.data.currentArea = this.data.apiAreaData[val[0]].children[val[1]].children[val[2]].areaName
+        this.data.pickerValue=val
         this.setData({
-            pickerValue: val,
+            // pickerValue: val,
             currentArea: this.data.currentArea
         })
     }

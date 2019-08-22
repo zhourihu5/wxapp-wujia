@@ -60,18 +60,18 @@
             </view>
         </view>
         <view>
-            <picker-view indicator-style="height: 50px;" style="width: 100%; height: 300px;" value="{{pickerValue}}"
+            <picker-view indicator-style="height: 50px;" style="width: 100%; height: 300px;" value="{{pickerValueTmp}}"
                          bindchange="pickerChange">
                 <picker-view-column>
                     <view wx:for="{{apiAreaData}}" style="line-height: 50px">{{item.areaName}}</view>
                 </picker-view-column>
                 <picker-view-column>
-                    <view wx:for="{{apiAreaData[ pickerValue[0] ].children}}" style="line-height: 50px">
+                    <view wx:for="{{apiAreaData[ pickerValueTmp[0] ].children}}" style="line-height: 50px">
                         {{item.areaName}}
                     </view>
                 </picker-view-column>
                 <picker-view-column>
-                    <view wx:for="{{apiAreaData[ pickerValue[0] ].children[ pickerValue[1] ].children}}"
+                    <view wx:for="{{apiAreaData[ pickerValueTmp[0] ].children[ pickerValueTmp[1] ].children}}"
                           style="line-height: 50px">{{item.areaName}}
                     </view>
                 </picker-view-column>
