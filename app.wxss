@@ -268,7 +268,7 @@ page{
   border: none !important;
 }
 .border-bottom{
-  border-bottom: 2rpx #EBEBEB solid;
+  border-bottom: 1rpx #EEEEEE solid;
 }
 .t-gray-small{
   font-size:24rpx;

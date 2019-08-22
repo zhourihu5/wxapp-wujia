@@ -51,7 +51,7 @@ page{
     align-items: center;
 
     padding: 30rpx 0;
-    border-top: 3rpx rgba(238,238,238,1) solid;
+    border-top: 1rpx rgba(238,238,238,1) solid;
 
     font-size:30rpx;
     font-family:PingFangSC-Regular;
