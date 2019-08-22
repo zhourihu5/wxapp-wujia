@@ -16,7 +16,7 @@
 
     <!--<view class="container p-t-20">-->
     <block wx:for="{{apiData}}" wx:for-item="item" wx:key="">
-        <navigator class="item" url="/pages/msg/msgDetail/index?typeNo={{item.typeNo}}&typeName={{item.typeName}}"
+        <navigator class="item" url="/pages/msgDetail/index?typeNo={{item.typeNo}}&typeName={{item.typeName}}"
                    hover-class="navigator-hover"
                    open-type="navigateTo">
             <view class="item-content {{index==0?'no-border':''}}">

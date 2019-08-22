@@ -72,8 +72,8 @@ Page({
         }
     },
     toOrderDetail(e){
-        if(!util.navibackTo('/pages/order/orderDetail/index?id=' +this.data.orderId)){
-            wx.redirectTo({url: '/pages/order/orderDetail/index?id=' +this.data.orderId})
+        if(!util.navibackTo('/pages/orderDetail/index?id=' +this.data.orderId)){
+            wx.redirectTo({url: '/pages/orderDetail/index?id=' +this.data.orderId})
         }
     },
     goStroll(e){

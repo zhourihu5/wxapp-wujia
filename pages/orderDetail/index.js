@@ -1,5 +1,5 @@
-const util = require('../../../utils/util.js')
-const network = require('../../../utils/network.js')
+const util = require('../../utils/util.js')
+const network = require('../../utils/network.js')
 const app=getApp()
 var interval = null //倒计时函数
 Page({

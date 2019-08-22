@@ -330,7 +330,7 @@ Page({
         var index=e.currentTarget.dataset.index
         var id=this.data.tabs[this.data.active].data[index].id
         wx.navigateTo({
-            url:"/pages/order/orderDetail/index?id="+id
+            url:"/pages/orderDetail/index?id="+id
         })
     },
     goStroll(e){//去逛逛

@@ -32,7 +32,7 @@
 <!--                <block wx:for="{{10}}" wx:for-item="item" wx:key="">-->
                     <view class="item-content {{index==0?'p-t-20':''}}"
                           >
-                        <view class="order-container" url="/pages/order/orderDetail/index"
+                        <view class="order-container"
                                    open-type="navigateTo"
                               hover-class="navigator-hover" hover-stop-propagation="{{true}}"  bindtap="itemClicked"
                                     data-index="{{index}}">
