@@ -32,8 +32,10 @@ App({
         this.globalData.windowHeight = e.windowHeight;
 
         this.globalData.pixelRatio = e.pixelRatio;
-        let custom = wx.getMenuButtonBoundingClientRect()||
-            {//获取不到就设置为iphone6的
+        let custom = wx.getMenuButtonBoundingClientRect()
+        if(!custom){
+            console.log('getMenuButtonBoundingClientRect set to default iphone6')
+            custom={//获取不到就设置为iphone6的
                 bottom: 58,
                 height: 32,
                 left: 278,
@@ -41,7 +43,7 @@ App({
                 top: 26,
                 width: 87,
             };
-
+        }
         console.log('getMenuButtonBoundingClientRect', custom)
         this.globalData.Custom = custom;
         this.globalData.CustomBar = custom.bottom + custom.top - e.statusBarHeight;
