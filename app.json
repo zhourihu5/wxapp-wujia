@@ -73,7 +73,6 @@
     "stepper": "/components/stepper/index",
     "custom-tab-bar": "/custom-tab-bar/index",
 
-
     "van-radio": "../../dist/radio/index",
     "van-radio-group": "../../dist/radio-group/index",
     "van-tab": "/dist/tab/index",
