@@ -560,12 +560,19 @@ movable-area {
 }
 .close-icon{
     border-radius:0 16rpx 0 0;
-    padding: 0 20rpx;
-    padding-top: 20rpx;
+    padding: 20rpx 20rpx;
+    padding-left: 50rpx;
+    padding-bottom: 50rpx;
+
+    position: absolute;
+    right: 0;
+    top: 0;
 }
 .img-invite{
     width: 214rpx;
     height: 164rpx;
+
+    margin-top: 68rpx;
 }
 .dialog-title-invite{
     /*width:160px;*/
