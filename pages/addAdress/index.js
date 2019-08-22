@@ -72,7 +72,7 @@ Page({
     },
     phoneInput(e) {
         this.data.phone = e.detail.value
-        this.canClickSave()
+        this.canClickSave(true)
     },
     nameInput(e) {
         this.data.receiveName = e.detail.value
@@ -172,12 +172,12 @@ Page({
             active: this.data.active
         })
     },
-    canClickSave() {
+    canClickSave(isPhoneInput=false) {
         var isBtnEnabled = false
         if (this.data.sex && this.data.receiveName && this.data.phone && this.data.showAddress && this.data.currentCommunity) {
             if (util.isTel(this.data.phone)) {
                 isBtnEnabled = true
-            } else {
+            } else if(!isPhoneInput){
                 app.showToast('请填写正确的手机号')
             }
         }
