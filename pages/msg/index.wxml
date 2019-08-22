@@ -5,35 +5,36 @@
         消息
     </view>
 </cu-custom>
-<view class="=body">
+
+<scroll-view scroll-y class="body m-t-20"
+             bindscrolltoupper='scrolltoupper'
+             bindscrolltolower='scrolltolower'
+             lower-threshold="{{lowerThreshold}}"
+             bindscroll="scroll" bindscrolltoupper="upper" bindtouchstart="start" bindtouchend="end"
+             bindtouchmove="move">
     <include src="../../refreshview/refreshHeaderView.wxml"/>
-    <scroll-view scroll-y class="flex-1 w-p-100 m-t-20"
-                 bindscrolltoupper='scrolltoupper'
-                 bindscrolltolower='scrolltolower'
-                 lower-threshold="{{lowerThreshold}}"
-                 bindscroll="scroll" bindscrolltoupper="upper" bindtouchstart="start" bindtouchend="end"
-                 bindtouchmove="move">
-        <block wx:for="{{apiData}}" wx:for-item="item" wx:key="">
-            <navigator class="item" url="/pages/msg/msgDetail/index?typeNo={{item.typeNo}}&typeName={{item.typeName}}"
-                       hover-class="navigator-hover"
-                       open-type="navigateTo">
-                <view class="item-content {{index==0?'no-border':''}}">
-                    <image class="image" src="{{item.icon}}"/>
-                    <view class="middle-text">
-                        <view class="title">{{item.typeName}}</view>
-                        <text class="desc">{{
-                            (item.unReadList&&item.unReadList.length>0&&item.unReadList[0].title)||'暂无未读消息' }}
-                        </text>
-                    </view>
-                    <view class="right-text">
-                        <view class="time">{{item.unReadList[0].createDate}}</view>
-                        <view wx:if="{{item.unReadNum>0}}" class="red-circle">{{item.unReadNum}}</view>
-                    </view>
+
+    <!--<view class="container p-t-20">-->
+    <block wx:for="{{apiData}}" wx:for-item="item" wx:key="">
+        <navigator class="item" url="/pages/msg/msgDetail/index?typeNo={{item.typeNo}}&typeName={{item.typeName}}"
+                   hover-class="navigator-hover"
+                   open-type="navigateTo">
+            <view class="item-content {{index==0?'no-border':''}}">
+                <image class="image" src="{{item.icon}}"/>
+                <view class="middle-text">
+                    <view class="title">{{item.typeName}}</view>
+                    <text class="desc">{{
+                        (item.unReadList&&item.unReadList.length>0&&item.unReadList[0].title)||'暂无未读消息' }}
+                    </text>
                 </view>
-            </navigator>
-        </block>
-        <!--</view>-->
-    </scroll-view>
-</view>
+                <view class="right-text">
+                    <view class="time">{{item.unReadList[0].createDate}}</view>
+                    <view wx:if="{{item.unReadNum>0}}" class="red-circle">{{item.unReadNum}}</view>
+                </view>
+            </view>
+        </navigator>
+    </block>
+    <!--</view>-->
+</scroll-view>
 
 <custom-tab-bar wx:if="{{false}}" isModalMode="{{false}}" activeTab="{{2}}"></custom-tab-bar>
