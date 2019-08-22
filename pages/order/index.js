@@ -128,6 +128,10 @@ Page({
     },
     onLoad: function () {
         console.log('order onLoad')
+        // if(true){
+        //     register.register(this)
+        //     return;
+        // }
         if(!app.isTabEnabled){
             console.log('getCurrentPages')
             console.log(getCurrentPages())

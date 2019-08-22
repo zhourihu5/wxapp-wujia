@@ -1,4 +1,4 @@
 <view class="refresh-block" style="height:{{refreshHeight}}px"> 
-        <image  class="{{loading?'roate':(pull?'':'pull')}}" src="{{loading?'/refreshview/images/refresh_loading.png':'/refreshview/images/refresh_arrow.png'}}"></image>
-        <text  class="refreshing_text" >{{refreshing_text}}</text> 
+        <text  class="refresh_img {{loading?'roate':(pull?'':'pull')}} {{loading?'cuIcon-icloading':'cuIcon-refresharrow'}}" ></text>
+        <text  class="refreshing_text" >{{refreshing_text}}</text>
 </view>

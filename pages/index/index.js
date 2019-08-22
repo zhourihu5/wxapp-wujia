@@ -438,11 +438,16 @@ Page({
         })
     },
     onPullDownRefresh: function() {
+        wx.stopPullDownRefresh()
         this.refresh()
     },
     refresh(){//下拉刷新
-        wx.stopPullDownRefresh()
         var that=this
+        // if(true){
+        //     register && register.loadFinish(that, true)
+        //     return
+        // }
+
         network.requestGet('/v1/activity/wxIndex',{communityId:app.communtityId} , function (data) {
             that.setData({
                 apiData: data,
