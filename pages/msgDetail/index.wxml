@@ -3,7 +3,7 @@
 <!--    <view slot="content">消息详情</view>-->
     <view slot="content"><text class="{{navigationBarLoading?'wj-loading-icon':''}}"/>{{typeName}}</view>
 </cu-custom>
-<include src="../../../refreshview/refreshHeaderView.wxml"/>
+<include src="../../refreshview/refreshHeaderView.wxml"/>
 <scroll-view scroll-y class="body"
              lower-threshold="{{lowerThreshold}}"
              bindscrolltolower='scrolltolower'

@@ -104,8 +104,12 @@ page{
 }
 
 .top-cell-class {
-    padding: 10px 0 !important;
-    color: #cccccc;
+    padding: 0px 0 !important;
+    font-size:32rpx !important;
+    font-family:PingFangSC !important;
+    font-weight:400 !important;
+    color:rgba(34,34,34,1) !important;
+    line-height:44rpx !important;
 }
 
 .custom-top-cell-style {
@@ -113,13 +117,7 @@ page{
 }
 
 .van-collapse-item-title {
-    /*width:322px;*/
-    /*height:34px;*/
-    font-size: 24rpx;
-    font-family: PingFangSC-Regular;
-    font-weight: 400;
-    color: rgba(136, 136, 136, 1);
-    line-height: 34rpx;
+
 }
 
 .custom-right-icon {
@@ -133,12 +131,12 @@ page{
 .custom-content {
     /*width:606px;*/
     /*height:102px;*/
-    font-size: 24rpx;
-    font-family: PingFangSC-Regular;
-    font-weight: 400;
-    color: rgba(136, 136, 136, 1);
-    line-height: 34rpx;
+    font-size: 24rpx !important;
+    font-family: PingFangSC-Regular !important;
+    font-weight: 400  !important;
+    color: rgba(136, 136, 136, 1)  !important;
+    line-height: 34rpx  !important;
 
 
-    padding: 0 !important;
+    padding: 20rpx 0 0 0 !important;
 }
