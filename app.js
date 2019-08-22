@@ -1,104 +1,134 @@
 App({
-  // url:'http://192.168.1.18:8081',
-  // url:'http://192.168.1.20:8081',
-  url:'https://api.home-guard.cn',
-  token:null,
-  isAuthorized:false,
-  myAddress:null,//我的收获地址
-  wxUserInfo:null,
-  nickName:null,
-  userName:null,//用户手机号
-  fid:null,//家庭ID
-  wxCover:null,//微信头像
-  communtityId:null,
-  communtityCode:null,
-  orderChanged:false,
-  activityChanged:false,
-  isCustomTabBar:false,
-  isTabEnabled:true,
-    failReason:null,
+    // url:'http://192.168.1.18:8081',
+    // url:'http://192.168.1.20:8081',
+    url: 'https://api.home-guard.cn',
+    token: null,
+    isAuthorized: false,
+    myAddress: null,//我的收获地址
+    wxUserInfo: null,
+    nickName: null,
+    userName: null,//用户手机号
+    fid: null,//家庭ID
+    wxCover: null,//微信头像
+    communtityId: null,
+    communtityCode: null,
+    orderChanged: false,
+    activityChanged: false,
+    isCustomTabBar: false,
+    isTabEnabled: true,
+    failReason: null,
 
-  showToast(msg){
-    wx.showToast({
-      title: msg,
-      icon: "none",
-      duration: 2000
-    })
-  },
-  onLaunch: function(option) {
-    // wx.hideTabBar({
-    //   aniamtion:false
-    // })
-    try {
-      const e = wx.getSystemInfoSync()
-      console.log('获取设备系统信息success')
-      console.log(e);
-      this.globalData.StatusBar = e.statusBarHeight;
-      this.globalData.screenWidth = e.screenWidth;
-      this.globalData.windowWidth = e.windowWidth;
-      this.globalData.windowHeight = e.windowHeight;
+    showToast(msg) {
+        wx.showToast({
+            title: msg,
+            icon: "none",
+            duration: 2000
+        })
+    },
+    setSystemInfo(e) {
+        this.globalData.StatusBar = e.statusBarHeight;
+        this.globalData.screenWidth = e.screenWidth;
+        this.globalData.windowWidth = e.windowWidth;
+        this.globalData.windowHeight = e.windowHeight;
 
-      this.globalData.pixelRatio = e.pixelRatio;
-      let custom = wx.getMenuButtonBoundingClientRect();
-      this.globalData.Custom = custom;
-      this.globalData.CustomBar = custom.bottom + custom.top - e.statusBarHeight;
-    } catch (e) {
-      console.log('获取设备系统信息fail')
-      console.log(e)
-    }
+        this.globalData.pixelRatio = e.pixelRatio;
+        let custom = wx.getMenuButtonBoundingClientRect()||
+            {//获取不到就设置为iphone6的
+                bottom: 58,
+                height: 32,
+                left: 278,
+                right: 365,
+                top: 26,
+                width: 87,
+            };
 
-    this.judgeAuth();
+        console.log('getMenuButtonBoundingClientRect', custom)
+        this.globalData.Custom = custom;
+        this.globalData.CustomBar = custom.bottom + custom.top - e.statusBarHeight;
+    },
+    onLaunch: function (option) {
+        try {
+            const e = wx.getSystemInfoSync()
+            console.log('获取设备系统信息success',e)
+            this.setSystemInfo(e)
+            wx.setStorage({
+                key: 'SystemInfo',
+                data: e
+            })
+        } catch (ex) {
+            console.log('获取设备系统信息fail',ex)
+            var e = wx.getStorageSync('SystemInfo')
+            if (e) {
+                console.log('从缓存文件中获取设备系统信息成功')
+            } else {
+                console.log('从缓存文件中获取设备系统信息 failed,set SystemInfo default to iphone6')
+                e = {//实在获取不到就设置默认为iphone6的
+                    screenHeight: 667,
+                    screenWidth: 375,
+                    statusBarHeight: 20,
+                    windowHeight: 619,
+                    windowWidth: 375,
+                    pixelRatio: 2,
 
-    console.log('app onLaunch')
-    console.log(option)
-    wx.showShareMenu({
-      withShareTicket: true,
-      success:function (res) {
-        console.log('showShareMenu success')
-      }
-    })
-    var shareTicket=null
-    shareTicket=option&&option.shareTicket
-    if(shareTicket){
-      wx.getShareInfo({
-        shareTicket:shareTicket,
-        success:function (res) {
-          console.log('getShareInfo success')
-          console.log(res)
-        }
-      })
-    }
-
-  },
-  /**
-   * 判断用户是否给了获取用户信息的授权
-   */
-  judgeAuth: function() {
-    var that = this;
-    wx.getSetting({
-      success(res) {
-        if (res.authSetting['scope.userInfo']) { // 已经授权，可以直接调用 getUserInfo 获取头像昵称
-          that.isAuthorized=true
-          // 必须是在用户已经授权的情况下调用
-          wx.getUserInfo({
-            success: function(res) {
-              that.wxUserInfo=res
-              // var userInfo = res.userInfo
-              // var nickName = userInfo.nickName
-              // var avatarUrl = userInfo.avatarUrl
-              // var gender = userInfo.gender //性别 0：未知、1：男、2：女
-              // var province = userInfo.province
-              // var city = userInfo.city
-              // var country = userInfo.country
+                }
             }
-          })
-        } else {
-          that.isAuthorized=false
+            try {
+                this.setSystemInfo(e)
+            } catch (ex2) {
+                console.log('setSystemInfo exception ',ex2)
+            }
         }
-      }
-    })
-  },
-  globalData: {
 
-  },
+        this.judgeAuth();
+
+        console.log('app onLaunch')
+        console.log(option)
+        wx.showShareMenu({
+            withShareTicket: true,
+            success: function (res) {
+                console.log('showShareMenu success')
+            }
+        })
+        var shareTicket = null
+        shareTicket = option && option.shareTicket
+        if (shareTicket) {
+            wx.getShareInfo({
+                shareTicket: shareTicket,
+                success: function (res) {
+                    console.log('getShareInfo success')
+                    console.log(res)
+                }
+            })
+        }
+
+    },
+    /**
+     * 判断用户是否给了获取用户信息的授权
+     */
+    judgeAuth: function () {
+        var that = this;
+        wx.getSetting({
+            success(res) {
+                if (res.authSetting['scope.userInfo']) { // 已经授权，可以直接调用 getUserInfo 获取头像昵称
+                    that.isAuthorized = true
+                    // 必须是在用户已经授权的情况下调用
+                    wx.getUserInfo({
+                        success: function (res) {
+                            that.wxUserInfo = res
+                            // var userInfo = res.userInfo
+                            // var nickName = userInfo.nickName
+                            // var avatarUrl = userInfo.avatarUrl
+                            // var gender = userInfo.gender //性别 0：未知、1：男、2：女
+                            // var province = userInfo.province
+                            // var city = userInfo.city
+                            // var country = userInfo.country
+                        }
+                    })
+                } else {
+                    that.isAuthorized = false
+                }
+            }
+        })
+    },
+    globalData: {},
 })
