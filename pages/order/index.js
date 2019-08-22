@@ -60,7 +60,7 @@ Page({
             },
         ],
         windowHeight:app.globalData.windowHeight,
-        pageSize: 3,
+        pageSize: 20,
         tabLineWidth:util.rpxToPx(28),
 
     },
