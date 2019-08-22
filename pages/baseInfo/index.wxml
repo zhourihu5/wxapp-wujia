@@ -32,7 +32,7 @@
             <view class="item-l">手机号</view>
             <input class="input" placeholder-class="placeholder" placeholder="请填写收货人手机号"
                    value="{{apiData.userName}}" disabled="disabled"
-            />
+                   maxlength="{{11}}" type="number"/>
         </view>
         <picker mode="date" value="{{value}}" start="{{start}}" end="{{end}}" bindchange="pickerChange">
             <view class="item no-border" >

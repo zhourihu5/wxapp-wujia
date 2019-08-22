@@ -34,7 +34,8 @@
         <view class="item">
             <view class="item-l">手机号</view>
             <input class="input" placeholder-class="placeholder" placeholder="请填写收货人手机号"
-                   bindinput="phoneInput" value="{{phone}}"/>
+                   bindinput="phoneInput" value="{{phone}}"
+                   maxlength="{{11}}" type="number"/>
         </view>
 
     </view>
