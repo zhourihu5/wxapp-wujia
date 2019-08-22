@@ -6,7 +6,7 @@
     padding: 0 30rpx;
     width: 100%;
 
-    margin-top: 20rpx;
+    /*margin-top: 20rpx;*/
 }
 .item{
     height: 90rpx;

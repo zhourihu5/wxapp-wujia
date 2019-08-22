@@ -1,9 +1,12 @@
 <cu-custom bgColor="titlebar-white" isBack="{{true}}">
     <view slot="backText"></view>
-    <view slot="content"><text class="{{navigationBarLoading?'wj-loading-icon':''}}"/>修改收货地址</view>
+    <view slot="content">
+        <text class="{{navigationBarLoading?'wj-loading-icon':''}}"/>
+        修改收货地址
+    </view>
 </cu-custom>
 <view class="container">
-    <view class="w-b">
+    <view class="w-b m-t-20">
         <view class="item no-border">
             <view class="item-l">收货人</view>
             <input class="input" placeholder-class="placeholder" placeholder="请填写收货人姓名"
@@ -33,27 +36,37 @@
             <input class="input" placeholder-class="placeholder" placeholder="请填写收货人手机号"
                    bindinput="phoneInput" value="{{phone}}"/>
         </view>
-        <view class="item" hover-class="navigator-hover" hover-stop-propagation="{{true}}" bindtap="showModalCommnunity">
+
+    </view>
+    <view class="w-b" hover-class="navigator-hover" hover-stop-propagation="{{true}}"
+          bindtap="showModalCommnunity">
+        <view class="item">
             <view class="item-l">收货地址</view>
             <input class="item-r input" placeholder-class="placeholder" placeholder="请选择收货地址"
                    disabled="disabled" value="{{currentCommunity.name}}"/>
             <view class="icon_arrow_r"></view>
         </view>
-        <view class="item no-border" hover-class="navigator-hover" hover-stop-propagation="{{true}}" bindtap="showModalDoorNum">
+    </view>
+    <view class="w-b" hover-class="navigator-hover" hover-stop-propagation="{{true}}"
+          bindtap="showModalDoorNum">
+        <view class="item no-border" >
             <view class="item-l">门牌号</view>
             <input class="item-r input" placeholder="请选择期区、楼号、单元号、房间号"
                    disabled="disabled" value="{{showAddress}}"/>
             <view class="icon_arrow_r"></view>
         </view>
     </view>
-    <view class="{{isBtnEnabled?'b-b':'b-b-disabled'}}" hover-class="navigator-hover" hover-stop-propagation="{{true}}" bindtap="onClickSave">保存并使用</view>
+    <view class="{{isBtnEnabled?'b-b':'b-b-disabled'}}" hover-class="navigator-hover" hover-stop-propagation="{{true}}"
+          bindtap="onClickSave">保存并使用
+    </view>
 
 </view>
 <view class="cu-modal bottom-modal {{modalName=='doorNumModal'?'show':''}}">
     <view class="cu-dialog bottom-dialog">
         <view class="d-t-bar justify-between">
             <view class="psz">配送至</view>
-            <view class="cuIcon-close close p-30" hover-class="navigator-hover" hover-stop-propagation="{{true}}" bindtap="hideModal"></view>
+            <view class="cuIcon-close close p-30" hover-class="navigator-hover" hover-stop-propagation="{{true}}"
+                  bindtap="hideModal"></view>
         </view>
         <van-tabs class="tab-layout"
                   custom-class="custom-tabs"
@@ -62,7 +75,7 @@
                   border="{{false}}"
                   line-class="tab-line"
                   color="rgba(255,155,29,1)"
-                   swipeThreshold="5"
+                  swipeThreshold="5"
                   lineWidth="{{tabLineWidth}}"
                   active="{{active}}"
                   bind:change="tabChange">
@@ -101,9 +114,13 @@
 <view class="cu-modal bottom-modal {{modalName=='communityModal'?'show':''}}">
     <view class="cu-dialog bottom-dialog">
         <view class="d-t-bar">
-            <view class="d-cancel" hover-class="navigator-hover" hover-stop-propagation="{{true}}" bindtap="hideModal">取消</view>
+            <view class="d-cancel" hover-class="navigator-hover" hover-stop-propagation="{{true}}" bindtap="hideModal">
+                取消
+            </view>
             <view class="flex-1 d-title">请选择收货地址</view>
-            <view class="d-confirm" hover-class="navigator-hover" hover-stop-propagation="{{true}}" bindtap="pickerConfirm">确定</view>
+            <view class="d-confirm" hover-class="navigator-hover" hover-stop-propagation="{{true}}"
+                  bindtap="pickerConfirm">确定
+            </view>
         </view>
         <view>
             <picker-view indicator-style="height: 50px;" style="width: 100%; height: 300px;" value="{{value}}"
