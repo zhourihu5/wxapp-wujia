@@ -114,14 +114,14 @@ page{
     align-items: center;
     justify-content: center;
 
-    border-top: 2rpx #EBEBEB solid;
+    border-top: 1rpx #EBEBEB solid;
 }
 .image{
     width:104rpx;
     height:78rpx;
     background:rgba(216,216,216,1);
     border-radius:8rpx;
-    border:2rpx solid rgba(151,151,151,1);
+    border:1rpx solid rgba(151,151,151,1);
 
 
     margin-right: 20rpx;

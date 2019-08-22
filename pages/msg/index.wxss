@@ -31,7 +31,7 @@ page{
   padding: 30rpx 0;
   width: 100%;
   display: flex;
-  border-top: #EBEBEB 2rpx solid;
+  border-top: #EBEBEB 1rpx solid;
 }
 .title{
   /*width:112px;*/
@@ -62,7 +62,7 @@ page{
   line-height:28rpx;
 }
 .line{
-  border-bottom: #EBEBEB 2rpx solid;
+  border-bottom: #EBEBEB 1rpx solid;
   /*background-color: #cccccc;*/
   /*width: 100vw;*/
   /*height: 1px;*/

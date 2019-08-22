@@ -94,7 +94,7 @@
     color:rgba(0,0,0,1);
     line-height:44rpx;
 
-    border-bottom: 3rpx rgba(238,238,238,1) solid;
+    border-bottom: 1rpx rgba(238,238,238,1) solid;
 }
 .dialog-action{
     width: 100%;
@@ -122,5 +122,5 @@
     color:rgba(64,158,255,1);
     line-height:40rpx;
 
-    border-right: 3rpx rgba(238,238,238,1) solid;
+    border-right: 1rpx rgba(238,238,238,1) solid;
 }
