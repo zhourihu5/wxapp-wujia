@@ -3,7 +3,7 @@
     <view slot="content"><text class="{{navigationBarLoading?'wj-loading-icon':''}}"/>提交申请</view>
 </cu-custom>
 <view class="container">
-    <view class="w-b">
+    <view class="w-b m-t-20">
         <view class="item">
             <view class="item-l">已申请户主</view>
             <input class="input" placeholder="请输入户主的名字" bindinput="ownerInput"/>
@@ -18,13 +18,17 @@
             <input class="input" placeholder-class="placeholder" placeholder="请输入与户主的关系"
                    bindinput="relationInput"/>
         </view>
-        <view class="item no-border" hover-class="navigator-hover" hover-stop-propagation="{{true}}" bindtap="showModalDoorNum">
+
+    </view>
+    <view class="w-b" hover-class="navigator-hover" hover-stop-propagation="{{true}}" bindtap="showModalDoorNum">
+        <view class="item no-border" >
             <view class="item-l">门牌号</view>
             <input class="item-r input" placeholder="请选择期区、楼号、单元号、房间号"
                    disabled="disabled" value="{{showAddress}}"/>
             <view class="icon_arrow_r"></view>
         </view>
     </view>
+
     <view class="{{isBtnEnabled?'b-b':'b-b-disabled'}}" hover-class="navigator-hover" hover-stop-propagation="{{true}}" bindtap="onClickSave">确定</view>
 
 </view>

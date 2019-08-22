@@ -102,11 +102,6 @@ page{
     width: 100%;
     background: white;
     padding: 0 30rpx;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    top: 0;
-    overflow: scroll;
 }
 .item-2{
     display: flex;

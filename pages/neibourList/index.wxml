@@ -1,11 +1,15 @@
 <!--index.wxml-->
 <cu-custom bgColor="titlebar-white" isBack="{{isBack}}">
     <view slot="backText"></view>
-    <view slot="content"><text class="{{navigationBarLoading?'wj-loading-icon':''}}"/>小区列表</view>
+    <view slot="content">
+        <text class="{{navigationBarLoading?'wj-loading-icon':''}}"/>
+        小区列表
+    </view>
 </cu-custom>
 <view class="search-container">
     <view class="item-1">
-        <view class="flex align-center h-p-100 item-1-l-wrap" hover-class="navigator-hover" hover-stop-propagation="{{true}}" bindtap="showModal">
+        <view class="flex align-center h-p-100 item-1-l-wrap" hover-class="navigator-hover"
+              hover-stop-propagation="{{true}}" bindtap="showModal">
             <view class="item-1-l">{{currentArea?currentArea:'选地区'}}</view>
             <view class="cuIcon-triangledownfill sjx"></view>
             <view class="v-line"></view>
@@ -18,13 +22,17 @@
 <scroll-view scroll-y class="body" style="top: calc( 108rpx + {{CustomBar}}px );"
              lower-threshold="{{lowerThreshold}}"
              bindscrolltolower='scrolltolower'
-             bindscroll="scroll"  bindscrolltoupper="upper" bindtouchstart="start" bindtouchend="end"
+             bindscroll="scroll" bindscrolltoupper="upper" bindtouchstart="start" bindtouchend="end"
              bindtouchmove="{{isBack?'':'move'}}">
-    <view class="w-c">
-        <block wx:for="{{apiSearchData}}" wx:key="">
-            <view class="item-2 {{index==0?'no-border':''}}" url="/pages/applySubmit/index?id={{item.id}}"
-                  open-type="navigateTo"
-                  hover-class="navigator-hover" hover-stop-propagation="{{true}}"  bindtap="itemClicked" data-index="{{index}}">
+
+    <block wx:for="{{apiSearchData}}" wx:key="">
+<!--    <block wx:for="{{10}}" wx:key="">-->
+        <view class="w-c"
+              url="/pages/applySubmit/index?id={{item.id}}"
+              open-type="navigateTo"
+              hover-class="navigator-hover" hover-stop-propagation="{{true}}" bindtap="itemClicked"
+              data-index="{{index}}">
+            <view class="item-2 {{index==0?'no-border':''}}" >
                 <!--        <view class="item-2 border-bottom">-->
                 <image wx:if="{{false}}" class="image" src="/images/tab_my.png"/>
                 <view class="item2-c">
@@ -34,16 +42,22 @@
                 <view class="cuIcon-right arrow"></view>
                 <!--        </view>-->
             </view>
-        </block>
-    </view>
-    <view wx:if="{{reachBottom&&apiSearchData&&isLoadingSearch}}" class="cu-load wj-loading {{isLoadingSearch?'loading':'over'}}"></view>
+        </view>
+    </block>
+
+    <view wx:if="{{reachBottom&&apiSearchData&&isLoadingSearch}}"
+          class="cu-load wj-loading {{isLoadingSearch?'loading':'over'}}"></view>
 </scroll-view>
 <view class="cu-modal bottom-modal {{modalName=='bottomModal'?'show':''}}">
     <view class="cu-dialog bottom-dialog">
         <view class="d-t-bar">
-            <view class="d-cancel" hover-class="navigator-hover" hover-stop-propagation="{{true}}" bindtap="hideModal">取消</view>
+            <view class="d-cancel" hover-class="navigator-hover" hover-stop-propagation="{{true}}" bindtap="hideModal">
+                取消
+            </view>
             <view class="flex-1 d-title">请选择地区</view>
-            <view class="d-confirm" hover-class="navigator-hover" hover-stop-propagation="{{true}}" bindtap="pickerConfirm">确定</view>
+            <view class="d-confirm" hover-class="navigator-hover" hover-stop-propagation="{{true}}"
+                  bindtap="pickerConfirm">确定
+            </view>
         </view>
         <view>
             <picker-view indicator-style="height: 50px;" style="width: 100%; height: 300px;" value="{{pickerValue}}"
