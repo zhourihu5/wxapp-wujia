@@ -60,31 +60,36 @@ Page({
 
         var that = this
         var endDate=null
+        var timeRemain=null
+        var second=null
+        var hourMinute=null
         interval = setInterval(function () {
             if(!that.data.apiData){
                 return;
             }
             if(that.data.apiData.status=='1'){
-                that.data.apiData.remainTime=util.calcRemainTime(that.data.apiData.payEndDate)
-                that.setData({
-                    apiData:that.data.apiData
-                })
+                timeRemain=util.calcRemainTime(that.data.apiData.payEndDate)
             }else if(that.data.apiData.status=='2'||that.data.apiData.status=='5'){
                 if(!endDate){
                     endDate=new Date(Date.parse(that.data.apiData.activity.endDate.replace(/-/g, "/")));
                     endDate.setTime(endDate.getTime()+that.data.apiData.activity.deliveryHour*3600*1000)
                 }
-                that.data.apiData.remainTime=util.calcRemainTime(endDate)
-                that.setData({
-                    apiData:that.data.apiData
-                })
+                timeRemain=util.calcRemainTime(endDate)
             }
             else {
                 clearInterval(interval)
                 interval=null
                 return;
             }
-
+            var timeArr= timeRemain.split(':')
+            second=timeArr[2]
+            hourMinute=`${timeArr[0]}:${timeArr[1]}:`
+            that.data.apiData.hourMinute=hourMinute
+            that.data.apiData.second=second
+            //todo
+            that.setData({
+                apiData:that.data.apiData
+            })
 
         }, 1000)
     },

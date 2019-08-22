@@ -6,25 +6,28 @@
     <view wx:if="{{apiData.status=='1'}}" class="top-conrainer">
         <image class="logo-car" src="/images/logo_topay.png"/>
         <view class="order-status">待付款</view>
-        <view class="order-remain-time">
-            <text>剩余支付时间为</text>
-            <text class="ramain-time-des">{{apiData.remainTime}}</text>
+        <view class="order-remain-time flex align-center">
+            <view>剩余支付时间为</view>
+            <view class="ramain-time-des">{{apiData.hourMinute}}</view>
+            <view class="time-sec">{{apiData.second}}</view>
         </view>
     </view>
     <view wx:elif="{{apiData.status=='2'}}"  class="top-conrainer">
         <image class="logo-car" src="/images/logo_to_receive.png"/>
         <view class="order-status">待收货</view>
-        <view class="order-remain-time">
-            <text>剩余系统默认收货时间</text>
-            <text class="ramain-time-des">{{apiData.remainTime}}</text>
+        <view class="order-remain-time flex align-center">
+            <view>剩余系统默认收货时间</view>
+            <view class="ramain-time-des">{{apiData.hourMinute}}</view>
+            <view class="time-sec">{{apiData.second}}</view>
         </view>
     </view>
     <view wx:elif="{{apiData.status=='5'}}"  class="top-conrainer">
         <image class="logo-car" src="/images/logo_to_receive.png"/>
         <view class="order-status">待收货</view>
-        <view class="order-remain-time">
-            <text>剩余系统默认收货时间</text>
-            <text class="ramain-time-des">{{apiData.remainTime}}</text>
+        <view class="order-remain-time flex align-center">
+            <view>剩余系统默认收货时间</view>
+            <view class="ramain-time-des">{{apiData.hourMinute}}</view>
+            <view class="time-sec">{{apiData.second}}</view>
         </view>
     </view>
     <view wx:elif="{{apiData.status=='3'}}" class="top-conrainer">
