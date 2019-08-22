@@ -1,20 +1,18 @@
-<view class="container">
-    <cu-custom bgColor="titlebar-white" isBack="{{false}}">
-        <view slot="backText">返回</view>
-        <view slot="content">
-            <text class="{{navigationBarLoading?'wj-loading-icon':''}}"/>
-            消息
-        </view>
-    </cu-custom>
+<cu-custom bgColor="titlebar-white" isBack="{{false}}">
+    <view slot="backText">返回</view>
+    <view slot="content">
+        <text class="{{navigationBarLoading?'wj-loading-icon':''}}"/>
+        消息
+    </view>
+</cu-custom>
+<view class="=body">
     <include src="../../refreshview/refreshHeaderView.wxml"/>
-
-    <scroll-view scroll-y class="body p-t-20"
+    <scroll-view scroll-y class="flex-1 w-p-100 m-t-20"
                  bindscrolltoupper='scrolltoupper'
                  bindscrolltolower='scrolltolower'
                  lower-threshold="{{lowerThreshold}}"
                  bindscroll="scroll" bindscrolltoupper="upper" bindtouchstart="start" bindtouchend="end"
                  bindtouchmove="move">
-        <!--<view class="container p-t-20">-->
         <block wx:for="{{apiData}}" wx:for-item="item" wx:key="">
             <navigator class="item" url="/pages/msg/msgDetail/index?typeNo={{item.typeNo}}&typeName={{item.typeName}}"
                        hover-class="navigator-hover"
@@ -37,4 +35,5 @@
         <!--</view>-->
     </scroll-view>
 </view>
+
 <custom-tab-bar wx:if="{{false}}" isModalMode="{{false}}" activeTab="{{2}}"></custom-tab-bar>
