@@ -18,7 +18,6 @@
     <block wx:for="{{items}}" wx:for-item="item">
         <navigator class="item-container" url="{{item.url}}" hover-class="navigator-hover"
                    open-type="navigateTo">
-            <view wx:if="{{index!=0}}" class="line"></view>
             <view class="item {{index==0?'no-border':''}}">
                 <image class="icon" src="{{item.icon}}"/>
                 <view class="item-text">{{item.title}}</view>

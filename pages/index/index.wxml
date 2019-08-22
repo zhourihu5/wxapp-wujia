@@ -117,6 +117,9 @@
         </view>
     </movable-view>
 </movable-area>
+<view class="c-tab-b"></view>
+
+
 <custom-tab-bar wx:if="{{false&&modalName}}" isModalMode="{{false}}" activeTab="{{0}}"></custom-tab-bar>
 
 <view class="cu-modal full-screen  {{modalName=='ModalBindPhone'?'show':''}}">

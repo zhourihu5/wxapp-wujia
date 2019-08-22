@@ -2,7 +2,7 @@
     <view slot="backText"></view>
     <view slot="content"><text class="{{navigationBarLoading?'wj-loading-icon':''}}"/>订单详情</view>
 </cu-custom>
-<view class="container body">
+<scroll-view scroll-y  class="body">
     <view wx:if="{{apiData.status=='1'}}" class="top-conrainer">
         <image class="logo-car" src="/images/logo_topay.png"/>
         <view class="order-status">待付款</view>
@@ -104,7 +104,7 @@
         <view wx:if="{{apiData.status=='3'}}" class="order-info-item p-b-30">收货时间：{{apiData.receiveDate}}</view>
 
     </view>
-</view>
+</scroll-view>
 <view wx:if="{{apiData.status=='1'}}" class="bottom-button">
     <view class="qxdd" hover-class="navigator-hover" hover-stop-propagation="{{true}}" bindtap="cancelOrder">取消订单</view>
     <view class="bt-pay" hover-class="navigator-hover" hover-stop-propagation="{{true}}" bindtap="toPay">付款 {{apiData.realPrice}}</view>

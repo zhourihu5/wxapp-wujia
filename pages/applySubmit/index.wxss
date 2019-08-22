@@ -37,7 +37,7 @@
     font-size:28rpx;
     font-family:PingFangSC-Regular;
     font-weight:400;
-    color:rgba(136,136,136,1);
+    color:#b5b5b5;
     line-height:40rpx;
 }
 .input{

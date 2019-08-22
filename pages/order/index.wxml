@@ -53,7 +53,7 @@
                                 <text wx:elif="{{item.status=='3'}}"  class="dfk">已收货</text>
                                 <text wx:else  class="ygq">已过期</text>
                             </view>
-                            <view class="order-middle-item {{item.status=='2'?'no-border':''}}">
+                            <view class="order-middle-item {{item.status=='2'?'no-border-bottom':''}}">
                                 <image class="order-image" src="{{item.activity.cover}}"/>
                                 <view class="order-text">
                                     <view class="{{item.status=='4'?'order-name-ygq':'order-name'}} ">{{item.activity.title}}</view>
