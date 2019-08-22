@@ -63,10 +63,22 @@ Page({
     loadData(){
         var that=this
         network.requestGet('/v1/message/getTypeList',{},function (data) {
+            that.data.apiData=data
             that.setData({
                 apiData:data,
             })
             register&&register.loadFinish(that,true)
+            for(var i=0;i<data.length;i++){
+                if(data[i].unReadNum>0){
+                    wx.showTabBarRedDot({
+                        index:2,
+                    })
+                    return
+                }
+            }
+            wx.hideTabBarRedDot({
+                index:2,
+            })
         },function (msg) {
             register&&register.loadFinish(that,false)
         })

@@ -128,6 +128,15 @@ Page({
                     app.communtityCode = data.communtityList[0].code
                 } catch (e) {
                 }
+                if(data.unRead){
+                    wx.showTabBarRedDot({
+                        index:2,
+                    })
+                }else {
+                    wx.hideTabBarRedDot({
+                        index:2,
+                    })
+                }
                 app.nickName = data.userInfo.nickName
                 app.userName=data.userInfo.userName
                 app.wxCover=data.userInfo.wxCover
@@ -284,22 +293,9 @@ Page({
         })
     },
     hideModal(e) {
-        // app.isCustomTabBar=false
         this.setData({
             modalName: null,
-            // customTabBarHeight:util.customTabBarHeight(),
         })
-        // var that=this
-        // wx.showTabBar({
-        //     aniamtion:false,
-        //     success(res) {
-        //         console.log('showTabBar success')
-        //         that.setData({
-        //             modalName: name,
-        //             // customTabBarHeight:util.customTabBarHeight(),
-        //         })
-        //     }
-        // })
         this.isEnableTabBar()
     },
 
@@ -340,6 +336,15 @@ Page({
                             app.communtityId = data.communtityList[0].id
                             app.communtityCode = data.communtityList[0].code
                         } catch (e) {
+                        }
+                        if(data.unRead){
+                            wx.showTabBarRedDot({
+                                index:2,
+                            })
+                        }else {
+                            wx.hideTabBarRedDot({
+                                index:2,
+                            })
                         }
                         that.customData.openid = data.openid
                         if (data.userInfo) {
@@ -452,6 +457,15 @@ Page({
             that.setData({
                 apiData: data,
             })
+            if(data.unRead){
+                wx.showTabBarRedDot({
+                    index:2,
+                })
+            }else {
+                wx.hideTabBarRedDot({
+                    index:2,
+                })
+            }
             register && register.loadFinish(that, true)
         }, function (msg) {
             register && register.loadFinish(that, false)
