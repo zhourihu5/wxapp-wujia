@@ -129,8 +129,24 @@ Page({
             console.log(e)
         }
         if (this.data.tabs[this.data.active].selected == index) {
+            if (this.data.flagList.length == this.data.active + 1) {
+                this.hideModal()
+            }else {
+                this.data.active++
+                this.setData({
+                    tabs: this.data.tabs,
+                    active: this.data.active
+                })
+                if(this.data.tabs[this.data.active].data.length<1 ){
+                    this.loadAddrData()
+                }
+            }
             return;
         }
+
+
+
+
         this.data.familyId = this.data.tabs[this.data.active].data[index].id
         this.data.currentCode = this.data.tabs[this.data.active].data[index].code
         this.data.tabs[this.data.active].selected = index

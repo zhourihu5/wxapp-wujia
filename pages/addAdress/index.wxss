@@ -108,6 +108,9 @@
     border-radius:16rpx 16rpx 2rpx 2rpx !important;
 }
 .d-t-bar{
+    font-size: 34rpx;
+    line-height:34rpx;
+    color:rgba(136,136,136,1);
 }
 .tab-layout{
 
@@ -222,10 +225,8 @@
 
 }
 .close{
-    /*width:34px;*/
-    font-size: 34rpx;
-    line-height:34rpx;
-    color:rgba(136,136,136,1);
+    padding: 36rpx 26rpx;
+
 }
 .item-area{
     width: 100%;

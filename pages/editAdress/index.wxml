@@ -61,12 +61,12 @@
     </view>
 
 </view>
-<view class="cu-modal bottom-modal {{modalName=='doorNumModal'?'show':''}}">
-    <view class="cu-dialog bottom-dialog">
+<view class="cu-modal bottom-modal {{modalName=='doorNumModal'?'show':''}}" catchtap="hideModal">
+    <view class="cu-dialog bottom-dialog" catchtap="doNothing">
         <view class="d-t-bar justify-between">
             <view class="psz">配送至</view>
             <view class="cuIcon-close close p-30" hover-class="navigator-hover" hover-stop-propagation="{{true}}"
-                  bindtap="hideModal"></view>
+                  catchtap="hideModal"></view>
         </view>
         <van-tabs class="tab-layout"
                   custom-class="custom-tabs"
