@@ -86,7 +86,6 @@ Page({
             hourMinute=`${timeArr[0]}:${timeArr[1]}:`
             that.data.apiData.hourMinute=hourMinute
             that.data.apiData.second=second
-            //todo
             that.setData({
                 apiData:that.data.apiData
             })
