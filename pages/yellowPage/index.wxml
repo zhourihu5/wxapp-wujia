@@ -2,8 +2,9 @@
     <view slot="backText"></view>
     <view slot="content"><text class="{{navigationBarLoading?'wj-loading-icon':''}}"/>社区黄页</view>
 </cu-custom>
-<view class="container body">
+<scroll-view scroll-y class="body">
     <block wx:for="{{apiData}}" wx:for-item="item" wx:key="">
+<!--    <block wx:for="{{30}}" wx:for-item="item" wx:key="">-->
         <view class="item-gray {{index==0?'p-t-30':'p-t-60'}}">{{item.name}}信息</view>
         <view class="w-c">
             <view class="item-c border-bottom">
@@ -16,7 +17,7 @@
             </view>
         </view>
     </block>
-</view>
+</scroll-view>
 <view class="cu-modal full-screen  {{modalName=='ModalCallPhone'?'show':''}}">
     <view class="cu-dialog dialog relative">
         <view class="dialog-title">{{callPhone}}</view>
