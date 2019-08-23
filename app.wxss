@@ -121,6 +121,7 @@ page{
 .round-container{
   border-radius: 16rpx;
   background:rgba(255,255,255,1);
+  box-shadow:0rpx 0rpx 30rpx 0rpx rgba(218,218,218,0.5);
   width: 100%;
   box-sizing: border-box;
 
@@ -265,6 +266,10 @@ page{
   flex-direction: column;
   align-items: center;
   justify-content: center;
+}
+.img-arr-right{
+  width: 12rpx;
+  height: 18rpx;
 }
 
 .no-border{

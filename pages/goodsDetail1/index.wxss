@@ -137,7 +137,7 @@ page{
   /*height:568rpx;*/
   background:rgba(255,255,255,1);
   border-radius:16rpx;
-
+  box-shadow:0rpx 0rpx 30rpx 0rpx rgba(228,228,228,0.5);
   /*margin: 0 30rpx;*/
   /*margin-bottom: 20rpx;*/
 

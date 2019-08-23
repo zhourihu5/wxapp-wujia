@@ -4,21 +4,20 @@
     <view slot="backText"></view>
     <view slot="content"><text class="{{navigationBarLoading?'wj-loading-icon':''}}"/>确认订单</view>
 </cu-custom>
-
+<view wx:if="{{true}}" class="step-container">
+    <view class="step-selected">1</view>
+    <view class="step-selected-text">参与活动</view>
+    <view class="dash-line-selected"></view>
+    <view class="step-selected">2</view>
+    <view class="step-selected-text">确认订单</view>
+    <view class="dash-line"></view>
+    <view class="step-unselected">3</view>
+    <view class="step-unselected-text">团购成功</view>
+</view>
 <view class="container p-l-r-30">
-    <view wx:if="{{true}}" class="step-container">
-        <view class="step-selected">1</view>
-        <view class="step-selected-text">参与活动</view>
-        <view class="dash-line-selected"></view>
-        <view class="step-selected">2</view>
-        <view class="step-selected-text">确认订单</view>
-        <view class="dash-line"></view>
-        <view class="step-unselected">3</view>
-        <view class="step-unselected-text">团购成功</view>
-    </view>
-    <navigator url="/pages/myAdress/index" hover-class="navigator-hover"
+
+    <navigator class="relative w-p-100 m-t-20" url="/pages/myAdress/index" hover-class="navigator-hover"
                open-type="navigateTo">
-        <view class="relative w-p-100">
             <view class="item-1 p-t-b-50 p-l-r-20 flex align-center w-p-100">
                 <view wx:if="{{myAddress}}" class="flex-1">
                     <view>{{myAddress.communtityName}}{{myAddress.address}}</view>
@@ -33,13 +32,13 @@
                     </view>
                     <view class="jxszsqnbpsdz">*仅限所在社区内部配送地址</view>
                 </view>
-                <view class="cuIcon-right right"></view>
+<!--                <view class="cuIcon-right right"></view>-->
+                <image  class="img-arr-right" src="/images/icon_order_confirm_ar.png"/>
 
             </view>
             <view class="flex justify-between colored-dash p-l-r-8">
                 <view wx:for="{{14}}" wx:key class="{{index%2?'red-dash':'blue-dash'}}"></view>
             </view>
-        </view>
     </navigator>
 
     <view class="item-2">

@@ -163,8 +163,8 @@ page{
   width: 100%;
 }
 .top-title .icon {
-  width: 13px;
-  height: 17px;
+  width: 24rpx;
+  height: 28rpx;
 }
 
 .top-title .text-white {
@@ -790,7 +790,7 @@ movable-area {
     color:rgba(255,255,255,1);
     line-height:28rpx;
 
-    margin-left: 12rpx;
+    margin:0 12rpx;
 }
 .invite-visitor{
     /*width:112px;*/
@@ -832,6 +832,12 @@ movable-area {
     font-weight:400;
     color:rgba(34,34,34,1);
     line-height:32rpx;
+}
+.icon-to-more{
+    width: 10rpx;
+    height: 16rpx;
+
+    margin-left: 12rpx;
 }
 
 .float-right {

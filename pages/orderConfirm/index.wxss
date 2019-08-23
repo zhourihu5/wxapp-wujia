@@ -1,9 +1,11 @@
 .step-container{
     width: 100%;
-    margin: 40rpx 0;
+    padding: 40rpx 0;
     display: flex;
     align-items: center;
     justify-content: center;
+
+    background: white;
 }
 .step-selected{
     width:30rpx;
@@ -84,7 +86,7 @@
     /*height:128rpx;*/
     background:rgba(255,255,255,1);
     border-radius:16rpx;
-
+    box-shadow:0rpx 0rpx 30rpx 0rpx rgba(228,228,228,0.5);
     /*width:196px;*/
     /*height:28px;*/
     font-size:28rpx;
@@ -206,13 +208,6 @@
     margin-top: 22rpx;
 }
 
-.right{
-    /*width:32rpx;*/
-    /*height:32rpx;*/
-    /*background:rgba(219,219,219,1);*/
-    color: rgba(219,219,219,1);
-
-}
 .colored-dash{
     /*background: url(/images/tab_order.png)  bottom repeat;*/
     /*background:rgba(248,114,125,1);*/
@@ -252,6 +247,7 @@
     /*height:302rpx;*/
     background:rgba(255,255,255,1);
     border-radius:16rpx;
+    box-shadow:0rpx 0rpx 30rpx 0rpx rgba(228,228,228,0.5);
 
     padding: 30rpx 20rpx;
     margin-top: 20rpx;

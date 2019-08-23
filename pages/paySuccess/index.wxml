@@ -3,25 +3,26 @@
     <view slot="backText"></view>
     <view slot="content"><text class="{{navigationBarLoading?'wj-loading-icon':''}}"/>团购成功</view>
 </cu-custom>
+<view wx:if="{{true}}" class="step-container">
+    <view class="step-selected">1</view>
+    <view class="step-selected-text">参与活动</view>
+    <view class="dash-line-selected"></view>
+    <view class="step-selected">2</view>
+    <!--        <view class="step-unselected">2</view>-->
+    <!--        <view class="step-unselected-text">确认订单</view>-->
+    <view class="step-selected-text">确认订单</view>
+    <!--        <view class="dash-line"></view>-->
+    <view class="dash-line-selected"></view>
+    <view class="step-selected">3</view>
+    <view class="step-selected-text">团购成功</view>
+</view>
 <scroll-view scroll-y class="body"
              bindscrolltoupper='scrolltoupper'
              bindscrolltolower='scrolltolower'
              lower-threshold="{{lowerThreshold}}"
 >
-    <view wx:if="{{true}}" class="step-container">
-        <view class="step-selected">1</view>
-        <view class="step-selected-text">参与活动</view>
-        <view class="dash-line-selected"></view>
-        <view class="step-selected">2</view>
-        <!--        <view class="step-unselected">2</view>-->
-        <!--        <view class="step-unselected-text">确认订单</view>-->
-        <view class="step-selected-text">确认订单</view>
-        <!--        <view class="dash-line"></view>-->
-        <view class="dash-line-selected"></view>
-        <view class="step-selected">3</view>
-        <view class="step-selected-text">团购成功</view>
-    </view>
-    <view class="round-container center-vertical p-t-b-50 m-t-20">
+
+    <view class="round-container center-vertical p-t-b-50 m-t-30">
 <!--        <view class="round">-->
 <!--            <view class="cuIcon-check"/>-->
 

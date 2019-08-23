@@ -34,10 +34,10 @@
   },
   "pages": [
     "pages/index/index",
+    "pages/paySuccess/index",
     "pages/inviteVisitor/index",
     "pages/order/index",
     "pages/orderConfirm/index",
-    "pages/paySuccess/index",
     "pages/openRecord/index",
     "pages/ucenter/index",
     "pages/auditFail/index",

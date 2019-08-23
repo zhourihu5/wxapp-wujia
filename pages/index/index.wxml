@@ -14,6 +14,7 @@
                   bindtap="showModalAddCommunity">
                 <image class="icon" src="/images/index_pos.png"></image>
                 <text class="location-text">{{communtityName?communtityName:'暂无社区'}}</text>
+                <view class="cuIcon-unfold"></view>
             </view>
             <view class="text-underline invite-visitor {{modalName=='ModalGuideInvite'?'show-invite':'m-r-30 button-no-border'}}"
                     hover-class="{{modalName=='ModalGuideInvite'?'':'navigator-hover'}}" hover-stop-propagation="{{true}}"
@@ -58,7 +59,7 @@
         <view class="jxhd">精选活动</view>
         <view class="more {{modalName=='ModalGuideMore'?'showMore':'m-r-30'}}">
             <text>更多</text>
-            <text class="cuIcon-right lg"></text>
+            <image class="icon-to-more" src="/images/icon_to_more.png"></image>
         </view>
     </view>
     <scroll-view class="activity-scroll" scroll-x="true" >
