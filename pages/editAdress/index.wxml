@@ -52,7 +52,7 @@
           bindtap="showModalDoorNum">
         <view class="item no-border" >
             <view class="item-l">门牌号</view>
-            <input class="item-r input" placeholder="请选择期区、楼号、单元号、房间号"
+            <input class="item-r input" placeholder-class="placeholder" placeholder="请选择期区、楼号、单元号、房间号"
                    disabled="disabled" value="{{showAddress}}"/>
             <view class="icon_arrow_r"></view>
         </view>

@@ -127,7 +127,7 @@
     <view class="cu-dialog dialog">
         <view class="dialog-title">绑定手机号</view>
         <view class="input-container">
-            <input class="input" placeholder="请输入您的手机号" bindinput="phoneInput" maxlength="{{11}}" type="number"/>
+            <input class="input" placeholder-class="placeholder" placeholder="请输入您的手机号" bindinput="phoneInput" maxlength="{{11}}" type="number"/>
         </view>
         <view class="input-container">
             <input class="input" placeholder-class="placeholder" bindinput="codeInput"
