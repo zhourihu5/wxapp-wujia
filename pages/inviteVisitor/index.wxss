@@ -52,6 +52,8 @@ page{
   background:rgba(255,255,255,1);
   border-radius:16rpx ;
 
+  box-shadow:6px 0px 20px 0px rgba(231,150,26,1);
+
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -60,7 +62,7 @@ page{
 .c-name{
   width:100%;
 height:120rpx;
-background:rgba(255,192,85,1);
+  background:rgba(255,189,77,1);
 border-radius:16rpx 16rpx 0rpx 0rpx;
 
 /* width:394px;
@@ -162,10 +164,10 @@ border-bottom: 2rpx rgba(136,136,136,1) solid;
   background: #FFA31B;
 
   /*width: 30rpx;*/
-  width: 60rpx;
-  height: 60rpx;
+  width: 20rpx;
+  height: 40rpx;
 
-  margin-left: -30rpx;
+  margin-left: -1rpx;
 
 }
 .dash-line-y{
@@ -179,9 +181,10 @@ border-bottom: 2rpx rgba(136,136,136,1) solid;
   border-radius: 30rpx 0 0 30rpx;
   background: #FFA31B;
 
-  width: 60rpx;
-  height: 60rpx;
-  margin-right: -30rpx;
+  width: 20rpx;
+  height: 40rpx;
+  /*margin-right: -20rpx;*/
+  margin-right: -1rpx;
 }
 .b-text{
   /*width:424px;*/

@@ -31,13 +31,13 @@
         </view>
 
 
-        <view class="flex align-center w-p-100 m-t-30">
+        <view class="flex align-center w-p-100 ">
             <view class="l-corner"></view>
             <view class="dash-line-y flex-1"></view>
             <view class="r-corner"></view>
         </view>
 <!--        <view class="b-text">输入六位邀请码开锁</view>-->
-        <view class="b-text p-t-20 p-b-50">邀请码截止时间：{{apiData.endDate}}</view>
+        <view class="b-text p-t-20 p-b-40">邀请码截止时间：{{apiData.endDate}}</view>
 
     </view>
 
