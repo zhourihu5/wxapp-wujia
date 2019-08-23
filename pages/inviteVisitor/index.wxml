@@ -9,13 +9,28 @@
     <view class="logo-text">吾 家</view>
     <view class="container-t">
         <view class="c-name">{{apiData.communityName}}</view>
-        <view class="ndsyms">输入<text class="six-bit">六位</text>邀请码开锁</view>
-        <view class="flex code-container" >
-            <text class="code-text asterisk">*</text>
-            <text wx:for="{{apiData.applyCodeSplit}}" class="code-text">{{item}}</text>
-            <text class="code-text asterisk">*</text>
+        
+        <view class="code-container" >
+          <view class="flex align-center">
+            <view class="r-n-c">1</view>
+            <view class="step-text">先按</view>
+            <view class="asterisk">*</view>
+          </view>
+          <view class="flex align-center m-t-30 m-b-30">
+            <view class="r-n-c">2</view>
+            <view class="step-text">再输入</view>
+            <view wx:for="{{apiData.applyCode}}"
+             class="code-text {{index==0?'margin-none':''}}">
+            {{item}}</view>
+          </view>
+          <view class="flex align-center">
+            <view class="r-n-c">3</view>
+            <view class="step-text">再按</view>
+            <view class="asterisk">*</view>
+          </view>
         </view>
-        <view class="btn-copy" hover-class="navigator-hover" hover-stop-propagation="{{true}}" catchtap="copyCode" >复制受邀码</view>
+
+
         <view class="flex align-center w-p-100 m-t-30">
             <view class="l-corner"></view>
             <view class="dash-line-y flex-1"></view>

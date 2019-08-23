@@ -21,10 +21,13 @@ Page({
     onLoad: function (options) {
         console.log('inviteVisitor page options')
         console.log(options)
-        // options=options||{}//todo test
-        // options.applyCode='1234'
-        // options.communityName='天通苑小区'
-        // options.endDate='2019.8.11 20:00'
+        // if(true){
+        //   options = options || {}//todo test
+        //   options.applyCode = '1234'
+        //   options.communityName = '天通苑小区'
+        //   options.endDate = '2019.8.11 20:00'
+        // }
+        
 
         if(options){
             this.data.apiData={}
