@@ -6,21 +6,6 @@ Page({
         apiPayOrderData:null,
         modalName: null,
         myAddress: null,//收货地址
-        steps: [
-            {
-                text: '参与活动',
-                desc: ''
-            },
-            {
-                text: '团购满减',
-                desc: ''
-            },
-            {
-                text: '团购截至',
-                desc: ''
-            },
-
-        ],
         isClicked:false,
     },
     showNavigationBarLoading(){
