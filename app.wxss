@@ -348,6 +348,10 @@ page{
   margin-left: auto;
   margin-right: auto;
 }
+.p-l-r-90{
+  padding-left: 90rpx;
+  padding-right: 90rpx;
+}
 .p-t-b-20{
   padding: 20rpx 0;
 }

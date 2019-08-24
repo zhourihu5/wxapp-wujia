@@ -1,0 +1,50 @@
+<cu-custom bgColor="titlebar-white" isBack="{{true}}">
+    <view slot="backText"></view>
+    <view slot="content"><text class="{{navigationBarLoading?'wj-loading-icon':''}}"/>开锁设置</view>
+</cu-custom>
+<scroll-view scroll-y class="body" style="padding-bottom: 118rpx"
+      bindscroll="scroll"  bindscrolltoupper="upper" bindtouchstart="start" bindtouchend="end"
+      bindtouchmove="move">
+    <include src="../../refreshview/refreshHeaderView.wxml"/>
+    <view class="w-p-100 flex align-center justify-between t-i"
+          >
+        <view class="sqksqx">社区门开锁权限</view>
+        <view class="t-i-r">注：默认开锁权限</view>
+    </view>
+    <view class="w-c-r">
+        <view class="ksysxz">开锁样式选择：</view>
+        <view class="w-p-100 flex align-center justify-between p-l-r-90 lock-c">
+            <view class="flex-direction align-center justify-center">
+                <image class="img-lock" src="/images/img_single_lock.png"/>
+                <view class="flex align-center justify-center">
+                    <view class="radio-checked cuIcon-check" />
+                    <view class="radio-t">单个开锁</view>
+                </view>
+            </view>
+            <view class="flex-direction align-center justify-center">
+                <image class="img-lock" src="/images/img_multi_lock.png"/>
+                <view class="flex align-center justify-center">
+                    <view class="radio-unchecked" />
+                    <view class="radio-t">多个开锁</view>
+                </view>
+            </view>
+        </view>
+    </view>
+    <view class="w-c-r m-t-20 m-b-20" style="padding-bottom: 32rpx">
+        <view class="t-c">选择单元：</view>
+        <view wx:for="{{20}}" class="i-unit-choose">
+            <block wx:if="{{index==0}}" >
+                <view class="c-t-checked">9号楼1单元开锁</view>
+                <view class="radio-checked cuIcon-check" />
+            </block>
+            <block wx:else >
+                <view class="c-t">9号楼1单元开锁</view>
+                <view class="radio-unchecked" />
+            </block>
+
+
+
+        </view>
+    </view>
+</scroll-view>
+<view class="b-o-b">保存</view>
