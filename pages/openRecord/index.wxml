@@ -59,6 +59,38 @@
 
                             <view class="w-p-100 gray-c-c {{index==tab.data.length-1?'':'line-v-d'}}">
                                 <view class="gray-content">
+                                    <view class="flex w-p-100 align-center justify-between m-b-30">
+                                        <view class="m-t-t">时间</view>
+                                        <view class="m-t-c">2019/08/19 15:54:47</view>
+                                    </view>
+                                    <view class="flex w-p-100 align-center justify-between m-b-30">
+                                        <view class="m-t-t">开锁方式</view>
+                                        <view class="m-t-c">移动APP钥匙开锁</view>
+                                    </view>
+                                    <view class="flex w-p-100 align-center justify-between m-b-30">
+                                        <view class="m-t-t">门口机</view>
+                                        <view class="m-t-c">城盈中心1栋1单元门口机</view>
+                                    </view>
+                                    <view class="flex w-p-100 align-center justify-between m-b-30">
+                                        <view class="m-t-t">进出方</view>
+                                        <view class="m-t-c">13683218402</view>
+                                    </view>
+                                    <view class="flex w-p-100 align-center justify-between m-b-30">
+                                        <view class="m-t-t">证件号码</view>
+                                        <view class="m-t-c">14048119960605****</view>
+                                    </view>
+                                    <view class="flex w-p-100 align-center justify-between m-b-30">
+                                        <view class="m-t-t">进出</view>
+                                        <view class="m-t-c">进门</view>
+                                    </view>
+                                    <view class="flex w-p-100 align-center justify-between m-b-30">
+                                        <view class="m-t-t">留影展示</view>
+                                        <view class="m-t-c"></view>
+                                    </view>
+                                    <view class="flex w-p-100 align-center justify-between">
+                                        <image class="img-b" src="/images/tab_my.png" />
+                                        <image class="img-b" src="/images/tab_my.png" />
+                                    </view>
 
                                 </view>
                             </view>

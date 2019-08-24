@@ -204,7 +204,26 @@
     margin-right: 20rpx;
     /*background:rgba(255,155,29,1);*/
 }
+.in-out-text{
+    /*width:56px;*/
+    /*height:40px;*/
+    font-size:28rpx;
+    font-family:PingFangSC;
+    font-weight:400;
+    color:rgba(34,34,34,1);
+    line-height:40rpx;
+}
 .t-time{
+    /*width:232px;*/
+    /*height:34px;*/
+    font-size:24rpx;
+    font-family:PingFangSC;
+    font-weight:400;
+    color:rgba(136,136,136,1);
+    line-height:34rpx;
+
+
+
     padding-left: 34rpx;
     padding-top: 16rpx;
 }
@@ -229,9 +248,35 @@
 }
 .gray-content{
     width:566rpx;
-    height:628rpx;
+    /*height:628rpx;*/
     background:rgba(246,247,249,1);
     border-radius:16rpx;
+
+    padding: 30rpx;
+}
+.m-t-t{
+    /*width:48px;*/
+    /*height:34px;*/
+    font-size:24rpx;
+    font-family:PingFangSC;
+    font-weight:400;
+    color:rgba(34,34,34,1);
+    line-height:34rpx;
+}
+.m-t-c{
+    /*width:232px;*/
+    /*height:34px;*/
+    font-size:24rpx;
+    font-family:PingFangSC;
+    font-weight:400;
+    color:rgba(136,136,136,1);
+    line-height:34rpx;
+}
+.img-b{
+    width:244rpx;
+    height:128rpx;
+    background:rgba(216,216,216,1);
+    border-radius:4rpx;
 }
 .custom-collapse{
     width: 100%;
