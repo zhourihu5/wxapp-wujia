@@ -33,8 +33,8 @@
     ]
   },
   "pages": [
-    "pages/openRecord/index",
     "pages/index/index",
+    "pages/openRecord/index",
     "pages/test/index",
     "pages/paySuccess/index",
     "pages/inviteVisitor/index",

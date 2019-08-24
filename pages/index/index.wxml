@@ -155,13 +155,32 @@
         <view class="dialog-title-invite">邀请访客</view>
 <!--        <view class="dialog-msg">请先申请访客的邀请码，再发送给好友</view>-->
         <view class="dialog-msg">将邀请码发送给好友</view>
-        <button class="dialog-add no-border" hover-class="navigator-hover" hover-stop-propagation="{{true}}"
+        <button class="dialog-btn-send" hover-class="navigator-hover" hover-stop-propagation="{{true}}"
                 open-type="{{canNotShare?'':'share'}}"
                 catchtap="onClickInviteShare" >
             去发送
         </button>
     </view>
 
+</view>
+<view class="cu-modal full-screen  {{modalName=='ModalOpenDoorChoose'?'show':''}}">
+    <view class="cu-dialog dialog-open-door-setting relative">
+        <view class="d-o-c">
+            <view wx:for="{{10}}"  class="d-o-c-i-w">
+                <view  class="d-o-c-i">
+<!--                    122号楼四单元-->
+                    2号楼四单元
+                </view>
+            </view>
+
+        </view>
+        <view class="dialog-action">
+            <view class="dialog-cancel" hover-class="navigator-hover" hover-stop-propagation="{{true}}" bindtap="hideModal">取消</view>
+            <view class="dialog-add no-border" hover-class="navigator-hover" hover-stop-propagation="{{true}}" bindtap="toAddArr">
+                去设置
+            </view>
+        </view>
+    </view>
 </view>
 
 
@@ -192,9 +211,7 @@
 <view class="modal-top0  {{modalName=='ModalAddCommunity'?'show':''}}" catchtap="hideModal">
 
 </view>
-<!--<view class="modal-top0  {{modalName=='ModalInviteVisitor'?'show':''}}" catchtap="hideModal">-->
 
-<!--</view>-->
 
 <view class="modal-top0  {{modalName=='ModalGuideOpen'?'show':''}}">
     <view class="open-hint" style="bottom: calc( 390rpx - 98rpx + {{customTabBarHeight}}px )">

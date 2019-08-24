@@ -215,6 +215,8 @@ Page({
 
         }
         this.customData.y =util.rpxToPx(40)
+
+        // this.showModal('ModalOpenDoorChoose')
     },
     isEnableTabBar() {
         this.enableTabBar(!this.data.modalName);
