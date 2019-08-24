@@ -33,13 +33,13 @@
     ]
   },
   "pages": [
+    "pages/openRecord/index",
     "pages/index/index",
     "pages/test/index",
     "pages/paySuccess/index",
     "pages/inviteVisitor/index",
     "pages/order/index",
     "pages/orderConfirm/index",
-    "pages/openRecord/index",
     "pages/ucenter/index",
     "pages/auditFail/index",
     "pages/auditWait/index",

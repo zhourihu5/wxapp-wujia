@@ -28,44 +28,30 @@
                          bindtouchmove="move" data-index="{{tabIndex}}">
                 <block wx:for="{{tab.data}}" wx:for-item="item" wx:key="">
 <!--                <block wx:for="{{10}}" wx:for-item="item" wx:key="">-->
-
-
-                    <van-collapse custom-class="custom-collapse"
-                            border="" data-index="{{index}}" value="{{tab.data[index].collapseValue}}"  bind:change="onChange">
-                        <van-collapse-item custom-class="custom-collapse-item"
-                                           top-cell-class="top-cell-class"
-                                           border="{{false}}"
-                                           content-class="custom-content"
-                                           title-class="van-collapse-item-title"
-                                           right-icon-class="custom-right-icon"
-                                           >
-                            <view slot="title">
-                                <view class="w-p-100 flex align-center" >
-                                    <view class="t-l-1 flex-1">
-                                        <view class="flex-1 {{index==0?'':'line-v-d'}}"></view>
-                                        <view class="item-title flex align-center">
-                                            <image class="icon-in-out" src="/images/icon_door_in.png"></image>
-                                            <view class="in-out-text">进门</view>
-                                        </view>
-                                        <view class="flex">
-                                            <view class="t-time {{index==tab.data.length-1?'':'line-v-d'}}">2019/08/19 15:54:47</view>
-                                        </view>
-                                        <view class="flex-1 {{index==tab.data.length-1?'':'line-v-d'}}"></view>
-                                    </view>
-                                    <image class="image-t" src="/images/tab_my.png"></image>
+                    <view class="item-content {{index==0?'p-t-20':''}}" >
+                        <view class="w-p-100 flex align-center" >
+                            <view class="t-l-1 flex-1">
+                                <view class="flex-1 {{index==0?'':'line-v-d'}}"></view>
+                                <view class="item-title flex ">
+                                    <image class="icon-in-out" src="/images/icon_door_in.png"></image>
+                                    <view class="in-out-text">进门</view>
                                 </view>
-                            </view>
-
-
-                            <view class="w-p-100 gray-c-c {{index==tab.data.length-1?'':'line-v-d'}}">
-                                <view class="gray-content">
-
+                                <view class="flex">
+                                    <view class="t-time {{index==tab.data.length-1?'':'line-v-d'}}">2019/08/19 15:54:47</view>
                                 </view>
+                                <view class="flex-1 {{index==tab.data.length-1?'':'line-v-d'}}"></view>
                             </view>
-                        </van-collapse-item>
-                    </van-collapse>
+                            <image class="image-t" src="/images/tab_my.png"></image>
+                            <view class="empty-r">
+                                <view class="cuIcon-fold icon-fold"></view>
+                            </view>
+                        </view>
+                        <view class="w-p-100 gray-c-c {{index==tab.data.length-1?'':'line-v-d'}}">
+                            <view class="gray-content">
 
-
+                            </view>
+                        </view>
+                    </view>
                 </block>
             </scroll-view>
             <!--                </view>-->

@@ -20,35 +20,7 @@ Page({
                 isLoading: false,
                 reachBottom:false,
                 pageNum: 1,
-                data:[
-                    {
-                        collapseValue:[]
-                    },
-                    {
-                        collapseValue:[]
-                    },
-                    {
-                        collapseValue:[]
-                    },
-                    {
-                        collapseValue:[]
-                    },
-                    {
-                        collapseValue:[]
-                    },
-                    {
-                        collapseValue:[]
-                    },
-                    {
-                        collapseValue:[]
-                    },
-                    {
-                        collapseValue:[]
-                    },
-                    {
-                        collapseValue:[]
-                    },
-                ],
+                data:[0,1,2,3,4,5,6,7,8,9,10],
             },
             {
                 title: "单元门禁",
@@ -57,35 +29,7 @@ Page({
                 isLoading: false,
                 reachBottom:false,
                 pageNum: 1,
-                data:[
-                    {
-                        collapseValue:[]
-                    },
-                    {
-                        collapseValue:[]
-                    },
-                    {
-                        collapseValue:[]
-                    },
-                    {
-                        collapseValue:[]
-                    },
-                    {
-                        collapseValue:[]
-                    },
-                    {
-                        collapseValue:[]
-                    },
-                    {
-                        collapseValue:[]
-                    },
-                    {
-                        collapseValue:[]
-                    },
-                    {
-                        collapseValue:[]
-                    },
-                ],
+                data:[0,1,2,3],
             },
         ],
         pageSize: 20,
@@ -122,6 +66,15 @@ Page({
     },
     onShow() {
     },
+    setBottomTabBar(){
+        if (typeof this.getTabBar === 'function' &&
+            this.getTabBar()) {
+            // this.getTabBar().init()
+            this.getTabBar().setData({
+                active: 1,
+            })
+        }
+    },
 
     onHide(){
         console.log('order onHide')
@@ -144,26 +97,41 @@ Page({
         });
         this.loadData();
     },
-    onChange(event) {
-        console.log('collapseChange',event)
-        var index=event.currentTarget.dataset.index
+    setTimeRemain: function () {
+        if(interval){
+            clearInterval(interval)
+            interval=null
+        }
 
-        this.data.tabs[this.data.active].data[index].collapseValue=event.detail
-        this.setData({
-            tabs:this.data.tabs
-        })
-        //
-        // if(this.data.apiData[index].isRead!=0){
-        //     return
-        // }
-        // let messageId=this.data.apiData[index].id
-        // var that=this
-        // network.requestPost('/v1/message/updateWxIsRead',{messageId:messageId},function (data) {
-        //     that.data.apiData[index].isRead=1
-        //
-        // },function (msg) {
-        //
-        // })
+        var that = this
+        var i=0
+        var orderData=null
+        interval = setInterval(function () {
+            for(i=0;i<that.data.tabs[0].data.length;i++){
+                orderData=that.data.tabs[0].data[i]
+                if(orderData.status=='1'){
+                    orderData.remainTime=util.calcRemainTime(orderData.payEndDate)
+                    // if(orderData.remainTime=='00:00:00'){
+                    //     that.refreshAllData()
+                    //     return;
+                    // }
+                }
+            }
+            for(i=0;i<that.data.tabs[1].data.length;i++){
+                orderData=that.data.tabs[1].data[i]
+                if(orderData.status=='1'){
+                    orderData.remainTime=util.calcRemainTime(orderData.payEndDate)
+                    // if(orderData.remainTime=='00:00:00'){
+                    //     that.refreshAllData()
+                    //     return;
+                    // }
+                }
+            }
+            that.setData({
+                tabs:that.data.tabs
+            })
+
+        }, 1000)
     },
     loadData() {
         var that = this
