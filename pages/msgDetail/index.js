@@ -44,7 +44,7 @@ Page({
         }
     },
     onChange(event) {
-        console.log('collapseChange')
+        console.log('collapseChange',event)
         var index=event.currentTarget.dataset.index
         this.data.apiData[index].collapseValue=event.detail
         this.setData({
@@ -93,15 +93,17 @@ Page({
         }
         that.data.isLoading=true
         network.requestGet('/v1/message/findListByUserId',paramData,function (data) {
-            var i=0;
-            for(i=0;i<data.length;i++){
-                data[i].collapseValue=[]//默认都不展开
+            for(var i=0;i<data.content.length;i++){
+                data.content[i].collapseValue=[]//默认都不展开
+                if(data.content[i].isRead!=0){
+                    data.content[i].collapseValue=[0]
+                }
             }
             if(that.data.pageNum==1){
                 that.data.apiData=[]
             }
             that.data.apiData.push.apply(that.data.apiData,data.content)
-            if(data.content.length>=that.data.passive){
+            if(data.content.length>=that.data.pageSize){
                 that.data.isOver=false
                 that.data.pageNum++
             }else {

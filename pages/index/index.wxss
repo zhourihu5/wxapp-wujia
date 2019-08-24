@@ -2,8 +2,19 @@
 page{
     height: 100%;
     background-color: var(--white);
-
     position: fixed;
+
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+.body{
+    width: 100%;
+    flex: 1;
+    background:rgba(255,255,255,1);
+    border-radius: 16rpx 16rpx 0 0;
+    margin-top: -16rpx;
+    position: relative;
 }
 .modal-top0{
     position: fixed;
@@ -268,8 +279,8 @@ page{
 }
 .activity-more {
   width: 100%;
-  /*border-radius: 16rpx 16rpx 0 0;*/
-  background-color: var(--white);
+  border-radius: 16rpx 16rpx 0 0;
+  /*background-color: var(--white);*/
   /*margin-top: -16rpx;*/
 
   padding-left: 30rpx;
@@ -286,15 +297,12 @@ page{
 .z-4{
     z-index: 4;
 }
-.body{
-    width:100%;
-    height:540rpx;
-}
 
 
 .activity-scroll{
     white-space: nowrap;/*不放这个不能横排*/
     /*margin-bottom: 40rpx;*/
+    box-sizing: content-box;
 }
 .activity-item-wraper{
     margin-right: 20rpx;
@@ -307,12 +315,13 @@ page{
 .activity-item{
     width:568rpx;
     height:540rpx;
-    background:rgba(255,255,255,1);
+    /*background:rgba(255,255,255,1);*/
     box-shadow:0px 4px 20px 0px rgba(228,228,228,0.5);
     border-radius:16rpx;
 
     display: flex;
     flex-direction: column;
+    box-sizing: content-box;
 
 }
 .end-hint{
@@ -462,7 +471,7 @@ page{
     bottom:-98rpx;
     width: 100%;
     height:410rpx;
-    background:rgba(255,255,255,1);
+    /*background:rgba(255,255,255,1);*/
     box-shadow:0rpx -2rpx 20rpx 0rpx rgba(228,228,228,0.5);
 
     margin: 0 auto;
