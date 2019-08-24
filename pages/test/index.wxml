@@ -1,0 +1,12 @@
+<cu-custom bgColor="titlebar-white" isBack="{{isBack}}">
+    <view slot="backText"></view>
+    <view slot="content"><text class="{{navigationBarLoading?'wj-loading-icon':''}}"/>吾家W+</view>
+</cu-custom>
+<view class="body">
+    <include src="../../refreshview/refreshHeaderView.wxml"/>
+    <view class="activity-item"
+          bindscroll="scroll"  bindscrolltoupper="upper" bindtouchstart="start" bindtouchend="end"
+          bindtouchmove="move">
+
+    </view>
+</view>

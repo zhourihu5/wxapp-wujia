@@ -34,6 +34,7 @@
   },
   "pages": [
     "pages/index/index",
+    "pages/test/index",
     "pages/paySuccess/index",
     "pages/inviteVisitor/index",
     "pages/order/index",
