@@ -1,9 +1,11 @@
 .step-container{
     width: 100%;
-    height: 112rpx;
+    height: 92rpx;
     display: flex;
     align-items: center;
     justify-content: center;
+
+    background: white;
 }
 .step-selected{
     width:30rpx;

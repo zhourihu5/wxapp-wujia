@@ -4,6 +4,8 @@
     <view slot="backText"></view>
     <view slot="content"><text class="{{navigationBarLoading?'wj-loading-icon':''}}"/>精选活动</view>
 </cu-custom>
+<stepper wx:if="{{true}}" step1Text="参与活动" step2Text="团购满减" step3Text="团购截至"
+         step1Checked="{{true}}" step2Checked="{{true}}" step3Checked="{{true}}"/>
 <include src="../../refreshview/refreshHeaderView.wxml"/>
 <scroll-view scroll-y class="body"
              bindscrolltoupper='scrolltoupper'
@@ -12,8 +14,7 @@
              bindscroll="scroll"  bindscrolltoupper="upper" bindtouchstart="start" bindtouchend="end"
              bindtouchmove="move">
 <!--    bindscrolltolower="lower"-->
-    <stepper wx:if="{{true}}" step1Text="参与活动" step2Text="团购满减" step3Text="团购截至"
-             step1Checked="{{true}}" step2Checked="{{true}}" step3Checked="{{true}}"/>
+
 
 
     <block wx:for="{{list}}" wx:key="">
@@ -27,7 +28,7 @@
         <!--                          salesNum="{{item.commodity.salesNum}}"-->
         <!--                          dataId="{{item.id}}"/>-->
 
-        <view class="activity-item m-b-20 relative" hover-class="navigator-hover" hover-stop-propagation="{{true}}" bindtap="goBuy" data-index="{{index}}">
+        <view class="activity-item m-b-20 relative {{index==0?'m-t-30':''}}" hover-class="navigator-hover" hover-stop-propagation="{{true}}" bindtap="goBuy" data-index="{{index}}">
             <image class="activity-banner"
                    src="{{item.cover}}"/>
             <view class="m-l-20 m-t-30 m-b-20 activity-title">{{item.title}}</view>
