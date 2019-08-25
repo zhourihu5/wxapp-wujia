@@ -57,7 +57,7 @@
     <view class="activity-more flex align-center  justify-between {{modalName=='ModalGuideMore'?'p-t-b-show':'p-t-b-normal'}}"
           bindtap="{{modalName!='ModalGuideMore'?'toMore':''}}">
         <view class="jxhd">精选活动</view>
-        <view class="more {{modalName=='ModalGuideMore'?'showMore':'m-r-30'}}">
+        <view class="more flex align-center {{modalName=='ModalGuideMore'?'showMore':'m-r-30'}}">
             <text>更多</text>
             <image class="icon-to-more" src="/images/icon_to_more.png"></image>
         </view>
