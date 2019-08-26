@@ -86,8 +86,7 @@
                     wx:key=""
                     title="{{tab.title}}"
                     custom-class="custom-tab">
-                <!--                <view class="list">-->
-                <scroll-view scroll-y class="scroll-view-order" style="height: 750rpx;"
+                <scroll-view scroll-y  style="height: 750rpx;"
                              bindscrolltoupper='scrolltoupper'
                              bindscrolltolower='scrolltolower'
                 >
@@ -103,7 +102,6 @@
 
                     </block>
                 </scroll-view>
-                <!--                </view>-->
 
 
             </van-tab>

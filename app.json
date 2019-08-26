@@ -34,11 +34,11 @@
   },
   "pages": [
     "pages/index/index",
+    "pages/inviteVisitor/index",
     "pages/lockSetting/index",
     "pages/openRecord/index",
     "pages/test/index",
     "pages/paySuccess/index",
-    "pages/inviteVisitor/index",
     "pages/order/index",
     "pages/orderConfirm/index",
     "pages/ucenter/index",

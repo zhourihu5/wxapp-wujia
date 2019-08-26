@@ -246,10 +246,14 @@
 
 }
 .custom-tab{
+    /*padding-left: 20rpx;*/
+    /*padding-top: 48rpx;*/
+}
+.scroll-v{
     padding-left: 20rpx;
     padding-top: 48rpx;
+    height: 750rpx;
 }
-
 .psz{
     /*width:96px;*/
     /*height:44px;*/

@@ -304,7 +304,7 @@ page{
 }
 .line{
   /*width:140px;*/
-  height:3rpx;
+  height:1rpx;
   background:rgba(238,238,238,1);
   /*border-radius:3rpx;*/
 }

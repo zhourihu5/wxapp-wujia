@@ -158,16 +158,16 @@ border-bottom: 2rpx rgba(136,136,136,1) solid;
   text-align: center;
 }
 .l-corner{
-  border-radius: 0 30rpx 30rpx 0;
+  border-radius: 50%;
   border: 1rpx #FFA31B solid;
 
   background: #FFA31B;
 
   /*width: 30rpx;*/
-  width: 20rpx;
+  width: 40rpx;
   height: 40rpx;
 
-  margin-left: -1rpx;
+  margin-left: -20rpx;
 
 }
 .dash-line-y{
@@ -178,13 +178,13 @@ border-bottom: 2rpx rgba(136,136,136,1) solid;
   border-bottom: 2rpx #FF9F1C dashed;
 }
 .r-corner{
-  border-radius: 30rpx 0 0 30rpx;
+  border-radius: 50%;
   background: #FFA31B;
 
-  width: 20rpx;
+  width: 40rpx;
   height: 40rpx;
   /*margin-right: -20rpx;*/
-  margin-right: -1rpx;
+  margin-right: -20rpx;
 }
 .b-text{
   /*width:424px;*/
