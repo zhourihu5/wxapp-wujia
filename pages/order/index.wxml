@@ -48,9 +48,9 @@
                                 <text wx:if="{{item.status=='1'}}" class="sysj">{{item.remainTime}}</text>
                                 <view class="flex-1"></view>
                                 <text wx:if="{{item.status=='1'}}"  class="dfk">待付款</text>
-                                <text wx:elif="{{item.status=='2'}}"  class="dfk">待收货</text>
-                                <text wx:elif="{{item.status=='5'}}"  class="dfk">待收货</text>
-                                <text wx:elif="{{item.status=='3'}}"  class="dfk">已收货</text>
+                                <text wx:elif="{{item.status=='2'}}"  class="ysh">待收货</text>
+                                <text wx:elif="{{item.status=='5'}}"  class="ysh">待收货</text>
+                                <text wx:elif="{{item.status=='3'}}"  class="ysh">已收货</text>
                                 <text wx:else  class="ygq">已过期</text>
                             </view>
                             <view class="order-middle-item {{item.status=='2'?'no-border-bottom':''}}">

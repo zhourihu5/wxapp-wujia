@@ -26,7 +26,7 @@ Page({
         ],
         isClicked:false,
         tabLineWidth:util.rpxToPx(28),
-
+        relationArr:['家人','租户','其他'],
     },
     showNavigationBarLoading(){
         this.setData({
@@ -73,6 +73,13 @@ Page({
     // },
     relationInput(e) {
         this.data.relation = e.detail.value
+        this.canClickSave()
+    },
+    relationItemTap(e){
+        var index=e.currentTarget.dataset.index
+        this.setData({
+            relation:this.data.relationArr[index]
+        })
         this.canClickSave()
     },
     nameInput(e) {

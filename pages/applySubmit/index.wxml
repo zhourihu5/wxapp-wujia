@@ -15,8 +15,12 @@
         </view>
         <view class="item">
             <view class="item-l">与户主关系</view>
-            <input class="input" placeholder-class="placeholder" placeholder="请输入与户主的关系"
-                   bindinput="relationInput"/>
+            <!--<input class="input" placeholder-class="placeholder" placeholder="请输入与户主的关系"
+                   bindinput="relationInput"/>-->
+            <view class="flex align-center">
+                <view wx:for="{{relationArr}}" class="{{item==relation?'label-selected':'label-unselected'}} "
+                      catchtap="relationItemTap" data-index="{{index}}">{{item}}</view>
+            </view>
         </view>
 
     </view>

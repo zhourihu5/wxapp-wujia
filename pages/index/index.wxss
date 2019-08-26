@@ -561,11 +561,12 @@ movable-area {
 
 .dialog-invite{
     width:560rpx;
-    height:596rpx;
+    /*height:596rpx;*/
     background:rgba(255,255,255,1);
     border-radius:16rpx;
     filter:blur(0px);
 
+    padding-bottom: 86rpx;
     /*display: flex;*/
     /*flex-direction: column;*/
     /*align-items: center;*/
@@ -591,7 +592,7 @@ movable-area {
     width: 214rpx;
     height: 164rpx;
 
-    margin-top: 68rpx;
+    margin-top: 60rpx;
 }
 .dialog-title-invite{
     /*width:160px;*/
@@ -602,8 +603,8 @@ movable-area {
     color:rgba(34,34,34,1);
     line-height:56rpx;
 
-    margin-top: 48rpx;
-    margin-bottom: 20rpx;
+    margin-top: 22rpx;
+    margin-bottom: 10rpx;
 }
 .dialog-msg{
     /*width:288px;*/
@@ -711,7 +712,7 @@ movable-area {
     padding: 0;
     border: none;
 
-    margin-top: 60rpx;
+    margin-top: 30rpx;
 }
 .dialog-btn-send::after{
     border: none;

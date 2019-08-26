@@ -31,6 +31,43 @@
     width: 200rpx;
     /*background: white;*/
 }
+.label-selected{
+    /*width:108px;*/
+    /*height:50rpx;*/
+    background:rgba(255,245,233,1);
+    border-radius:8rpx;
+    border:1rpx solid rgba(255,155,29,1);
+
+    /*width:48px;*/
+    /*height:34px;*/
+    font-size:24rpx;
+    font-family:PingFangSC-Regular;
+    font-weight:400;
+    color:rgba(255,149,28,1);
+    line-height:34rpx;
+
+    padding: 8rpx 30rpx;
+
+    margin-right: 24rpx;
+}
+.label-unselected{
+    /*width:108px;*/
+    /*height:50px;*/
+    border-radius:8rpx;
+    border:1rpx solid rgba(214,214,214,1);
+
+    /*width:48px;*/
+    /*height:34px;*/
+    font-size:24rpx;
+    font-family:PingFangSC-Regular;
+    font-weight:400;
+    color:rgba(136,136,136,1);
+    line-height:34rpx;
+
+    padding: 8rpx 30rpx;
+
+    margin-right: 24rpx;
+}
 .placeholder{
     /*width:224px;*/
     /*height:40px;*/
