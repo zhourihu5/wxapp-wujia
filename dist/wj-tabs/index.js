@@ -4,7 +4,7 @@ VantComponent({
     mixins: [touch],
     classes: ['nav-class', 'tab-class', 'tab-active-class', 'line-class'],
     relation: {
-        name: 'tab',
+        name: 'wj-tab',
         type: 'descendant',
         linked(child) {
             this.child.push(child);
@@ -136,13 +136,21 @@ VantComponent({
             const { color, active, duration, lineWidth, lineHeight } = this.data;
             this.getRect('.van-tab', true).then((rects) => {
                 const rect = rects[active];
+                console.log('rect.width',rect.width,'active',active)
+                //fixme 第一次加载的tab rect的width计算的不对
+                if(rects.length==1){
+                    const app=getApp()
+                    rect.width=112*app.globalData.windowWidth/750;//rpx to px
+                }
+
+
+
                 const width = lineWidth !== -1 ? lineWidth : rect.width / 2;
                 const height = lineHeight !== -1 ? `height: ${lineHeight}px;` : '';
                 let left = rects
                     .slice(0, active)
                     .reduce((prev, curr) => prev + curr.width, 0);
                 left += (rect.width - width) / 2;
-                // console.log('rect.width',rect.width)
 
                 const transition = skipTransition
                     ? ''
@@ -158,6 +166,12 @@ VantComponent({
           `
                 });
             });
+
+            //todo test
+            // this.getRect('.van-tab__title', true).then((rects) => {
+            //     const rect = rects[active];
+            //     console.log('van-tab__title rect.width',rect.width,'active',active)
+            // });
 
         },
         setTrack() {

@@ -42,7 +42,7 @@
             <view class="psz">配送至</view>
             <view class="cuIcon-close close " hover-class="navigator-hover" hover-stop-propagation="{{true}}" catchtap="hideModal"></view>
         </view>
-        <wj-tabs class="tab-layout"
+        <van-tabs class="tab-layout"
                   custom-class="custom-tabs"
                   nav-class="tab-nav"
                   tab-class="tab-custom"
@@ -53,7 +53,7 @@
                    swipeThreshold="6"
                   active="{{active}}"
                   bind:change="tabChange">
-            <wj-tab
+            <van-tab
                     wx:for="{{ tabs }}"
                     wx:for-item="tab"
                     wx:for-index="tabIndex"
@@ -77,7 +77,7 @@
                 </scroll-view>
 
 
-            </wj-tab>
-        </wj-tabs>
+            </van-tab>
+        </van-tabs>
     </view>
 </view>

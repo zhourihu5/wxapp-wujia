@@ -6,5 +6,8 @@
   "navigationBarTextStyle": "black",
   "backgroundTextStyle": "dark",
   "backgroundColor": "#FFFFFF",
-  "usingComponents": {}
+  "usingComponents": {
+    "wj-tabs": "/dist/wj-tabs/index",
+    "wj-tab": "/dist/wj-tab/index"
+  }
 }

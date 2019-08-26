@@ -69,7 +69,7 @@
             <view class="cuIcon-close close " hover-class="navigator-hover" hover-stop-propagation="{{true}}"
                   catchtap="hideModal"></view>
         </view>
-        <van-tabs class="tab-layout"
+        <wj-tabs class="tab-layout"
                   custom-class="custom-tabs"
                   nav-class="tab-nav"
                   tab-class="tab-custom"
@@ -80,7 +80,7 @@
                   lineWidth="{{tabLineWidth}}"
                   active="{{active}}"
                   bind:change="tabChange">
-            <van-tab
+            <wj-tab
                     wx:for="{{ tabs }}"
                     wx:for-item="tab"
                     wx:for-index="tabIndex"
@@ -105,8 +105,8 @@
                 </scroll-view>
 
 
-            </van-tab>
-        </van-tabs>
+            </wj-tab>
+        </wj-tabs>
     </view>
 </view>
 <view class="cu-modal bottom-modal {{modalName=='communityModal'?'show':''}}">

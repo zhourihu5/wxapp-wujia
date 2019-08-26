@@ -1,12 +1,9 @@
 
 {
   "navigationBarBackgroundColor": "#FFFFFF",
-  "navigationBarTitleText": "修改收货地址",
+  "navigationBarTitleText": "提交申请",
   "navigationBarTextStyle": "black",
   "backgroundTextStyle": "dark",
   "backgroundColor": "#FFFFFF",
-  "usingComponents": {
-    "wj-tabs": "/dist/wj-tabs/index",
-    "wj-tab": "/dist/wj-tab/index"
-  }
+  "usingComponents": {}
 }
