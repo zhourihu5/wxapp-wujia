@@ -589,8 +589,8 @@ movable-area {
     top: 0;
 }
 .img-invite{
-    width: 214rpx;
-    height: 164rpx;
+    width: 236rpx;
+    height: 216rpx;
 
     margin-top: 60rpx;
 }
