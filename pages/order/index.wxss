@@ -369,16 +369,13 @@
     font-family:PingFangSC;
     font-weight:400;
     color:rgba(255,255,255,1);
-    line-height:28rpx;
+    /*line-height:28rpx;*/
+    line-height: 68rpx;
+    text-align: center;
 
-
-  display: flex;
-  text-align: center;
-  align-items: center;
-  flex-direction: column;
-  justify-content: center;
-  -webkit-box-align: center;
-  vertical-align:middle;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 .lxshr{
     width:184rpx;
@@ -392,15 +389,13 @@
     font-family:PingFangSC;
     font-weight:400;
     color:rgba(255,155,29,1);
-    line-height:28rpx;
+    /*line-height:28rpx;*/
+    line-height: 66rpx;
+    text-align: center;
 
-  display: flex;
-  text-align: center;
-  align-items: center;
-  flex-direction: column;
-  justify-content: center;
-  -webkit-box-align: center;
-  vertical-align:middle;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
 }
 .go-stroll{
@@ -415,16 +410,13 @@
     font-family:PingFangSC;
     font-weight:400;
     color:rgba(255,155,29,1);
-    line-height:28rpx;
-
+    /*line-height:28rpx;*/
+    line-height:68rpx;
+    text-align: center;
 
   display: flex;
-  text-align: center;
   align-items: center;
-  flex-direction: column;
   justify-content: center;
-  -webkit-box-align: center;
-  vertical-align:middle;
 
 }
 

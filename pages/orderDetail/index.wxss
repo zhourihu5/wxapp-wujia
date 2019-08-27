@@ -46,7 +46,7 @@ page{
     /*height:40px;*/
     font-size: 40rpx;
     font-family: PingFangSC-Regular;
-    font-weight: 500;
+    font-weight: 600;
     color: rgba(34, 34, 34, 1);
     line-height: 40rpx;
 

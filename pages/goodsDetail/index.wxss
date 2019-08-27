@@ -217,7 +217,7 @@
   width: 100%;
   background:rgba(255,255,255,1);
   margin-top: 20rpx;
-  padding: 0 30rpx;
+  padding: 30rpx 30rpx;
   box-sizing: border-box;
 }
 .item3-1{
@@ -234,6 +234,24 @@
   padding: 0 20rpx;
   margin-top: 20rpx;
 }
+.img-gift{
+  width:90rpx;
+  height:90rpx;
+  background:rgba(216,216,216,1);
+  border-radius:16rpx;
+  border:2rpx solid rgba(151,151,151,1);
+
+  margin-right: 20rpx;
+}
+.text-gift{
+  /*width:168px;*/
+  /*height:40px;*/
+  font-size:28rpx;
+  font-family:PingFangSC;
+  font-weight:400;
+  color:rgba(34,34,34,1);
+  line-height:40rpx;
+}
 .hdsm{
   /*width:96px;*/
   /*height:34px;*/
@@ -242,8 +260,6 @@
   font-weight:300;
   color:rgba(255,155,29,1);
   line-height:34rpx;
-
-  justify-content: right;
 }
 .tuan{
   width:32rpx;
@@ -320,7 +336,6 @@
   color:rgba(85,85,85,1);
   line-height:34rpx;
 
-  padding-bottom: 26rpx;
 }
 .lijian{
   /*width:22px;*/

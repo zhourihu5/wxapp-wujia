@@ -53,13 +53,17 @@
 
 
     <view class="item3">
-        <view class="flex justify-between align-center w-p-100">
-            <view class="item3-1">
+        <view class="flex align-center w-p-100">
+            <view wx:if="{{false}}" class="item3-1">
                 <text class="tuan">团</text>
                 <text class="mrzgs">每人最高省</text>
                 <text class="discount-num">{{apiData.activity.largeMoney}}</text>
                 <text class="mrzgs">元</text>
             </view>
+            <image class="img-gift" src="/images/tab_my.png"/>
+            <view class="text-gift">参团赠好礼～</view>
+
+            <view class="flex-1"></view>
             <view class="flex align-center text-underline hdsm" hover-class="navigator-hover" hover-stop-propagation="{{true}}" bindtap="showModal">活动说明</view>
         </view>
 
@@ -72,11 +76,10 @@
             <!--                //todo 居于底部-->
             <view  class="item-3-2-r">...等{{apiData.activity.commodity.salesNum}}名用户已参与</view>
         </view>
-        <view wx:if="{{saleTip.length>1}}" class="center zlyrctghd m-t-40">再来{{saleTip[0]}}人参团该活动商品立减
+        <view wx:if="{{false&&saleTip.length>1}}" class="center zlyrctghd m-t-40">再来{{saleTip[0]}}人参团该活动商品立减
             <text class="lijian">{{saleTip[1]}}</text>
             元
         </view>
-        <view wx:else class="zlyrctghd"></view>
     </view>
     <view wx:if="{{false}}" class="item4">
         <view class="tgjd">团购进度</view>

@@ -52,7 +52,8 @@ page{
   background:rgba(255,255,255,1);
   border-radius:16rpx ;
 
-  box-shadow:6px 0px 20px 0px rgba(231,150,26,1);
+  box-shadow:6rpx 0rpx 20rpx 0rpx rgba(231,150,26,1);
+  /*filter:blur(10rpx);*/
 
   display: flex;
   flex-direction: column;
@@ -159,9 +160,9 @@ border-bottom: 2rpx rgba(136,136,136,1) solid;
 }
 .l-corner{
   border-radius: 50%;
-  border: 1rpx #FFA31B solid;
+  border: 1rpx #FF9800 solid;
 
-  background: #FFA31B;
+  background: #FF9800;
 
   /*width: 30rpx;*/
   width: 40rpx;
@@ -178,13 +179,16 @@ border-bottom: 2rpx rgba(136,136,136,1) solid;
   border-bottom: 2rpx #FF9F1C dashed;
 }
 .r-corner{
-  border-radius: 50%;
-  background: #FFA31B;
+  border-radius: 50rpx 0 0 50rpx ;
+  /*border: 1rpx #FF9800 solid;*/
+  background: #FF9800;
 
-  width: 40rpx;
+  /*box-shadow:6rpx 0rpx 20rpx 0rpx rgba(231,150,26,1);*/
+
+  width: 20rpx;
   height: 40rpx;
   /*margin-right: -20rpx;*/
-  margin-right: -20rpx;
+  margin-right: -0.1rpx;
 }
 .b-text{
   /*width:424px;*/
