@@ -239,7 +239,7 @@
   height:90rpx;
   background:rgba(216,216,216,1);
   border-radius:16rpx;
-  border:2rpx solid rgba(151,151,151,1);
+  /*border:2rpx solid rgba(151,151,151,1);*/
 
   margin-right: 20rpx;
 }

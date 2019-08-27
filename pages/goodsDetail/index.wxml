@@ -60,7 +60,7 @@
                 <text class="discount-num">{{apiData.activity.largeMoney}}</text>
                 <text class="mrzgs">元</text>
             </view>
-            <image class="img-gift" src="/images/tab_my.png"/>
+            <image class="img-gift" src="{{apiData.activity.giftImg}}"/>
             <view class="text-gift">参团赠好礼～</view>
 
             <view class="flex-1"></view>
