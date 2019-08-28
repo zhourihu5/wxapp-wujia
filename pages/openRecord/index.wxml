@@ -45,7 +45,7 @@
                                     <view class="t-l-1 flex-1">
                                         <view class="flex-1 {{index==0?'':'line-v-d'}}"></view>
                                         <view class="item-title flex align-center">
-                                            <image class="icon-in-out" src="/images/icon_door_in.png"></image>
+                                            <image class="icon-in-out" src="{{item.Direction==1?'/images/icon_door_in.png':'/images/icon_door_out.png'}} "></image>
                                             <view class="in-out-text">{{item.Direction==1?'进门':'出门'}}</view>
                                         </view>
                                         <view class="flex">
@@ -84,13 +84,25 @@
                                         <view class="m-t-t">进出</view>
                                         <view class="m-t-c">{{item.Direction==1?'进门':'出门'}}</view>
                                     </view>
-                                    <view class="flex w-p-100 align-center justify-between m-b-30">
+                                    <view class="flex w-p-100 align-center justify-between">
                                         <view class="m-t-t">留影展示</view>
                                         <view class="m-t-c"></view>
                                     </view>
-                                    <view class="flex w-p-100 align-center justify-between">
-                                        <image class="img-b" src="{{imgUrl}}{{item.AccessPhoto1}}" />
-                                        <image class="img-b" src="{{imgUrl}}{{item.AccessPhoto2}}" />
+                                    <view wx:if="{{item.AccessPhoto1}}" class="flex w-p-100 align-center justify-between m-t-30">
+                                        <image wx:if="{{item.AccessPhoto1}}" class="img-b" src="{{imgUrl}}{{item.AccessPhoto1}}" />
+                                        <image wx:if="{{item.AccessPhoto2}}" class="img-b" src="{{imgUrl}}{{item.AccessPhoto2}}" />
+                                    </view>
+                                    <view wx:if="{{item.AccessPhoto3}}" class="flex w-p-100 align-center justify-between m-t-30">
+                                        <image wx:if="{{item.AccessPhoto3}}" class="img-b" src="{{imgUrl}}{{item.AccessPhoto3}}" />
+                                        <image wx:if="{{item.AccessPhoto4}}" class="img-b" src="{{imgUrl}}{{item.AccessPhoto4}}" />
+                                    </view>
+                                    <view wx:if="{{item.AccessPhoto5}}" class="flex w-p-100 align-center justify-between m-t-30">
+                                        <image wx:if="{{item.AccessPhoto5}}" class="img-b" src="{{imgUrl}}{{item.AccessPhoto5}}" />
+                                        <image wx:if="{{item.AccessPhoto6}}" class="img-b" src="{{imgUrl}}{{item.AccessPhoto6}}" />
+                                    </view>
+                                    <view wx:if="{{item.AccessPhoto7}}" class="flex w-p-100 align-center justify-between m-t-30">
+                                        <image wx:if="{{item.AccessPhoto7}}" class="img-b" src="{{imgUrl}}{{item.AccessPhoto7}}" />
+                                        <image wx:if="{{item.AccessPhoto8}}" class="img-b" src="{{imgUrl}}{{item.AccessPhoto8}}" />
                                     </view>
 
                                 </view>
