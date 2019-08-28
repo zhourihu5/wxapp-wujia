@@ -21,33 +21,6 @@ Page({
                 reachBottom:false,
                 pageNum: 1,
                 data:[
-                    {
-                        collapseValue:[]
-                    },
-                    {
-                        collapseValue:[]
-                    },
-                    {
-                        collapseValue:[]
-                    },
-                    {
-                        collapseValue:[]
-                    },
-                    {
-                        collapseValue:[]
-                    },
-                    {
-                        collapseValue:[]
-                    },
-                    {
-                        collapseValue:[]
-                    },
-                    {
-                        collapseValue:[]
-                    },
-                    {
-                        collapseValue:[]
-                    },
                 ],
             },
             {
@@ -58,33 +31,6 @@ Page({
                 reachBottom:false,
                 pageNum: 1,
                 data:[
-                    {
-                        collapseValue:[]
-                    },
-                    {
-                        collapseValue:[]
-                    },
-                    {
-                        collapseValue:[]
-                    },
-                    {
-                        collapseValue:[]
-                    },
-                    {
-                        collapseValue:[]
-                    },
-                    {
-                        collapseValue:[]
-                    },
-                    {
-                        collapseValue:[]
-                    },
-                    {
-                        collapseValue:[]
-                    },
-                    {
-                        collapseValue:[]
-                    },
                 ],
             },
         ],
@@ -191,18 +137,6 @@ Page({
         this.setData({
             tabs:this.data.tabs
         })
-        //
-        // if(this.data.apiData[index].isRead!=0){
-        //     return
-        // }
-        // let messageId=this.data.apiData[index].id
-        // var that=this
-        // network.requestPost('/v1/message/updateWxIsRead',{messageId:messageId},function (data) {
-        //     that.data.apiData[index].isRead=1
-        //
-        // },function (msg) {
-        //
-        // })
     },
     loadData() {
         var that = this
