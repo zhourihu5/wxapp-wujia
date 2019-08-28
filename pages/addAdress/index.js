@@ -216,14 +216,22 @@ Page({
                         selected: null,
                     },
 
-                ]
+                ],
+                active: 0,//选择期区楼等的当前tab
+                value: val,
+                currentCommunity: that.data.communityList[val[0]]
             })
+            this.data.active=0
+            this.data.currentCommunity=that.data.communityList[val[0]]
+            that.data.flagList = that.data.currentCommunity.flag.split('-')
+            this.loadAddrData()
         }
-        this.setData({
-            value: val,
-            currentCommunity: that.data.communityList[val[0]]
-        })
-        that.data.flagList = that.data.currentCommunity.flag.split('-')
+
+        // this.setData({
+        //     value: val,
+        //     currentCommunity: that.data.communityList[val[0]]
+        // })
+        // that.data.flagList = that.data.currentCommunity.flag.split('-')
         this.canClickSave()
     },
     onChangeRadio(event) {

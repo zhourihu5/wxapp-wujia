@@ -65,11 +65,11 @@ Page({
                         //     apiData: data,
                         // })
                         app.token = data.token
-                        try {
-                            app.communtityId = data.communtityList[0].id
-                            app.communtityCode = data.communtityList[0].code
-                        } catch (e) {
-                        }
+                        // try {
+                        //     app.communtityId = data.communtityList[0].id
+                        //     app.communtityCode = data.communtityList[0].code
+                        // } catch (e) {
+                        // }
                         // that.customData.openid = data.openid
                         if (data.userInfo) {
                             app.nickName = data.userInfo.nickName
