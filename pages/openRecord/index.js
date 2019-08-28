@@ -19,6 +19,8 @@ Page({
                 isOver:false,
                 isLoading: false,
                 reachBottom:false,
+                scrolling:false,
+                isUpper:true,
                 pageNum: 1,
                 data:[
                 ],
@@ -29,6 +31,8 @@ Page({
                 isOver:false,
                 isLoading: false,
                 reachBottom:false,
+                scrolling:false,
+                isUpper:true,
                 pageNum: 1,
                 data:[
                 ],
