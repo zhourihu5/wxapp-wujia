@@ -96,7 +96,7 @@
 <!--        <view class="order-info-item p-b-30">送货时长剩余：24h</view>-->
 
 <!--    </view>-->
-    <view wx:if="{{ apiData.status=='5'||apiData.status=='3'}}" class="goods-info dilivery-container">
+    <view wx:if="{{ apiData.deliveryPerson}}" class="goods-info dilivery-container">
         <view class="goods-title {{apiData.status=='4'?'expired':''}}">配送信息</view>
         <view class="order-info-item">送货员：{{apiData.deliveryPerson}}</view>
         <view class="order-info-item">送货员联系方式：{{apiData.deliveryPhone}}</view>
