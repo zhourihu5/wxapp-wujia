@@ -214,6 +214,7 @@ Page({
         that.setData({
             tabs: that.data.tabs,
         })
+        //todo 小区门禁和单元门禁有什么区别？？接口怎么区分？？
         var paramData={
             communtityCode:app.communtityCode,
             pageNum: that.data.tabs[active].pageNum,
