@@ -1,3 +1,5 @@
+<wxs src="../../wxs/utils.wxs" module="utils"/>
+
 <view class="container">
     <cu-custom bgColor="titlebar-white" isBack="{{true}}">
         <view slot="backText"></view>
@@ -78,7 +80,7 @@
                                     </view>
                                     <view class="flex w-p-100 align-center  m-b-30">
                                         <view class="m-t-t">证件号码</view>
-                                        <view class="m-t-c">{{item.CertificateCardNo}}</view>
+                                        <view class="m-t-c">{{utils.hideCode(item.CertificateCardNo,4)}}</view>
                                     </view>
                                     <view class="flex w-p-100 align-center justify-between m-b-30">
                                         <view class="m-t-t">进出</view>

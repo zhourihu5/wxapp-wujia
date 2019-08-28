@@ -33,73 +33,20 @@ function numAfterDot(num) {
 
   return '';
 }
-function getCurrentActiveTab(active,thiz){
-  console.log('获取当前tab in wxs')
-  console.log(thiz)
-  var pages=null
-  if(thiz&&thiz.invokeByWxs){
-     pages=thiz.invokeByWxs()
-    console.log('成功调到 getCurrentPages')
-  }else {
-    console.log('无法调到方法 getCurrentPages')
-    return active
+function hideCode(str, endLen) {
+  var len = str.length  - endLen;
+  var xing = '';
+  for (var i = 0; i < endLen; i++) {
+    xing += '*';
   }
-  pages=getCurrentPages()
-  console.log(pages)
-  if(!pages){
-    console.log('当前没有页面')
-    return 0
-  }
-  if(pages.length==0){
-    console.log('当前页面为空')
-    return 0
-  }
-  var currentPage=pages[pages.length-1]
-  var list=[
-    {
-      "pagePath": "/pages/index/index",
-      // "text": "首页",
-      // "iconPath": "/images/tab_home.png",
-      // "selectedIconPath": "/images/tab_home_selected.png"
-    },
-    {
-      "pagePath": "/pages/order/index",
-      // "text": "订单",
-      // "iconPath": "/images/tab_order.png",
-      // "selectedIconPath": "/images/tab_order_selected.png"
-    },
-    {
-      "pagePath": "/pages/msg/index",
-      // "text": "消息",
-      // "iconPath": "/images/tab_msg.png",
-      // "selectedIconPath": "/images/tab_msg_selected.png"
-    },
-    {
-      "pagePath": "/pages/ucenter/index",
-      // "text": "我的",
-      // "iconPath": "/images/tab_my.png",
-      // "selectedIconPath": "/images/tab_my_selected.png"
-    }
-  ]
-  var i=0;
-  var item=null
-  for(;i<list.length;i++){
-    item=list[i]
-    if(item.pagePath === "/"+currentPage.route){
-      console.log('找到当前tab')
-      return i;
-    }
-  }
-  console.log('没有找到tab,设置默认值')
-  return 0
-  // return  list.findIndex(item => item.pagePath === `/${currentPage.route}`)
+  return str.substring(0, len) + xing ;
 }
 
 module.exports = {
-  getCurrentActiveTab: getCurrentActiveTab,
   strSplitToArr: strSplitToArr,
   numBeforeDot: numBeforeDot,
   isNumDot: isNumDot,
   numAfterDot: numAfterDot,
+  hideCode: hideCode,
 
 };
