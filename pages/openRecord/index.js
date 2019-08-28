@@ -88,8 +88,46 @@ Page({
                 ],
             },
         ],
+        windowHeight:app.globalData.windowHeight,
         pageSize: 20,
         tabLineWidth:util.rpxToPx(28),
+        AccessWay:[
+            '',
+            '通话开锁',
+            '监视开锁',
+            '刷卡开锁',
+            '密码开锁',
+            '通知开锁',
+            '中心机通话开锁',
+            '室内机通话开锁',
+            '移动App开锁',
+            '手机开锁',
+            '固话开锁',
+            '网关通话开锁',
+            '中心监视开锁',
+            '室内机监视开锁',
+            'ICID卡刷卡开锁',
+            '身份证刷卡开锁',
+            '居住证刷卡开锁',
+            '市民卡刷卡开锁',
+            '二维码刷卡开锁',
+            '公共密码开锁',
+            '私有密码开锁',
+            '胁迫密码开锁',
+            '移动APP钥匙开锁',
+            '门内开锁',
+            '其它开锁',
+            '临时密码开锁',
+            '蓝牙开锁',
+            '刷脸开锁',
+            '指纹开锁',
+            'APP蓝牙开锁',
+            '第三方直接通知设备开锁',
+            '第三方识别卡开锁',
+            '第三方识别密码开锁',
+            '第三方识别人脸开锁',
+            '第三方识别指纹开锁',
+        ],
 
     },
     showNavigationBarLoading(){
@@ -130,6 +168,7 @@ Page({
     },
     onLoad: function () {
         register.register(this)
+        this.loadData()
     },
     onUnload(){
         console.log('order onUnload')
@@ -176,20 +215,19 @@ Page({
             tabs: that.data.tabs,
         })
         var paramData={
-            // status:that.data.tabs[active].status,
+            communtityCode:app.communtityCode,
             pageNum: that.data.tabs[active].pageNum,
             pageSize:that.data.pageSize,
         }
-        if(that.data.tabs[active].status){
-            paramData.status=that.data.tabs[active].status
-        }
-        network.requestGet('/v1/order/findList', paramData, function (data) {
+
+        network.requestGet('/v1/apply/accessRecords',paramData,function (data) {
+            register&&register.loadFinish(that,true)
             if (that.data.tabs[active].pageNum == 1) {
                 that.data.tabs[active].data = []
             }
-            that.data.tabs[active].data.push.apply(that.data.tabs[active].data, data.content);
+            that.data.tabs[active].data.push.apply(that.data.tabs[active].data, data.ItemList);
             that.data.tabs[active].isLoading=false
-            if(data.content.length>=that.data.pageSize){
+            if(data.ItemList&&data.ItemList.length>0){
                 that.data.tabs[active].pageNum++
                 that.data.tabs[active].isOver=false
             }else {
@@ -197,12 +235,15 @@ Page({
             }
             that.setData({
                 tabs: that.data.tabs,
+                imgUrl:data.imgUrl,
             })
-            register&&register.loadFinish(that,true)
+
         }, function (msg) {
-            that.data.tabs[active].isLoading=false
             register&&register.loadFinish(that,false)
+            that.data.tabs[active].isLoading=false
         })
+
+
     },
     onChangeTab(event) {
         var that = this
@@ -251,9 +292,6 @@ Page({
     },
     scrolltolower(e) {
         console.log('scrolltolower')
-        if(true){
-            return
-        }
         this.data.tabs[this.data.active].reachBottom=true
         this.setData({
             tabs:this.data.tabs

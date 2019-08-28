@@ -21,7 +21,8 @@
                 title="{{tab.title}}"
                 custom-class="custom-tab">
             <include src="../../refreshview/refreshHeaderView.wxml"/>
-            <scroll-view scroll-y class="scroll-view" style="top: calc( {{CustomBar}}px + 84rpx + {{refreshHeight}}px  );bottom: {{customTabBarHeight}}px"
+            <scroll-view scroll-y class="scroll-view-order"
+                         style="position: relative;height:calc( {{windowHeight}}px - {{CustomBar}}px - 84rpx )"
                          lower-threshold="{{lowerThreshold}}"
                          bindscrolltolower='scrolltolower'
                          bindscroll="scrollP"  bindscrolltoupper="upperP" bindtouchstart="start" bindtouchend="end"
@@ -30,7 +31,7 @@
 <!--                <block wx:for="{{10}}" wx:for-item="item" wx:key="">-->
 
 
-                    <van-collapse custom-class="custom-collapse"
+                    <van-collapse custom-class="custom-collapse {{index==0?'m-t-20':''}}"
                             border="" data-index="{{index}}" value="{{tab.data[index].collapseValue}}"  bind:change="onChange">
                         <van-collapse-item custom-class="custom-collapse-item"
                                            top-cell-class="top-cell-class"
@@ -45,14 +46,14 @@
                                         <view class="flex-1 {{index==0?'':'line-v-d'}}"></view>
                                         <view class="item-title flex align-center">
                                             <image class="icon-in-out" src="/images/icon_door_in.png"></image>
-                                            <view class="in-out-text">进门</view>
+                                            <view class="in-out-text">{{item.Direction==1?'进门':'出门'}}</view>
                                         </view>
                                         <view class="flex">
-                                            <view class="t-time {{index==tab.data.length-1?'':'line-v-d'}}">2019/08/19 15:54:47</view>
+                                            <view class="t-time {{index==tab.data.length-1?'':'line-v-d'}}">{{item.AccessTime}}</view>
                                         </view>
                                         <view class="flex-1 {{index==tab.data.length-1?'':'line-v-d'}}"></view>
                                     </view>
-                                    <image class="image-t" src="/images/tab_my.png"></image>
+                                    <image class="image-t" src="{{imgUrl}}{{item.AccessPhoto1}}"></image>
                                 </view>
                             </view>
 
@@ -61,35 +62,35 @@
                                 <view class="gray-content">
                                     <view class="flex w-p-100 align-center justify-between m-b-30">
                                         <view class="m-t-t">时间</view>
-                                        <view class="m-t-c">2019/08/19 15:54:47</view>
+                                        <view class="m-t-c">{{item.AccessTime}}</view>
                                     </view>
                                     <view class="flex w-p-100 align-center justify-between m-b-30">
                                         <view class="m-t-t">开锁方式</view>
-                                        <view class="m-t-c">移动APP钥匙开锁</view>
+                                        <view class="m-t-c">{{AccessWay[item.AccessWay]}}</view>
                                     </view>
                                     <view class="flex w-p-100 align-center justify-between m-b-30">
                                         <view class="m-t-t">门口机</view>
-                                        <view class="m-t-c">城盈中心1栋1单元门口机</view>
+                                        <view class="m-t-c">{{item.DeviceName}}</view>
                                     </view>
                                     <view class="flex w-p-100 align-center justify-between m-b-30">
                                         <view class="m-t-t">进出方</view>
-                                        <view class="m-t-c">13683218402</view>
+                                        <view class="m-t-c">{{item.PersonnelName}}</view>
                                     </view>
-                                    <view class="flex w-p-100 align-center justify-between m-b-30">
+                                    <view class="flex w-p-100 align-center  m-b-30">
                                         <view class="m-t-t">证件号码</view>
-                                        <view class="m-t-c">14048119960605****</view>
+                                        <view class="m-t-c">{{item.CertificateCardNo}}</view>
                                     </view>
                                     <view class="flex w-p-100 align-center justify-between m-b-30">
                                         <view class="m-t-t">进出</view>
-                                        <view class="m-t-c">进门</view>
+                                        <view class="m-t-c">{{item.Direction==1?'进门':'出门'}}</view>
                                     </view>
                                     <view class="flex w-p-100 align-center justify-between m-b-30">
                                         <view class="m-t-t">留影展示</view>
                                         <view class="m-t-c"></view>
                                     </view>
                                     <view class="flex w-p-100 align-center justify-between">
-                                        <image class="img-b" src="/images/tab_my.png" />
-                                        <image class="img-b" src="/images/tab_my.png" />
+                                        <image class="img-b" src="{{imgUrl}}{{item.AccessPhoto1}}" />
+                                        <image class="img-b" src="{{imgUrl}}{{item.AccessPhoto2}}" />
                                     </view>
 
                                 </view>
@@ -99,6 +100,7 @@
 
 
                 </block>
+                <view wx:if="{{tab.reachBottom&&tab.isLoading}}" class="cu-load wj-loading {{tab.isLoading?'loading':'over'}}"></view>
             </scroll-view>
             <!--                </view>-->
 
@@ -106,15 +108,4 @@
         </van-tab>
     </van-tabs>
 </view>
-<custom-tab-bar wx:if="{{false}}" isModalMode="{{false}}" activeTab="{{1}}"></custom-tab-bar>
 
-
-<view class="cu-modal full-screen  {{modalName=='ModalCallPhone'?'show':''}}">
-    <view class="cu-dialog dialog relative">
-        <view class="dialog-title">{{callPhone}}</view>
-        <view class="dialog-action">
-            <view class="dialog-button" hover-class="navigator-hover" hover-stop-propagation="{{true}}" bindtap="hideModal">取消</view>
-            <view class="dialog-button no-border" hover-class="navigator-hover" hover-stop-propagation="{{true}}" bindtap="makePhoneCall" data-phone="{{callPhone}}">拨打</view>
-        </view>
-    </view>
-</view>

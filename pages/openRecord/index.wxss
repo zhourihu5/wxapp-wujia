@@ -271,6 +271,11 @@
     font-weight:400;
     color:rgba(136,136,136,1);
     line-height:34rpx;
+
+    text-align: right;
+    margin-left: 30rpx;
+    flex: 1;
+
 }
 .img-b{
     width:244rpx;
