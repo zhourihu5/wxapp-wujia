@@ -27,67 +27,72 @@
                          bindscrolltolower='scrolltolower'
                          bindscroll="scrollP"  bindscrolltoupper="upperP" bindtouchstart="start" bindtouchend="end"
                          bindtouchmove="move" data-index="{{tabIndex}}">
-<!--                style="top: calc( {{CustomBar}}px + 84rpx + {{refreshHeight}}px  );bottom: {{customTabBarHeight}}px"-->
-                <block wx:for="{{tab.data}}" wx:for-item="item" wx:key="">
-<!--                <block wx:for="{{10}}" wx:for-item="item" wx:key="">-->
-                    <view class="item-content {{index==0?'p-t-20':''}}"
-                          >
-                        <view class="order-container"
-                                   open-type="navigateTo"
-                              hover-class="navigator-hover" hover-stop-propagation="{{true}}"  bindtap="itemClicked"
-                                    data-index="{{index}}">
-                            <!--                <view class="round-container order-container">-->
-                            <view class="top-item">
-                                <text wx:if="{{item.status=='1'}}">付款剩余时间：</text>
-                                <text wx:elif="{{item.status=='5'}}">送货人：{{item.deliveryPerson}}</text>
-                                <text wx:elif="{{item.status=='2'}}">配送小哥正在取货中…</text>
-                                <text wx:elif="{{item.status=='3'}}">收货时间：{{item.receiveDate}}</text>
-                                <text wx:else >过期时间：{{item.payEndDate}}</text>
+                <!--                         style="overflow-x: hidden;width: 755rpx;padding-right: 5rpx;"-->
+<!--                ios 滚动条隐藏不掉哦-->
+<!--                <view class="w-p-100 p-l-30 p-r-30" style="width: 760rpx;padding-right: 40rpx;background:rgba(246,247,249,1);">-->
+                    <block wx:for="{{tab.data}}" wx:for-item="item" wx:key="">
+                        <!--                <block wx:for="{{10}}" wx:for-item="item" wx:key="">-->
+                        <view class="item-content {{index==0?'p-t-20':''}}"
+                        >
+                            <view class="order-container"
+                                  open-type="navigateTo"
+                                  hover-class="navigator-hover" hover-stop-propagation="{{true}}"  bindtap="itemClicked"
+                                  data-index="{{index}}">
+                                <!--                <view class="round-container order-container">-->
+                                <view class="top-item">
+                                    <text wx:if="{{item.status=='1'}}">付款剩余时间：</text>
+                                    <text wx:elif="{{item.status=='5'}}">送货人：{{item.deliveryPerson}}</text>
+                                    <text wx:elif="{{item.status=='2'}}">配送小哥正在取货中…</text>
+                                    <text wx:elif="{{item.status=='3'}}">收货时间：{{item.receiveDate}}</text>
+                                    <text wx:else >过期时间：{{item.payEndDate}}</text>
 
 
-                                <text wx:if="{{item.status=='1'}}" class="sysj">{{item.remainTime}}</text>
-                                <view class="flex-1"></view>
-                                <text wx:if="{{item.status=='1'}}"  class="dfk">待付款</text>
-                                <text wx:elif="{{item.status=='2'}}"  class="dsh">待收货</text>
-                                <text wx:elif="{{item.status=='5'}}"  class="dsh">待收货</text>
-                                <view wx:elif="{{item.status=='3'}}" class="ysh-w">
-                                    <view class="ysh-r">
-                                        <view   class="ysh">已收货</view>
+                                    <text wx:if="{{item.status=='1'}}" class="sysj">{{item.remainTime}}</text>
+                                    <view class="flex-1"></view>
+                                    <text wx:if="{{item.status=='1'}}"  class="dfk">待付款</text>
+                                    <text wx:elif="{{item.status=='2'}}"  class="dsh">待收货</text>
+                                    <text wx:elif="{{item.status=='5'}}"  class="dsh">待收货</text>
+                                    <view wx:elif="{{item.status=='3'}}" class="ysh-w">
+                                        <view class="ysh-r">
+                                            <view   class="ysh">已收货</view>
+                                        </view>
+
+                                    </view>
+
+                                    <text wx:else  class="ygq">已过期</text>
+                                </view>
+                                <view class="order-middle-item {{item.status=='2'?'no-border-bottom':''}}">
+                                    <image class="order-image" src="{{item.activity.cover}}"/>
+                                    <view class="order-text">
+                                        <view class="{{item.status=='4'?'order-name-ygq':'order-name'}} ">{{item.activity.title}}</view>
+                                        <view class="order-price">
+                                            <text class="{{item.status=='4'?'money-ygq':'money'}}">￥</text>
+                                            <text class="{{item.status=='4'?'price-now-ygq':'price-now'}}">{{item.realPrice}}</text>
+                                            <text wx:if="{{false}}" class="line-through price-old">￥{{item.commodity.price}}</text>
+                                        </view>
                                     </view>
 
                                 </view>
-
-                                <text wx:else  class="ygq">已过期</text>
-                            </view>
-                            <view class="order-middle-item {{item.status=='2'?'no-border-bottom':''}}">
-                                <image class="order-image" src="{{item.activity.cover}}"/>
-                                <view class="order-text">
-                                    <view class="{{item.status=='4'?'order-name-ygq':'order-name'}} ">{{item.activity.title}}</view>
-                                    <view class="order-price">
-                                        <text class="{{item.status=='4'?'money-ygq':'money'}}">￥</text>
-                                        <text class="{{item.status=='4'?'price-now-ygq':'price-now'}}">{{item.realPrice}}</text>
-                                        <text wx:if="{{false}}" class="line-through price-old">￥{{item.commodity.price}}</text>
-                                    </view>
+                                <view wx:if="{{item.status=='2'}}"/>
+                                <view wx:else class="btn-wraper">
+                                    <view class="left-empty"></view>
+                                    <view wx:if="{{item.status=='1'}}" class="pay-right-now" hover-class="navigator-hover" hover-stop-propagation="{{true}}" catchtap="toPay" data-index="{{index}}"  data-id="{{item.id}}">立即付款</view>
+                                    <view wx:elif="{{item.status=='5'}}" class="lxshr" hover-class="navigator-hover" hover-stop-propagation="{{true}}" catchtap="askDeliver" data-phone="{{item.deliveryPhone}}">联系送货人</view>
+                                    <view wx:elif="{{item.status=='2'}}"  />
+                                    <view wx:else class="go-stroll" hover-class="navigator-hover" hover-stop-propagation="{{true}}"  catchtap="goStroll">去逛逛</view>
                                 </view>
 
                             </view>
-                            <view wx:if="{{item.status=='2'}}"/>
-                            <view wx:else class="btn-wraper">
-                                <view class="left-empty"></view>
-                                <view wx:if="{{item.status=='1'}}" class="pay-right-now" hover-class="navigator-hover" hover-stop-propagation="{{true}}" catchtap="toPay" data-index="{{index}}"  data-id="{{item.id}}">立即付款</view>
-                                <view wx:elif="{{item.status=='5'}}" class="lxshr" hover-class="navigator-hover" hover-stop-propagation="{{true}}" catchtap="askDeliver" data-phone="{{item.deliveryPhone}}">联系送货人</view>
-                                <view wx:elif="{{item.status=='2'}}"  />
-                                <view wx:else class="go-stroll" hover-class="navigator-hover" hover-stop-propagation="{{true}}"  catchtap="goStroll">去逛逛</view>
-                            </view>
-
                         </view>
+                    </block>
+                    <view wx:if="{{tab.reachBottom&&tab.isLoading}}" class="cu-load wj-loading {{tab.isLoading?'loading':'over'}}"></view>
+                    <view wx:if="{{tab.isOver&&tab.data.length<=0}}" class="empty-container">
+                        <image class="empty-img" src="/images/empty_order.png"></image>
+                        <view class="empty-text">您还没有订单哦～</view>
                     </view>
-                </block>
-                <view wx:if="{{tab.reachBottom&&tab.isLoading}}" class="cu-load wj-loading {{tab.isLoading?'loading':'over'}}"></view>
-                <view wx:if="{{tab.isOver&&tab.data.length<=0}}" class="empty-container">
-                    <image class="empty-img" src="/images/empty_order.png"></image>
-                    <view class="empty-text">您还没有订单哦～</view>
-                </view>
+<!--                </view>-->
+<!--                style="top: calc( {{CustomBar}}px + 84rpx + {{refreshHeight}}px  );bottom: {{customTabBarHeight}}px"-->
+
             </scroll-view>
             <!--                </view>-->
 
