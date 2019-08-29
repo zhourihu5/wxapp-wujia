@@ -162,14 +162,13 @@ function navibackTo(url){
         wx.navigateTo({
           url:url||pagePath,
           success(res){
-            naviSuccess=true
             console.log('setTimeout wx.navigateBack success',res)
           }
         })
       }else {
-        naviSuccess=null
         console.log('setTimeout do nothing')
       }
+      naviSuccess=null
     },500)
     return true
   }else {
