@@ -1,5 +1,5 @@
 <image class="img-bg" src="/images/invite_visitor_bg.png"/>
-<cu-custom  isBack="{{false}}">
+<cu-custom  isBack="{{true}}">
     <view slot="backText"></view>
     <view slot="content"><text class="{{navigationBarLoading?'wj-loading-icon':''}}"/></view>
 </cu-custom>
@@ -9,25 +9,25 @@
     <view class="logo-text">吾 家</view>
     <view class="container-t">
         <view class="c-name">{{apiData.communityName}}</view>
-        
+
         <view class="code-container" >
-          <view class="flex align-center">
-            <view class="r-n-c">1</view>
-            <view class="step-text">先按</view>
-            <view class="asterisk">*</view>
-          </view>
-          <view class="flex align-center m-t-30 m-b-30">
-            <view class="r-n-c">2</view>
-            <view class="step-text">再输入</view>
-            <view wx:for="{{apiData.applyCode}}"
-             class="code-text {{index==0?'margin-none':''}}">
-            {{item}}</view>
-          </view>
-          <view class="flex align-center">
-            <view class="r-n-c">3</view>
-            <view class="step-text">再按</view>
-            <view class="asterisk">*</view>
-          </view>
+            <view class="flex align-center">
+                <view class="r-n-c">1</view>
+                <view class="step-text">先按</view>
+                <view class="asterisk">*</view>
+            </view>
+            <view class="flex align-center m-t-30 m-b-30">
+                <view class="r-n-c">2</view>
+                <view class="step-text">再输入</view>
+                <view wx:for="{{apiData.applyCode}}"
+                      class="code-text {{index==0?'margin-none':''}}">
+                    {{item}}</view>
+            </view>
+            <view class="flex align-center">
+                <view class="r-n-c">3</view>
+                <view class="step-text">再按</view>
+                <view class="asterisk">*</view>
+            </view>
         </view>
 
 
@@ -36,9 +36,14 @@
             <view class="dash-line-y flex-1"></view>
             <view class="r-corner"></view>
         </view>
-<!--        <view class="b-text">输入六位邀请码开锁</view>-->
+        <!--        <view class="b-text">输入六位邀请码开锁</view>-->
         <view class="b-text p-t-20 p-b-40">邀请码截止时间：{{apiData.endDate}}</view>
 
     </view>
+    <view wx:if="{{shadowTop}}" class="bottom-shadow"
+          style="position: fixed;z-index: -1;left:60rpx ;top: {{shadowTop}}px;height: 62rpx; " />
+    <view wx:else class="bottom-shadow" />
+    <image class="icon-return-home" src="/images/icon_back_home.png"
+        catchtap="navigateBack"/>
 
 </view>

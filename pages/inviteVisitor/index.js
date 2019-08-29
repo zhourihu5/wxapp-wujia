@@ -5,6 +5,7 @@ const network = require('../../utils/network.js')
 Page({
     data: {
         apiData:null,
+        shadowTop:null,
     },
     showNavigationBarLoading(){
         this.setData({
@@ -17,6 +18,11 @@ Page({
         })
     },
     onShow() {
+    },
+    navigateBack(){
+        wx.reLaunch({
+            url: '/pages/index/index',
+        })
     },
     onLoad: function (options) {
         console.log('inviteVisitor page options')
@@ -42,6 +48,18 @@ Page({
         })
         console.log('inviteVisitor page apiData')
         console.log(this.data.apiData)
+
+        var that=this
+        wx.createSelectorQuery()
+            .in(this)[ 'select']('.container-t')
+            .boundingClientRect(rect => {
+                console.log('.container-t boundingClientRect',rect)
+
+                that.setData({
+                    shadowTop:rect.bottom-util.rpxToPx(40)
+                })
+            })
+            .exec();
     },
     //转发
     onShareAppMessage: function(res) {

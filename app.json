@@ -33,9 +33,9 @@
     ]
   },
   "pages": [
+    "pages/inviteVisitor/index",
     "pages/index/index",
     "pages/video/index",
-    "pages/inviteVisitor/index",
     "pages/lockSetting/index",
     "pages/openRecord/index",
     "pages/paySuccess/index",

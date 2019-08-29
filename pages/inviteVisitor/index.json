@@ -1,8 +1,8 @@
 {
   "navigationBarBackgroundColor": "#FFFFFF",
   "navigationBarTitleText": "吾家W+",
-  "navigationBarTextStyle": "black",
-  "backgroundTextStyle": "dark",
+  "navigationBarTextStyle": "white",
+  "backgroundTextStyle": "light",
   "backgroundColor": "#FFFFFF",
   "usingComponents": {}
 }
