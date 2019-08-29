@@ -145,7 +145,8 @@
         </button>
     </view>
 </view>
-<view class="cu-modal full-screen  {{modalName=='ModalInviteVisitor'?'show':''}}" catchtap="hideModal">
+<view class="cu-modal full-screen  {{modalName=='ModalInviteVisitor'?'show':''}} {{shareing?'no-transit':''}}"
+      catchtap="hideModal">
     <view class="cu-dialog dialog-invite relative" catchtap="doNothing">
         <view class="flex justify-between close-bar ">
             <view class="flex-1"></view>
@@ -154,7 +155,7 @@
         <image class="img-invite" src="/images/img-invite.png"></image>
         <view class="dialog-title-invite">邀请访客</view>
 <!--        <view class="dialog-msg">请先申请访客的邀请码，再发送给好友</view>-->
-        <view class="dialog-msg">将邀请码发送给好友</view>
+        <view class="dialog-msg">将开锁邀请码发送给好友</view>
         <button class="dialog-btn-send" hover-class="navigator-hover" hover-stop-propagation="{{true}}"
                 open-type="{{canNotShare?'':'share'}}"
                 catchtap="onClickInviteShare" >

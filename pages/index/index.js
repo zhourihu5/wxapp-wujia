@@ -48,13 +48,28 @@ Page({
         console.log(res)
         if (res.from === 'button') {//邀请好友
             console.log('button onShareAppMessage')
+            that.setData({
+                shareing:true,
+            })
+            that.hideModal()
+            that.setData({
+                shareing:false,
+            })
             return {
                 title: '开锁邀请码',//默认当前小程序名称
                 path: `/pages/inviteVisitor/index?applyCode=${that.data.inviteData.code}&communityName=${that.data.inviteData.address}&endDate=${that.data.inviteData.endDate}`,
-                success: function (res) {
+                success (res) {
                     console.log('onShareAppMessage success')
                     console.log(res)
+                    that.hideModal()
+                },
+                fail(res){
+                    console.log('onShareAppMessage fail',res)
+                },
+                complete(res){//todo 转发回调被官方禁掉了
+                    console.log('onShareAppMessage complete',res)
                 }
+
             }
         }
         return {
@@ -105,7 +120,7 @@ Page({
                 return
             }
         }
-        this.hideModal()
+        // this.hideModal()
     },
     bindPhone: function (e) {
         var that = this
