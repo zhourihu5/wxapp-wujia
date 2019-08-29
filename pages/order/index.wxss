@@ -56,7 +56,7 @@
 }
 .van-tabs__wrap scroll-view{
   background: white;
-  position: fixed;
+  /*position: fixed;*/
 }
 .van-tabs--line {
     padding-top: 84rpx !important;

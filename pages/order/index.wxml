@@ -20,13 +20,14 @@
                 wx:for-index="tabIndex"
                 title="{{tab.title}}"
                 custom-class="custom-tab">
-            <include src="../../refreshview/refreshHeaderView.wxml"/>
+
             <scroll-view scroll-y class="scroll-view-order"
                          style="position: relative;height:calc( {{windowHeight}}px - {{CustomBar}}px - 84rpx )"
                          lower-threshold="{{lowerThreshold}}"
                          bindscrolltolower='scrolltolower'
                          bindscroll="scrollP"  bindscrolltoupper="upperP" bindtouchstart="start" bindtouchend="end"
                          bindtouchmove="move" data-index="{{tabIndex}}">
+                <include src="../../refreshview/refreshHeaderView.wxml"/>
                 <!--                         style="overflow-x: hidden;width: 755rpx;padding-right: 5rpx;"-->
 <!--                ios 滚动条隐藏不掉哦-->
 <!--                <view class="w-p-100 p-l-30 p-r-30" style="width: 760rpx;padding-right: 40rpx;background:rgba(246,247,249,1);">-->
