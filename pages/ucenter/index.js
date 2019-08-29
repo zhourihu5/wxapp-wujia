@@ -14,11 +14,11 @@ Page({
                 icon: "/images/icon_yellow_page.png",
                 url: "/pages/yellowPage/index"
             },
-            // {
-            //     title: "门禁记录",
-            //     icon: "/images/icon_open_record.png",
-            //     url: "/pages/openRecord/index"
-            // },
+            {
+                title: "门禁记录",
+                icon: "/images/icon_open_record.png",
+                url: "/pages/openRecord/index"
+            },
         ],
         nickName: '',
         phone: '',
@@ -96,8 +96,5 @@ Page({
             avatarUrl:app.wxCover || (userInfo && userInfo.userInfo && userInfo.userInfo.avatarUrl),
             phone: util.desensitization(app.userName),
         })
-    },
-    onUnload(){
-        console.log('ucenter onUnload')
     },
 })

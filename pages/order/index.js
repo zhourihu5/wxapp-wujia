@@ -144,9 +144,6 @@ Page({
         register.register(this)
         this.refreshAllData()
     },
-    onUnload(){
-        console.log('order onUnload')
-    },
     //下拉刷新数据
     refresh:function(){
         this.data.tabs[this.data.active].isOver=false

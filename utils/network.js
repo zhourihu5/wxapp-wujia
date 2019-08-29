@@ -1,12 +1,12 @@
 
 function request(url, data,method, success, fail) {
-  this.requestLoading(url, data,method, "", success, fail)
+  return  this.requestLoading(url, data,method, "", success, fail)
 }
 function requestGet(url, data, success, fail) {
-  this.requestLoading(url, data,'GET', "", success, fail)
+  return this.requestLoading(url, data,'GET', "", success, fail)
 }
 function requestPost(url, data, success, fail) {
-  this.requestLoading(url, data,'POST', "", success, fail)
+  return  this.requestLoading(url, data,'POST', "", success, fail)
 }
 
 const app = getApp()
@@ -109,6 +109,10 @@ function requestLoading(url, data,method, message, successCallBack, failCallBack
           completeCallBack(res.data)
         }
   })
+    // currentPage.onUnload=function () {
+    //     console.log('onUnload requestTask.abort')
+    //     requestTask&&requestTask.abort()
+    // }
   return requestTask;
 }
 module.exports = {

@@ -282,6 +282,11 @@
     height:128rpx;
     background:rgba(216,216,216,1);
     border-radius:4rpx;
+
+    font-size:40rpx;
+    font-family:PingFangSC;
+    font-weight:500;
+    color:rgba(255,255,255,1);
 }
 .custom-collapse{
     width: 100%;

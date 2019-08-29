@@ -1,0 +1,11 @@
+<cu-custom bgColor="titlebar-white" isBack="{{true}}">
+    <view slot="backText"></view>
+    <view slot="content"><text class="{{navigationBarLoading?'wj-loading-icon':''}}"/>吾家W+</view>
+</cu-custom>
+<view class="body">
+    <view class="img-content" style="padding-bottom: calc( {{CustomBar/2}}px )"
+          >
+        <video src="{{src}}" class="video"   controls
+               binderror="videoErrorCallback"></video>
+    </view>
+</view>

@@ -106,6 +106,14 @@
                                         <image wx:if="{{item.AccessPhoto7}}" class="img-b" src="{{imgUrl}}{{item.AccessPhoto7}}" />
                                         <image wx:if="{{item.AccessPhoto8}}" class="img-b" src="{{imgUrl}}{{item.AccessPhoto8}}" />
                                     </view>
+                                    <view wx:if="{{item.AccessVideo}}" class="flex w-p-100 align-center justify-between m-t-30">
+<!--                                    <view  class="flex w-p-100 align-center justify-between m-t-30">-->
+                                        <view  class="img-b flex align-center justify-center"
+                                              style="background-image:url('{{imgUrl}}{{item.AccessPhoto1}}');"
+                                               catchtap="toPlayVideo" data-url="{{imgUrl}}{{item.AccessVideo}}">
+                                            <view class="cuIcon-video"></view>
+                                        </view>
+                                    </view>
 
                                 </view>
                             </view>

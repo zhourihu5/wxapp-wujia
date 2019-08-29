@@ -42,81 +42,55 @@ Page({
             }
         }
     },
-    setTimeRemain: function (pDate) {
+    setTimeRemain: function () {
+        interval && clearInterval(interval)
+        interval=null
         var that = this
-        var endDate = null
-        if (typeof pDate == "string") {
-            try {
-                endDate = new Date(Date.parse(pDate.replace(/-/g, "/")));
-            } catch (e) {
-                console.log('数据时间格式不对：'+pDate)
-                return;
-            }
-            console.log('string')
-        } else if (typeof pDate == 'number') {
-            console.log('number')
-            try {
-                endDate = new Date(pDate);
-            } catch (e) {
-                console.log('数据时间格式不对：'+pDate)
-                return;
-            }
-        }
-
-        // console.log('解析时间为')
-        // console.log(endDate)
-        // console.log('时间戳')
-        // console.log(endDate.getTime())
-        // var dateTest=new Date(endDate.getTime())
-        // console.log('由时间戳构造的')
-        // console.log(dateTest)
-
-        var now = new Date();
-        var milli = endDate.getTime() - now.getTime()
-        if (milli <= 0) {
-            that.data.isBtnEnabled = false
-            that.setData({
-                hour: '00',
-                minute: '00',
-                second: '00',
-                // isBtnEnabled:false,
-            })
-            return
-        }
-        var hour = Math.floor(milli / 1000 / 3600)
-        var minute = Math.floor(milli % (3600 * 1000) / (60 * 1000))
-        var second = Math.floor(milli % (1000 * 60) / 1000)
         interval = setInterval(function () {
-            if (hour == 0 && minute == 0 && second == 0) {
+            var pDate=null
+            if(!that.data.apiData){
+                return;
+            }
+            if(!that.data.apiData.activity){
+                return;
+            }
+            if(!that.data.apiData.activity.endDate){
+                return;
+            }
+
+            pDate= that.data.apiData.activity.endDate
+            var endDate = null
+            if (typeof pDate == "string") {
+                endDate = new Date(Date.parse(pDate.replace(/-/g, "/")));
+                console.log('string')
+            } else if (typeof pDate == 'number') {
+                console.log('number')
+                endDate = new Date(pDate);
+            }
+
+            var now = new Date();
+            var milli = endDate.getTime() - now.getTime()
+            if (milli <= 0) {
                 that.data.isBtnEnabled = false
                 that.setData({
                     hour: '00',
                     minute: '00',
                     second: '00',
+                    // isBtnEnabled:false,
                 })
-                clearInterval(interval)
                 return
             }
-            if (second > 0) {
-                second--;
-            } else {
-                second = 59
-                if (minute > 0) {
-                    minute--
-                } else {
-                    minute = 59
-                    if (hour > 0) {
-                        hour--
-                    }
-                }
-            }
+            var hour = Math.floor(milli / 1000 / 3600)
+            var minute = Math.floor(milli % (3600 * 1000) / (60 * 1000))
+            var second = Math.floor(milli % (1000 * 60) / 1000)
             that.setData({
                 hour: that.formatTime(hour),
                 minute: that.formatTime(minute),
                 second: that.formatTime(second),
             })
         }, 1000)
-    }, onLoad: function (query) {
+    },
+     onLoad: function (query) {
         console.log('商品详情页接收参数')
         console.log(query)
         var that = this
@@ -140,6 +114,13 @@ Page({
         },function (msg) {
 
         })
+    },
+    onShow(){
+        this.setTimeRemain()
+    },
+    onHide(){
+        interval && clearInterval(interval)
+        interval=null
     },
     toMore(e) {
        if(!util.navibackTo("/pages/activityMore/index")) {
@@ -171,9 +152,6 @@ Page({
             return '0' + num;
         }
         return num
-    },
-    onUnload() {
-        interval && clearInterval(interval)
     },
 
     toConfirmOrder: function (e) {

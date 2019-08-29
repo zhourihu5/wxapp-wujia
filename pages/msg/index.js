@@ -96,9 +96,6 @@ Page({
         this.setBottomTabBar()
         register.register(this)
     },
-    onUnload(){
-        console.log('msg onUnload')
-    },
     //下拉刷新数据
     refresh:function(){
         this.loadData();

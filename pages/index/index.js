@@ -421,9 +421,6 @@ Page({
         this.showOrHideBindPhone();
         // this.showGuideInvite()
     },
-    onUnload(){
-        console.log('index onUnload')
-    },
     phoneInput(e) {
         this.customData.phone = e.detail.value
         this.verifyCodeAndPhone()

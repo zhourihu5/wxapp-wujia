@@ -4,6 +4,7 @@ const network = require('../../utils/network.js')
 const app = getApp();
 var register = require('../../refreshview/refreshLoadRegister.js');
 var interval = null //倒计时函数
+var requestTask=null
 Page({
     data: {
         CustomBar: app.globalData.CustomBar,
@@ -78,6 +79,7 @@ Page({
             '第三方识别人脸开锁',
             '第三方识别指纹开锁',
         ],
+        currentVideoUrl:null,
 
     },
     showNavigationBarLoading(){
@@ -121,7 +123,8 @@ Page({
         this.loadData()
     },
     onUnload(){
-        console.log('order onUnload')
+        requestTask&&requestTask.abort()
+        console.log('onUnload requestTask.abort')
     },
     //下拉刷新数据
     refresh:function(){
@@ -159,15 +162,15 @@ Page({
             pageNum: that.data.tabs[active].pageNum,
             pageSize:that.data.pageSize,
         }
-
-        network.requestGet('/v1/apply/accessRecords',paramData,function (data) {
+        requestTask&&requestTask.abort()
+        requestTask=network.requestGet('/v1/apply/accessRecords',paramData,function (data) {
+            that.data.tabs[active].isLoading=false
             register&&register.loadFinish(that,true)
             if (that.data.tabs[active].pageNum == 1) {
                 that.data.tabs[active].data = []
             }
             that.data.tabs[active].data.push.apply(that.data.tabs[active].data, data.ItemList);
-            that.data.tabs[active].isLoading=false
-            if(data.ItemList&&data.ItemList.length>0){
+            if(data.Search&&data.Search.RecordCount>that.data.tabs[active].data.length){
                 that.data.tabs[active].pageNum++
                 that.data.tabs[active].isOver=false
             }else {
@@ -177,6 +180,35 @@ Page({
                 tabs: that.data.tabs,
                 imgUrl:data.imgUrl,
             })
+
+            // if(active==0)  {//todo test for video
+            //     for(let i=0;i<that.data.tabs[active].data.length;i++){
+            //         if(i%2==0){
+            //             that.data.tabs[active].data[i].AccessVideo=
+            //                 that.data.tabs[active].data[i].AccessVideo
+            //                 ||
+            //                 "http://wxsnsdy.tc.qq.com/105/20210/snsdyvideodownload?filekey=30280201010421301f0201690402534804102ca905ce620b1241b726bc41dcff44e00204012882540400&bizid=1023&hy=SH&fileparam=302c020101042530230204136ffd93020457e3c4ff02024ef202031e8d7f02030f42400204045a320a0201000400"
+            //
+            //         }
+            //     }
+            //     that.setData({
+            //         tabs: that.data.tabs,
+            //         imgUrl:'',
+            //     })
+            //     return;
+            //
+            //     var hasVideo=false
+            //     for(var i=0;i<data.ItemList.length;i++){
+            //         hasVideo=hasVideo||data.ItemList[i].AccessVideo
+            //         if(hasVideo){
+            //             break
+            //         }
+            //     }
+            //     if(!hasVideo){
+            //         that.loadData();
+            //         return
+            //     }
+            // }
 
         }, function (msg) {
             register&&register.loadFinish(that,false)
@@ -243,6 +275,13 @@ Page({
             return
         }
         this.loadData()
-    }
+    },
+    toPlayVideo(e){
+       const url= e.currentTarget.dataset.url
+        this.data.currentVideoUrl=url
+        wx.navigateTo({
+            url:"/pages/video/index"
+        })
+    },
 
 })
