@@ -5,7 +5,7 @@
     <view slot="content"><text class="{{navigationBarLoading?'wj-loading-icon':''}}"/></view>
 </cu-custom>
 
-<view class="container" style="padding-bottom:calc(98rpx + {{StatusBar}}px) ">
+<scroll-view scroll-y class="container" style="padding-bottom:calc(98rpx ) ">
 <!--    style="margin-top:{{StatusBar}}px;padding-bottom:calc(98rpx + {{StatusBar}}px) "-->
     <!-- wxml -->
     <swiper wx:if="{{apiData.activity.commodity.attaInfos.length>1}}" class='u-wrp-bnr'
@@ -106,7 +106,10 @@
         <rich-text class="rich-text" nodes="{{  apiData.activity.commodity.infos }}"></rich-text>
     </view>
 
-</view>
+</scroll-view>
+
+
+
 
 <view class="bottom-button" hover-class="navigator-hover" hover-stop-propagation="{{true}}" bindtap="toConfirmOrder" data-id="{{apiData.activity.id}}">去参团</view>
 
