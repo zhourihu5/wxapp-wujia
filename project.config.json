@@ -48,13 +48,20 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 0,
+			"current": 1,
 			"list": [
 				{
 					"id": 0,
 					"name": "pages/orderConfirm/index",
 					"pathName": "pages/orderConfirm/index",
 					"query": "scene=1",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/orderDetail/index",
+					"pathName": "pages/orderDetail/index",
+					"query": "scene=135",
 					"scene": null
 				}
 			]

@@ -101,6 +101,11 @@ Page({
                                 wx.redirectTo({url: '/pages/neibourList/index'})
                                 return;
                             }
+                        }else {
+                            wx.reLaunch({
+                                url: '/pages/index/index',
+                            })
+                            return;
                         }
                         that.loadData(id)
                     }, function (msg) {
