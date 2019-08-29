@@ -124,6 +124,8 @@ function getCurrentActiveTab(){
  * @param pagePath 要定位的页面
  * @param url 要定位的页面重新启动的url
  */
+var timer=null
+var naviSuccess=false
 function navibackTo(url){
 
   var pagePath=url
@@ -139,14 +141,36 @@ function navibackTo(url){
     }
   }
   if(i<pages.length){
+    console.log('navibackTo find it')
+    naviSuccess=false
     wx.navigateBack({
       delta:pages.length-i,
       success(res) {
+        console.log('wx.navigateBack success',res)
         wx.navigateTo({
-          url:url||pagePath
+          url:url||pagePath,
+          success(res){
+            naviSuccess=true
+            console.log('wx.navigateTo success',res)
+          }
         })
       }
     })
+    timer&&clearTimeout(timer)
+    timer=setTimeout(function () {
+      if(!naviSuccess){
+        wx.navigateTo({
+          url:url||pagePath,
+          success(res){
+            naviSuccess=true
+            console.log('setTimeout wx.navigateBack success',res)
+          }
+        })
+      }else {
+        naviSuccess=null
+        console.log('setTimeout do nothing')
+      }
+    },500)
     return true
   }else {
     return false
