@@ -22,13 +22,14 @@
                 wx:for-index="tabIndex"
                 title="{{tab.title}}"
                 custom-class="custom-tab">
-            <include src="../../refreshview/refreshHeaderView.wxml"/>
+
             <scroll-view scroll-y class="scroll-view-order"
                          style="position: relative;height:calc( {{windowHeight}}px - {{CustomBar}}px - 84rpx )"
                          lower-threshold="{{lowerThreshold}}"
                          bindscrolltolower='scrolltolower'
                          bindscroll="scrollP"  bindscrolltoupper="upperP" bindtouchstart="start" bindtouchend="end"
                          bindtouchmove="move" data-index="{{tabIndex}}">
+                <include src="../../refreshview/refreshHeaderView.wxml"/>
                 <block wx:for="{{tab.data}}" wx:for-item="item" wx:key="">
 <!--                <block wx:for="{{10}}" wx:for-item="item" wx:key="">-->
 
