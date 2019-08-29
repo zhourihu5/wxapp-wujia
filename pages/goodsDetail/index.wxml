@@ -5,7 +5,8 @@
     <view slot="content"><text class="{{navigationBarLoading?'wj-loading-icon':''}}"/></view>
 </cu-custom>
 
-<view class="container" style="margin-top:{{StatusBar}}px;padding-bottom:calc(98rpx + {{StatusBar}}px) ">
+<view class="container" style="padding-bottom:calc(98rpx + {{StatusBar}}px) ">
+<!--    style="margin-top:{{StatusBar}}px;padding-bottom:calc(98rpx + {{StatusBar}}px) "-->
     <!-- wxml -->
     <swiper wx:if="{{apiData.activity.commodity.attaInfos.length>1}}" class='u-wrp-bnr'
             indicator-dots='true' autoplay='{{false}}' interval='5000' duration='1000' circular='true'>
