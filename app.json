@@ -33,8 +33,8 @@
     ]
   },
   "pages": [
-    "pages/inviteVisitor/index",
     "pages/index/index",
+    "pages/inviteVisitor/index",
     "pages/video/index",
     "pages/lockSetting/index",
     "pages/openRecord/index",
