@@ -9,9 +9,10 @@
 <!--    style="margin-top:{{StatusBar}}px;padding-bottom:calc(98rpx + {{StatusBar}}px) "-->
     <!-- wxml -->
     <swiper wx:if="{{apiData.activity.commodity.attaInfos.length>1}}" class='u-wrp-bnr'
-            indicator-dots='true' autoplay='{{false}}' interval='5000' duration='1000' circular='true'>
+            indicator-dots='true' autoplay='{{false}}' interval='5000' duration='300' circular='true'>
         <block wx:for="{{apiData.activity.commodity.attaInfos}}">
-            <swiper-item>
+<!--        <block wx:for="{{3}}">-->
+            <swiper-item item-id="{{item.attaAddr}}">
                 <image src='{{item.attaAddr}}' class='u-img-slide' mode='aspectFill'></image>
             </swiper-item>
         </block>

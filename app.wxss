@@ -8,6 +8,7 @@ tab-bar{
 
 page{
   position: fixed;
+  -webkit-overflow-scrolling: touch;
 }
 
 .wj-loading-icon::before {

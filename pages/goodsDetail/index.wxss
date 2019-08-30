@@ -35,11 +35,11 @@
 .u-img-slide {
   width: 100%;
   height: 100vw;
+  display: block;
 }
 .item1{
   /*width:750rpx;*/
   height:100rpx;
-  background:rgba(255,234,228,1);
   width: 100%;
   display: flex;
   flex-direction: row;
