@@ -3,6 +3,7 @@ const util = require('../../utils/util.js')
 const network = require('../../utils/network.js')
 var interval = null //倒计时函数
 var register = require('../../refreshview/refreshLoadRegister.js');
+let socketOpen = false
 Page({
     data: {
         y: util.rpxToPx(40),
@@ -174,6 +175,7 @@ Page({
                     return;
                 }
                 that.showGuideInvite();
+                that.initWebsocket( data.userInfo.id);//todo test
             },
             function (msg) {
 
@@ -181,6 +183,7 @@ Page({
         )
 
     },
+
     goBuy(e) {
         var index=e.currentTarget.dataset.index
         let id =this.data.apiData.activityList[index].id;
@@ -245,39 +248,12 @@ Page({
         }
     },
     showModal(name) {
-        // app.isCustomTabBar=true
-        // var that=this
-        // wx.hideTabBar({
-        //     aniamtion:false,
-        //     success(res) {
-        //         console.log('hideTabBar success')
-        //         that.setData({
-        //             modalName: name,
-        //             customTabBarHeight:util.customTabBarHeight(),
-        //         })
-        //     }
-        // })
         this.setData({
             modalName: name,
         })
         this.isEnableTabBar()
     },
     showModalAddCommunity(e) {
-        // //todo test
-        // this.data.apiData.communtityList =this.data.apiData.communtityList||[]
-        // var i=0;
-        // for(i=0;i<20;i++){
-        //     this.data.apiData.communtityList.push({
-        //         name:'test '+i,
-        //     })
-        // }
-        // this.setData({
-        //     apiData:this.data.apiData,
-        // })
-        // console.log('communtityList 数据')
-        // console.log(this.data.apiData.communtityList)
-        // //todo test
-
         this.showModal('ModalAddCommunity')
     },
     switchCommunity(e) {
@@ -381,6 +357,7 @@ Page({
                             }
 
                             that.hideModal();
+                            that.initWebsocket( data.userInfo.id);//todo test
                         } else {
                             that.showModal('ModalBindPhone');
                         }
@@ -390,6 +367,90 @@ Page({
                 } else {
                     console.log('登录失败！' + res.errMsg)
                 }
+            }
+        })
+    },
+    initWebsocket(userId){
+
+        var socketMsgQueue = []
+
+        wx.onSocketOpen(function(res) {
+            console.log('onSocketOpen ',res)
+            socketOpen = true
+            for (let i = 0; i < socketMsgQueue.length; i++){
+                sendSocketMessage(socketMsgQueue[i])
+            }
+            socketMsgQueue = []
+        })
+        wx.onSocketMessage(function (res) {
+            console.log('onSocketMessage ',res)
+            var pages=getCurrentPages();
+            var currentPage=pages[pages.length-1]
+            if(currentPage.route=='pages/msgDetail/index'){
+                currentPage.refresh()
+            }else if(currentPage.route=='pages/msg/index'){
+                currentPage.refresh()
+            }else {
+                getIsUnReadMessage()
+            }
+            // sendSocketMessage('小程序已收到消息了，感谢')
+        })
+        wx.onSocketClose(function () {
+            socketOpen = false
+            console.log('onSocketClose ')
+        })
+        wx.onSocketError(function (error) {
+            console.log('onSocketError ',error)
+        })
+        var url=app.url
+        url=url.substr(url.indexOf("//"))
+        url='ws:'+url;
+        console.log('websocket url',url)
+        wx.connectSocket({
+            url: url+'/websocket/'+userId
+        })
+
+
+
+        function sendSocketMessage(msg) {
+            if (socketOpen) {
+                wx.sendSocketMessage({
+                    data:msg,
+                    success(res) {
+                        console.log('sendSocketMessage success ',res)
+                    },
+                    fail(res) {
+                        console.log('sendSocketMessage fail ',res)
+                    }
+                })
+            } else {
+                socketMsgQueue.push(msg)
+            }
+        }
+        function getIsUnReadMessage(){
+            network.requestGet('/v1/message/isUnRead',{},function (data) {
+                if(data){
+                    wx.showTabBarRedDot({
+                        index:2,
+                    })
+                }else {
+                    wx.hideTabBarRedDot({
+                        index:2,
+                    })
+                }
+            },function (msg) {
+
+            })
+        }
+    },
+    onUnload(){
+        wx.closeSocket({
+            reason:'小程序已退出',
+            success(res) {
+                console.log('closeSocket  success',res)
+            },
+            fail(res) {
+                console.log('closeSocket  fail',res)
             }
         })
     },
