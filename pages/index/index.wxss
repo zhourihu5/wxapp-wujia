@@ -214,9 +214,8 @@ page{
     max-height:750rpx ;
 }
 .item-community{
-    height: 100rpx;
     border-top: 1rpx rgba(238,238,238,1) solid;
-    padding: 0 30rpx;
+    padding: 48rpx 30rpx;
 }
 .addres-img{
     width:80rpx;

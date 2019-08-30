@@ -35,6 +35,9 @@
                                   data-index="{{index}}" >
                                 <image wx:if="{{false}}" class="addres-img" src="/images/tab_my"></image>
                                 <view class="flex-1 adr-name">{{item.name}}</view>
+<!--                                <view class="flex-1 adr-name">很长的一大段测试家庭地址，很长哦，很长哦，很长哦，很长哦，很长哦，-->
+<!--                                    很长哦，很长哦，很长哦，很长哦，很长哦，很长哦，很长哦，很长哦，很长哦，很长哦，很长哦，很长哦，很长哦，很长哦，很长哦，-->
+<!--                                </view>-->
                                 <view wx:if="{{cummunityIndex==index}}" class="cuIcon-check round-bg"></view>
                             </view>
 
