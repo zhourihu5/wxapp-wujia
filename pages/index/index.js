@@ -21,6 +21,7 @@ Page({
         applyCode:null,//todo 动态开锁密码
         canNotShare:true,
         inviteData:null,//邀请访客时需要的数据
+        userId:null,
     },
     customData: {
         y: util.rpxToPx(40),
@@ -175,7 +176,8 @@ Page({
                     return;
                 }
                 that.showGuideInvite();
-                that.initWebsocket( data.userInfo.id);//todo test
+                that.data.userId=data.userInfo.id
+                that.onAppShow({path:'pages/index/index'})
             },
             function (msg) {
 
@@ -357,7 +359,8 @@ Page({
                             }
 
                             that.hideModal();
-                            that.initWebsocket( data.userInfo.id);//todo test
+                            that.data.userId=data.userInfo.id
+                            that.onAppShow({path:'pages/index/index'})
                         } else {
                             that.showModal('ModalBindPhone');
                         }
@@ -371,7 +374,7 @@ Page({
         })
     },
     initWebsocket(userId){
-
+        var that=this
         var socketMsgQueue = []
 
         wx.onSocketOpen(function(res) {
@@ -400,6 +403,7 @@ Page({
             console.log('onSocketClose ')
         })
         wx.onSocketError(function (error) {
+            socketOpen = false
             console.log('onSocketError ',error)
         })
         var url=app.url
@@ -410,7 +414,7 @@ Page({
             url: url+'/websocket/'+userId
         })
 
-
+        wx.onAppShow(this.onAppShow)
 
         function sendSocketMessage(msg) {
             if (socketOpen) {
@@ -443,6 +447,25 @@ Page({
             })
         }
     },
+    onAppShow(res){
+        console.log('onAppShow ',res)
+        if(this.data.userId){
+            var that=this
+            if(!socketOpen){
+                that.initWebsocket(that.data.userId)
+                console.log('重新连接socket')
+            }
+
+            interval&&clearInterval(interval)
+            interval = setInterval(function () {
+                console.log('轮询检测心跳')
+                if(!socketOpen){
+                    that.initWebsocket(that.data.userId)
+                    console.log('重新连接socket')
+                }
+            }, 1000*60)
+        }
+    },
     onUnload(){
         wx.closeSocket({
             reason:'小程序已退出',
@@ -453,6 +476,7 @@ Page({
                 console.log('closeSocket  fail',res)
             }
         })
+        interval&&clearInterval(interval)
     },
     setBottomTabBar(){
         if (typeof this.getTabBar === 'function' &&
@@ -559,6 +583,7 @@ Page({
         }
 
         var currentTime = 61
+        interval&&clearInterval(interval)
         interval = setInterval(function () {
             currentTime--;
             that.setData({
