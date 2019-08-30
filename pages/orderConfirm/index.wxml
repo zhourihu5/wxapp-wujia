@@ -36,7 +36,7 @@
                 <image  class="img-arr-right" src="/images/icon_order_confirm_ar.png"/>
 
             </view>
-            <view class="flex justify-between colored-dash p-l-r-8">
+            <view class="flex justify-between colored-dash p-l-16 p-r-16">
                 <view wx:for="{{14}}" wx:key class="{{index%2?'red-dash':'blue-dash'}}"></view>
             </view>
     </navigator>

@@ -46,64 +46,42 @@
     </view>
     <view wx:else />
 
-
-<!--    <view class="goods-info">-->
-<!--        <view class="goods-title">商品信息</view>-->
-<!--        <view class="goods-content">-->
-<!--            <image class="goods-image" src="/images/tab/img_doctor.png"/>-->
-<!--            <view class="goods-text-container">-->
-<!--                <view class="goods-name">卫生间直接打到是阿萨德</view>-->
-<!--                <view class="price-text">-->
-<!--                    <text class="money">￥</text>-->
-<!--                    <text class="price-now">12.32</text>-->
-<!--                    <text class="line-through text-gray price-old">￥16.8</text>-->
-<!--                </view>-->
-<!--            </view>-->
-<!--        </view>-->
-<!--    </view>-->
-    <view class="goods-info">
-        <view class="goods-title {{apiData.status=='4'?'expired':''}}">商品信息</view>
-        <view class="goods-content">
-            <image class="goods-image" src="{{apiData.activity.cover}}"/>
-            <view class="goods-text-container">
-                <view class="goods-name {{apiData.status=='4'?'expired':''}}">{{apiData.activity.title}}</view>
-                <view class="price-text">
-                    <text class="money {{apiData.status=='4'?'expired':''}}">￥</text>
-                    <text class="price-now {{apiData.status=='4'?'expired':''}}">{{apiData.activity.price}}</text>
-                    <text class="line-through text-gray price-old {{apiData.status=='4'?'expired':''}} ">￥{{apiData.commodity.price}}</text>
+    <view class="w-p-100 p-b-20">
+        <view class="goods-info">
+            <view class="goods-title {{apiData.status=='4'?'expired':''}}">商品信息</view>
+            <view class="goods-content">
+                <image class="goods-image" src="{{apiData.activity.cover}}"/>
+                <view class="goods-text-container">
+                    <view class="goods-name {{apiData.status=='4'?'expired':''}}">{{apiData.activity.title}}</view>
+                    <view class="price-text">
+                        <text class="money {{apiData.status=='4'?'expired':''}}">￥</text>
+                        <text class="price-now {{apiData.status=='4'?'expired':''}}">{{apiData.activity.price}}</text>
+                        <text class="line-through text-gray price-old {{apiData.status=='4'?'expired':''}} ">￥{{apiData.commodity.price}}</text>
+                    </view>
                 </view>
             </view>
         </view>
     </view>
-<!--    <view class="goods-info ">-->
-<!--        <view class="goods-title">订单信息</view>-->
-<!--        <view class="order-info-item">订单金额：￥15.30</view>-->
-<!--        <view class="order-info-item">创建时间：2019-5-24 13：58：56</view>-->
-<!--        <view class="order-info-item">订单编号：23465457568679786</view>-->
-<!--        <view class="order-info-item  p-b-30">收货地址：天通苑社区15号楼2单元201</view>-->
-<!--    </view>-->
-    <view class="goods-info ">
-        <view class="goods-title {{apiData.status=='4'?'expired':''}}">订单信息</view>
-        <view class="order-info-item">订单金额：￥{{apiData.realPrice}}</view>
-        <view class="order-info-item">创建时间：{{apiData.createDate}}</view>
-        <view class="order-info-item">订单编号：{{apiData.code}}</view>
-        <view class="order-info-item  p-b-30">收货地址：{{apiData.deliveryAddress}}</view>
+    <view class="w-p-100 p-b-20">
+        <view class="goods-info ">
+            <view class="goods-title {{apiData.status=='4'?'expired':''}}">订单信息</view>
+            <view class="order-info-item">订单金额：￥{{apiData.realPrice}}</view>
+            <view class="order-info-item">创建时间：{{apiData.createDate}}</view>
+            <view class="order-info-item">订单编号：{{apiData.code}}</view>
+            <view class="order-info-item  p-b-30">收货地址：{{apiData.deliveryAddress}}</view>
+        </view>
     </view>
-<!--    <view class="goods-info dilivery-container">-->
-<!--        <view class="goods-title">配送信息</view>-->
-<!--        <view class="order-info-item">送货员：葫芦娃</view>-->
-<!--        <view class="order-info-item">送货员联系方式：13683218402</view>-->
-<!--        <view class="order-info-item p-b-30">送货时长剩余：24h</view>-->
+    <view wx:if="{{ apiData.deliveryPerson}}" class="w-p-100 p-b-20">
+        <view  class="goods-info dilivery-container">
+            <view class="goods-title {{apiData.status=='4'?'expired':''}}">配送信息</view>
+            <view class="order-info-item">送货员：{{apiData.deliveryPerson}}</view>
+            <view class="order-info-item">送货员联系方式：{{apiData.deliveryPhone}}</view>
+            <view wx:if="{{apiData.status=='5'}}" class="order-info-item p-b-30">送货周期：{{apiData.activity.deliveryHour}}h</view>
+            <view wx:if="{{apiData.status=='3'}}" class="order-info-item p-b-30">收货时间：{{apiData.receiveDate}}</view>
 
-<!--    </view>-->
-    <view wx:if="{{ apiData.deliveryPerson}}" class="goods-info dilivery-container">
-        <view class="goods-title {{apiData.status=='4'?'expired':''}}">配送信息</view>
-        <view class="order-info-item">送货员：{{apiData.deliveryPerson}}</view>
-        <view class="order-info-item">送货员联系方式：{{apiData.deliveryPhone}}</view>
-        <view wx:if="{{apiData.status=='5'}}" class="order-info-item p-b-30">送货周期：{{apiData.activity.deliveryHour}}h</view>
-        <view wx:if="{{apiData.status=='3'}}" class="order-info-item p-b-30">收货时间：{{apiData.receiveDate}}</view>
-
+        </view>
     </view>
+
 </scroll-view>
 <view wx:if="{{apiData.status=='1'}}" class="bottom-button">
     <view class="qxdd" hover-class="navigator-hover" hover-stop-propagation="{{true}}" bindtap="cancelOrder">取消订单</view>

@@ -116,6 +116,15 @@ scroll-view{
   padding-left: 8rpx;
   padding-right: 8rpx;
 }
+.p-l-16{
+  padding-left: 16rpx;
+}
+.p-r-16{
+  padding-right: 16rpx;
+}
+.p-b-20{
+  padding-bottom: 20rpx;
+}
 .w-750{
   width: 750rpx;
 }

@@ -13,7 +13,7 @@
             <view class="flex align-center" hover-class="navigator-hover" hover-stop-propagation="{{true}}"
                   bindtap="showModalAddCommunity">
                 <image class="icon" src="/images/index_pos.png"></image>
-                <text class="location-text">{{communtityName?utils.strMaxlength(communtityName,12) :'暂无家庭'}}</text>
+                <text class="location-text">{{communtityName?utils.strMaxlength(communtityName,13) :'暂无家庭'}}</text>
                 <view class="cuIcon-unfold"></view>
             </view>
             <view class="text-underline invite-visitor {{modalName=='ModalGuideInvite'?'show-invite':'m-r-30 button-no-border'}}"
