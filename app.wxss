@@ -10,6 +10,12 @@ page{
   position: fixed;
   -webkit-overflow-scrolling: touch;
 }
+view {
+  -webkit-overflow-scrolling: touch;
+}
+scroll-view{
+  -webkit-overflow-scrolling: touch;
+}
 
 .wj-loading-icon::before {
   font-family: "cuIcon";
