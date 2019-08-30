@@ -177,7 +177,7 @@ Page({
                 }
                 that.showGuideInvite();
                 that.data.userId=data.userInfo.id
-                that.onAppShow({path:'pages/index/index'})
+                // that.onAppShow({path:'pages/index/index'})
             },
             function (msg) {
 
@@ -360,7 +360,7 @@ Page({
 
                             that.hideModal();
                             that.data.userId=data.userInfo.id
-                            that.onAppShow({path:'pages/index/index'})
+                            // that.onAppShow({path:'pages/index/index'})
                         } else {
                             that.showModal('ModalBindPhone');
                         }
