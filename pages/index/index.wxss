@@ -245,6 +245,8 @@ page{
     display: flex;
     align-items: center;
     justify-content: center;
+
+    margin-left: 30rpx;
 }
 .xzsq{
     /*width:112px;*/

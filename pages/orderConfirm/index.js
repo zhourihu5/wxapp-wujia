@@ -87,7 +87,6 @@ Page({
                             app.nickName = data.userInfo.nickName
                             app.userName = data.userInfo.userName
                             app.wxCover = data.userInfo.wxCover
-                            app.fid = data.userInfo.fid
                             if (data.applyLock) {
                                 if (data.applyLock.status == '0') {//待审核
                                     wx.redirectTo({url: '/pages/auditWait/index'})

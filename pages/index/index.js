@@ -14,8 +14,8 @@ Page({
         isAuthorized: app.isAuthorized,
         // modalName: "ModalGuideInvite,ModalBindPhone,ModalGuideMore,ModalGuideOpen,ModalAddCommunity,ModalInviteVisitor",
         modalName: null,
-        communtityName: '',
-        cummunityIndex: null,
+        communtityName: '',//家庭名
+        cummunityIndex: null,//家庭index
         apiData: null,
         failReason: null,
         applyCode:null,//todo 动态开锁密码
@@ -50,16 +50,17 @@ Page({
         console.log(res)
         if (res.from === 'button') {//邀请好友
             console.log('button onShareAppMessage')
-            that.setData({
-                shareing:true,
-            })
+            // that.setData({
+            //     shareing:true,
+            // })
             that.hideModal()
-            that.setData({
-                shareing:false,
-            })
+            // that.setData({
+            //     shareing:false,
+            // })
             return {
                 title: '开锁邀请码',//默认当前小程序名称
                 path: `/pages/inviteVisitor/index?applyCode=${that.data.inviteData.code}&communityName=${that.data.inviteData.address}&endDate=${that.data.inviteData.endDate}`,
+                imageUrl:'/images/img_share.png',
                 success (res) {
                     console.log('onShareAppMessage success')
                     console.log(res)
@@ -141,8 +142,12 @@ Page({
             function (data) {
                 app.token = data.token
                 try {
-                    app.communtityId = data.communtityList[0].id
-                    app.communtityCode = data.communtityList[0].code
+                    app.communtityId = data.familyList[0].communtity.id
+                    app.communtityCode = data.familyList[0].communtity.code
+                    app.fid=data.familyList[0].id
+                    that.setData({
+                        communtityName: data.familyList[0].name,
+                    })
                 } catch (e) {
                 }
                 if(data.unRead){
@@ -157,9 +162,8 @@ Page({
                 app.nickName = data.userInfo.nickName
                 app.userName=data.userInfo.userName
                 app.wxCover=data.userInfo.wxCover
-                app.fid=data.userInfo.fid
+
                 that.setData({
-                    communtityName: data.communtityName,
                     apiData: data,
                 })
                 if (data.applyLock) {
@@ -266,10 +270,11 @@ Page({
         }
         this.setData({
             cummunityIndex: index,
-            communtityName: this.data.apiData.communtityList[index].name
+            communtityName: this.data.apiData.familyList[index].name
         })
-        app.communtityId=this.data.apiData.communtityList[index].id
-        app.communtityCode=this.data.apiData.communtityList[index].code
+        app.communtityId=this.data.apiData.familyList[index].communtity.id
+        app.communtityCode=this.data.apiData.familyList[index].communtity.code
+        app.fid=this.data.apiData.familyList[index].id
 
         this.hideModal()
         var that=this
@@ -323,13 +328,16 @@ Page({
 
                     network.requestGet('/wx/binding/checkBinding',paramData , function (data) {
                         that.setData({
-                            communtityName: data.communtityName,
                             apiData: data,
                         })
                         app.token = data.token
                         try {
-                            app.communtityId = data.communtityList[0].id
-                            app.communtityCode = data.communtityList[0].code
+                            app.communtityId = data.familyList[0].communtity.id
+                            app.communtityCode = data.familyList[0].communtity.code
+                            app.fid=data.familyList[0].id
+                            that.setData({
+                                communtityName: data.familyList[0].name,
+                            })
                         } catch (e) {
                         }
                         if(data.unRead){
@@ -346,7 +354,6 @@ Page({
                             app.nickName = data.userInfo.nickName
                             app.userName=data.userInfo.userName
                             app.wxCover=data.userInfo.wxCover
-                            app.fid=data.userInfo.fid
                             if (data.applyLock) {
                                 if (data.applyLock.status == '0') {//待审核
                                     wx.redirectTo({url: '/pages/auditWait/index'})

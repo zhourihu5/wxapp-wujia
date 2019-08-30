@@ -41,6 +41,14 @@ function hideCode(str, endLen) {
   }
   return str.substring(0, len) + xing ;
 }
+function strMaxlength(str, length) {
+  var len = str.length ;
+  if(len>length){
+    return str.substring(0, length) +'...'
+  }
+
+  return str ;
+}
 
 module.exports = {
   strSplitToArr: strSplitToArr,
@@ -48,5 +56,6 @@ module.exports = {
   isNumDot: isNumDot,
   numAfterDot: numAfterDot,
   hideCode: hideCode,
+  strMaxlength: strMaxlength,
 
 };

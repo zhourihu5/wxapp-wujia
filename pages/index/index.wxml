@@ -13,7 +13,7 @@
             <view class="flex align-center" hover-class="navigator-hover" hover-stop-propagation="{{true}}"
                   bindtap="showModalAddCommunity">
                 <image class="icon" src="/images/index_pos.png"></image>
-                <text class="location-text">{{communtityName?communtityName:'暂无社区'}}</text>
+                <text class="location-text">{{communtityName?utils.strMaxlength(communtityName,12) :'暂无家庭'}}</text>
                 <view class="cuIcon-unfold"></view>
             </view>
             <view class="text-underline invite-visitor {{modalName=='ModalGuideInvite'?'show-invite':'m-r-30 button-no-border'}}"
@@ -29,19 +29,20 @@
                                  bindscrolltoupper='scrolltoupper'
                                  bindscrolltolower='scrolltolower'
                     >
-                        <view wx:for="{{apiData.communtityList}}"
-                              class="flex align-center item-community {{index==0?'no-border':''}}"
-                              hover-class="navigator-hover" hover-stop-propagation="{{true}}" catchtap="switchCommunity"
-                              data-index="{{index}}">
-                            <image wx:if="{{false}}" class="addres-img" src="/images/tab_my"></image>
-                            <view class="flex-1 adr-name">{{item.name}}</view>
-                            <view wx:if="{{cummunityIndex==index}}" class="cuIcon-check round-bg"></view>
-                        </view>
+                            <view wx:for="{{apiData.familyList}}"
+                                  class="flex align-center item-community {{index==0?'no-border':''}}"
+                                  hover-class="navigator-hover" hover-stop-propagation="{{true}}" catchtap="switchCommunity"
+                                  data-index="{{index}}" >
+                                <image wx:if="{{false}}" class="addres-img" src="/images/tab_my"></image>
+                                <view class="flex-1 adr-name">{{item.name}}</view>
+                                <view wx:if="{{cummunityIndex==index}}" class="cuIcon-check round-bg"></view>
+                            </view>
+
                     </scroll-view>
                     <view class="add-addr-btn" hover-class="navigator-hover" hover-stop-propagation="{{true}}"
                           catchtap="addCommunity">
                         <view class="cuIcon-add add-icon"></view>
-                        <view class="xzsq">新增社区</view>
+                        <view class="xzsq">新增家庭</view>
                     </view>
                 </view>
             </view>
