@@ -1,0 +1,67 @@
+<cu-custom bgColor="titlebar-white" isBack="{{true}}">
+    <view slot="backText"></view>
+    <view slot="content">
+        <text class="{{navigationBarLoading?'wj-loading-icon':''}}"/>
+        我的体验券
+    </view>
+</cu-custom>
+<scroll-view scroll-y class="body"
+             bindscrolltoupper='scrolltoupper'
+             bindscrolltolower='scrolltolower'
+             lower-threshold="{{lowerThreshold}}"
+             bindscroll="scroll" bindscrolltoupper="upper" bindtouchstart="start" bindtouchend="end"
+             bindtouchmove="move">
+    <include src="../../refreshview/refreshHeaderView.wxml"/>
+    <!--    <include src="../../refreshview/refreshHeaderView.wxml"/>-->
+    <block wx:for="{{10}}" wx:key="">
+        <view class="coupon-o-g-b flex align-center m-t-20">
+            <view class="flex-1 p-l-40 p-r-40">
+                <view class="coupon-name">汉堡王体验劵</view>
+                <view class="coupon-time">有效期至 2019.08.15</view>
+                <view class="coupon-remark">仅限汉堡王（望京诚盈店）使用</view>
+            </view>
+
+            <view class="c-r-c">
+                <view class="l-c">
+                    <view class="t-corner"></view>
+                    <view class="v-line"></view>
+                    <view class="b-corner"></view>
+                </view>
+                <view class="btn-lq"
+                      catchtap="takeCoupon">立即查看
+                </view>
+            </view>
+        </view>
+    </block>
+    <view wx:if="{{reachBottom&&isLoading}}" class="cu-load wj-loading {{isLoading?'loading':'over'}}"></view>
+
+    <view wx:if="{{isOver}}" class="flex align-center justify-center no-more-coupon"
+          catchtap="toExpiredMore" >
+        <view>没有更多优惠券了</view>
+        <view class="separator"></view>
+        <view>查看失效券</view>
+        <image  class="to-expired-more" src="/images/to_expired_more.png"/>
+    </view>
+</scroll-view>
+<view class="cu-modal bottom-modal {{modalName=='ModalShowCode'?'show':''}}" catchtap="hideModal">
+    <view class="cu-dialog bottom-dialog" style="overflow: visible" catchtap="doNothing">
+        <view class="flex justify-center relative close-bar">
+            <view class="wj-logo-o">
+                <image class="wj-logo" src="/images/image_wj.png"></image>
+            </view>
+            <view class="cuIcon-close close-icon " hover-class="navigator-hover" hover-stop-propagation="{{true}}" catchtap="hideModal"></view>
+        </view>
+        <view class="flex align-center justify-center" style="margin-top: 70rpx;margin-bottom: 46rpx;">
+            <view class="l-h"></view>
+            <view class="dialog-title">请向商家展示核销码</view>
+            <view class="l-h"></view>
+        </view>
+        <view class="bg-hxm relative flex align-center" style="margin: 0 auto;padding: 60rpx;">
+            <image class="bg-hxm" style="position: absolute;left: 0;top: 0;z-index:0 " src="/images/bg_coupon_expirence.png"></image>
+            <view class="text-tyq">体验券</view>
+            <view class="hxm" style="z-index: 2">CAA145607800</view>
+            <view class="hxm-yxq">有效期至 2019.08.15</view>
+        </view>
+        <view class="dialog-msg">仅限汉堡王（望京诚盈店）使用</view>
+    </view>
+</view>

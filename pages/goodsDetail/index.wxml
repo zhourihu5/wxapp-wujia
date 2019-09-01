@@ -43,7 +43,31 @@
             </view>
         </view>
     </view>
-    <view class="item2">
+    <view class="item2" style="padding-top: 20rpx;padding-bottom: 0rpx;">
+        <view class="coupon-pink-b flex align-center">
+            <view class="flex-1 p-l-30 p-r-30">
+                <view>
+                    <text class="yhq-dollor">￥</text>
+                    <text class="yhq-money-v">12</text>
+                    <text class="yhq-name">活动优惠劵名称</text>
+                </view>
+                <view class="coupon-time">有效期至 2019.08.15</view>
+            </view>
+
+            <view class="c-r-c">
+                <view class="l-c">
+                    <view class="t-corner"></view>
+                    <view class="v-line"></view>
+                    <view class="b-corner"></view>
+                </view>
+                <view class="coupon-use"
+                      catchtap="takeCoupon">立即使用
+                </view>
+            </view>
+        </view>
+    </view>
+
+    <view class="item2" style="padding-top: 20rpx">
         <view class="hdbt">{{apiData.activity.commodity.name}}</view>
         <view class="sell-num">已拼{{apiData.activity.commodity.salesNum}}件</view>
         <view class="flex align-center">

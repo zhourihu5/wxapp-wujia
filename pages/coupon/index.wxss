@@ -1,0 +1,30 @@
+
+page{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+.body{
+    width:750rpx;
+    height:100%;
+    background:rgba(246,247,249,1);
+    /*border-radius:4rpx;*/
+
+    display: flex;
+    flex-direction: column;
+
+    padding:0 30rpx;
+
+}
+.img-coupon{
+    width:690rpx;
+    height:280rpx;
+    background:rgba(255,255,255,1);
+    box-shadow:0rpx 0rpx 30rpx 0rpx rgba(228,228,228,0.5);
+    border-radius:16rpx;
+
+
+
+    display: block;
+}

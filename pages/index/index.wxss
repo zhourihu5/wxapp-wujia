@@ -871,6 +871,11 @@ movable-area {
 
     margin:0 12rpx;
 }
+.icon-coupon{
+    width: 150rpx;
+    height: 84rpx;
+    margin: 0 30rpx;
+}
 .invite-visitor{
     /*width:112px;*/
     /*height:40px;*/

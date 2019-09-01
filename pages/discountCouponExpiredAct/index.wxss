@@ -1,0 +1,211 @@
+page{
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.body{
+  width:750rpx;
+  height:100%;
+  background:rgba(246,247,249,1);
+  /*border-radius:4rpx;*/
+
+  display: flex;
+  flex-direction: column;
+
+  padding:0 30rpx;
+
+}
+.coupon-w-b{
+  width:690rpx;
+  height:210rpx;
+  background:rgba(255,255,255,1);
+  box-shadow:0rpx 4rpx 28rpx 0rpx rgba(228,228,228,0.65);
+
+  border-radius: 16rpx;
+
+  display: flex;
+
+  z-index: 10;
+}
+.img-activity{
+  width:160rpx;
+  height:160rpx;
+  background:rgba(158,158,158,1);
+  border-radius:8rpx;
+
+  margin-left: 24rpx;
+}
+.i-c-c{
+  height: 100%;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  /*align-items: center;*/
+  justify-content: center;
+
+  padding-left: 26rpx;
+  padding-right: 26rpx;
+}
+.coupon-name{
+  /*width:150px;*/
+  /*height:42px;*/
+  font-size:30rpx;
+  font-family:PingFangSC;
+  font-weight:500;
+  color:rgba(203,203,203,1);
+  line-height:42rpx;
+
+  max-width: 300rpx;
+
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis;
+  text-align: left;
+}
+.coupon-remark{
+  /*width:148px;*/
+  /*height:32px;*/
+  font-size:22rpx;
+  font-family:PingFangSC;
+  font-weight:400;
+  color:rgba(203,203,203,1);
+  line-height:32rpx;
+
+  max-width: 300rpx;
+
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis;
+  text-align: left;
+
+  margin-top: 22rpx;
+  margin-bottom: 2rpx;
+}
+.coupon-time{
+  /*width:204px;*/
+  /*height:32px;*/
+  font-size:22rpx;
+  font-family:PingFangSC;
+  font-weight:400;
+  color:rgba(203,203,203,1);
+  line-height:32rpx;
+
+  max-width: 300rpx;
+
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis;
+  text-align: left;
+}
+.r-c{
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  position: absolute;
+  right: -10rpx;
+}
+.t-corner{
+  width: 20rpx;
+  height: 10rpx;
+  border-bottom-left-radius: 50rpx;
+  border-bottom-right-radius: 50rpx;
+  background:rgba(246,247,249,1);
+}
+.b-corner{
+  width: 20rpx;
+  height: 10rpx;
+  border-top-left-radius: 50rpx;
+  border-top-right-radius: 50rpx;
+  background:rgba(246,247,249,1);
+}
+.v-line{
+  /*width:2rpx;*/
+  /*height:198rpx;*/
+
+  flex: 1;
+  border: 2rpx dashed #BDBDBD;
+}
+.i-c-l{
+  width: 180rpx;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.dollor{
+  /*width:28px;*/
+  /*height:40px;*/
+  font-size:28rpx;
+  font-family:PingFangSC;
+  font-weight:600;
+  color:rgba(184,184,184,1);
+  line-height:40rpx;
+}
+.money-v{
+  /*width:70px;*/
+  /*height:72px;*/
+  font-size:68rpx;
+  font-family:PingFangSC;
+  font-weight:400;
+  color:rgba(184,184,184,1);
+  line-height:72rpx;
+}
+.img-coupon-dollor{
+  width: 144rpx;
+  height: 154rpx;
+
+  right: 0;
+  bottom: 0;
+  position: absolute;
+
+  z-index: 0;
+}
+
+.ysh-w{
+  width: 92rpx;
+  height: 92rpx;
+  /*padding: 20rpx;*/
+  border-radius: 50%;
+  border: 1rpx dashed #A4A4A5;
+
+  /*width:74px;*/
+  /*height:60px;*/
+  font-size:24rpx;
+  font-family:PingFangSC-Regular;
+  font-weight:600;
+  color:#A4A4A5;
+  line-height:32rpx;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  transform:rotate(-45deg);
+
+  background: white;
+}
+.ysh-r{
+  width:72rpx;
+  height:72rpx;
+  border-radius: 50%;
+  border: 1rpx solid #A7A8A8;
+
+  overflow: visible;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.ysh{
+  /*background:rgba(176,176,176,1);*/
+  background:rgba(255,255,255,1);
+  /*padding: 2rpx 0;*/
+  min-width: 72rpx;
+  text-align: center;
+  /*margin: auto;*/
+}

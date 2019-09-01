@@ -1,0 +1,89 @@
+<cu-custom bgColor="titlebar-white" isBack="{{true}}">
+    <view slot="backText"></view>
+    <view slot="content"><text class="{{navigationBarLoading?'wj-loading-icon':''}}"/>体验券详情</view>
+</cu-custom>
+<view class="body">
+<!--    <include src="../../refreshview/refreshHeaderView.wxml"/>-->
+    <view class="w-c-c flex-direction align-center justify-center">
+        <image class="img-coupon"
+               src="/images/tab_my.png"
+        />
+        <view class="flex align-center justify-center time-remain m-t-50 m-b-40">
+            <view class="m-l-r-20">剩余</view>
+            <view class="orange-corner">{{hour}}</view>
+            <view class="comma">时</view>
+            <view class="orange-corner">{{minute}}</view>
+            <view class="comma">分</view>
+            <view class="orange-corner" style="min-width: 48rpx;">{{second}}</view>
+            <view class="comma" style="margin-right: 0rpx;">秒</view>
+            <view class="m-l-r-20">结束</view>
+
+        </view>
+        <view class="xslqtyq m-b-50">限时领取体验劵活动数量剩余<text class="text-num">{{5}}</text>张</view>
+
+    </view>
+    <view class="coupon-o-g-b flex align-center m-t-20">
+        <view class="flex-1 p-l-40 p-r-40">
+            <view class="coupon-name">汉堡王体验劵</view>
+            <view class="coupon-time">有效期至 2019.08.15</view>
+            <view class="coupon-remark">仅限汉堡王（望京诚盈店）使用</view>
+        </view>
+
+        <view class="c-r-c">
+            <view class="l-c">
+                <view class="t-corner"></view>
+                <view class="v-line"></view>
+                <view class="b-corner"></view>
+            </view>
+            <view class="btn-lq"
+                  catchtap="takeCoupon">立即领取</view>
+        </view>
+    </view>
+    <view class="coupon-g-g-b flex align-center m-t-20">
+        <view class="flex-1 p-l-40 p-r-30">
+            <view class="coupon-name">汉堡王体验劵</view>
+            <view class="coupon-time">有效期至 2019.08.15</view>
+            <view class="coupon-remark">仅限汉堡王（望京诚盈店）使用</view>
+        </view>
+        <view class="c-r-c">
+            <view class="l-c">
+                <view class="t-corner"></view>
+                <view class="v-line"></view>
+                <view class="b-corner"></view>
+            </view>
+<!--            <image class="img-ygq" src="/images/img_text_expired.png" />-->
+            <view class="ysh-w">
+                <view class="ysh-r">
+
+                    <view class="ysh">已过期</view>
+                </view>
+            </view>
+        </view>
+    </view>
+
+</view>
+<view class="cu-modal full-screen  {{modalName=='ModalTakeCouponSuccess'?'show':''}} "
+      catchtap="hideModal">
+    <view class="cu-dialog dialog-take-success relative" catchtap="doNothing">
+        <view class="flex justify-between close-bar ">
+            <view class="flex-1"></view>
+            <view class="cuIcon-close close-icon" hover-class="navigator-hover" hover-stop-propagation="{{true}}" catchtap="hideModal"></view>
+        </view>
+        <view class="dialog-c">
+            <image class="img-take-success" src="/images/img_take_coupon_success.png"></image>
+            <view class="dialog-title">领券成功</view>
+            <view class="dialog-msg">请向商家展示核销码</view>
+            <view>
+                <view class="hxm">WJ324ndj89301</view>
+            </view>
+
+            <view class="hxm-yxq">有效期至 2019.08.15</view>
+            <view class="flex align-center justify-center m-t-60 m-b-60">
+                <view class="tyqyjtj">体验劵已经添加到我的体验劵中</view>
+                <view class="qck" catchtap="toMyCoupon">去查看</view>
+            </view>
+        </view>
+
+    </view>
+
+</view>

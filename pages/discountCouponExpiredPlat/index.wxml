@@ -1,0 +1,52 @@
+<cu-custom bgColor="titlebar-white" isBack="{{true}}">
+    <view slot="backText"></view>
+    <view slot="content"><text class="{{navigationBarLoading?'wj-loading-icon':''}}"/>平台失效券</view>
+</cu-custom>
+<scroll-view scroll-y class="body"
+             bindscrolltoupper='scrolltoupper'
+             bindscrolltolower='scrolltolower'
+             lower-threshold="{{lowerThreshold}}"
+             bindscroll="scroll"  bindscrolltoupper="upper" bindtouchstart="start" bindtouchend="end"
+             bindtouchmove="move">
+    <include src="../../refreshview/refreshHeaderView.wxml"/>
+    <block wx:for="{{10}}" wx:for-item="item" wx:key="">
+
+        <view  class="coupon-w-b flex align-center relative m-t-20">
+            <view class="i-c-l">
+                <view>
+                    <text class="dollor">￥</text>
+                    <text class="money-v">12</text>
+                </view>
+            </view>
+            <view class="flex-1 relative i-c-c p-l-40 p-r-40" style="z-index: 2">
+                <view class="l-c">
+                    <view class="t-corner"></view>
+                    <view class="v-line"></view>
+                    <view class="b-corner"></view>
+                </view>
+
+                <view class="coupon-name">平台优惠劵平台优惠平台优惠劵平台优惠平台优惠劵平台优惠</view>
+                <view class="coupon-remark">无限制</view>
+                <view class="coupon-time">有效期至 2019.08.15</view>
+
+                <view class="r-c" >
+                    <view class="t-corner"></view>
+                    <view class="v-line"></view>
+                    <view class="b-corner"></view>
+                </view>
+            </view>
+            <view class="i-c-r" style="z-index: 2">
+                <view class="ysh-w" style="margin-left: -30rpx">
+                    <view class="ysh-r">
+
+                        <view class="ysh">已过期</view>
+                    </view>
+                </view>
+            </view>
+            <image class="img-coupon-dollor" src="/images/coupon_dollor_img_expired.png"/>
+        </view>
+
+
+
+    </block>
+</scroll-view>

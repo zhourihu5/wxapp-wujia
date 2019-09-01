@@ -258,7 +258,8 @@
     display: flex;
     align-items: center;
     /*justify-content: center;*/
-
+    /*border-top: 1rpx rgba(238,238,238,1) solid;*/
+    /*padding-top: 30rpx;*/
 }
 .image{
     width:140rpx;
@@ -416,4 +417,28 @@
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+.coupon-c{
+    /*width:120px;*/
+    /*height:34px;*/
+    font-size:24rpx;
+    font-family:PingFangSC;
+    font-weight:400;
+    color:rgba(85,85,85,1);
+    line-height:34rpx;
+}
+.coupon-text{
+    /*width:82px;*/
+    /*height:36px;*/
+    font-size:24rpx;
+    font-family:PingFangSC;
+    font-weight:500;
+    color:rgba(255,155,29,1);
+    line-height:36rpx;
+}
+.img-coupon-ar{
+    width: 28rpx;
+    height: 28rpx;
+    margin-left: 2rpx;
 }

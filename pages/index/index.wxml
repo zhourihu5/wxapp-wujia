@@ -11,11 +11,18 @@
     <view class="top-title-bg  {{modalName=='ModalGuideInvite'?'p-t-24': 'p-t-34'}}">
         <view class="top-title  flex align-center  justify-between relative">
             <view class="flex align-center" hover-class="navigator-hover" hover-stop-propagation="{{true}}"
-                  bindtap="showModalAddCommunity">
+                  catchtap="showModalAddCommunity">
                 <image class="icon" src="/images/index_pos.png"></image>
                 <text class="location-text">{{communtityName?utils.strMaxlength(communtityName,13) :'暂无家庭'}}</text>
                 <view class="cuIcon-unfold"></view>
+
             </view>
+            <view class="flex-1 flex align-center">
+                <image class="icon-coupon" src="/images/icon_coupon.png"
+                       hover-class="navigator-hover" hover-stop-propagation="{{true}}"
+                       catchtap="toCoupon"/>
+            </view>
+
             <view class="text-underline invite-visitor {{modalName=='ModalGuideInvite'?'show-invite':'m-r-30 button-no-border'}}"
                     hover-class="{{modalName=='ModalGuideInvite'?'':'navigator-hover'}}" hover-stop-propagation="{{true}}"
                     catchtap="{{modalName=='ModalGuideInvite'?'':'inviteVisitor'}}">邀请访客

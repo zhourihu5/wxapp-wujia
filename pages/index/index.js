@@ -262,6 +262,11 @@ Page({
     showModalAddCommunity(e) {
         this.showModal('ModalAddCommunity')
     },
+    toCoupon(e){
+        wx.navigateTo({
+            url:'/pages/coupon/index'
+        })
+    },
     switchCommunity(e) {
         var index = e.currentTarget.dataset.index
         if (this.data.cummunityIndex == index) {
@@ -298,7 +303,6 @@ Page({
         })
         this.isEnableTabBar()
     },
-
     bindGetUserInfo: function (e) {
         var that = this;
         wx.getUserInfo({
