@@ -869,6 +869,11 @@ movable-area {
     color:rgba(255,255,255,1);
     line-height:28rpx;
 
+    max-width: 448rpx;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+
     margin:0 12rpx;
 }
 .invite-visitor{

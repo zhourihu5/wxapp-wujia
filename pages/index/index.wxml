@@ -13,7 +13,9 @@
             <view class="flex align-center" hover-class="navigator-hover" hover-stop-propagation="{{true}}"
                   bindtap="showModalAddCommunity">
                 <image class="icon" src="/images/index_pos.png"></image>
-                <text class="location-text">{{communtityName?utils.strMaxlength(communtityName,13) :'暂无家庭'}}</text>
+<!--                <text class="location-text">{{communtityName?utils.strMaxlength(communtityName,13) :'暂无家庭'}}</text>-->
+                <text class="location-text">{{communtityName?communtityName :'暂无家庭'}}</text>
+<!--                <text class="location-text">非常长的一大串文章，看看嘛系哦啊大空间大萨达积分卡三等奖 房贷卡加速度快按时收到 </text>-->
                 <view class="cuIcon-unfold"></view>
             </view>
             <view class="text-underline invite-visitor {{modalName=='ModalGuideInvite'?'show-invite':'m-r-30 button-no-border'}}"
