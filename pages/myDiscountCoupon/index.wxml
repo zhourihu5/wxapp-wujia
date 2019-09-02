@@ -1,0 +1,111 @@
+<wxs src="../../wxs/utils.wxs" module="utils"/>
+
+<view class="container">
+    <cu-custom bgColor="titlebar-white" isBack="{{true}}">
+        <view slot="backText"></view>
+        <view slot="content"><text class="{{navigationBarLoading?'wj-loading-icon':''}}"/>我的优惠券</view>
+    </cu-custom>
+    <van-tabs class="tab-layout"
+              custom-class="custom-tabs"
+              nav-class="tab-nav"
+              tab-class="tab-custom"
+              border="{{false}}"
+              line-class="tab-line"
+              color="rgba(255,155,29,1)"
+              lineWidth="{{tabLineWidth}}" swipeable swipeThreshold="2"
+              active="{{active}}"
+              bind:change="onChangeTab"
+    >
+        <van-tab
+                wx:for="{{ tabs }}"
+                wx:for-item="tab"
+                wx:for-index="tabIndex"
+                title="{{tab.title}}"
+                custom-class="custom-tab"
+                info="{{ tabIndex === 0 ? 99 : 3 }}">
+
+            <scroll-view scroll-y class="scroll-view"
+                         style="position: relative;height:calc( {{windowHeight}}px - {{CustomBar}}px - 84rpx )"
+                         lower-threshold="{{lowerThreshold}}"
+                         bindscrolltolower='scrolltolower'
+                         bindscroll="scrollP"  bindscrolltoupper="upperP" bindtouchstart="start" bindtouchend="end"
+                         bindtouchmove="move" data-index="{{tabIndex}}">
+                <include src="../../refreshview/refreshHeaderView.wxml"/>
+                <block wx:for="{{tab.data}}" wx:for-item="item" wx:key="">
+
+                    <view wx:if="{{tabIndex==0}}" class="coupon-w-b flex align-center relative m-t-20">
+                        <view class="i-c-l">
+                            <view>
+                                <text class="dollor">￥</text>
+                                <text class="money-v">12</text>
+                            </view>
+                        </view>
+                        <view class="flex-1 relative i-c-c p-l-40 " style="z-index: 2">
+                            <view class="l-c">
+                                <view class="t-corner"></view>
+                                <view class="v-line"></view>
+                                <view class="b-corner"></view>
+                            </view>
+
+                            <view class="coupon-name" style="max-width: 340rpx;">平台优惠劵平台优惠平台优惠劵平台优惠平台优惠劵平台优惠</view>
+                            <view class="coupon-remark" style="max-width: 340rpx;">无限制</view>
+                            <view class="coupon-time" style="max-width: 340rpx;">有效期至 2019.08.15</view>
+
+                            <view class="r-c" >
+                                <view class="t-corner"></view>
+                                <view class="v-line"></view>
+                                <view class="b-corner"></view>
+                            </view>
+                        </view>
+                        <view class="i-c-r" style="z-index: 2">
+                            <view class="qsy">去使用</view>
+                        </view>
+                        <image class="img-coupon-dollor" src="/images/coupon_dollor_img.png"/>
+                    </view>
+                    <view wx:else class="coupon-w-b flex align-center relative m-t-20">
+
+                        <image class="img-activity" src="/images/tab_my.png" />
+
+                        <view class="flex-1 relative i-c-c">
+
+                            <view class="coupon-name" style="max-width: 270rpx;">平台优惠劵平台优惠平台优惠劵平台优惠平台优惠劵平台优惠</view>
+                            <view class="coupon-remark" style="max-width: 270rpx;">无限制</view>
+                            <view class="coupon-time" style="max-width: 270rpx;">有效期至 2019.08.15</view>
+
+                            <view class="r-c">
+                                <view class="t-corner"></view>
+                                <view class="v-line"></view>
+                                <view class="b-corner"></view>
+                            </view>
+                        </view>
+                        <view class="i-c-l" style="z-index: 2">
+                            <view>
+                                <text class="dollor">￥</text>
+                                <text class="money-v">12</text>
+                            </view>
+                            <view class="text-use-right-now">立即使用</view>
+                        </view>
+                        <image class="img-coupon-dollor" src="/images/coupon_dollor_img.png"/>
+                    </view>
+
+
+
+                </block>
+                <view wx:if="{{tab.reachBottom&&tab.isLoading}}" class="cu-load wj-loading {{tab.isLoading?'loading':'over'}}"></view>
+
+                <view wx:if="{{tab.isOver}}" class="flex align-center justify-center no-more-coupon"
+                 catchtap="toExpiredMore" data-index="{{tabIndex}}">
+                    <view>没有更多优惠券了</view>
+                    <view class="separator"></view>
+                    <view>查看失效券</view>
+                    <image  class="to-expired-more" src="/images/to_expired_more.png"/>
+                </view>
+
+            </scroll-view>
+            <!--                </view>-->
+
+
+        </van-tab>
+    </van-tabs>
+</view>
+

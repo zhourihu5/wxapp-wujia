@@ -55,9 +55,24 @@
                 </view>
             </view>
         </view>
+        <view class="w-p-100 flex align-center coupon-c p-t-40" style="padding-bottom: 12rpx"
+              catchtap="toCouponDiscountPlat">
+            <view class="flex-1">平台优惠券</view>
+            <view class="flex align-center p-l-20">
+                <text>暂无可用</text>
+                <image  class="img-coupon-ar" src="/images/icon_entry_coupon.png"/>
+            </view>
+        </view>
+        <view class="w-p-100 flex align-center coupon-c p-b-30" style="padding-top: 12rpx"
+            catchtap="toCouponDiscountAct">
+            <view class="flex-1">活动优惠券</view>
+            <view class="flex align-center p-l-20">
+                <text class="coupon-text">1个可用</text>
+                <image  class="img-coupon-ar" src="/images/icon_entry_coupon.png"/>
+            </view>
+        </view>
 
-
-        <view class="item-2-1 m-t-50">
+        <view class="item-2-1 p-t-30 border-top">
             <image class="icon-pay" src="/images/icon_wechat.png"/>
             <view class="flex-1 wechat-pay">微信支付</view>
             <view class="cuIcon-check roundcheckfill"></view>

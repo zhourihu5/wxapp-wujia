@@ -72,6 +72,9 @@ scroll-view{
 .m-t-50{
   margin-top: 50rpx;
 }
+.m-b-40{
+  margin-bottom: 40rpx;
+}
 .p-b-50{
   padding-bottom: 50rpx;
 }
@@ -92,6 +95,9 @@ scroll-view{
 }
 .m-t-30{
   margin-top: 30rpx;
+}
+.m-t-90{
+  margin-top: 90rpx;
 }
 .m-b-20{
   margin-bottom: 20rpx;
@@ -297,6 +303,9 @@ scroll-view{
 .border-bottom{
   border-bottom: 1rpx #EEEEEE solid;
 }
+.border-top{
+  border-top: 1rpx #EEEEEE solid;
+}
 .t-gray-small{
   font-size:24rpx;
   font-family:PingFangSC-Regular;
@@ -360,6 +369,12 @@ scroll-view{
 .m-b-50{
   margin-bottom: 50rpx;
 }
+.m-t-60{
+  margin-top: 60rpx;
+}
+.m-b-60{
+  margin-bottom: 60rpx;
+}
 .m-l-r-auto{
   margin-left: auto;
   margin-right: auto;
@@ -373,6 +388,12 @@ scroll-view{
 }
 .p-l-20{
   padding-left: 20rpx;
+}
+.p-l-40{
+  padding-left: 40rpx;
+}
+.p-r-40{
+  padding-right: 40rpx;
 }
 .p-t-b-50{
   padding-top: 50rpx;

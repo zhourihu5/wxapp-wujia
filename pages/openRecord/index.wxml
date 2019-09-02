@@ -23,7 +23,7 @@
                 title="{{tab.title}}"
                 custom-class="custom-tab">
 
-            <scroll-view scroll-y class="scroll-view-order"
+            <scroll-view scroll-y
                          style="position: relative;height:calc( {{windowHeight}}px - {{CustomBar}}px - 84rpx )"
                          lower-threshold="{{lowerThreshold}}"
                          bindscrolltolower='scrolltolower'

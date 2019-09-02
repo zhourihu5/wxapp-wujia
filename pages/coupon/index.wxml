@@ -1,0 +1,41 @@
+<wxs src="../../wxs/utils.wxs" module="utils"/>
+
+<cu-custom bgColor="titlebar-white" isBack="{{true}}">
+    <view slot="backText"></view>
+    <view slot="content"><text class="{{navigationBarLoading?'wj-loading-icon':''}}"/>体验券</view>
+</cu-custom>
+
+<scroll-view scroll-y class="body"
+             bindscrolltoupper='scrolltoupper'
+             bindscrolltolower='scrolltolower'
+             lower-threshold="{{lowerThreshold}}"
+             bindscroll="scroll"  bindscrolltoupper="upper" bindtouchstart="start" bindtouchend="end"
+             bindtouchmove="move">
+    <include src="../../refreshview/refreshHeaderView.wxml"/>
+
+
+    <block wx:for="{{10}}" wx:key="">
+
+        <!--                <activity cover="{{item.cover}}"-->
+        <!--                          title="{{item.commodity.name}}"-->
+        <!--                          priceInt="12"-->
+        <!--                          priceFloat="32"-->
+        <!--                          priceOld="16.68"-->
+        <!--                           labelArr="{{ utils.strSplitToArr(item.commodity.labelsName,'|') }}"-->
+        <!--                          salesNum="{{item.commodity.salesNum}}"-->
+        <!--                          dataId="{{item.id}}"/>-->
+
+        <view class="w-p-100 p-b-20 relative {{index==0?'m-t-20':''}}" hover-class="navigator-hover" hover-stop-propagation="{{true}}" bindtap="goBuy" data-index="{{index}}">
+            <image class="img-coupon"
+                   src="/images/tab_my.png"
+                   hover-class="navigator-hover" hover-stop-propagation="{{true}}"
+                   catchtap="toCouponDetail" data-index="{{index}}"/>
+        </view>
+
+
+    </block>
+    <view wx:if="{{reachBottom&&isLoading}}" class="cu-load wj-loading {{isLoading?'loading':'over'}}"></view>
+</scroll-view>
+
+
+

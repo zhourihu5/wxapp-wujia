@@ -1,0 +1,41 @@
+<cu-custom bgColor="titlebar-white" isBack="{{true}}">
+    <view slot="backText"></view>
+    <view slot="content">
+        <text class="{{navigationBarLoading?'wj-loading-icon':''}}"/>
+        体验券失效券
+    </view>
+</cu-custom>
+<scroll-view scroll-y class="body"
+             bindscrolltoupper='scrolltoupper'
+             bindscrolltolower='scrolltolower'
+             lower-threshold="{{lowerThreshold}}"
+             bindscroll="scroll" bindscrolltoupper="upper" bindtouchstart="start" bindtouchend="end"
+             bindtouchmove="move">
+    <include src="../../refreshview/refreshHeaderView.wxml"/>
+    <!--    <include src="../../refreshview/refreshHeaderView.wxml"/>-->
+    <block wx:for="{{10}}" wx:key="">
+        <view class="coupon-g-g-b flex align-center m-b-20 {{index==0?'m-t-20':''}}">
+            <view class="flex-1 p-l-40 ">
+                <view class="coupon-name" style="max-width: 416rpx">汉堡王体验劵汉堡王体验劵汉堡王体验劵汉堡王体验劵汉堡王体验劵</view>
+                <view class="coupon-time" style="max-width: 416rpx">有效期至 2019.08.15</view>
+                <view class="coupon-remark" style="max-width: 416rpx">仅限汉堡王（望京诚盈店）使用</view>
+            </view>
+            <view class="c-r-c">
+                <view class="l-c">
+                    <view class="t-corner"></view>
+                    <view class="v-line"></view>
+                    <view class="b-corner"></view>
+                </view>
+                <!--            <image class="img-ygq" src="/images/img_text_expired.png" />-->
+                <view class="ysh-w">
+                    <view class="ysh-r">
+
+                        <view class="ysh">已过期</view>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </block>
+    <view wx:if="{{reachBottom&&isLoading}}" class="cu-load wj-loading {{isLoading?'loading':'over'}}"></view>
+
+</scroll-view>

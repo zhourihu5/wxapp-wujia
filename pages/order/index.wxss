@@ -242,6 +242,7 @@
     background: white;
     padding: 2rpx 0;
     min-width: 74rpx;
+    text-align: center;
     /*margin: auto;*/
 }
 
