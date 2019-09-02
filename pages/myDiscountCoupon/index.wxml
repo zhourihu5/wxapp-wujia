@@ -37,7 +37,7 @@
                         <view class="i-c-l">
                             <view>
                                 <text class="dollor">￥</text>
-                                <text class="money-v">12</text>
+                                <text class="money-v">{{item.coupon.money}}</text>
                             </view>
                         </view>
                         <view class="flex-1 relative i-c-c p-l-40 " style="z-index: 2">
@@ -47,9 +47,11 @@
                                 <view class="b-corner"></view>
                             </view>
 
-                            <view class="coupon-name" style="max-width: 340rpx;">平台优惠劵平台优惠平台优惠劵平台优惠平台优惠劵平台优惠</view>
-                            <view class="coupon-remark" style="max-width: 340rpx;">无限制</view>
-                            <view class="coupon-time" style="max-width: 340rpx;">有效期至 2019.08.15</view>
+                            <view class="coupon-name" style="max-width: 340rpx;">{{item.coupon.name}}</view>
+                            <view class="coupon-remark" style="max-width: 340rpx;">
+                                {{utils.couponLimit(item.coupon.limitNum)}}
+                            </view>
+                            <view class="coupon-time" style="max-width: 340rpx;">有效期至 {{item.coupon.endDate}}</view>
 
                             <view class="r-c" >
                                 <view class="t-corner"></view>
@@ -68,9 +70,9 @@
 
                         <view class="flex-1 relative i-c-c">
 
-                            <view class="coupon-name" style="max-width: 270rpx;">平台优惠劵平台优惠平台优惠劵平台优惠平台优惠劵平台优惠</view>
-                            <view class="coupon-remark" style="max-width: 270rpx;">无限制</view>
-                            <view class="coupon-time" style="max-width: 270rpx;">有效期至 2019.08.15</view>
+                            <view class="coupon-name" style="max-width: 270rpx;">{{item.coupon.name}}</view>
+                            <view class="coupon-remark" style="max-width: 270rpx;"> {{utils.couponLimit(item.coupon.limitNum)}}</view>
+                            <view class="coupon-time" style="max-width: 270rpx;">有效期至 {{item.coupon.endDate}}</view>
 
                             <view class="r-c">
                                 <view class="t-corner"></view>

@@ -49,6 +49,12 @@ function strMaxlength(str, length) {
 
   return str ;
 }
+function couponLimit(limitNum) {
+  if(limitNum==0){
+    return '无限制'
+  }
+  return '订单金额满'+limitNum+'元可用'
+}
 
 module.exports = {
   strSplitToArr: strSplitToArr,
@@ -57,5 +63,6 @@ module.exports = {
   numAfterDot: numAfterDot,
   hideCode: hideCode,
   strMaxlength: strMaxlength,
+  couponLimit: couponLimit,
 
 };
