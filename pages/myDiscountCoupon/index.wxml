@@ -22,7 +22,7 @@
                 wx:for-index="tabIndex"
                 title="{{tab.title}}"
                 custom-class="custom-tab"
-                info="{{ tabIndex === 0 ? 99 : 3 }}">
+                info="{{ tab.totalElements?tab.totalElements:'' }}">
 
             <scroll-view scroll-y class="scroll-view"
                          style="position: relative;height:calc( {{windowHeight}}px - {{CustomBar}}px - 84rpx )"

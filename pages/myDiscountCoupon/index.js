@@ -130,6 +130,7 @@ Page({
             }else {
                 that.data.tabs[active].isOver=true
             }
+            that.data.tabs[active].totalElements= data.totalElements;
             that.setData({
                 tabs: that.data.tabs,
             })
