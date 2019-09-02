@@ -56,7 +56,7 @@ page{
   color:rgba(203,203,203,1);
   line-height:42rpx;
 
-  max-width: 300rpx;
+  max-width: 270rpx;
 
   white-space:nowrap;
   overflow:hidden;
@@ -72,7 +72,7 @@ page{
   color:rgba(203,203,203,1);
   line-height:32rpx;
 
-  max-width: 300rpx;
+  max-width: 270rpx;
 
   white-space:nowrap;
   overflow:hidden;
@@ -91,7 +91,7 @@ page{
   color:rgba(203,203,203,1);
   line-height:32rpx;
 
-  max-width: 300rpx;
+  max-width: 270rpx;
 
   white-space:nowrap;
   overflow:hidden;
@@ -127,7 +127,7 @@ page{
   /*height:198rpx;*/
 
   flex: 1;
-  border: 2rpx dashed #BDBDBD;
+  border: 1rpx dashed #BDBDBD;
 }
 .i-c-l{
   width: 180rpx;

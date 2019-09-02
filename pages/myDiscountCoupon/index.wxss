@@ -32,6 +32,7 @@
     border-radius:8rpx;
 
     margin-left: 24rpx;
+    margin-right: 24rpx;
 }
 .i-c-l{
     width: 180rpx;
@@ -40,10 +41,6 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-}
-.p-activity-content{
-    padding-left: 26rpx;
-    padding-right: 26rpx;
 }
 .i-c-c{
     height: 100%;
@@ -141,7 +138,7 @@
     /*height:198rpx;*/
 
     flex: 1;
-    border: 2rpx dashed #BDBDBD;
+    border: 1rpx dashed #BDBDBD;
 }
 .coupon-name{
     /*width:300px;*/

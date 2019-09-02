@@ -114,6 +114,13 @@ page{
   color:rgba(255,255,255,1);
   line-height:42rpx;
 
+  max-width: 416rpx;
+
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis;
+  text-align: left;
+
 }
 .coupon-time{
   /*width:224px;*/
@@ -123,6 +130,13 @@ page{
   font-weight:400;
   color:rgba(255,255,255,1);
   line-height:34rpx;
+
+  max-width: 416rpx;
+
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis;
+  text-align: left;
 
   margin-top: 6rpx;
   margin-bottom: 48rpx;
@@ -135,6 +149,13 @@ page{
   font-weight:500;
   color:rgba(255,255,255,0.8);
   line-height:34rpx;
+
+  max-width: 416rpx;
+
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis;
+  text-align: left;
 }
 
 .l-c{
@@ -176,7 +197,7 @@ page{
   /*height:198rpx;*/
 
   flex: 1;
-  border: 2rpx dashed #FFFFFF;
+  border: 1rpx dashed #FFFFFF;
 }
 .btn-lq{
   /*width:112rpx;*/

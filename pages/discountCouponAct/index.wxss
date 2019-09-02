@@ -23,6 +23,7 @@ page{
     border-radius:8rpx;
 
     margin-left: 24rpx;
+    margin-right: 24rpx;
 }
 .expired{
     color:rgba(203,203,203,1) !important;
@@ -176,7 +177,7 @@ page{
     /*height:198rpx;*/
 
     flex: 1;
-    border: 2rpx dashed #BDBDBD;
+    border: 1rpx dashed #BDBDBD;
 }
 .coupon-name{
     /*width:300px;*/

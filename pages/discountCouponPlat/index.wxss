@@ -168,7 +168,7 @@ page{
     /*height:198rpx;*/
 
     flex: 1;
-    border: 2rpx dashed #BDBDBD;
+    border: 1rpx dashed #BDBDBD;
 }
 .coupon-name{
     /*width:300px;*/

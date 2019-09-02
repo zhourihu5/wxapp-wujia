@@ -40,16 +40,16 @@
                                 <text class="money-v">12</text>
                             </view>
                         </view>
-                        <view class="flex-1 relative i-c-c p-l-40 p-r-40" style="z-index: 2">
+                        <view class="flex-1 relative i-c-c p-l-40 " style="z-index: 2">
                             <view class="l-c">
                                 <view class="t-corner"></view>
                                 <view class="v-line"></view>
                                 <view class="b-corner"></view>
                             </view>
 
-                            <view class="coupon-name">平台优惠劵平台优惠平台优惠劵平台优惠平台优惠劵平台优惠</view>
-                            <view class="coupon-remark">无限制</view>
-                            <view class="coupon-time">有效期至 2019.08.15</view>
+                            <view class="coupon-name" style="max-width: 340rpx;">平台优惠劵平台优惠平台优惠劵平台优惠平台优惠劵平台优惠</view>
+                            <view class="coupon-remark" style="max-width: 340rpx;">无限制</view>
+                            <view class="coupon-time" style="max-width: 340rpx;">有效期至 2019.08.15</view>
 
                             <view class="r-c" >
                                 <view class="t-corner"></view>
@@ -66,11 +66,11 @@
 
                         <image class="img-activity" src="/images/tab_my.png" />
 
-                        <view class="flex-1 relative i-c-c p-activity-content">
+                        <view class="flex-1 relative i-c-c">
 
-                            <view class="coupon-name">平台优惠劵平台优惠平台优惠劵平台优惠平台优惠劵平台优惠</view>
-                            <view class="coupon-remark">无限制</view>
-                            <view class="coupon-time">有效期至 2019.08.15</view>
+                            <view class="coupon-name" style="max-width: 270rpx;">平台优惠劵平台优惠平台优惠劵平台优惠平台优惠劵平台优惠</view>
+                            <view class="coupon-remark" style="max-width: 270rpx;">无限制</view>
+                            <view class="coupon-time" style="max-width: 270rpx;">有效期至 2019.08.15</view>
 
                             <view class="r-c">
                                 <view class="t-corner"></view>

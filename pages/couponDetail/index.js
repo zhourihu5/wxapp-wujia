@@ -1,12 +1,13 @@
 //index.js
 const util = require('../../utils/util.js')
 const app = getApp()
-var register = require('../../refreshview/refreshLoadRegister.js');
+// var register = require('../../refreshview/refreshLoadRegister.js');
 const network = require('../../utils/network.js')
+var interval = null //倒计时函数
 Page({
     data: {
-        CustomBar: app.globalData.CustomBar,
         modalName:null,
+        apiData:null,
     },
     showNavigationBarLoading() {
         if(this.data.loading){//下拉刷新
@@ -36,14 +37,10 @@ Page({
             }
         }
     },
-    onLoad() {
-        // register.register(this);
-        console.log(pages)
-        if (pages.length > 1) {
-            this.setData({
-                isBack: true
-            })
-        }
+    onLoad(query) {
+        console.log('query',query)
+        let id=query.id;
+        //todo
     },
     toMyCoupon(e){
         wx.redirectTo({
@@ -64,5 +61,66 @@ Page({
         this.setData({
             modalName: 'ModalTakeCouponSuccess',
         })
+    },
+    setTimeRemain: function () {
+        interval && clearInterval(interval)
+        interval=null
+        var that = this
+        interval = setInterval(function () {
+            var pDate=null
+            if(!that.data.apiData){
+                return;
+            }
+            if(!that.data.apiData.activity){
+                return;
+            }
+            if(!that.data.apiData.activity.endDate){
+                return;
+            }
+
+            pDate= that.data.apiData.activity.endDate
+            var endDate = null
+            if (typeof pDate == "string") {
+                endDate = new Date(Date.parse(pDate.replace(/-/g, "/")));
+                console.log('string')
+            } else if (typeof pDate == 'number') {
+                console.log('number')
+                endDate = new Date(pDate);
+            }
+
+            var now = new Date();
+            var milli = endDate.getTime() - now.getTime()
+            if (milli <= 0) {
+                that.data.isBtnEnabled = false
+                that.setData({
+                    hour: '00',
+                    minute: '00',
+                    second: '00',
+                    // isBtnEnabled:false,
+                })
+                return
+            }
+            var hour = Math.floor(milli / 1000 / 3600)
+            var minute = Math.floor(milli % (3600 * 1000) / (60 * 1000))
+            var second = Math.floor(milli % (1000 * 60) / 1000)
+            that.setData({
+                hour: that.formatTime(hour),
+                minute: that.formatTime(minute),
+                second: that.formatTime(second),
+            })
+        }, 1000)
+    },
+    formatTime(num) {
+        if (num < 10) {
+            return '0' + num;
+        }
+        return num
+    },
+    onShow(){
+        this.setTimeRemain()
+    },
+    onHide(){
+        interval && clearInterval(interval)
+        interval=null
     },
 })

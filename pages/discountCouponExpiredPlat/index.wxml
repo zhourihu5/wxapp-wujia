@@ -11,23 +11,23 @@
     <include src="../../refreshview/refreshHeaderView.wxml"/>
     <block wx:for="{{10}}" wx:for-item="item" wx:key="">
 
-        <view  class="coupon-w-b flex align-center relative m-t-20">
+        <view  class="coupon-w-b flex align-center relative m-b-20 {{index==0?'m-t-20':''}}">
             <view class="i-c-l">
                 <view>
                     <text class="dollor">￥</text>
                     <text class="money-v">12</text>
                 </view>
             </view>
-            <view class="flex-1 relative i-c-c p-l-40 p-r-40" style="z-index: 2">
+            <view class="flex-1 relative i-c-c p-l-40 " style="z-index: 2">
                 <view class="l-c">
                     <view class="t-corner"></view>
                     <view class="v-line"></view>
                     <view class="b-corner"></view>
                 </view>
 
-                <view class="coupon-name">平台优惠劵平台优惠平台优惠劵平台优惠平台优惠劵平台优惠</view>
-                <view class="coupon-remark">无限制</view>
-                <view class="coupon-time">有效期至 2019.08.15</view>
+                <view class="coupon-name" style="max-width: 310rpx">平台优惠劵平台优惠平台优惠劵平台优惠平台优惠劵平台优惠</view>
+                <view class="coupon-remark" style="max-width: 310rpx">无限制</view>
+                <view class="coupon-time" style="max-width: 310rpx">有效期至 2019.08.15</view>
 
                 <view class="r-c" >
                     <view class="t-corner"></view>

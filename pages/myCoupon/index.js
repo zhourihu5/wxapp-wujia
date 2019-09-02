@@ -5,7 +5,6 @@ var register = require('../../refreshview/refreshLoadRegister.js');
 const network = require('../../utils/network.js')
 Page({
     data: {
-        CustomBar: app.globalData.CustomBar,
         modalName:null,
         isOver:true,//todo test
     },
@@ -38,16 +37,9 @@ Page({
         }
     },
     onLoad() {
-        // register.register(this);
-        console.log(pages)
-        if (pages.length > 1) {
-            this.setData({
-                isBack: true
-            })
-        }
     },
     toExpiredMore(e){
-        wx.redirectTo({
+        wx.navigateTo({
             url: '/pages/couponExpired/index'
         })
     },

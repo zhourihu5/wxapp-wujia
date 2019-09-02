@@ -5,7 +5,6 @@ var register = require('../../refreshview/refreshLoadRegister.js');
 const app = getApp();
 Page({
     data: {
-        CustomBar: app.globalData.CustomBar,
         lowerThreshold: util.lowerThreshold(),
         list: [],
         isLoading: true,
@@ -58,11 +57,6 @@ Page({
         register.register(this);
         this.loadData()
     },
-    onShow(){
-        if(app.activityChanged){
-            this.loadData()
-        }
-    },
     toCouponDetail(e) {
         var index=e.currentTarget.dataset.index
         // let id =this.data.list[index].id;//todo
@@ -92,8 +86,6 @@ Page({
                     list: that.data.list,
                     isLoading: false,
                 })
-                console.log('数组长度')
-                console.log(data.content.length)
                 if (data.content && data.content.length >= that.customData.pageSize) {
                     that.customData.pageNum++
                     that.data.isOver = false
@@ -101,8 +93,6 @@ Page({
                     that.data.isOver = true
                 }
                 register&&register.loadFinish(that,true)
-                console.log('list 数据')
-                console.log(that.data.list)
             },
             function (msg) {
                 that.setData({
