@@ -19,7 +19,7 @@
             <view class="m-l-r-20">结束</view>
 
         </view>
-        <view class="xslqtyq m-b-50">限时领取体验劵活动数量剩余<text class="text-num">{{apiData.surplus_num}}</text>张</view>
+        <view class="xslqtyq m-b-50">限时领取体验劵活动数量剩余<text class="text-num">{{apiData.surplusNum}}</text>张</view>
 
     </view>
     <view wx:if="{{hasTaken}}" class="coupon-g-g-b flex align-center m-t-20">
