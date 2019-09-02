@@ -48,10 +48,10 @@
             <view class="flex-1 p-l-30 p-r-30">
                 <view>
                     <text class="yhq-dollor">￥</text>
-                    <text class="yhq-money-v">12</text>
-                    <text class="yhq-name">活动优惠劵名称</text>
+                    <text class="yhq-money-v">{{apiData.coupon.money}}</text>
+                    <text class="yhq-name">{{apiData.coupon.name}}</text>
                 </view>
-                <view class="coupon-time">有效期至 2019.08.15</view>
+                <view class="coupon-time">有效期至 {{apiData.coupon.endDate}}</view>
             </view>
 
             <view class="c-r-c">
@@ -60,9 +60,7 @@
                     <view class="v-line"></view>
                     <view class="b-corner"></view>
                 </view>
-                <view class="coupon-use"
-                      catchtap="takeCoupon">立即使用
-                </view>
+                <view class="coupon-use" catchtap="toConfirmOrder">立即使用</view>
             </view>
         </view>
     </view>

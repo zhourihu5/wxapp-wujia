@@ -14,7 +14,7 @@
     <block wx:for="{{list}}" wx:key="">
         <view  class="coupon-w-b flex align-center relative m-t-20">
 
-            <image class="img-activity" src="/images/tab_my.png" />
+            <image class="img-activity" src="{{item.coupon.activity.cover}}" />
 
             <view class="flex-1 relative i-c-c ">
 

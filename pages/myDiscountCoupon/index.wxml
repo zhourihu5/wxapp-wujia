@@ -66,7 +66,7 @@
                     </view>
                     <view wx:else class="coupon-w-b flex align-center relative m-t-20">
 
-                        <image class="img-activity" src="/images/tab_my.png" />
+                        <image class="img-activity" src="{{item.coupon.activity.cover}}" />
 
                         <view class="flex-1 relative i-c-c">
 
@@ -83,7 +83,7 @@
                         <view class="i-c-l" style="z-index: 2">
                             <view>
                                 <text class="dollor">￥</text>
-                                <text class="money-v">12</text>
+                                <text class="money-v">{{item.coupon.money}}</text>
                             </view>
                             <view class="text-use-right-now">立即使用</view>
                         </view>
