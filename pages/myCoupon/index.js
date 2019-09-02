@@ -6,7 +6,12 @@ const network = require('../../utils/network.js')
 Page({
     data: {
         modalName:null,
-        isOver:true,//todo test
+        isOver:false,
+        isLoading: false,
+        reachBottom: false,
+        pageNum: 1,
+        pageSize: 20,
+        list:[],
     },
     showNavigationBarLoading() {
         if(this.data.loading){//下拉刷新
@@ -37,6 +42,59 @@ Page({
         }
     },
     onLoad() {
+        register.register(this)
+        this.loadData()
+    },
+    loadData() {
+        var that = this
+        if (that.data.isOver) {
+            return
+        }
+        that.setData({
+            isLoading: true,
+        })
+        network.requestGet('/v1/experienceActivity/experienceCodeList',
+            {
+                pageNum: that.data.pageNum,
+                pageSize: that.data.pageSize,
+            },
+            function (data) {
+                if (that.data.pageNum == 1) {
+                    that.data.list = []
+                }
+                that.data.list.push.apply(that.data.list, data.content);
+
+                if (data.content && data.content.length >= that.data.pageSize) {
+                    that.data.pageNum++
+                    that.data.isOver = false
+                } else {
+                    that.data.isOver = true
+                }
+                register&&register.loadFinish(that,true)
+                that.setData({
+                    list: that.data.list,
+                    isLoading: false,
+                    isOver:that.data.isOver,
+                })
+            },
+            function (msg) {
+                that.setData({
+                    isLoading: false,
+                })
+                register&&register.loadFinish(that,false)
+            }
+        )
+    },
+    scrolltolower(e) {
+        console.log("scrolltolower")
+        var that = this
+        that.setData({
+            reachBottom: true
+        })
+        if (that.data.isLoading) {
+            return
+        }
+        this.loadData()
     },
     toExpiredMore(e){
         wx.navigateTo({
@@ -53,9 +111,13 @@ Page({
     },
     takeCoupon(e){
         //todo
-
+        let index=e.currentTarget.dataset.index
+        let item=this.data.list[index]
         this.setData({
             modalName: 'ModalShowCode',
+            experienceCode:item.experienceCode,
+            finishDate:item.finishDate,
+            limitAddress:item.limitAddress,
         })
     },
 })

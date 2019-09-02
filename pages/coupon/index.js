@@ -102,8 +102,6 @@ Page({
             }
         )
     },
-    scrolltoupper(e) {
-    },
     scrolltolower(e) {
         console.log("scrolltolower")
         var that = this
