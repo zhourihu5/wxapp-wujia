@@ -22,6 +22,7 @@ Page({
         canNotShare:true,
         inviteData:null,//邀请访客时需要的数据
         userId:null,
+        autoFocus:'phone',
     },
     customData: {
         y: util.rpxToPx(40),
@@ -592,6 +593,25 @@ Page({
             app.showToast("请输入正确的手机号")
             return;
         }
+        that.setData({
+            autoFocus: 'code',
+        })
+        wx.onKeyboardHeightChange(res => {
+            console.log('onKeyboardHeightChange',res)
+        })
+        setTimeout(function () {
+
+            wx.onKeyboardHeightChange(res => {
+                console.log('setTimeout onKeyboardHeightChange',res)
+                if(res.height<10){
+                    that.setData({
+                        autoFocus: null,
+                    })
+                }
+            })
+        },2000)
+
+
 
         var currentTime = 61
         interval&&clearInterval(interval)

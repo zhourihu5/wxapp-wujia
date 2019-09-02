@@ -139,21 +139,23 @@
     <view class="cu-dialog dialog">
         <view class="dialog-title">绑定手机号</view>
         <view class="input-container">
-            <input class="input" placeholder-class="placeholder" placeholder="请输入您的手机号" bindinput="phoneInput" maxlength="{{11}}" type="number"/>
+            <input class="input" auto-focus="{{modalName=='ModalBindPhone'&&autoFocus=='phone'}}" focus="{{modalName=='ModalBindPhone'&&autoFocus=='phone'}}"
+                   placeholder-class="placeholder" placeholder="请输入您的手机号" bindinput="phoneInput" maxlength="{{11}}" type="number"/>
         </view>
         <view class="input-container">
-            <input class="input" placeholder-class="placeholder" bindinput="codeInput"
+            <input class="input" auto-focus="{{autoFocus=='code'}}" focus="{{autoFocus=='code'}}"
+                   placeholder-class="placeholder" bindinput="codeInput"
                    placeholder="请输入验证码"  />
             <view class="{{getCodeText=='获取验证码'?'get-code':'djs'}}" hover-class="navigator-hover"
                   hover-stop-propagation="{{true}}" bindtap="getVcode">{{getCodeText}}
             </view>
         </view>
-        <view wx:if="{{isAuthorized}}" class="center dialog-button-{{isBindEnabled?'enabled':'disabled'}} m-t-40"
+        <view wx:if="{{isAuthorized}}" class="dialog-button-{{isBindEnabled?'enabled':'disabled'}} m-t-90"
               hover-class="navigator-hover" hover-stop-propagation="{{true}}" bindtap="bindPhone">立即绑定
         </view>
         <button wx:else open-type="getUserInfo" withCredentials="true"
                 hover-class="navigator-hover" hover-stop-propagation="{{true}}" bindgetuserinfo="bindGetUserInfo"
-                class="center dialog-button-{{isBindEnabled?'enabled':'disabled'}} m-t-40">立即绑定
+                class="dialog-button-{{isBindEnabled?'enabled':'disabled'}} m-t-90">立即绑定
         </button>
     </view>
 </view>
