@@ -228,13 +228,15 @@ Page({
         )
     },
     toCouponDiscountPlat(e){
+        var that=this
         wx.navigateTo({
-            url:'/pages/discountCouponPlat/index',
+            url:'/pages/discountCouponPlat/index?activityId='+that.data.apiData.id,
         })
     },
     toCouponDiscountAct(e){
+        var that=this
         wx.navigateTo({
-            url:'/pages/discountCouponAct/index',
+            url:'/pages/discountCouponAct/index?activityId='+that.data.apiData.id,
         })
     },
 
