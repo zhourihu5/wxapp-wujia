@@ -70,9 +70,9 @@ Page({
     },
     takeCoupon(e){
         var that=this
-        network.requestGet('/v1/experienceActivity/receive',
+        network.requestPost('/v1/experienceActivity/receive',
             {
-                id: apiData.id,
+                id: that.data.apiData.id,
             },
             function (data) {
                 that.setData({
