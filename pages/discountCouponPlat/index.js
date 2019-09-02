@@ -104,103 +104,54 @@ Page({
         this.loadData();
     },
     loadData() {
-        // var that = this
-        // var active=that.data.active;
-        // if (that.data.tabs[active].isOver) {
-        //     return
-        // }
-        // that.data.tabs[active].isLoading=true
-        // that.setData({
-        //     tabs: that.data.tabs,
-        // })
-        //
-        // var paramData={
-        //     communtityCode:app.communtityCode,
-        //     pageNum: that.data.tabs[active].pageNum,
-        //     pageSize:that.data.pageSize,
-        // }
-        // requestTask&&requestTask.abort()
-        // requestTask=network.requestGet('/v1/apply/accessRecords',paramData,function (data) {
-        //     that.data.tabs[active].isLoading=false
-        //     register&&register.loadFinish(that,true)
-        //     if (that.data.tabs[active].pageNum == 1) {
-        //         that.data.tabs[active].data = []
-        //     }
-        //     that.data.tabs[active].data.push.apply(that.data.tabs[active].data, data.ItemList);
-        //     if(data.Search&&data.Search.RecordCount>that.data.tabs[active].data.length){
-        //         that.data.tabs[active].pageNum++
-        //         that.data.tabs[active].isOver=false
-        //     }else {
-        //         that.data.tabs[active].isOver=true
-        //     }
-        //     that.setData({
-        //         tabs: that.data.tabs,
-        //         imgUrl:data.imgUrl,
-        //     })
-        //
-        //
-        // }, function (msg) {
-        //     register&&register.loadFinish(that,false)
-        //     that.data.tabs[active].isLoading=false
-        // })
-
-
-    },
-    onChangeTab(event) {
         var that = this
-        register&&register.cancel(that)
-        that.data.active = event.detail.index
+        if (that.data.isOver) {
+            return
+        }
         that.setData({
-            active:event.detail.index
+            isLoading: true,
         })
-        if (that.data.tabs[that.data.active].data.length <= 0) {
-            that.loadDataIfNeeded()
-        }
-        var scrolling=this.data.tabs[that.data.active].scrolling
-        var isUpper=this.data.tabs[that.data.active].isUpper
-        this.data.scrolling = scrolling;
-        this.data.isUpper =isUpper;
-    },
-    scrollP(e){
-        var tabIndex=e.currentTarget.dataset.index
-        this.data.tabs[tabIndex].isUpper=false
-        this.data.tabs[tabIndex].scrolling=true
-        if(this.scroll){
-            this.scroll(e)
-        }
-    },
-    upperP(e){
-        var tabIndex=e.currentTarget.dataset.index
-        this.data.tabs[tabIndex].isUpper=true
-        this.data.tabs[tabIndex].scrolling=false
-        if(this.upper){
-            this.upper(e)
-        }
-    },
+        network.requestGet('/v1/coupon/couponCodeList',
+            {
+                pageNum: that.data.pageNum,
+                pageSize: that.data.pageSize,
+                status: '1,2',//0 正常，'1，2'失效的
+                type: 1,//1 平台 2活动
+            },
+            function (data) {
+                if (that.data.pageNum == 1) {
+                    that.data.list = []
+                }
+                that.data.list.push.apply(that.data.list, data.content);
 
-
-    onPullDownRefresh: function () {
-        // Do something when pull down.
-        console.log('onPullDownRefresh')
-
-    },
-    onReachBottom: function () {
-        // Do something when page reach bottom.
-        console.log('onReachBottom')
-    },
-    scrolltoupper: function (e) {
-        // console.log("scrolltoupper")
+                if (data.content && data.content.length >= that.data.pageSize) {
+                    that.data.pageNum++
+                    that.data.isOver = false
+                } else {
+                    that.data.isOver = true
+                }
+                register&&register.loadFinish(that,true)
+                that.setData({
+                    list: that.data.list,
+                    isLoading: false,
+                    isOver:that.data.isOver,
+                })
+            },
+            function (msg) {
+                that.setData({
+                    isLoading: false,
+                })
+                register&&register.loadFinish(that,false)
+            }
+        )
     },
     scrolltolower(e) {
-        console.log('scrolltolower')
-        this.data.tabs[this.data.active].reachBottom=true
-        this.setData({
-            tabs:this.data.tabs
+        console.log("scrolltolower")
+        var that = this
+        that.setData({
+            reachBottom: true
         })
-        this.loadDataIfNeeded()
-    },
-    loadDataIfNeeded(){
-        if (this.data.tabs[this.data.active].isLoading) {
+        if (that.data.isLoading) {
             return
         }
         this.loadData()

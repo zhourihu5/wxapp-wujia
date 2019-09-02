@@ -40,7 +40,29 @@ Page({
             }
         }
     },
+    //下拉刷新数据
+    refresh:function(){
+        this.data.pageNum=1
+        this.setData({
+            isOver: false,
+            reachBottom: false,
+        });
+        this.loadData();
+    },
     onLoad() {
+        register.register(this)
+        this.loadData()
+    },
+
+    scrolltolower(e) {
+        console.log("scrolltolower")
+        var that = this
+        that.setData({
+            reachBottom: true
+        })
+        if (that.data.isLoading) {
+            return
+        }
         this.loadData()
     },
     loadData() {
@@ -84,16 +106,5 @@ Page({
                 register&&register.loadFinish(that,false)
             }
         )
-    },
-    scrolltolower(e) {
-        console.log("scrolltolower")
-        var that = this
-        that.setData({
-            reachBottom: true
-        })
-        if (that.data.isLoading) {
-            return
-        }
-        this.loadData()
     },
 })
