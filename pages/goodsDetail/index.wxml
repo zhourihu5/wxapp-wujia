@@ -43,7 +43,7 @@
             </view>
         </view>
     </view>
-    <view class="item2" style="padding-top: 20rpx;padding-bottom: 0rpx;">
+    <view wx:if="{{apiData.coupon}}" class="item2" style="padding-top: 20rpx;padding-bottom: 0rpx;">
         <view class="coupon-pink-b flex align-center">
             <view class="flex-1 p-l-30 p-r-30">
                 <view>
