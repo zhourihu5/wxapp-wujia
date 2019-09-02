@@ -39,12 +39,6 @@ Page({
     },
     onLoad() {
         // register.register(this);
-        console.log(pages)
-        if (pages.length > 1) {
-            this.setData({
-                isBack: true
-            })
-        }
     },
     toMyCoupon(e){
         wx.redirectTo({

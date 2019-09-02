@@ -14,7 +14,7 @@
     <include src="../../refreshview/refreshHeaderView.wxml"/>
 
 
-    <block wx:for="{{10}}" wx:key="">
+    <block wx:for="{{list}}" wx:key="">
 
         <!--                <activity cover="{{item.cover}}"-->
         <!--                          title="{{item.commodity.name}}"-->
@@ -27,7 +27,7 @@
 
         <view class="w-p-100 p-b-20 relative {{index==0?'m-t-20':''}}" hover-class="navigator-hover" hover-stop-propagation="{{true}}" bindtap="goBuy" data-index="{{index}}">
             <image class="img-coupon"
-                   src="/images/tab_my.png"
+                   src="{{item.banner}}"
                    hover-class="navigator-hover" hover-stop-propagation="{{true}}"
                    catchtap="toCouponDetail" data-index="{{index}}"/>
         </view>

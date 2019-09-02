@@ -8,6 +8,7 @@ Page({
     data: {
         modalName:null,
         apiData:null,
+        hasTaken:false,
     },
     showNavigationBarLoading() {
         if(this.data.loading){//下拉刷新
@@ -40,7 +41,19 @@ Page({
     onLoad(query) {
         console.log('query',query)
         let id=query.id;
-        //todo
+        var that=this
+        network.requestGet('/v1/experienceActivity/detail',
+            {
+                id: id,
+            },
+            function (data) {
+               that.setData({
+                   apiData:data,
+               })
+            },
+            function (msg) {
+            }
+        )
     },
     toMyCoupon(e){
         wx.redirectTo({
@@ -51,16 +64,28 @@ Page({
         this.setData({
             modalName: null,
         })
-        wx.navigateBack({
-            delta:1,
-        })
+        // wx.navigateBack({
+        //     delta:1,
+        // })
     },
     takeCoupon(e){
-        //todo
+        var that=this
+        network.requestGet('/v1/experienceActivity/receive',
+            {
+                id: apiData.id,
+            },
+            function (data) {
+                that.setData({
+                    modalName: 'ModalTakeCouponSuccess',
+                    experienceCode:data.experienceCode.experienceCode,
+                    finishDate:data.experienceCode.finishDate,
+                    hasTaken:true,
+                })
+            },
+            function (msg) {
+            }
+        )
 
-        this.setData({
-            modalName: 'ModalTakeCouponSuccess',
-        })
     },
     setTimeRemain: function () {
         interval && clearInterval(interval)
@@ -71,14 +96,10 @@ Page({
             if(!that.data.apiData){
                 return;
             }
-            if(!that.data.apiData.activity){
+            if(!that.data.apiData.endDate){
                 return;
             }
-            if(!that.data.apiData.activity.endDate){
-                return;
-            }
-
-            pDate= that.data.apiData.activity.endDate
+            pDate= that.data.apiData.endDate
             var endDate = null
             if (typeof pDate == "string") {
                 endDate = new Date(Date.parse(pDate.replace(/-/g, "/")));
