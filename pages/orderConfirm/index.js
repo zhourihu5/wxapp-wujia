@@ -35,9 +35,9 @@ Page({
     },
     onLoad(query) {
         console.log("接收参数",query)
-        if(true){//todo test
-            return;
-        }
+        // if(true){//todo test
+        //     return;
+        // }
         if(query&&query.scene){
             const scene = decodeURIComponent(query.scene)
             console.log('scene',scene)
