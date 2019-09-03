@@ -83,7 +83,11 @@ Page({
     },
     onLoad: function () {
         register.register(this)
+        this.data.active=0
         this.loadData()
+        this.data.active=1
+        this.loadData()
+        this.data.active=0
     },
     onUnload(){
         requestTask&&requestTask.abort()

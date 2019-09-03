@@ -15,7 +15,7 @@
     <block wx:for="{{list}}" wx:key="">
         <view class="coupon-o-g-b flex align-center m-t-20">
             <view class="flex-1 p-l-40 ">
-                <view class="coupon-name" style="max-width: 416rpx;">{{item.experience.banner}}</view>
+                <view class="coupon-name" style="max-width: 416rpx;">{{item.experience.name}}</view>
                 <view class="coupon-time" style="max-width: 416rpx;">有效期至 {{item.experience.endDate}}</view>
                 <view class="coupon-remark" style="max-width: 416rpx;">{{item.experience.limitAddress}}</view>
             </view>
