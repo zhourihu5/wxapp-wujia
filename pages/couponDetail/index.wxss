@@ -225,7 +225,9 @@ page{
   font-family:PingFangSC;
   font-weight:500;
   color:rgba(207,207,207,1);
-  line-height:40rpx;
+  /*line-height:40rpx;*/
+  line-height:56rpx;
+  text-align: center;
 
 }
 

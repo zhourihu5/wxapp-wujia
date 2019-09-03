@@ -50,6 +50,15 @@ Page({
                that.setData({
                    apiData:data,
                })
+                if(data.userExperienceCount>0){
+                    that.setData({
+                        hasTaken:true,
+                    })
+                }else {
+                    that.setData({
+                        hasTaken:false,
+                    })
+                }
             },
             function (msg) {
             }

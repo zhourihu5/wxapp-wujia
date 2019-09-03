@@ -187,7 +187,7 @@
             <rich-text class="rich-text-intro" nodes="{{  apiData.activity.remark }}"></rich-text>
 <!--            <view>{{  apiData.activity.remark }}</view>-->
         </view>
-        <view class="dialog-action" hover-class="navigator-hover" hover-stop-propagation="{{true}}" bindtap="hideModal">我知道了</view>
+        <view class="dialog-action-known" hover-class="navigator-hover" hover-stop-propagation="{{true}}" bindtap="hideModal">我知道了</view>
     </view>
 </view>
 <view class="cu-modal full-screen  {{modalName=='ModalTakeFail'?'show':''}}">
