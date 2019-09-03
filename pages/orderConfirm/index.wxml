@@ -59,7 +59,7 @@
               catchtap="toCouponDiscountPlat">
             <view class="flex-1">平台优惠券</view>
             <view class="flex align-center p-l-20">
-                <text class="{{apiData.platformCouponCount?'coupon-text':''}}">{{couponPlatText}}</text>
+                <view class="{{apiData.platformCouponCount?'coupon-text':''}}">{{couponPlatText}}</view>
                 <image  class="img-coupon-ar" src="/images/icon_entry_coupon.png"/>
             </view>
         </view>
@@ -67,7 +67,7 @@
             catchtap="toCouponDiscountAct">
             <view class="flex-1">活动优惠券</view>
             <view class="flex align-center p-l-20">
-                <text class="{{apiData.activityCouponCount?'coupon-text':''}}">{{couponActText}}</text>
+                <view class="{{apiData.activityCouponCount?'coupon-text':''}}">{{couponActText}}</view>
                 <image  class="img-coupon-ar" src="/images/icon_entry_coupon.png"/>
             </view>
         </view>
