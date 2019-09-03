@@ -29,7 +29,11 @@
                 <view class="coupon-name" style="max-width: 310rpx">{{item.coupon.name}}</view>
                 <view class="coupon-remark" style="max-width: 310rpx">{{utils.couponLimit(item.coupon.limitNum)}}</view>
                 <view class="coupon-time" style="max-width: 310rpx">有效期至 {{item.coupon.endDate}}</view>
-
+                <view class="r-c">
+                    <view class="t-corner"></view>
+                    <view class="v-line"></view>
+                    <view class="b-corner"></view>
+                </view>
             </view>
             <view class="i-c-r" style="z-index: 2">
                 <view class="ysh-w" style="margin-left: -30rpx">

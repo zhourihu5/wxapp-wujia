@@ -127,7 +127,7 @@ Page({
             modalName: 'ModalShowCode',
             experienceCode:item.experienceCode,
             finishDate:item.finishDate,
-            limitAddress:item.limitAddress,
+            limitAddress:item.experience.limitAddress,
         })
     },
 })
