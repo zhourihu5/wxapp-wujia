@@ -75,12 +75,19 @@ Page({
                 id: that.data.apiData.id,
             },
             function (data) {//todo
-                that.setData({
-                    modalName: 'ModalTakeCouponSuccess',
-                    experienceCode:data.experienceCode.experienceCode,
-                    finishDate:data.experienceCode.finishDate,
-                    hasTaken:true,
-                })
+                if(data.flag===false){
+                    this.setData({
+                        modalName: 'ModalTakeFail',
+                    })
+                }else {
+                    that.setData({
+                        modalName: 'ModalTakeCouponSuccess',
+                        experienceCode:data.experienceCode.experienceCode,
+                        finishDate:data.experienceCode.finishDate,
+                        hasTaken:true,
+                    })
+                }
+
             },
             function (msg) {
             }
