@@ -54,13 +54,13 @@
                 <view class="coupon-time">有效期至 {{apiData.coupon.endDate}}</view>
             </view>
 
-            <view class="c-r-c">
+            <view class="c-r-c" catchtap="couponClicked">
                 <view class="l-c">
                     <view class="t-corner"></view>
                     <view class="v-line"></view>
                     <view class="b-corner"></view>
                 </view>
-                <view class="coupon-use" catchtap="toConfirmOrder">立即使用</view>
+                <view class="coupon-use" >{{couponTaken?'立即使用':'立即领取'}}</view>
             </view>
         </view>
     </view>
