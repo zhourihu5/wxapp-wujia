@@ -85,7 +85,7 @@ Page({
             },
             function (data) {//todo
                 if(data.flag===false){
-                    this.setData({
+                    that.setData({
                         modalName: 'ModalTakeFail',
                     })
                 }else {
