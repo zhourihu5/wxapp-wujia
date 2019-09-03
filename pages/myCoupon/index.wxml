@@ -12,13 +12,12 @@
              bindscroll="scroll" bindscrolltoupper="upper" bindtouchstart="start" bindtouchend="end"
              bindtouchmove="move">
     <include src="../../refreshview/refreshHeaderView.wxml"/>
-    <!--    <include src="../../refreshview/refreshHeaderView.wxml"/>-->
-    <block wx:for="{{10}}" wx:key="">
+    <block wx:for="{{list}}" wx:key="">
         <view class="coupon-o-g-b flex align-center m-t-20">
             <view class="flex-1 p-l-40 ">
-                <view class="coupon-name" style="max-width: 416rpx;">汉堡王体验劵汉堡王体验劵汉堡王体验劵汉堡王体验劵汉堡王体验劵汉堡王体验劵</view>
-                <view class="coupon-time" style="max-width: 416rpx;">有效期至 2019.08.15</view>
-                <view class="coupon-remark" style="max-width: 416rpx;">仅限汉堡王（望京诚盈店）使用</view>
+                <view class="coupon-name" style="max-width: 416rpx;">{{item.experience.banner}}</view>
+                <view class="coupon-time" style="max-width: 416rpx;">有效期至 {{item.experience.endDate}}</view>
+                <view class="coupon-remark" style="max-width: 416rpx;">{{item.experience.limitAddress}}</view>
             </view>
 
             <view class="c-r-c">
@@ -28,7 +27,7 @@
                     <view class="b-corner"></view>
                 </view>
                 <view class="btn-lq"
-                      catchtap="takeCoupon">立即查看
+                      catchtap="takeCoupon" data-index="{{index}}">立即查看
                 </view>
             </view>
         </view>
@@ -59,9 +58,9 @@
         <view class="bg-hxm relative flex align-center" style="margin: 0 auto;padding: 60rpx;">
             <image class="bg-hxm" style="position: absolute;left: 0;top: 0;z-index:0 " src="/images/bg_coupon_expirence.png"></image>
             <view class="text-tyq">体验券</view>
-            <view class="hxm" style="z-index: 2">CAA145607800</view>
-            <view class="hxm-yxq">有效期至 2019.08.15</view>
+            <view class="hxm" style="z-index: 2">{{experienceCode}}</view>
+            <view class="hxm-yxq">有效期至 {{finishDate}}</view>
         </view>
-        <view class="dialog-msg">仅限汉堡王（望京诚盈店）使用</view>
+        <view class="dialog-msg">{{limitAddress}}</view>
     </view>
 </view>

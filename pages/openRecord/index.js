@@ -213,6 +213,9 @@ Page({
         }, function (msg) {
             register&&register.loadFinish(that,false)
             that.data.tabs[active].isLoading=false
+            that.setData({
+                tabs: that.data.tabs,
+            })
         })
 
 

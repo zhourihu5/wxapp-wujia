@@ -213,6 +213,22 @@ page{
   border-radius:27rpx;
 
 }
+.btn-taken{
+  width:156rpx;
+  height:56rpx;
+  background:rgba(238,237,237,1);
+  border-radius:27rpx;
+
+  /*width:112px;*/
+  /*height:40px;*/
+  font-size:28rpx;
+  font-family:PingFangSC;
+  font-weight:500;
+  color:rgba(207,207,207,1);
+  line-height:40rpx;
+
+}
+
 .img-ygq{
   width: 114rpx;
   height: 114rpx;

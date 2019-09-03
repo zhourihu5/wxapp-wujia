@@ -13,6 +13,7 @@ Page({
         modalName: null,
         saleTip:null,
         formatTitle: ['产地', '规格', '重量', '包装', '保质期', '贮存方式'],
+        couponTaken:false,
     },
     showNavigationBarLoading(){
         this.setData({
@@ -208,7 +209,7 @@ Page({
             return
         }
 
-        var id = e.currentTarget.dataset.id
+        var id =this.data.apiData.activity.id
         wx.navigateTo({url: "/pages/orderConfirm/index?id=" + id})
     },
 
@@ -217,5 +218,26 @@ Page({
             return richtext
         }
         return richtext.replace('<img ', '<img style="max-width:100%;height:auto" ')
-    }
+    },
+    couponClicked(e){
+        var that=this
+        if(this.data.couponTaken){
+            this.toConfirmOrder(e)
+            return
+        }
+        network.requestPost('/v1/experienceActivity/receive',//todo
+            {
+                id: that.data.apiData.coupon.id,
+            },
+            function (data) {
+                that.setData({
+                    couponTaken:true,
+                })
+            },
+            function (msg) {
+            }
+        )
+
+
+    },
 })

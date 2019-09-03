@@ -59,8 +59,8 @@ Page({
     },
     toCouponDetail(e) {
         var index=e.currentTarget.dataset.index
-        // let id =this.data.list[index].id;//todo
-        let id=1
+        let id =this.data.list[index].id;
+        // let id=1
         wx.navigateTo({url: '/pages/couponDetail/index?id=' + id})
     },
     loadData() {
@@ -71,11 +71,11 @@ Page({
         that.setData({
             isLoading: true,
         })
-        network.requestGet('/v1/activity/findAll',
+        network.requestGet('/v1/experienceActivity/list',
             {
                 pageNum: that.customData.pageNum,
                 pageSize: that.customData.pageSize,
-                communityId:app.communtityId
+                community:app.communtityId
             },
             function (data) {
                 if (that.customData.pageNum == 1) {
@@ -101,8 +101,6 @@ Page({
                 register&&register.loadFinish(that,false)
             }
         )
-    },
-    scrolltoupper(e) {
     },
     scrolltolower(e) {
         console.log("scrolltolower")

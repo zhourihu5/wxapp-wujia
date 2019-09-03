@@ -16,52 +16,27 @@ Page({
             {
                 title: "平台优惠券",
                 status:null,
-                isOver:true,//todo test
+                isOver:false,
                 isLoading: false,
                 reachBottom:false,
                 scrolling:false,
                 isUpper:true,
                 pageNum: 1,
+                type:1,
                 data:[
-                    1,
-                    2,
-                    3,
-                    1,
-                    2,
-                    3,
-                    1,
-                    2,
-                    3,
-                    1,
-                    2,
-                    3,
                 ],
             },
             {
                 title: "活动优惠券",
                 status:1,
-                isOver:true,//todo test
+                isOver:false,
                 isLoading: false,
                 reachBottom:false,
                 scrolling:false,
                 isUpper:true,
                 pageNum: 1,
+                type:2,
                 data:[
-                    1,
-                    2,
-                    3,
-                    1,
-                    2,
-                    3,
-                    1,
-                    2,
-                    3,
-                    1,
-                    2,
-                    3,
-                    1,
-                    2,
-                    3,
                 ],
             },
         ],
@@ -125,45 +100,49 @@ Page({
         this.loadData();
     },
     loadData() {
-        // var that = this
-        // var active=that.data.active;
-        // if (that.data.tabs[active].isOver) {
-        //     return
-        // }
-        // that.data.tabs[active].isLoading=true
-        // that.setData({
-        //     tabs: that.data.tabs,
-        // })
-        //
-        // var paramData={
-        //     communtityCode:app.communtityCode,
-        //     pageNum: that.data.tabs[active].pageNum,
-        //     pageSize:that.data.pageSize,
-        // }
-        // requestTask&&requestTask.abort()
-        // requestTask=network.requestGet('/v1/apply/accessRecords',paramData,function (data) {
-        //     that.data.tabs[active].isLoading=false
-        //     register&&register.loadFinish(that,true)
-        //     if (that.data.tabs[active].pageNum == 1) {
-        //         that.data.tabs[active].data = []
-        //     }
-        //     that.data.tabs[active].data.push.apply(that.data.tabs[active].data, data.ItemList);
-        //     if(data.Search&&data.Search.RecordCount>that.data.tabs[active].data.length){
-        //         that.data.tabs[active].pageNum++
-        //         that.data.tabs[active].isOver=false
-        //     }else {
-        //         that.data.tabs[active].isOver=true
-        //     }
-        //     that.setData({
-        //         tabs: that.data.tabs,
-        //         imgUrl:data.imgUrl,
-        //     })
-        //
-        //
-        // }, function (msg) {
-        //     register&&register.loadFinish(that,false)
-        //     that.data.tabs[active].isLoading=false
-        // })
+        var that = this
+        var active=that.data.active;
+        if (that.data.tabs[active].isOver) {
+            return
+        }
+        that.data.tabs[active].isLoading=true
+        that.setData({
+            tabs: that.data.tabs,
+        })
+
+        var paramData={
+            pageNum: that.data.tabs[active].pageNum,
+            status: 0,//0 正常，'1，2'失效的
+            type: that.data.tabs[active].type,
+            pageSize:that.data.pageSize,
+        }
+        requestTask&&requestTask.abort()
+        requestTask=network.requestGet('/v1/coupon/couponCodeList',paramData,function (data) {
+            that.data.tabs[active].isLoading=false
+            register&&register.loadFinish(that,true)
+            if (that.data.tabs[active].pageNum == 1) {
+                that.data.tabs[active].data = []
+            }
+            that.data.tabs[active].data.push.apply(that.data.tabs[active].data, data.content);
+            if(data.content.length>=that.data.pageSize){
+                that.data.tabs[active].pageNum++
+                that.data.tabs[active].isOver=false
+            }else {
+                that.data.tabs[active].isOver=true
+            }
+            that.data.tabs[active].totalElements= data.totalElements;
+            that.setData({
+                tabs: that.data.tabs,
+            })
+
+
+        }, function (msg) {
+            register&&register.loadFinish(that,false)
+            that.data.tabs[active].isLoading=false
+            that.setData({
+                tabs: that.data.tabs,
+            })
+        })
 
 
     },

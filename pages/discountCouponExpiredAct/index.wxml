@@ -1,3 +1,4 @@
+<wxs src="../../wxs/utils.wxs" module="utils"/>
 <cu-custom bgColor="titlebar-white" isBack="{{true}}">
     <view slot="backText"></view>
     <view slot="content"><text class="{{navigationBarLoading?'wj-loading-icon':''}}"/>活动失效券</view>
@@ -10,16 +11,18 @@
              bindtouchmove="move">
     <include src="../../refreshview/refreshHeaderView.wxml"/>
 <!--    <include src="../../refreshview/refreshHeaderView.wxml"/>-->
-    <block wx:for="{{10}}" wx:key="">
+    <block wx:for="{{list}}" wx:key="">
         <view  class="coupon-w-b flex align-center relative m-t-20">
 
-            <image class="img-activity" src="/images/tab_my.png" />
+            <image class="img-activity" src="{{item.coupon.activity.cover}}" />
 
             <view class="flex-1 relative i-c-c ">
 
-                <view class="coupon-name">平台优惠劵平台优惠平台优惠劵平台优惠平台优惠劵平台优惠</view>
-                <view class="coupon-remark">无限制</view>
-                <view class="coupon-time">有效期至 2019.08.15</view>
+                <view class="coupon-name">{{item.coupon.name}}</view>
+                <view class="coupon-remark">
+                    {{utils.couponLimit(item.coupon.limitNum)}}
+                </view>
+                <view class="coupon-time">有效期至 {{item.coupon.endDate}}</view>
 
                 <view class="r-c">
                     <view class="t-corner"></view>
@@ -31,12 +34,12 @@
                 <view class="flex-1"></view>
                 <view>
                     <text class="dollor">￥</text>
-                    <text class="money-v">12</text>
+                    <text class="money-v">{{item.coupon.money}}</text>
                 </view>
                 <view class="ysh-w" style="margin-bottom: 10rpx">
                     <view class="ysh-r">
 
-                        <view class="ysh">已过期</view>
+                        <view class="ysh">{{item.coupon.status=='1'?'已过期':'已使用'}}</view>
                     </view>
                 </view>
             </view>

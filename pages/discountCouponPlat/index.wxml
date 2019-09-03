@@ -10,14 +10,14 @@
              bindscroll="scrollP"  bindscrolltoupper="upperP" bindtouchstart="start" bindtouchend="end"
              bindtouchmove="move" data-index="{{tabIndex}}">
     <include src="../../refreshview/refreshHeaderView.wxml"/>
-    <view class="g-text m-t-20 m-b-20">可使用优惠券（2）</view>
-    <block wx:for="{{10}}" wx:for-item="item" wx:key="">
+    <view class="g-text m-t-20 m-b-20">可使用优惠券（{{apiData.yesList.length}}）</view>
+    <block wx:for="{{apiData.yesList}}" wx:for-item="item" wx:key="">
 
-        <view  class="coupon-w-b flex align-center relative m-b-20">
+        <view  class="coupon-w-b flex align-center relative m-b-20" catchtap="itemClicked" data-index="{{index}}" >
             <view class="i-c-l">
                 <view>
                     <text class="dollor">￥</text>
-                    <text class="money-v">12</text>
+                    <text class="money-v">{{item.coupon.money}}</text>
                 </view>
             </view>
             <view class="flex-1 relative i-c-c p-l-40 p-r-40" style="z-index: 2">
@@ -27,9 +27,9 @@
                     <view class="b-corner"></view>
                 </view>
 
-                <view class="coupon-name">平台优惠劵平台优惠平台优惠劵平台优惠平台优惠劵平台优惠</view>
-                <view class="coupon-remark">无限制</view>
-                <view class="coupon-time">有效期至 2019.08.15</view>
+                <view class="coupon-name">{{item.coupon.name}}</view>
+                <view class="coupon-remark">{{utils.couponLimit(item.coupon.limitNum)}}</view>
+                <view class="coupon-time">有效期至 {{item.coupon.endDate}}</view>
 
                 <view class="r-c" >
                     <view class="t-corner"></view>
@@ -41,20 +41,20 @@
 <!--                <view class="qsy">去使用</view>-->
 <!--            </view>-->
             <image class="img-coupon-dollor" src="/images/coupon_dollor_img.png"/>
-            <image class="img-coupon-selected" src="/images/icon_coupon_selected.png"/>
+            <image wx:if="{{checked==index}}" class="img-coupon-selected" src="/images/icon_coupon_selected.png"/>
 
         </view>
 
 
     </block>
-    <view class="g-text m-b-20">不可使用优惠券（1）</view>
-    <block wx:for="{{10}}" wx:for-item="item" wx:key="">
+    <view class="g-text m-b-20">不可使用优惠券（{{apiData.noList.length}}）</view>
+    <block wx:for="{{apiData.noList}}" wx:for-item="item" wx:key="">
 
         <view  class="coupon-w-b expired flex align-center relative m-b-20">
             <view class="i-c-l">
                 <view>
                     <text class="dollor expired">￥</text>
-                    <text class="money-v expired">12</text>
+                    <text class="money-v expired">{{item.coupon.money}}</text>
                 </view>
             </view>
             <view class="flex-1 relative i-c-c p-l-40 p-r-40" style="z-index: 2">
@@ -64,9 +64,9 @@
                     <view class="b-corner"></view>
                 </view>
 
-                <view class="coupon-name expired">平台优惠劵平台优惠平台优惠劵平台优惠平台优惠劵平台优惠</view>
-                <view class="coupon-remark expired">无限制</view>
-                <view class="coupon-time expired">有效期至 2019.08.15</view>
+                <view class="coupon-name expired">{{item.coupon.name}}</view>
+                <view class="coupon-remark expired">{{utils.couponLimit(item.coupon.limitNum)}}</view>
+                <view class="coupon-time expired">有效期至 {{item.coupon.endDate}}</view>
 
                 <view class="r-c" >
                     <view class="t-corner"></view>
