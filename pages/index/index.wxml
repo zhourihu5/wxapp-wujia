@@ -141,7 +141,7 @@
         </view>
         <view class="input-container" >
             <input class="input" auto-focus="{{autoFocus=='code'}}" focus="{{autoFocus=='code'}}"
-                   adjust-position="{{false}}"
+                   adjust-position="{{true}}"
                    placeholder-class="placeholder" bindinput="codeInput"
                    placeholder="请输入验证码"
             />
