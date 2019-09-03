@@ -208,7 +208,7 @@ Page({
             return
         }
 
-        var id = e.currentTarget.dataset.id
+        var id =this.data.apiData.activity.id
         wx.navigateTo({url: "/pages/orderConfirm/index?id=" + id})
     },
 

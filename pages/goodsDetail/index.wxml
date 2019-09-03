@@ -134,7 +134,7 @@
 
 
 
-<view class="bottom-button" hover-class="navigator-hover" hover-stop-propagation="{{true}}" bindtap="toConfirmOrder" data-id="{{apiData.activity.id}}">去参团</view>
+<view class="bottom-button" hover-class="navigator-hover" hover-stop-propagation="{{true}}" bindtap="toConfirmOrder" >去参团</view>
 
 <view class="cu-modal full-screen  {{modalName=='ModalIntro'?'show':''}}">
     <view class="cu-dialog dialog relative">

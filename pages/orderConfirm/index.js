@@ -149,26 +149,27 @@ Page({
             return;
         }
         that.data.isClicked=true
-        network.requestPost('/v1/order/saveOrder', {
+       var paramData=  {
             activityId: that.data.apiData.id,
-            deliveryUname: that.data.myAddress.name,
+                deliveryUname: that.data.myAddress.name,
             deliveryUphone: that.data.myAddress.phone,
             deliveryAddress:that.data.myAddress.communtityName+that.data.myAddress.address,
             // deliveryArea: that.data.myAddress.address,
             commodityId: that.data.apiData.commodity.id,
 
-        }, function (data) {
+        }
+        if(this.data.couponAct){
+            paramData.activityCouponId=this.data.couponAct.id
+        }
+        if(this.data.couponPlat){
+            paramData.platformCouponId=this.data.couponPlat.id
+        }
+
+        network.requestPost('/v1/order/saveOrder',paramData , function (data) {
             that.data.isClicked=false
             app.orderChanged=true
             that.data.apiPayOrderData=data
 
-            // var random=Math.round(Math.random()*10)
-            // if(random>7){//todo test for random payorder
-            //     that.payOrder();//todo just for test,please delete it if online
-            //     console.log('随机支付了')
-            // }else {
-            //     console.log('随机未支付')
-            // }
             that.wxPay()
         }, function (msg) {
             that.data.isClicked=false
