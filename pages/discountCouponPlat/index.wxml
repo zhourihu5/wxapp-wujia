@@ -41,7 +41,7 @@
 <!--                <view class="qsy">去使用</view>-->
 <!--            </view>-->
             <image class="img-coupon-dollor" src="/images/coupon_dollor_img.png"/>
-            <image wx:if="{{checked==index}}" class="img-coupon-selected" src="/images/icon_coupon_selected.png"/>
+            <image wx:if="{{checked==item.id}}" class="img-coupon-selected" src="/images/icon_coupon_selected.png"/>
 
         </view>
 

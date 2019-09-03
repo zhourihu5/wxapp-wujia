@@ -77,10 +77,6 @@ page{
     align-items: center;
     justify-content: center;
 }
-.p-activity-content{
-    padding-left: 26rpx;
-    padding-right: 26rpx;
-}
 .i-c-c{
     height: 100%;
     flex: 1;

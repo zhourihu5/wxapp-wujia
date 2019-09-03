@@ -217,4 +217,19 @@ Page({
             })
         }
     },
+    toActivityDetail(e){
+       let index=  e.currentTarget.dataset.index
+       let act= this.data.tabs[1].data[index].activity
+        let id=act.id
+        if(act.isJoin==1){
+            wx.navigateTo({url: '/pages/goodsDetail1/index?id=' + id})
+        }else {
+            wx.navigateTo({url: '/pages/goodsDetail/index?id=' + id})
+        }
+    },
+    toActivityList(e){
+        if(!util.navibackTo("/pages/activityMore/index")){
+            wx.redirectTo({url: "/pages/activityMore/index"})
+        }
+    },
 })

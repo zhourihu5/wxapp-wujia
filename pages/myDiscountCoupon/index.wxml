@@ -59,7 +59,7 @@
                                 <view class="b-corner"></view>
                             </view>
                         </view>
-                        <view class="i-c-r" style="z-index: 2">
+                        <view class="i-c-r" style="z-index: 2" catchtap="toActivityList" data-index="{{index}}">
                             <view class="qsy">去使用</view>
                         </view>
                         <image class="img-coupon-dollor" src="/images/coupon_dollor_img.png"/>
@@ -80,7 +80,7 @@
                                 <view class="b-corner"></view>
                             </view>
                         </view>
-                        <view class="i-c-l" style="z-index: 2">
+                        <view class="i-c-l" style="z-index: 2" catchtap="toActivityDetail" data-index="{{index}}">
                             <view>
                                 <text class="dollor">￥</text>
                                 <text class="money-v">{{item.coupon.money}}</text>

@@ -88,6 +88,11 @@ Page({
                     })
                 }
 
+                var pages=getCurrentPages()
+                var prePage=pages[pages.length-2]
+                if(prePage.refresh){
+                    prePage.refresh()
+                }
             },
             function (msg) {
             }
@@ -152,6 +157,7 @@ Page({
         interval=null
     },
     goStroll(e){
+
         wx.navigateBack({
             delta:1,
         })

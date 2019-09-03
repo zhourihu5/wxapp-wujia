@@ -128,6 +128,21 @@ Page({
                 apiData: data,
                 myAddress: data.address,
             })
+            if(data.platformCouponCount>0){
+                that.data.couponPlatText=`${data.platformCouponCount}个可用`
+            }else {
+                that.data.couponPlatText='暂无可用'
+            }
+            if(data.activityCouponCount>0){
+                that.data.couponActText=`${data.activityCouponCount}个可用`
+            }else {
+                that.data.couponActText='暂无可用'
+            }
+            that.setData({
+                couponPlatText: that.data.couponPlatText,
+                couponActText: that.data.couponActText,
+            })
+
         }, function (msg) {
 
         })
