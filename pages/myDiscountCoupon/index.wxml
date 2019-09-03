@@ -71,7 +71,7 @@
                         <view class="flex-1 relative i-c-c">
 
                             <view class="coupon-name" style="max-width: 270rpx;">{{item.coupon.name}}</view>
-                            <view class="coupon-remark" style="max-width: 270rpx;"> {{utils.couponLimit(item.coupon.limitNum)}}</view>
+                            <view class="coupon-remark" style="max-width: 270rpx;"> {{utils.couponActLimit(item.activity.title)}}</view>
                             <view class="coupon-time" style="max-width: 270rpx;">有效期至 {{item.coupon.endDate}}</view>
 
                             <view class="r-c">

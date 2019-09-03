@@ -4,7 +4,6 @@ const network = require('../../utils/network.js')
 const app = getApp();
 var register = require('../../refreshview/refreshLoadRegister.js');
 var interval = null //倒计时函数
-var requestTask=null
 Page({
     data: {
         CustomBar: app.globalData.CustomBar,
@@ -89,10 +88,6 @@ Page({
         this.loadData()
         this.data.active=0
     },
-    onUnload(){
-        requestTask&&requestTask.abort()
-        console.log('onUnload requestTask.abort')
-    },
     //下拉刷新数据
     refresh:function(){
         this.data.tabs[this.data.active].isOver=false
@@ -120,8 +115,7 @@ Page({
             type: that.data.tabs[active].type,
             pageSize:that.data.pageSize,
         }
-        requestTask&&requestTask.abort()
-        requestTask=network.requestGet('/v1/coupon/couponCodeList',paramData,function (data) {
+        network.requestGet('/v1/coupon/couponCodeList',paramData,function (data) {
             that.data.tabs[active].isLoading=false
             register&&register.loadFinish(that,true)
             if (that.data.tabs[active].pageNum == 1) {
@@ -183,18 +177,6 @@ Page({
     },
 
 
-    onPullDownRefresh: function () {
-        // Do something when pull down.
-        console.log('onPullDownRefresh')
-
-    },
-    onReachBottom: function () {
-        // Do something when page reach bottom.
-        console.log('onReachBottom')
-    },
-    scrolltoupper: function (e) {
-        // console.log("scrolltoupper")
-    },
     scrolltolower(e) {
         console.log('scrolltolower')
         this.data.tabs[this.data.active].reachBottom=true

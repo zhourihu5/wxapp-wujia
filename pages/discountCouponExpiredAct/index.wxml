@@ -14,13 +14,13 @@
     <block wx:for="{{list}}" wx:key="">
         <view  class="coupon-w-b flex align-center relative m-t-20">
 
-            <image class="img-activity" src="{{item.coupon.activity.cover}}" />
+            <image class="img-activity" src="{{item.activity.cover}}" />
 
             <view class="flex-1 relative i-c-c ">
 
                 <view class="coupon-name">{{item.coupon.name}}</view>
                 <view class="coupon-remark">
-                    {{utils.couponLimit(item.coupon.limitNum)}}
+                    {{utils.couponActLimit(item.activity.title)}}
                 </view>
                 <view class="coupon-time">有效期至 {{item.coupon.endDate}}</view>
 
