@@ -7,6 +7,8 @@ Page({
         modalName: null,
         myAddress: null,//收货地址
         isClicked:false,
+        couponAct:null,
+        couponPlat:null,
     },
     showNavigationBarLoading(){
         this.setData({

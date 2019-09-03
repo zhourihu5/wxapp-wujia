@@ -36,6 +36,13 @@ Page({
     },
     onLoad(query) {
         let activityId=query.activityId
+        var pages=getCurrentPages()
+        var prePage=pages[pages.length-2]
+        if(prePage.data.couponPlat){
+            this.setData({
+                checked:prePage.data.couponPlat.id,
+            })
+        }
         var that=this
         network.requestGet('/v1/coupon/couponChangeList',
             {
@@ -53,5 +60,14 @@ Page({
             }
         )
     },
+    itemClicked(e){
+        let index=  e.currentTarget.dataset.index
+        this.setData({
+            checked:this.data.apiData.yesList[index].id,
+        })
+        var pages=getCurrentPages()
+        var prePage=pages[pages.length-2]
+        prePage.data.couponPlat=this.data.apiData.yesList[index]
 
+    }
 })
