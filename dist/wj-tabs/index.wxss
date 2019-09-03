@@ -103,7 +103,7 @@
 .van-tab {
     min-width: 0;
     padding: 0 20rpx;
-    font-size:24rpx ;
+    font-size:28rpx ;
     font-family:PingFangSC-Regular ;
     font-weight:400 ;
     color:rgba(85,85,85,1) ;

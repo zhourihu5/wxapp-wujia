@@ -140,7 +140,8 @@ VantComponent({
                 //fixme 第一次加载的tab rect的width计算的不对
                 if(rects.length==1){
                     const app=getApp()
-                    rect.width=112*app.globalData.windowWidth/750;//rpx to px
+                    // rect.width=112*app.globalData.windowWidth/750;//rpx to px
+                    rect.width=(28*3+20*2)*app.globalData.windowWidth/750;//rpx to px
                 }
 
 
