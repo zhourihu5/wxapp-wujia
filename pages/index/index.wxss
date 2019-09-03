@@ -174,7 +174,7 @@ page{
   width: 100%;
 }
 .top-title .icon {
-  width: 24rpx;
+  width: 22rpx;
   height: 28rpx;
 }
 
@@ -547,6 +547,7 @@ movable-area {
     /*justify-content: center;*/
 
     padding: 50rpx 60rpx;
+    padding-bottom: 60rpx;
 }
 .dialog-title{
     /*width:396px;*/

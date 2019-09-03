@@ -374,7 +374,20 @@ Page({
                             that.data.userId=data.userInfo.id
                             // that.onAppShow({path:'pages/index/index'})
                         } else {
+                            wx.onKeyboardHeightChange(res => {
+                                console.log('onKeyboardHeightChange',res)
+                                // var padding=res.height-util.rpxToPx(60)
+                                var padding=res.height
+                                if(padding<0){
+                                    padding=0
+                                }
+                                that.setData({
+                                    modalPadding:padding,
+                                })
+                            })
                             that.showModal('ModalBindPhone');
+
+
                         }
                     }, function (msg) {
 
@@ -597,12 +610,28 @@ Page({
             autoFocus: 'code',
         })
         wx.onKeyboardHeightChange(res => {
-            console.log('onKeyboardHeightChange',res)
+            console.log('getVcode onKeyboardHeightChange',res)
+            // var padding=res.height-util.rpxToPx(60)
+            var padding=res.height
+            if(padding<0){
+                padding=0
+            }
+            that.setData({
+                modalPadding:padding,
+            })
         })
         setTimeout(function () {
 
             wx.onKeyboardHeightChange(res => {
                 console.log('setTimeout onKeyboardHeightChange',res)
+                // var padding=res.height-util.rpxToPx(60)
+                var padding=res.height
+                if(padding<0){
+                    padding=0
+                }
+                that.setData({
+                    modalPadding:padding,
+                })
                 if(res.height<10){
                     that.setData({
                         autoFocus: null,
