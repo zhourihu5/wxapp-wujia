@@ -74,7 +74,7 @@ Page({
             {
                 id: that.data.apiData.id,
             },
-            function (data) {
+            function (data) {//todo
                 that.setData({
                     modalName: 'ModalTakeCouponSuccess',
                     experienceCode:data.experienceCode.experienceCode,
@@ -143,5 +143,10 @@ Page({
     onHide(){
         interval && clearInterval(interval)
         interval=null
+    },
+    goStroll(e){
+        wx.navigateBack({
+            delta:1,
+        })
     },
 })

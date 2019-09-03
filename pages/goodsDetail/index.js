@@ -166,6 +166,15 @@ Page({
                 apiData: data,
                 saleTip:data.activity.saleTip&&data.activity.saleTip.split(','),
             })
+            if(data.coupon&&data.coupon.userCouponCount>0){
+                that.setData({
+                    couponTaken:true,
+                })
+            }else {
+                that.setData({
+                    couponTaken:false,
+                })
+            }
         }, function (msg) {
 
         })
@@ -225,14 +234,21 @@ Page({
             this.toConfirmOrder(e)
             return
         }
-        network.requestPost('/v1/experienceActivity/receive',//todo
+        network.requestPost('/v1/coupon/receive',
             {
                 id: that.data.apiData.coupon.id,
             },
             function (data) {
-                that.setData({
-                    couponTaken:true,
-                })
+                if(data.flag===false){
+                    this.setData({
+                        modalName: 'ModalTakeFail',
+                    })
+                }else {
+                    that.setData({
+                        couponTaken:true,
+                    })
+                }
+
             },
             function (msg) {
             }
