@@ -86,7 +86,7 @@
 <view class="bottom">
     <view class="b-l">
         <text class="sfk">实付款：</text>
-        <text class="sfk-value">￥{{apiData.paymentMoney}}</text>
+        <text class="sfk-value">￥{{paymentMoney}}</text>
     </view>
     <view class="bg-orange pay-btn" hover-class="navigator-hover" hover-stop-propagation="{{true}}" bindtap="toPay">立即支付</view>
 </view>

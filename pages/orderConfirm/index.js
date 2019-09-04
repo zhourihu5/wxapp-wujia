@@ -9,6 +9,7 @@ Page({
         isClicked:false,
         couponAct:null,
         couponPlat:null,
+        paymentMoney:null,
     },
     showNavigationBarLoading(){
         this.setData({
@@ -56,6 +57,22 @@ Page({
         // }
        this.loadData(id)
 
+    },
+    onShow(){
+        if(this.data.paymentMoney){
+            if(this.data.couponAct){
+                this.data.paymentMoney-=this.data.couponAct.money
+            }
+            if(this.data.couponPlat){
+                this.data.paymentMoney-=this.data.couponPlat.money
+            }
+            if(this.data.paymentMoney<0){
+                this.data.paymentMoney=0
+            }
+            this.setData({
+                paymentMoney:this.data.paymentMoney,
+            })
+        }
     },
     reLogin(id){
         this.navigateBack=function(){
@@ -127,6 +144,7 @@ Page({
             that.setData({
                 apiData: data,
                 myAddress: data.address,
+                paymentMoney:data.paymentMoney,
             })
             if(data.platformCouponCount>0){
                 that.data.couponPlatText=`${data.platformCouponCount}个可用`
