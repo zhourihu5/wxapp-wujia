@@ -73,7 +73,7 @@
 <!--        </view>-->
 
 <!--        <view class="item-2-1 p-t-30 border-top">-->
-        <view class="item-2-1 p-t-30">
+        <view class="item-2-1 p-t-50">
             <image class="icon-pay" src="/images/icon_wechat.png"/>
             <view class="flex-1 wechat-pay">微信支付</view>
             <view class="cuIcon-check roundcheckfill"></view>
