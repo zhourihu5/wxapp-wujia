@@ -1,0 +1,8 @@
+{
+  "navigationBarBackgroundColor": "#FFFFFF",
+  "navigationBarTitleText": "门禁记录",
+  "navigationBarTextStyle": "black",
+  "backgroundTextStyle": "dark",
+  "backgroundColor": "#FFFFFF",
+  "usingComponents": {}
+}

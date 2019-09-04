@@ -5,130 +5,107 @@
         <view slot="backText"></view>
         <view slot="content"><text class="{{navigationBarLoading?'wj-loading-icon':''}}"/>门禁记录</view>
     </cu-custom>
-    <van-tabs class="tab-layout"
-              custom-class="custom-tabs"
-              nav-class="tab-nav"
-              tab-class="tab-custom"
-              border="{{false}}"
-              line-class="tab-line"
-              color="rgba(255,155,29,1)"
-              lineWidth="{{tabLineWidth}}" swipeable swipeThreshold="2"
-              active="{{active}}"
-              bind:change="onChangeTab"
-    >
-        <van-tab
-                wx:for="{{ tabs }}"
-                wx:for-item="tab"
-                wx:for-index="tabIndex"
-                title="{{tab.title}}"
-                custom-class="custom-tab">
-
-            <scroll-view scroll-y
-                         style="position: relative;height:calc( {{windowHeight}}px - {{CustomBar}}px - 84rpx )"
-                         lower-threshold="{{lowerThreshold}}"
-                         bindscrolltolower='scrolltolower'
-                         bindscroll="scrollP"  bindscrolltoupper="upperP" bindtouchstart="start" bindtouchend="end"
-                         bindtouchmove="move" data-index="{{tabIndex}}">
-                <include src="../../refreshview/refreshHeaderView.wxml"/>
-                <block wx:for="{{tab.data}}" wx:for-item="item" wx:key="">
-<!--                <block wx:for="{{10}}" wx:for-item="item" wx:key="">-->
+    <scroll-view scroll-y
+                 class="body"
+                 lower-threshold="{{lowerThreshold}}"
+                 bindscrolltolower='scrolltolower'
+                 bindscroll="scroll"  bindscrolltoupper="upper" bindtouchstart="start" bindtouchend="end"
+                 bindtouchmove="move" >
+        <include src="../../refreshview/refreshHeaderView.wxml"/>
+        <block wx:for="{{list}}" wx:for-item="item" wx:key="">
+            <!--                <block wx:for="{{10}}" wx:for-item="item" wx:key="">-->
 
 
-                    <van-collapse custom-class="custom-collapse {{index==0?'m-t-20':''}}"
-                            border="" data-index="{{index}}" value="{{tab.data[index].collapseValue}}"  bind:change="onChange">
-                        <van-collapse-item custom-class="custom-collapse-item"
-                                           top-cell-class="top-cell-class"
-                                           border="{{false}}"
-                                           content-class="custom-content"
-                                           title-class="van-collapse-item-title"
-                                           right-icon-class="custom-right-icon"
-                                           >
-                            <view slot="title">
-                                <view class="w-p-100 flex align-center" >
-                                    <view class="t-l-1 flex-1">
-                                        <view class="flex-1 {{index==0?'':'line-v-d'}}"></view>
-                                        <view class="item-title flex align-center">
-                                            <image class="icon-in-out" src="{{item.Direction==1?'/images/icon_door_in.png':'/images/icon_door_out.png'}} "></image>
-                                            <view class="in-out-text">{{item.Direction==1?'进门':'出门'}}</view>
-                                        </view>
-                                        <view class="flex">
-                                            <view class="t-time {{index==tab.data.length-1?'':'line-v-d'}}">{{item.AccessTime}}</view>
-                                        </view>
-                                        <view class="flex-1 {{index==tab.data.length-1?'':'line-v-d'}}"></view>
-                                    </view>
-                                    <image class="image-t" src="{{imgUrl}}{{item.AccessPhoto1}}"></image>
+            <van-collapse custom-class="custom-collapse {{index==0?'m-t-20':''}}"
+                          border="" data-index="{{index}}" value="{{tab.data[index].collapseValue}}"  bind:change="onChange">
+                <van-collapse-item custom-class="custom-collapse-item"
+                                   top-cell-class="top-cell-class"
+                                   border="{{false}}"
+                                   content-class="custom-content"
+                                   title-class="van-collapse-item-title"
+                                   right-icon-class="custom-right-icon"
+                >
+                    <view slot="title">
+                        <view class="w-p-100 flex align-center" >
+                            <view class="t-l-1 flex-1">
+                                <view class="flex-1 {{index==0?'':'line-v-d'}}"></view>
+                                <view class="item-title flex align-center">
+                                    <image class="icon-in-out" src="{{item.Direction==1?'/images/icon_door_in.png':'/images/icon_door_out.png'}} "></image>
+                                    <view class="in-out-text">{{item.Direction==1?'进门':'出门'}}</view>
+                                </view>
+                                <view class="flex">
+                                    <view class="t-time {{index==tab.data.length-1?'':'line-v-d'}}">{{item.AccessTime}}</view>
+                                </view>
+                                <view class="flex-1 {{index==tab.data.length-1?'':'line-v-d'}}"></view>
+                            </view>
+                            <image class="image-t" src="{{imgUrl}}{{item.AccessPhoto1}}"></image>
+                        </view>
+                    </view>
+
+
+                    <view class="w-p-100 gray-c-c {{index==tab.data.length-1?'':'line-v-d'}}">
+                        <view class="gray-content">
+                            <view class="flex w-p-100 align-center justify-between m-b-30">
+                                <view class="m-t-t">时间</view>
+                                <view class="m-t-c">{{item.AccessTime}}</view>
+                            </view>
+                            <view class="flex w-p-100 align-center justify-between m-b-30">
+                                <view class="m-t-t">开锁方式</view>
+                                <view class="m-t-c">{{AccessWay[item.AccessWay]}}</view>
+                            </view>
+                            <view class="flex w-p-100 align-center justify-between m-b-30">
+                                <view class="m-t-t">门口机</view>
+                                <view class="m-t-c">{{item.DeviceName}}</view>
+                            </view>
+                            <view class="flex w-p-100 align-center justify-between m-b-30">
+                                <view class="m-t-t">进出方</view>
+                                <view class="m-t-c">{{item.PersonnelName}}</view>
+                            </view>
+                            <view class="flex w-p-100 align-center  m-b-30">
+                                <view class="m-t-t">证件号码</view>
+                                <view class="m-t-c">{{utils.hideCode(item.CertificateCardNo,4)}}</view>
+                            </view>
+                            <view class="flex w-p-100 align-center justify-between m-b-30">
+                                <view class="m-t-t">进出</view>
+                                <view class="m-t-c">{{item.Direction==1?'进门':'出门'}}</view>
+                            </view>
+                            <view class="flex w-p-100 align-center justify-between">
+                                <view class="m-t-t">留影展示</view>
+                                <view class="m-t-c"></view>
+                            </view>
+                            <view wx:if="{{item.AccessPhoto1}}" class="flex w-p-100 align-center justify-between m-t-30">
+                                <image wx:if="{{item.AccessPhoto1}}" class="img-b" src="{{imgUrl}}{{item.AccessPhoto1}}" />
+                                <image wx:if="{{item.AccessPhoto2}}" class="img-b" src="{{imgUrl}}{{item.AccessPhoto2}}" />
+                            </view>
+                            <view wx:if="{{item.AccessPhoto3}}" class="flex w-p-100 align-center justify-between m-t-30">
+                                <image wx:if="{{item.AccessPhoto3}}" class="img-b" src="{{imgUrl}}{{item.AccessPhoto3}}" />
+                                <image wx:if="{{item.AccessPhoto4}}" class="img-b" src="{{imgUrl}}{{item.AccessPhoto4}}" />
+                            </view>
+                            <view wx:if="{{item.AccessPhoto5}}" class="flex w-p-100 align-center justify-between m-t-30">
+                                <image wx:if="{{item.AccessPhoto5}}" class="img-b" src="{{imgUrl}}{{item.AccessPhoto5}}" />
+                                <image wx:if="{{item.AccessPhoto6}}" class="img-b" src="{{imgUrl}}{{item.AccessPhoto6}}" />
+                            </view>
+                            <view wx:if="{{item.AccessPhoto7}}" class="flex w-p-100 align-center justify-between m-t-30">
+                                <image wx:if="{{item.AccessPhoto7}}" class="img-b" src="{{imgUrl}}{{item.AccessPhoto7}}" />
+                                <image wx:if="{{item.AccessPhoto8}}" class="img-b" src="{{imgUrl}}{{item.AccessPhoto8}}" />
+                            </view>
+                            <view wx:if="{{item.AccessVideo}}" class="flex w-p-100 align-center justify-between m-t-30">
+                                <!--                                    <view  class="flex w-p-100 align-center justify-between m-t-30">-->
+                                <view  class="img-b flex align-center justify-center"
+                                       style="background-image:url('{{imgUrl}}{{item.AccessPhoto1}}');"
+                                       catchtap="toPlayVideo" data-url="{{imgUrl}}{{item.AccessVideo}}">
+                                    <view class="cuIcon-video"></view>
                                 </view>
                             </view>
 
-
-                            <view class="w-p-100 gray-c-c {{index==tab.data.length-1?'':'line-v-d'}}">
-                                <view class="gray-content">
-                                    <view class="flex w-p-100 align-center justify-between m-b-30">
-                                        <view class="m-t-t">时间</view>
-                                        <view class="m-t-c">{{item.AccessTime}}</view>
-                                    </view>
-                                    <view class="flex w-p-100 align-center justify-between m-b-30">
-                                        <view class="m-t-t">开锁方式</view>
-                                        <view class="m-t-c">{{AccessWay[item.AccessWay]}}</view>
-                                    </view>
-                                    <view class="flex w-p-100 align-center justify-between m-b-30">
-                                        <view class="m-t-t">门口机</view>
-                                        <view class="m-t-c">{{item.DeviceName}}</view>
-                                    </view>
-                                    <view class="flex w-p-100 align-center justify-between m-b-30">
-                                        <view class="m-t-t">进出方</view>
-                                        <view class="m-t-c">{{item.PersonnelName}}</view>
-                                    </view>
-                                    <view class="flex w-p-100 align-center  m-b-30">
-                                        <view class="m-t-t">证件号码</view>
-                                        <view class="m-t-c">{{utils.hideCode(item.CertificateCardNo,4)}}</view>
-                                    </view>
-                                    <view class="flex w-p-100 align-center justify-between m-b-30">
-                                        <view class="m-t-t">进出</view>
-                                        <view class="m-t-c">{{item.Direction==1?'进门':'出门'}}</view>
-                                    </view>
-                                    <view class="flex w-p-100 align-center justify-between">
-                                        <view class="m-t-t">留影展示</view>
-                                        <view class="m-t-c"></view>
-                                    </view>
-                                    <view wx:if="{{item.AccessPhoto1}}" class="flex w-p-100 align-center justify-between m-t-30">
-                                        <image wx:if="{{item.AccessPhoto1}}" class="img-b" src="{{imgUrl}}{{item.AccessPhoto1}}" />
-                                        <image wx:if="{{item.AccessPhoto2}}" class="img-b" src="{{imgUrl}}{{item.AccessPhoto2}}" />
-                                    </view>
-                                    <view wx:if="{{item.AccessPhoto3}}" class="flex w-p-100 align-center justify-between m-t-30">
-                                        <image wx:if="{{item.AccessPhoto3}}" class="img-b" src="{{imgUrl}}{{item.AccessPhoto3}}" />
-                                        <image wx:if="{{item.AccessPhoto4}}" class="img-b" src="{{imgUrl}}{{item.AccessPhoto4}}" />
-                                    </view>
-                                    <view wx:if="{{item.AccessPhoto5}}" class="flex w-p-100 align-center justify-between m-t-30">
-                                        <image wx:if="{{item.AccessPhoto5}}" class="img-b" src="{{imgUrl}}{{item.AccessPhoto5}}" />
-                                        <image wx:if="{{item.AccessPhoto6}}" class="img-b" src="{{imgUrl}}{{item.AccessPhoto6}}" />
-                                    </view>
-                                    <view wx:if="{{item.AccessPhoto7}}" class="flex w-p-100 align-center justify-between m-t-30">
-                                        <image wx:if="{{item.AccessPhoto7}}" class="img-b" src="{{imgUrl}}{{item.AccessPhoto7}}" />
-                                        <image wx:if="{{item.AccessPhoto8}}" class="img-b" src="{{imgUrl}}{{item.AccessPhoto8}}" />
-                                    </view>
-                                    <view wx:if="{{item.AccessVideo}}" class="flex w-p-100 align-center justify-between m-t-30">
-<!--                                    <view  class="flex w-p-100 align-center justify-between m-t-30">-->
-                                        <view  class="img-b flex align-center justify-center"
-                                              style="background-image:url('{{imgUrl}}{{item.AccessPhoto1}}');"
-                                               catchtap="toPlayVideo" data-url="{{imgUrl}}{{item.AccessVideo}}">
-                                            <view class="cuIcon-video"></view>
-                                        </view>
-                                    </view>
-
-                                </view>
-                            </view>
-                        </van-collapse-item>
-                    </van-collapse>
+                        </view>
+                    </view>
+                </van-collapse-item>
+            </van-collapse>
 
 
-                </block>
-                <view wx:if="{{tab.reachBottom&&tab.isLoading}}" class="cu-load wj-loading {{tab.isLoading?'loading':'over'}}"></view>
-            </scroll-view>
-            <!--                </view>-->
-
-
-        </van-tab>
-    </van-tabs>
+        </block>
+        <view wx:if="{{reachBottom&&isLoading}}" class="cu-load wj-loading {{isLoading?'loading':'over'}}"></view>
+    </scroll-view>
 </view>
 
