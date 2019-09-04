@@ -193,7 +193,7 @@ page{
   /*height:198rpx;*/
 
   flex: 1;
-  border: 1rpx dashed #FFFFFF;
+  border-left: 1rpx dashed #FFFFFF;
 }
 .btn-lq{
   /*width:112rpx;*/

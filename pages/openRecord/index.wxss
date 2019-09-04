@@ -211,7 +211,7 @@ page{
     /*width:4rpx;*/
     /*height:854px;*/
 
-    border-left: 4rpx #E0E0E0 dashed;
+    border-left: 1rpx #E0E0E0 dashed;
 }
 .icon-in-out{
     width:32rpx;

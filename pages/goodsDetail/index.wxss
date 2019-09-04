@@ -711,7 +711,7 @@ img{
   /*height:198rpx;*/
 
   flex: 1;
-  border: 1rpx dashed #FF9B1D;
+  border-left: 1rpx dashed #FF9B1D;
 }
 
 
