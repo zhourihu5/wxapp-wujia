@@ -17,7 +17,7 @@
 
 
             <van-collapse custom-class="custom-collapse {{index==0?'m-t-20':''}}"
-                          border="" data-index="{{index}}" value="{{tab.data[index].collapseValue}}"  bind:change="onChange">
+                          border="" data-index="{{index}}" value="{{item.collapseValue}}"  bind:change="onChange">
                 <van-collapse-item custom-class="custom-collapse-item"
                                    top-cell-class="top-cell-class"
                                    border="{{false}}"
@@ -34,16 +34,16 @@
                                     <view class="in-out-text">{{item.Direction==1?'进门':'出门'}}</view>
                                 </view>
                                 <view class="flex">
-                                    <view class="t-time {{index==tab.data.length-1?'':'line-v-d'}}">{{item.AccessTime}}</view>
+                                    <view class="t-time {{index==list.length-1?'':'line-v-d'}}">{{item.AccessTime}}</view>
                                 </view>
-                                <view class="flex-1 {{index==tab.data.length-1?'':'line-v-d'}}"></view>
+                                <view class="flex-1 {{index==list.length-1?'':'line-v-d'}}"></view>
                             </view>
                             <image class="image-t" src="{{imgUrl}}{{item.AccessPhoto1}}"></image>
                         </view>
                     </view>
 
 
-                    <view class="w-p-100 gray-c-c {{index==tab.data.length-1?'':'line-v-d'}}">
+                    <view class="w-p-100 gray-c-c {{index==list.length-1?'':'line-v-d'}}">
                         <view class="gray-content">
                             <view class="flex w-p-100 align-center justify-between m-b-30">
                                 <view class="m-t-t">时间</view>
