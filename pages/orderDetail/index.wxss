@@ -191,7 +191,4 @@ page{
     line-height: 48rpx;
 }
 
-.dilivery-container {
-    margin-bottom: 20rpx;
-}
 
