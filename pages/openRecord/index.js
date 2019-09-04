@@ -139,6 +139,7 @@ Page({
                 that.data.isOver=true
             }
             that.setData({
+                list:that.data.list,
                 isOver: that.data.isOver,
                 imgUrl:data.imgUrl,
             })
