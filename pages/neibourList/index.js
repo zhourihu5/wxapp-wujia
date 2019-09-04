@@ -59,6 +59,7 @@ Page({
             })
         }
         this.loadAreaData()
+        this.loadSearchData()
     },
     onPullDownRefresh(){
         wx.stopPullDownRefresh()
