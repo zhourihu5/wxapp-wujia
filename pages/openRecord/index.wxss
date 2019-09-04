@@ -262,6 +262,8 @@ page{
     padding-left: 34rpx;
     /*padding-top: 30rpx;*/
     /*padding-bottom: 30rpx;*/
+
+    padding-bottom: 10rpx;
 }
 .gray-content{
     width:566rpx;
