@@ -659,13 +659,7 @@ Page({
         network.requestGet('/wx/binding/sendMsg', {
             userName: that.customData.phone
         }, function (data) {
-            if (!data.userInfo) {
-                that.enableTabBar(false)
-                that.showModal('ModalBindPhone');
-            } else {
-                that.enableTabBar(true)
-                that.hideModal();
-            }
+
         }, function (msg) {
 
         })
