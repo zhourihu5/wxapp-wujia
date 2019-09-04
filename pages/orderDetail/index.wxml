@@ -72,7 +72,7 @@
         </view>
     </view>
     <view wx:if="{{ apiData.deliveryPerson}}" class="w-p-100 p-b-20">
-        <view  class="goods-info dilivery-container">
+        <view  class="goods-info">
             <view class="goods-title {{apiData.status=='4'?'expired':''}}">配送信息</view>
             <view class="order-info-item">送货员：{{apiData.deliveryPerson}}</view>
             <view class="order-info-item">送货员联系方式：{{apiData.deliveryPhone}}</view>
