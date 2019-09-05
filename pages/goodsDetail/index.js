@@ -14,6 +14,7 @@ Page({
         saleTip:null,
         formatTitle: ['产地', '规格', '重量', '包装', '保质期', '贮存方式'],
         couponTaken:false,
+        couponIsValid:false,
     },
     showNavigationBarLoading(){
         this.setData({
@@ -169,6 +170,7 @@ Page({
             if(data.coupon&&data.coupon.userCouponCount>0){
                 that.setData({
                     couponTaken:true,
+                    couponIsValid:data.coupon.isValid,
                 })
             }else {
                 that.setData({
@@ -230,6 +232,9 @@ Page({
     },
     couponClicked(e){
         var that=this
+        if(!this.data.couponIsValid){
+            return;
+        }
         if(this.data.couponTaken){
             this.toConfirmOrder(e)
             return
@@ -247,6 +252,7 @@ Page({
                     that.setData({
                         couponTaken:true,
                     })
+                    app.showToast('领取成功')
                 }
 
             },

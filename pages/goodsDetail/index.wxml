@@ -44,7 +44,7 @@
         </view>
     </view>
     <view wx:if="{{apiData.coupon}}" class="item2" style="padding-top: 20rpx;padding-bottom: 0rpx;">
-        <view class="coupon-pink-b flex align-center">
+        <view class="{{couponIsValid?'coupon-pink-b':'coupon-g-g-b'}} flex align-center">
             <view class="flex-1 p-l-30 p-r-30">
                 <view>
                     <text class="yhq-dollor">￥</text>
@@ -60,7 +60,7 @@
                     <view class="v-line"></view>
                     <view class="b-corner"></view>
                 </view>
-                <view class="coupon-use" >{{couponTaken?'立即使用':'立即领取'}}</view>
+                <view class="coupon-use" >{{!couponIsValid?'不可用':couponTaken?'立即使用':'立即领取'}}</view>
             </view>
         </view>
     </view>

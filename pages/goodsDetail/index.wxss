@@ -621,13 +621,30 @@ img{
   color:rgba(255,155,29,1);
   line-height:40rpx;
 }
+.coupon-g-g-b{
+  width:690rpx;
+  height:160rpx;
+  background:linear-gradient(270deg,rgba(199,199,199,1) 0%,rgba(176,176,176,1) 100%);
+  opacity:0.5;
+
+  border-radius: 16rpx;
+
+  display: flex;
+
+  font-size:28rpx;
+  font-family:PingFangSC;
+  font-weight:400;
+  color:rgba(255,255,255,1);
+  line-height:40rpx;
+}
+
 .yhq-dollor{
   /*width:32px;*/
   /*height:44px;*/
   font-size:32rpx;
   font-family:PingFangSC;
   font-weight:600;
-  color:rgba(255,155,29,1);
+  /*color:rgba(255,155,29,1);*/
   line-height:44rpx;
 }
 .yhq-money-v{
@@ -636,7 +653,7 @@ img{
   font-size:68rpx;
   font-family:PingFangSC;
   font-weight:400;
-  color:rgba(255,155,29,1);
+  /*color:rgba(255,155,29,1);*/
   line-height:72rpx;
 
   margin-right: 14rpx;
@@ -647,7 +664,7 @@ img{
   font-size:28rpx;
   font-family:PingFangSC;
   font-weight:400;
-  color:rgba(255,155,29,1);
+  /*color:rgba(255,155,29,1);*/
   line-height:40rpx;
 }
 .coupon-time{
@@ -656,7 +673,7 @@ img{
   font-size:22rpx;
   font-family:PingFangSC;
   font-weight:400;
-  color:rgba(255,155,29,1);
+  /*color:rgba(255,155,29,1);*/
   line-height:32rpx;
 
   margin-top: 8rpx;
@@ -667,7 +684,7 @@ img{
   font-size:28rpx;
   font-family:PingFangSC;
   font-weight:400;
-  color:rgba(255,155,29,1);
+  /*color:rgba(255,155,29,1);*/
   line-height:40rpx;
 }
 
