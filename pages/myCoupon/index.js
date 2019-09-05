@@ -119,8 +119,7 @@ Page({
         //     delta:1,
         // })
     },
-    takeCoupon(e){
-        //todo
+    lookCoupon(e){
         let index=e.currentTarget.dataset.index
         let item=this.data.list[index]
         this.setData({

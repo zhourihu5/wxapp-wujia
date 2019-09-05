@@ -83,7 +83,7 @@ Page({
             {
                 id: that.data.apiData.id,
             },
-            function (data) {//todo
+            function (data) {
                 if(data.flag===false){
                     that.setData({
                         modalName: 'ModalTakeFail',

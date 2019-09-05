@@ -97,7 +97,6 @@
 <!--                       src="{{item.wxCover}}"></image>-->
                 <view class="cu-avatar round round-image" wx:for="{{apiData.userInfoList}}" wx:key style="background-image:url('{{item.wxCover}}');"></view>
             </view>
-            <!--                //todo 居于底部-->
             <view  class="item-3-2-r">...等{{apiData.activity.commodity.salesNum}}名用户已参与</view>
         </view>
         <view wx:if="{{false&&saleTip.length>1}}" class="center zlyrctghd m-t-40">再来{{saleTip[0]}}人参团该活动商品立减

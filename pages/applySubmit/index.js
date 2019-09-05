@@ -242,10 +242,7 @@ Page({
 
         this.setData({
             modalName: 'doorNumModal',
-            // tabs: this.data.tabs,
-            // active: this.data.active
         })
-        //todo 第一次加载时tab 线的宽度计算不对
     },
     hideModal() {
         this.setData({

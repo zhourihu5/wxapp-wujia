@@ -168,12 +168,6 @@ VantComponent({
                 });
             });
 
-            //todo test
-            // this.getRect('.van-tab__title', true).then((rects) => {
-            //     const rect = rects[active];
-            //     console.log('van-tab__title rect.width',rect.width,'active',active)
-            // });
-
         },
         setTrack() {
             const { animated, active, duration } = this.data;

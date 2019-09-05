@@ -148,7 +148,7 @@ Page({
             //     "     </div>\n" +
             // " </div>"
 
-            // data.activity.remark='这是第一行内容\n这是第二行内容'//todo 换行符不起作用
+            // data.activity.remark='这是第一行内容\n这是第二行内容'//换行符不起作用
                 console.log('remark')
             console.log(data.activity.remark)
 
@@ -222,7 +222,7 @@ Page({
         wx.navigateTo({url: "/pages/orderConfirm/index?id=" + id})
     },
 
-    adaptRichText: function (richtext) {//todo 限制富文本图片不超出屏幕宽度
+    adaptRichText: function (richtext) {// 限制富文本图片不超出屏幕宽度
         if(!richtext){
             return richtext
         }

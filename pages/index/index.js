@@ -18,7 +18,6 @@ Page({
         cummunityIndex: null,//家庭index
         apiData: null,
         failReason: null,
-        applyCode:null,//todo 动态开锁密码
         canNotShare:true,
         inviteData:null,//邀请访客时需要的数据
         userId:null,
@@ -70,7 +69,7 @@ Page({
                 fail(res){
                     console.log('onShareAppMessage fail',res)
                 },
-                complete(res){//todo 转发回调被官方禁掉了
+                complete(res){//fixme 转发回调被官方禁掉了
                     console.log('onShareAppMessage complete',res)
                 }
 
@@ -533,10 +532,6 @@ Page({
         register.register(this);
         this.setBottomTabBar()
         console.log(options)
-        var applyCode=options&&options.applyCode
-        if(applyCode){//todo 动态开锁密码
-            this.data.applyCode=applyCode
-        }
         wx.showShareMenu({
             withShareTicket: true,
             success:function () {

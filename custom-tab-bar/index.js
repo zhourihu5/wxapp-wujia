@@ -2,7 +2,7 @@ const util = require('../utils/util.js')
 Component({
   data: {
     // active:util.getCurrentActiveTab(),
-    active:0,//todo 自定义tabbar 有第一次切换时闪动的问题，官方还未解决
+    active:0,//fixme 自定义tabbar 有第一次切换时闪动的问题，官方还未解决
     isEnabled:true,
     thiz:this,
     list: [

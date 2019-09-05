@@ -27,7 +27,7 @@
                     <view class="b-corner"></view>
                 </view>
                 <view class="btn-lq"
-                      catchtap="takeCoupon" data-index="{{index}}">立即查看
+                      catchtap="lookCoupon" data-index="{{index}}">立即查看
                 </view>
             </view>
         </view>

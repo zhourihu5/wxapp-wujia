@@ -98,7 +98,6 @@
                         </text>
                     </view>
                     <view class="sell-num m-l-20">已拼{{item.commodity.salesNum}}件</view>
-                    <!--                todo 这里不好点击，为什么-->
                     <view class="go-group-buy" hover-class="navigator-hover" hover-stop-propagation="{{true}}"
                           catchtap="goBuy" data-index="{{index}}">去参团
                     </view>
