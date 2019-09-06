@@ -220,6 +220,7 @@ Page({
             // pickerValue: val,
             currentArea: this.data.currentArea
         })
+
         //重新刷新数据
         this.data.pageNum = 1
         this.data.hasNextPage = true
