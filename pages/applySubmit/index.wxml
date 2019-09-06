@@ -39,7 +39,7 @@
 <view class="cu-modal bottom-modal {{modalName=='doorNumModal'?'show':''}}" catchtap="hideModal">
     <view class="cu-dialog bottom-dialog" catchtap="doNothing">
         <view class="justify-between d-t-bar">
-            <view class="psz">配送至</view>
+            <view class="psz">选择住址</view>
             <view class="cuIcon-close close " hover-class="navigator-hover" hover-stop-propagation="{{true}}" catchtap="hideModal"></view>
         </view>
         <wj-tabs class="tab-layout"
