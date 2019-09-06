@@ -157,8 +157,8 @@
         <view wx:if="{{isAuthorized}}" class="dialog-button-{{isBindEnabled?'enabled':'disabled'}} m-t-90"
               hover-class="navigator-hover" hover-stop-propagation="{{true}}" bindtap="bindPhone">立即绑定
         </view>
-        <button wx:else open-type="getUserInfo" withCredentials="true"
-                hover-class="navigator-hover" hover-stop-propagation="{{true}}" bindgetuserinfo="bindGetUserInfo"
+        <button wx:else open-type="{{isBindEnabled?'getUserInfo':''}}" withCredentials="true"
+                hover-class="navigator-hover" hover-stop-propagation="{{true}}" bindgetuserinfo="{{isBindEnabled?'bindGetUserInfo':''}}"
                 class="dialog-button-{{isBindEnabled?'enabled':'disabled'}} m-t-90">立即绑定
         </button>
     </view>
