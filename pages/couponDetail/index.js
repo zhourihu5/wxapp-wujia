@@ -50,6 +50,15 @@ Page({
                that.setData({
                    apiData:data,
                })
+                if(data.userExperienceCount>0){
+                    that.setData({
+                        hasTaken:true,
+                    })
+                }else {
+                    that.setData({
+                        hasTaken:false,
+                    })
+                }
             },
             function (msg) {
             }
@@ -75,12 +84,24 @@ Page({
                 id: that.data.apiData.id,
             },
             function (data) {
-                that.setData({
-                    modalName: 'ModalTakeCouponSuccess',
-                    experienceCode:data.experienceCode.experienceCode,
-                    finishDate:data.experienceCode.finishDate,
-                    hasTaken:true,
-                })
+                if(data.flag===false){
+                    that.setData({
+                        modalName: 'ModalTakeFail',
+                    })
+                }else {
+                    that.setData({
+                        modalName: 'ModalTakeCouponSuccess',
+                        experienceCode:data.experienceCode.experienceCode,
+                        finishDate:data.experienceCode.finishDate,
+                        hasTaken:true,
+                    })
+                }
+
+                var pages=getCurrentPages()
+                var prePage=pages[pages.length-2]
+                if(prePage.refresh){
+                    prePage.refresh()
+                }
             },
             function (msg) {
             }
@@ -143,5 +164,11 @@ Page({
     onHide(){
         interval && clearInterval(interval)
         interval=null
+    },
+    goStroll(e){
+
+        wx.navigateBack({
+            delta:1,
+        })
     },
 })

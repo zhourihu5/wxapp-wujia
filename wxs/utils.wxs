@@ -55,6 +55,10 @@ function couponLimit(limitNum) {
   }
   return '订单金额满'+limitNum+'元可用'
 }
+function couponActLimit(title) {
+
+  return '只限'+title+'可用'
+}
 
 module.exports = {
   strSplitToArr: strSplitToArr,
@@ -64,5 +68,6 @@ module.exports = {
   hideCode: hideCode,
   strMaxlength: strMaxlength,
   couponLimit: couponLimit,
+  couponActLimit: couponActLimit,
 
 };

@@ -31,17 +31,12 @@
                 <view class="coupon-remark">{{utils.couponLimit(item.coupon.limitNum)}}</view>
                 <view class="coupon-time">有效期至 {{item.coupon.endDate}}</view>
 
-                <view class="r-c" >
-                    <view class="t-corner"></view>
-                    <view class="v-line"></view>
-                    <view class="b-corner"></view>
-                </view>
             </view>
 <!--            <view class="i-c-r" style="z-index: 2">-->
 <!--                <view class="qsy">去使用</view>-->
 <!--            </view>-->
             <image class="img-coupon-dollor" src="/images/coupon_dollor_img.png"/>
-            <image wx:if="{{checked==index}}" class="img-coupon-selected" src="/images/icon_coupon_selected.png"/>
+            <image wx:if="{{checked==item.id}}" class="img-coupon-selected" src="/images/icon_coupon_selected.png"/>
 
         </view>
 

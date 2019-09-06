@@ -25,7 +25,7 @@
         <!--                          salesNum="{{item.commodity.salesNum}}"-->
         <!--                          dataId="{{item.id}}"/>-->
 
-        <view class="w-p-100 p-b-20 relative {{index==0?'m-t-20':''}}" hover-class="navigator-hover" hover-stop-propagation="{{true}}" bindtap="goBuy" data-index="{{index}}">
+        <view class="w-p-100 p-b-20 relative {{index==0?'m-t-20':''}}" >
             <image class="img-coupon"
                    src="{{item.banner}}"
                    hover-class="navigator-hover" hover-stop-propagation="{{true}}"

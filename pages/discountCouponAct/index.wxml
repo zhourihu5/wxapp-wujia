@@ -12,12 +12,12 @@
 
         <view class="coupon-w-b flex align-center relative m-t-20" catchtap="itemClicked" data-index="{{index}}">
 
-            <image class="img-activity" src="{{item.coupon.activity.cover}}" />
+            <image class="img-activity" src="{{item.coupon.cover}}" />
 
-            <view class="flex-1 relative i-c-c p-activity-content">
+            <view class="flex-1 relative i-c-c ">
 
                 <view class="coupon-name">{{item.coupon.name}}</view>
-                <view class="coupon-remark">{{utils.couponLimit(item.coupon.limitNum)}}</view>
+                <view class="coupon-remark">{{utils.couponActLimit(item.activity.title)}}</view>
                 <view class="coupon-time">有效期至 {{item.coupon.endDate}}</view>
 
                 <view class="r-c">
@@ -43,12 +43,12 @@
 
         <view class="coupon-w-b flex align-center relative m-b-20">
 
-            <image class="img-activity" src="{{item.coupon.activity.cover}}" />
+            <image class="img-activity" src="{{item.coupon.cover}}" />
 
             <view class="flex-1 relative i-c-c p-activity-content">
 
                 <view class="coupon-name expired">{{item.coupon.name}}</view>
-                <view class="coupon-remark expired">{{utils.couponLimit(item.coupon.limitNum)}}</view>
+                <view class="coupon-remark expired">{{utils.couponActLimit(item.activity.title)}}</view>
                 <view class="coupon-time expired">有效期至 {{item.coupon.endDate}}</view>
 
                 <view class="r-c">

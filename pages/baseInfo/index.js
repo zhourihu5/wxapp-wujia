@@ -93,7 +93,6 @@ Page({
             app.showToast('数据正在加载中，请稍等')
             return
         }
-        //todo 在接口请求数据前不允许操作
         console.log("单选按钮改变事件")
         console.log(event)
         this.data.apiData.sex = event.detail
@@ -120,7 +119,6 @@ Page({
             return;
         }
 
-        //todo 校验合法性
         var that = this
         if(that.data.isClicked){
             return;

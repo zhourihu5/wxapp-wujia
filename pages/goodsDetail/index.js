@@ -14,6 +14,7 @@ Page({
         saleTip:null,
         formatTitle: ['产地', '规格', '重量', '包装', '保质期', '贮存方式'],
         couponTaken:false,
+        couponIsValid:false,
     },
     showNavigationBarLoading(){
         this.setData({
@@ -148,7 +149,7 @@ Page({
             //     "     </div>\n" +
             // " </div>"
 
-            // data.activity.remark='这是第一行内容\n这是第二行内容'//todo 换行符不起作用
+            // data.activity.remark='这是第一行内容\n这是第二行内容'//换行符不起作用
                 console.log('remark')
             console.log(data.activity.remark)
 
@@ -166,6 +167,16 @@ Page({
                 apiData: data,
                 saleTip:data.activity.saleTip&&data.activity.saleTip.split(','),
             })
+            if(data.coupon&&data.coupon.userCouponCount>0){
+                that.setData({
+                    couponTaken:true,
+                    couponIsValid:data.coupon.isValid,
+                })
+            }else {
+                that.setData({
+                    couponTaken:false,
+                })
+            }
         }, function (msg) {
 
         })
@@ -213,7 +224,7 @@ Page({
         wx.navigateTo({url: "/pages/orderConfirm/index?id=" + id})
     },
 
-    adaptRichText: function (richtext) {//todo 限制富文本图片不超出屏幕宽度
+    adaptRichText: function (richtext) {// 限制富文本图片不超出屏幕宽度
         if(!richtext){
             return richtext
         }
@@ -221,18 +232,29 @@ Page({
     },
     couponClicked(e){
         var that=this
+        if(!this.data.couponIsValid){
+            return;
+        }
         if(this.data.couponTaken){
             this.toConfirmOrder(e)
             return
         }
-        network.requestPost('/v1/experienceActivity/receive',//todo
+        network.requestPost('/v1/coupon/receive',
             {
                 id: that.data.apiData.coupon.id,
             },
             function (data) {
-                that.setData({
-                    couponTaken:true,
-                })
+                if(data.flag===false){
+                    this.setData({
+                        modalName: 'ModalTakeFail',
+                    })
+                }else {
+                    that.setData({
+                        couponTaken:true,
+                    })
+                    app.showToast('领取成功')
+                }
+
             },
             function (msg) {
             }

@@ -89,3 +89,15 @@
     </view>
 
 </view>
+<view class="cu-modal full-screen  {{modalName=='ModalTakeFail'?'show':''}}">
+    <view class="cu-dialog dialog relative">
+        <view class="dialog-title-f m-t-50">提示</view>
+        <view class="msg">本次活动体验劵已被全部领取，去看一下别的体验活动吧～</view>
+        <view class="dialog-action">
+            <view class="dialog-cancel" hover-class="navigator-hover" hover-stop-propagation="{{true}}" bindtap="hideModal">取消</view>
+            <view class="dialog-add no-border" hover-class="navigator-hover" hover-stop-propagation="{{true}}" bindtap="goStroll">
+                去看看
+            </view>
+        </view>
+    </view>
+</view>

@@ -4,7 +4,6 @@ const network = require('../../utils/network.js')
 const app = getApp();
 var register = require('../../refreshview/refreshLoadRegister.js');
 var interval = null //倒计时函数
-var requestTask=null
 Page({
     data: {
         CustomBar: app.globalData.CustomBar,
@@ -83,11 +82,11 @@ Page({
     },
     onLoad: function () {
         register.register(this)
+        this.data.active=0
         this.loadData()
-    },
-    onUnload(){
-        requestTask&&requestTask.abort()
-        console.log('onUnload requestTask.abort')
+        this.data.active=1
+        this.loadData()
+        this.data.active=0
     },
     //下拉刷新数据
     refresh:function(){
@@ -116,8 +115,7 @@ Page({
             type: that.data.tabs[active].type,
             pageSize:that.data.pageSize,
         }
-        requestTask&&requestTask.abort()
-        requestTask=network.requestGet('/v1/coupon/couponCodeList',paramData,function (data) {
+        network.requestGet('/v1/coupon/couponCodeList',paramData,function (data) {
             that.data.tabs[active].isLoading=false
             register&&register.loadFinish(that,true)
             if (that.data.tabs[active].pageNum == 1) {
@@ -179,18 +177,6 @@ Page({
     },
 
 
-    onPullDownRefresh: function () {
-        // Do something when pull down.
-        console.log('onPullDownRefresh')
-
-    },
-    onReachBottom: function () {
-        // Do something when page reach bottom.
-        console.log('onReachBottom')
-    },
-    scrolltoupper: function (e) {
-        // console.log("scrolltoupper")
-    },
     scrolltolower(e) {
         console.log('scrolltolower')
         this.data.tabs[this.data.active].reachBottom=true
@@ -215,6 +201,21 @@ Page({
             wx.navigateTo({
                 url:'/pages/discountCouponExpiredAct/index'
             })
+        }
+    },
+    toActivityDetail(e){
+       let index=  e.currentTarget.dataset.index
+       let act= this.data.tabs[1].data[index].activity
+        let id=act.id
+        if(act.isJoin==1){
+            wx.navigateTo({url: '/pages/goodsDetail1/index?id=' + id})
+        }else {
+            wx.navigateTo({url: '/pages/goodsDetail/index?id=' + id})
+        }
+    },
+    toActivityList(e){
+        if(!util.navibackTo("/pages/activityMore/index")){
+            wx.redirectTo({url: "/pages/activityMore/index"})
         }
     },
 })

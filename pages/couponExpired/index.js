@@ -116,11 +116,4 @@ Page({
             delta:1,
         })
     },
-    takeCoupon(e){
-        //todo
-
-        this.setData({
-            modalName: 'ModalTakeCouponSuccess',
-        })
-    },
 })

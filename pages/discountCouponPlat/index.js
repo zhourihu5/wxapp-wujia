@@ -68,6 +68,12 @@ Page({
         var pages=getCurrentPages()
         var prePage=pages[pages.length-2]
         prePage.data.couponPlat=this.data.apiData.yesList[index]
-
+        prePage.setData({
+            couponPlatText: `-￥${prePage.data.couponPlat.money}`,
+            // couponActText: that.data.couponActText,
+        })
+        wx.navigateBack({
+            delta:1,
+        })
     }
 })

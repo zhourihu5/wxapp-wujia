@@ -169,7 +169,7 @@ Page({
         }, 1000)
     },
 
-    cancelOrder(e){//todo 取消订单
+    cancelOrder(e){
         var that=this
         var id=this.data.apiData.id
         network.requestPost('/v1/order/cancelOrder',{id:id},function (data) {
@@ -198,7 +198,7 @@ Page({
         }
 
     },
-    confirmReceive(e){//TODO 确认收货
+    confirmReceive(e){
         var that=this
         var id=that.data.apiData.id
         network.requestPost('/v1/order/receiveOrder',

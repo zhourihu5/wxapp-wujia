@@ -62,7 +62,6 @@
                       style="background-image:url('{{item.wxCover}}');"></view>
 
             </view>
-            <!--                //todo 居于底部-->
             <view class="item-3-2-r align-bottom">...等{{apiData.activity.commodity.salesNum}}名用户已参与</view>
         </view>
     </view>

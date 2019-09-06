@@ -138,7 +138,7 @@
     /*height:198rpx;*/
 
     flex: 1;
-    border: 1rpx dashed #BDBDBD;
+    border-left: 1rpx dashed #BDBDBD;
 }
 .coupon-name{
     /*width:300px;*/

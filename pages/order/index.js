@@ -361,7 +361,7 @@ Page({
             modalName:null,
         })
     },
-    toPay(e){//todo 立即付款
+    toPay(e){
         var that=this
         let id=e.currentTarget.dataset.id
         let index=e.currentTarget.dataset.index

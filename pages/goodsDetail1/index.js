@@ -167,7 +167,4 @@ Page({
         wx.navigateTo({url: "/pages/orderConfirm/index?id=" + id})
     },
 
-    adaptRichText: function (richtext) {//todo 限制富文本图片不超出屏幕宽度
-        return richtext.replace('<img ', '<img style="max-width:100%;height:auto"')
-    }
 })
