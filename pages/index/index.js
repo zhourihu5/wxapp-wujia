@@ -229,7 +229,10 @@ Page({
                 return
             }
             that.data.isOpeningDoor=true
-            network.requestGet('/v1/apply/openDoor',{communtityCode:app.communtityCode},function (data) {
+            network.requestGet('/v1/apply/openDoor',{
+                communtityCode:app.communtityCode,
+                fid:app.fid,
+            },function (data) {
                 that.data.isOpeningDoor=false
                 app.showToast('锁已开')
             },function (msg) {
