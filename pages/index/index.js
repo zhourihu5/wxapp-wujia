@@ -98,7 +98,10 @@ Page({
         that.setData({
             canNotShare:true,
         })
-        network.requestGet('/v1/apply/secretCodeWithOpenDoor',{communtityCode:app.communtityCode},function (data) {
+        network.requestGet('/v1/apply/secretCodeWithOpenDoor',{
+            communtityCode:app.communtityCode,
+            fid:app.fid,
+        },function (data) {
             that.data.isGeneratingCode=false
             that.setData({
                 inviteData:data,
