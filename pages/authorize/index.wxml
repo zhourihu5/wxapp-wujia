@@ -1,0 +1,19 @@
+<cu-custom bgColor="titlebar-white" isBack="{{true}}">
+    <view slot="backText"></view>
+    <view slot="content"><text class="{{navigationBarLoading?'wj-loading-icon':''}}"/>账号关联</view>
+</cu-custom>
+<view class="body">
+    <include src="../../refreshview/refreshHeaderView.wxml"/>
+    <view class="flex align-center wj-logo-c">
+        <image class="img-logo-text" src="/images/wj_logo_autorize.png"/>
+        <view class="logo-text">吾家W+</view>
+    </view>
+    <image class="img-text-make-life-better" src="/images/make_life_better_authorize.png"></image>
+    <button class="wxlogin" open-type="{{radioChecked?'getPhoneNumber ':''}}"
+            bindgetphonenumber="getPhoneNumber"
+            catchtap="{{radioChecked?'':'getPhoneNumber'}}">微信一键登录</button>
+    <view class="flex align-center aggree-licence"  >
+        <view class="radio-uncheck {{radioChecked?'cuIcon-check':''}} " catchtap="radioClicked"></view>
+        <view>我已阅读并同意<text class="licence-text" catchtap="toLicence">《用户注册协议》</text></view>
+    </view>
+</view>

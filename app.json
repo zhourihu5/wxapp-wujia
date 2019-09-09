@@ -34,6 +34,8 @@
   },
   "pages": [
     "pages/index/index",
+    "pages/authorize/index",
+    "pages/licence/index",
     "pages/discountCouponAct/index",
     "pages/discountCouponPlat/index",
     "pages/orderConfirm/index",
