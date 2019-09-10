@@ -107,4 +107,17 @@ Page({
             phone: util.desensitization(app.userName),
         })
     },
+    itemClicked(e){
+        if(!app.userName){
+            wx.reLaunch({
+                url:'/pages/index/index'
+            })
+            return;
+        }
+        let index=e.currentTarget.dataset.index
+        let url=this.data.items[index].url
+        wx.navigateTo({
+            url:url,
+        })
+    },
 })
