@@ -129,9 +129,14 @@
 
 <custom-tab-bar wx:if="{{false&&modalName}}" isModalMode="{{false}}" activeTab="{{0}}"></custom-tab-bar>
 
-<view class="cu-modal full-screen  {{modalName=='ModalBindPhone'?'show':''}}" style="padding-bottom: {{modalPadding}}px;">
-    <view class="cu-dialog dialog">
+<view class="cu-modal full-screen  {{modalName=='ModalBindPhone'?'show':''}}" style="padding-bottom: {{modalPadding}}px;"
+      catchtap="hideModal">
+    <view class="cu-dialog dialog relative" style="font-size: 32rpx;line-height: 44rpx;" catchtap="doNothing">
         <view class="dialog-title">绑定手机号</view>
+        <view class="cuIcon-close close-icon"
+              hover-class="navigator-hover"
+              hover-stop-propagation="{{true}}"
+              catchtap="hideModal"></view>
         <view class="input-container">
             <input class="input"
                    auto-focus="{{modalName=='ModalBindPhone'&&autoFocus=='phone'}}"
@@ -156,6 +161,7 @@
                 hover-class="navigator-hover" hover-stop-propagation="{{true}}" bindgetuserinfo="bindGetUserInfo"
                 class="dialog-button-{{isBindEnabled?'enabled':'disabled'}} m-t-90">立即绑定
         </button>
+
     </view>
 </view>
 <view class="cu-modal full-screen  {{modalName=='ModalInviteVisitor'?'show':''}} {{shareing?'no-transit':''}}"

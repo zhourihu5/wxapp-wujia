@@ -416,7 +416,7 @@ page{
     text-decoration: line-through;
 }
 .full-screen{
-    bottom: -98rpx;
+    /*bottom: -98rpx;*/
     /*z-index: 99999999999999999999999999;*/
 }
 .sell-num{
@@ -584,7 +584,8 @@ movable-area {
     margin-bottom: 6rpx;
 }
 .close-icon{
-    border-radius:0 16rpx 0 0;
+    /*border-radius:0 16rpx 0 0;*/
+    border-top-right-radius: 16rpx;
     padding: 20rpx 20rpx;
     padding-left: 50rpx;
     padding-bottom: 50rpx;

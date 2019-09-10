@@ -87,6 +87,11 @@ Page({
     inviteVisitor(e) {
         var that=this
         console.log("邀请访客")
+        if(!app.userName){
+            that.showModal('ModalBindPhone');
+            return;
+        }
+
         // wx.navigateTo({
         //     url:"/pages/inviteVisitor/index"
         // })
@@ -214,13 +219,18 @@ Page({
         }
     },
     touchendOpen(e) {
+        var that=this
         if(this.data.modalName=='ModalGuideOpen'){
+            return;
+        }
+        if(!app.userName){
+            that.showModal('ModalBindPhone');
             return;
         }
 
         console.log(e)
         console.log(this.customData)
-        var that=this
+
         that.setData({// 回弹
             y: util.rpxToPx(40),
         })
@@ -266,6 +276,11 @@ Page({
         this.isEnableTabBar()
     },
     showModalAddCommunity(e) {
+        var that=this
+        if(!app.userName){
+            that.showModal('ModalBindPhone');
+            return;
+        }
         this.showModal('ModalAddCommunity')
     },
     toCoupon(e){
@@ -577,8 +592,13 @@ Page({
         //     register && register.loadFinish(that, true)
         //     return
         // }
-
-        network.requestGet('/v1/activity/wxIndex',{communityId:app.communtityId} , function (data) {
+        var requestParam={
+            // communityId:app.communtityId
+        }
+        if(app.communtityId){
+            requestParam.communityId=app.communtityId
+        }
+        network.requestGet('/v1/activity/wxIndex', requestParam, function (data) {
             that.setData({
                 apiData: data,
             })

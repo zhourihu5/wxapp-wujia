@@ -4,10 +4,10 @@
         <view slot="backText"></view>
         <view slot="content"><text class="{{navigationBarLoading?'wj-loading-icon':''}}"/>吾家W+</view>
     </cu-custom>
-    <view class="top-container flex-match-parent">
+    <view class="top-container flex-match-parent" catchtap="{{phone?'':'toLogin'}}">
         <view class="flex-match-parent">
             <view class="top-left-text">
-                <view class="username">{{nickName}}</view>
+                <view class="username" >{{phone?nickName:'点击登录'}}</view>
                 <view class="tel">{{phone}}</view>
             </view>
             <image class="image" src="{{avatarUrl}}"/>
@@ -16,8 +16,8 @@
     </view>
 
     <block wx:for="{{items}}" wx:for-item="item">
-        <navigator class="item-container" url="{{item.url}}" hover-class="navigator-hover"
-                   open-type="navigateTo">
+        <view class="item-container" url="{{item.url}}" hover-class="navigator-hover"
+                   open-type="navigateTo" catchtap="itemClicked" data-index="{{index}}">
             <view class="item {{index==0?'no-border':''}}">
                 <image class="icon" src="{{item.icon}}"/>
                 <view class="item-text">{{item.title}}</view>
@@ -25,7 +25,7 @@
                 <image  class="img-arr-right" src="/images/icon_order_confirm_ar.png"/>
 
             </view>
-        </navigator>
+        </view>
     </block>
 <!--    <view class="wjrsqshgmh" style="bottom: calc( 100rpx + {{customTabBarHeight}}px );">-->
 <!--        吾家让社区生活更美好～-->

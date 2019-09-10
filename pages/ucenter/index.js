@@ -107,4 +107,25 @@ Page({
             phone: util.desensitization(app.userName),
         })
     },
+    itemClicked(e){
+        if(!app.userName){
+            wx.reLaunch({
+                url:"/pages/index/index"
+            })
+            return;
+        }
+        var index=e.currentTarget.dataset.index
+        var url=this.data.items[index].url
+        wx.navigateTo({
+            url:url
+        })
+    },
+    toLogin(e){
+        if(!app.userName){
+            wx.reLaunch({
+                url:"/pages/index/index"
+            })
+            return;
+        }
+    },
 })
