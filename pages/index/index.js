@@ -87,9 +87,10 @@ Page({
     inviteVisitor(e) {
         var that=this
         console.log("邀请访客")
-        // wx.navigateTo({
-        //     url:"/pages/inviteVisitor/index"
-        // })
+        if(!app.userName){
+            that.showModal('ModalBindPhone');
+            return;
+        }
         this.showModal('ModalInviteVisitor')
         if(that.data.isGeneratingCode){
             return
@@ -191,6 +192,11 @@ Page({
     },
 
     goBuy(e) {
+        var that=this
+        // if(!app.userName){
+        //     that.showModal('ModalBindPhone');
+        //     return;
+        // }
         var index=e.currentTarget.dataset.index
         let id =this.data.apiData.activityList[index].id;
         if(this.data.apiData.activityList[index].isJoin==1){
@@ -211,17 +217,21 @@ Page({
         }
     },
     touchendOpen(e) {
+
         if(this.data.modalName=='ModalGuideOpen'){
             return;
         }
+        var that=this
 
         console.log(e)
         console.log(this.customData)
-        var that=this
         that.setData({// 回弹
             y: util.rpxToPx(40),
         })
-
+        if(!app.userName){
+            that.showModal('ModalBindPhone');
+            return;
+        }
 
         if (this.customData.y < util.rpxToPx(20)) {
             if(that.data.isOpeningDoor){
@@ -263,11 +273,21 @@ Page({
         this.showModal('ModalAddCommunity')
     },
     toCoupon(e){
+        var that=this
+        // if(!app.userName){
+        //     that.showModal('ModalBindPhone');
+        //     return;
+        // }
         wx.navigateTo({
             url:'/pages/coupon/index'
         })
     },
     switchCommunity(e) {
+        var that=this
+        if(!app.userName){
+            that.showModal('ModalBindPhone');
+            return;
+        }
         var index = e.currentTarget.dataset.index
         if (this.data.cummunityIndex == index) {
             this.hideModal()
@@ -282,7 +302,7 @@ Page({
         app.fid=this.data.apiData.familyList[index].id
 
         this.hideModal()
-        var that=this
+
         network.requestGet('/v1/activity/wxIndex',{communityId:app.communtityId} , function (data) {
             that.setData({
                 apiData: data,
