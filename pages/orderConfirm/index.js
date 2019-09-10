@@ -1,4 +1,5 @@
 const network = require('../../utils/network.js')
+const util = require('../../utils/util.js')
 const app = getApp()
 Page({
     data: {
@@ -61,10 +62,12 @@ Page({
     onShow(){
         if(this.data.paymentMoney){
             if(this.data.couponAct){
-                this.data.paymentMoney-=this.data.couponAct.money
+                // this.data.paymentMoney-=this.data.couponAct.money
+                this.data.paymentMoney=util.accSub(this.data.paymentMoney,this.data.couponAct.money)
             }
             if(this.data.couponPlat){
-                this.data.paymentMoney-=this.data.couponPlat.money
+                // this.data.paymentMoney-=this.data.couponPlat.money
+                this.data.paymentMoney=util.accSub(this.data.paymentMoney,this.data.couponPlat.money)
             }
             if(this.data.paymentMoney<0){
                 this.data.paymentMoney=0
