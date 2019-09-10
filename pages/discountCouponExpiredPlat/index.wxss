@@ -178,7 +178,7 @@ page{
 .ysh-w{
   /*width: 90rpx;*/
   /*height: 90rpx;*/
-  padding: 20rpx;
+  padding: 10rpx;
   border-radius: 50%;
   border: 1rpx dashed #A4A4A5;
 
