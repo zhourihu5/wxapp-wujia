@@ -1,7 +1,7 @@
 App({
     // url:'http://192.168.250.6:8181',
     // url:'http://192.168.250.134:8181',
-    url:'http://192.168.250.5:8181',
+    url:'http://192.168.250.5:8081',
     // url: 'http://testapi.home-guard.cn',
     // url: 'https://api.home-guard.cn',
     token: null,
