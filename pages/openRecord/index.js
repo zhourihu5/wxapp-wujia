@@ -118,7 +118,7 @@ Page({
             isLoading: that.data.isLoading,
         })
         var paramData={
-            communtityCode:app.communtityCode,
+            fid:app.fid,
             pageNum: that.data.pageNum,
             pageSize:that.data.pageSize,
         }
