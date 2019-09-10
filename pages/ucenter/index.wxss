@@ -40,6 +40,7 @@
   width:170rpx;
   height:170rpx;
   background:rgba(216,216,216,1);
+
   /*margin-right: 50rpx;*/
   border-radius: 50%;
   display: inline-block;

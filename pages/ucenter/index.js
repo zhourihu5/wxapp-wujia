@@ -14,21 +14,21 @@ Page({
                 icon: "/images/icon_yellow_page.png",
                 url: "/pages/yellowPage/index"
             },
-            // {
-            //     title: "门禁记录",
-            //     icon: "/images/icon_open_record.png",
-            //     url: "/pages/openRecord/index"
-            // },
-            // {
-            //     title: "我的优惠券",
-            //     icon: "/images/icon_my_discount_coupon.png",
-            //     url: "/pages/myDiscountCoupon/index"
-            // },
-            // {
-            //     title: "我的体验券",
-            //     icon: "/images/icon_my_coupon.png",
-            //     url: "/pages/myCoupon/index"
-            // },
+            {
+                title: "门禁记录",
+                icon: "/images/icon_open_record.png",
+                url: "/pages/openRecord/index"
+            },
+            {
+                title: "我的优惠券",
+                icon: "/images/icon_my_discount_coupon.png",
+                url: "/pages/myDiscountCoupon/index"
+            },
+            {
+                title: "我的体验券",
+                icon: "/images/icon_my_coupon.png",
+                url: "/pages/myCoupon/index"
+            },
         ],
         nickName: '',
         phone: '',
@@ -110,22 +110,14 @@ Page({
     itemClicked(e){
         if(!app.userName){
             wx.reLaunch({
-                url:"/pages/index/index"
+                url:'/pages/index/index'
             })
             return;
         }
-        var index=e.currentTarget.dataset.index
-        var url=this.data.items[index].url
+        let index=e.currentTarget.dataset.index
+        let url=this.data.items[index].url
         wx.navigateTo({
-            url:url
+            url:url,
         })
-    },
-    toLogin(e){
-        if(!app.userName){
-            wx.reLaunch({
-                url:"/pages/index/index"
-            })
-            return;
-        }
     },
 })

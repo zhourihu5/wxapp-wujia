@@ -581,7 +581,7 @@ movable-area {
     line-height: 42rpx;
     color:rgba(136,136,136,1);
 
-    margin-bottom: 6rpx;
+    /*margin-bottom: 6rpx;*/
 }
 .close-icon{
     /*border-radius:0 16rpx 0 0;*/
