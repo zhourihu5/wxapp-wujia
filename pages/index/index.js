@@ -91,10 +91,6 @@ Page({
             that.showModal('ModalBindPhone');
             return;
         }
-
-        // wx.navigateTo({
-        //     url:"/pages/inviteVisitor/index"
-        // })
         this.showModal('ModalInviteVisitor')
         if(that.data.isGeneratingCode){
             return
@@ -103,10 +99,7 @@ Page({
         that.setData({
             canNotShare:true,
         })
-        network.requestGet('/v1/apply/secretCodeWithOpenDoor',{
-            communtityCode:app.communtityCode,
-            fid:app.fid,
-        },function (data) {
+        network.requestGet('/v1/apply/secretCodeWithOpenDoor',{communtityCode:app.communtityCode},function (data) {
             that.data.isGeneratingCode=false
             that.setData({
                 inviteData:data,
@@ -199,6 +192,11 @@ Page({
     },
 
     goBuy(e) {
+        var that=this
+        // if(!app.userName){
+        //     that.showModal('ModalBindPhone');
+        //     return;
+        // }
         var index=e.currentTarget.dataset.index
         let id =this.data.apiData.activityList[index].id;
         if(this.data.apiData.activityList[index].isJoin==1){
@@ -219,22 +217,21 @@ Page({
         }
     },
     touchendOpen(e) {
-        var that=this
+
         if(this.data.modalName=='ModalGuideOpen'){
             return;
         }
+        var that=this
+
+        console.log(e)
+        console.log(this.customData)
+        that.setData({// 回弹
+            y: util.rpxToPx(40),
+        })
         if(!app.userName){
             that.showModal('ModalBindPhone');
             return;
         }
-
-        console.log(e)
-        console.log(this.customData)
-
-        that.setData({// 回弹
-            y: util.rpxToPx(40),
-        })
-
 
         if (this.customData.y < util.rpxToPx(20)) {
             if(that.data.isOpeningDoor){
@@ -242,10 +239,7 @@ Page({
                 return
             }
             that.data.isOpeningDoor=true
-            network.requestGet('/v1/apply/openDoor',{
-                communtityCode:app.communtityCode,
-                fid:app.fid,
-            },function (data) {
+            network.requestGet('/v1/apply/openDoor',{communtityCode:app.communtityCode},function (data) {
                 that.data.isOpeningDoor=false
                 app.showToast('锁已开')
             },function (msg) {
@@ -276,19 +270,24 @@ Page({
         this.isEnableTabBar()
     },
     showModalAddCommunity(e) {
-        var that=this
-        if(!app.userName){
-            that.showModal('ModalBindPhone');
-            return;
-        }
         this.showModal('ModalAddCommunity')
     },
     toCoupon(e){
+        var that=this
+        // if(!app.userName){
+        //     that.showModal('ModalBindPhone');
+        //     return;
+        // }
         wx.navigateTo({
             url:'/pages/coupon/index'
         })
     },
     switchCommunity(e) {
+        var that=this
+        if(!app.userName){
+            that.showModal('ModalBindPhone');
+            return;
+        }
         var index = e.currentTarget.dataset.index
         if (this.data.cummunityIndex == index) {
             this.hideModal()
@@ -303,7 +302,7 @@ Page({
         app.fid=this.data.apiData.familyList[index].id
 
         this.hideModal()
-        var that=this
+
         network.requestGet('/v1/activity/wxIndex',{communityId:app.communtityId} , function (data) {
             that.setData({
                 apiData: data,
@@ -592,13 +591,8 @@ Page({
         //     register && register.loadFinish(that, true)
         //     return
         // }
-        var requestParam={
-            // communityId:app.communtityId
-        }
-        if(app.communtityId){
-            requestParam.communityId=app.communtityId
-        }
-        network.requestGet('/v1/activity/wxIndex', requestParam, function (data) {
+
+        network.requestGet('/v1/activity/wxIndex',{communityId:app.communtityId} , function (data) {
             that.setData({
                 apiData: data,
             })
