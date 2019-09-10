@@ -416,7 +416,7 @@ page{
     text-decoration: line-through;
 }
 .full-screen{
-    bottom: -98rpx;
+    /*bottom: -98rpx;*/
     /*z-index: 99999999999999999999999999;*/
 }
 .sell-num{
