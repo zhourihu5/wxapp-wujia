@@ -39,11 +39,15 @@
 
     </block>
     <view class="g-text m-t-20 m-b-20">不可使用优惠券（{{apiData.noList.length}}）</view>
-    <block wx:for="{{apiData.noList}}" wx:for-item="item" wx:key="">
+<!--    <block wx:for="{{apiData.noList}}" wx:for-item="item" wx:key="">-->
+    <block wx:for="{{apiData.yesList}}" wx:for-item="item" wx:key="">
 
         <view class="coupon-w-b flex align-center relative m-b-20">
+            <view class="img-activity relative">
+                <image class="img-activity-expired" style="z-index: 0;" src="{{item.coupon.cover}}" />
+                <view class="img-activity-expired" style="position: absolute;top: 0;left: 0;z-index: 2;background:rgba(158,158,158,0.5);"></view>
+            </view>
 
-            <image class="img-activity" src="{{item.coupon.cover}}" />
 
             <view class="flex-1 relative i-c-c p-activity-content">
 

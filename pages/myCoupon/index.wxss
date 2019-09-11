@@ -326,6 +326,10 @@ page{
   background:rgba(255,255,255,1);
   border-radius:4rpx;
 
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
   position: absolute;
   right: 76rpx;
   top: 60rpx;

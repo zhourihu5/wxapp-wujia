@@ -25,6 +25,12 @@ page{
     margin-left: 24rpx;
     margin-right: 24rpx;
 }
+.img-activity-expired{
+    width:160rpx;
+    height:160rpx;
+    background:rgba(158,158,158,1);
+    border-radius:8rpx;
+}
 .expired{
     color:rgba(203,203,203,1) !important;
 }
@@ -60,14 +66,6 @@ page{
     position: absolute;
 
     z-index: 3;
-}
-.img-activity{
-    width:160rpx;
-    height:160rpx;
-    background:rgba(158,158,158,1);
-    border-radius:8rpx;
-
-    margin-left: 24rpx;
 }
 .i-c-l{
     width: 180rpx;
