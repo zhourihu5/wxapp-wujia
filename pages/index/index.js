@@ -99,7 +99,10 @@ Page({
         that.setData({
             canNotShare:true,
         })
-        network.requestGet('/v1/apply/secretCodeWithOpenDoor',{communtityCode:app.communtityCode},function (data) {
+        network.requestGet('/v1/apply/secretCodeWithOpenDoor',{
+            communtityCode:app.communtityCode,
+            fid:app.fid,
+        },function (data) {
             that.data.isGeneratingCode=false
             that.setData({
                 inviteData:data,
@@ -143,12 +146,24 @@ Page({
             function (data) {
                 app.token = data.token
                 try {
-                    app.communtityId = data.familyList[0].communtity.id
-                    app.communtityCode = data.familyList[0].communtity.code
-                    app.fid=data.familyList[0].id
+                    let currentFamily=data.familyList[0];
+                    let fid=wx.getStorageSync('fid')
+                    if(fid){
+                        for(let i=0;i<data.familyList.length;i++){
+                            if(data.familyList[i].id==fid){
+                                currentFamily=data.familyList[i];
+                                break;
+                            }
+                        }
+                    }
+
+                    app.communtityId = currentFamily.communtity.id
+                    app.communtityCode = currentFamily.communtity.code
+                    app.fid=currentFamily.id
                     that.setData({
-                        communtityName: data.familyList[0].name,
+                        communtityName: currentFamily.name,
                     })
+
                 } catch (e) {
                 }
                 if(data.unRead){
@@ -315,6 +330,10 @@ Page({
         }, function (msg) {
 
         })
+        wx.setStorage({
+            key:'fid',
+            data:app.fid,
+        })
     },
     addCommunity(e) {
         this.hideModal()
@@ -361,11 +380,22 @@ Page({
                         })
                         app.token = data.token
                         try {
-                            app.communtityId = data.familyList[0].communtity.id
-                            app.communtityCode = data.familyList[0].communtity.code
-                            app.fid=data.familyList[0].id
+                            let currentFamily=data.familyList[0];
+                            let fid=wx.getStorageSync('fid')
+                            if(fid){
+                                for(let i=0;i<data.familyList.length;i++){
+                                    if(data.familyList[i].id==fid){
+                                        currentFamily=data.familyList[i];
+                                        break;
+                                    }
+                                }
+                            }
+
+                            app.communtityId = currentFamily.communtity.id
+                            app.communtityCode = currentFamily.communtity.code
+                            app.fid=currentFamily.id
                             that.setData({
-                                communtityName: data.familyList[0].name,
+                                communtityName: currentFamily.name,
                             })
                         } catch (e) {
                         }
