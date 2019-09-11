@@ -422,11 +422,13 @@
     /*height:34px;*/
     font-size:24rpx;
     font-family:PingFangSC;
-    font-weight:500;
+    font-weight:500 !important;
+    /*font-weight:600;*/
     color:rgba(34,34,34,1);
     line-height:34rpx;
 
-    left: calc(646rpx - 375rpx);
+    /*left: calc(646rpx - 375rpx);*/
+    left: calc(646rpx - 375rpx );
     top: 16rpx !important;
 }
 
