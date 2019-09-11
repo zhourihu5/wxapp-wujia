@@ -83,6 +83,7 @@ page{
 .text-num{
   color:#FF9B1D;
   font-size:40rpx;
+  line-height: 40rpx;
 
   margin: 0 8rpx;
 }
@@ -224,7 +225,8 @@ page{
   font-size:28rpx;
   font-family:PingFangSC;
   font-weight:500;
-  color:rgba(207,207,207,1);
+  /*color:rgba(207,207,207,1);*/
+  color:#CFCFCF;
   /*line-height:40rpx;*/
   line-height:56rpx;
   text-align: center;
@@ -388,6 +390,7 @@ page{
   font-weight:400;
   color:rgba(255,155,29,1);
   line-height:34rpx;
+  text-decoration: underline;
 
   padding-left: 20rpx;
 }
