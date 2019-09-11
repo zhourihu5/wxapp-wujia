@@ -43,29 +43,27 @@
             </view>
         </view>
     </view>
-<!--    <view class="item2" style="padding-top: 20rpx;padding-bottom: 0rpx;">-->
-<!--        <view class="coupon-pink-b flex align-center">-->
-<!--            <view class="flex-1 p-l-30 p-r-30">-->
-<!--                <view>-->
-<!--                    <text class="yhq-dollor">￥</text>-->
-<!--                    <text class="yhq-money-v">12</text>-->
-<!--                    <text class="yhq-name">活动优惠劵名称</text>-->
-<!--                </view>-->
-<!--                <view class="coupon-time">有效期至 2019.08.15</view>-->
-<!--            </view>-->
+    <view wx:if="{{apiData.coupon}}" class="item2" style="padding-top: 20rpx;padding-bottom: 0rpx;">
+        <view class="{{couponIsValid?'coupon-pink-b':'coupon-g-g-b'}} flex align-center">
+            <view class="flex-1 p-l-30 p-r-30">
+                <view>
+                    <text class="yhq-dollor">￥</text>
+                    <text class="yhq-money-v">{{apiData.coupon.money}}</text>
+                    <text class="yhq-name">{{apiData.coupon.name}}</text>
+                </view>
+                <view class="coupon-time">有效期至 {{apiData.coupon.endDate}}</view>
+            </view>
 
-<!--            <view class="c-r-c">-->
-<!--                <view class="l-c">-->
-<!--                    <view class="t-corner"></view>-->
-<!--                    <view class="v-line"></view>-->
-<!--                    <view class="b-corner"></view>-->
-<!--                </view>-->
-<!--                <view class="coupon-use"-->
-<!--                      catchtap="takeCoupon">立即使用-->
-<!--                </view>-->
-<!--            </view>-->
-<!--        </view>-->
-<!--    </view>-->
+            <view class="c-r-c" catchtap="couponClicked">
+                <view class="l-c">
+                    <view class="t-corner"></view>
+                    <view class="{{couponIsValid?'v-line':'v-line-invalid'}}"></view>
+                    <view class="b-corner"></view>
+                </view>
+                <view class="coupon-use" >{{!couponIsValid?'不可用':couponTaken?'立即使用':'立即领取'}}</view>
+            </view>
+        </view>
+    </view>
 
     <view class="item2" style="padding-top: 20rpx">
         <view class="hdbt">{{apiData.activity.commodity.name}}</view>
@@ -99,7 +97,6 @@
 <!--                       src="{{item.wxCover}}"></image>-->
                 <view class="cu-avatar round round-image" wx:for="{{apiData.userInfoList}}" wx:key style="background-image:url('{{item.wxCover}}');"></view>
             </view>
-            <!--                //todo 居于底部-->
             <view  class="item-3-2-r">...等{{apiData.activity.commodity.salesNum}}名用户已参与</view>
         </view>
         <view wx:if="{{false&&saleTip.length>1}}" class="center zlyrctghd m-t-40">再来{{saleTip[0]}}人参团该活动商品立减
@@ -136,7 +133,7 @@
 
 
 
-<view class="bottom-button" hover-class="navigator-hover" hover-stop-propagation="{{true}}" bindtap="toConfirmOrder" data-id="{{apiData.activity.id}}">去参团</view>
+<view class="bottom-button" hover-class="navigator-hover" hover-stop-propagation="{{true}}" bindtap="toConfirmOrder" >去参团</view>
 
 <view class="cu-modal full-screen  {{modalName=='ModalIntro'?'show':''}}">
     <view class="cu-dialog dialog relative">
@@ -189,6 +186,18 @@
             <rich-text class="rich-text-intro" nodes="{{  apiData.activity.remark }}"></rich-text>
 <!--            <view>{{  apiData.activity.remark }}</view>-->
         </view>
-        <view class="dialog-action" hover-class="navigator-hover" hover-stop-propagation="{{true}}" bindtap="hideModal">我知道了</view>
+        <view class="dialog-action-known" hover-class="navigator-hover" hover-stop-propagation="{{true}}" bindtap="hideModal">我知道了</view>
+    </view>
+</view>
+<view class="cu-modal full-screen  {{modalName=='ModalTakeFail'?'show':''}}">
+    <view class="cu-dialog dialog-hint relative">
+        <view class="dialog-title-f m-t-50">提示</view>
+        <view class="msg">本次活动优惠劵已被全部领取，下次活动早点来参加呦～</view>
+        <view class="dialog-action">
+            <view class="dialog-cancel" hover-class="navigator-hover" hover-stop-propagation="{{true}}" bindtap="hideModal">取消</view>
+            <view class="dialog-add no-border" hover-class="navigator-hover" hover-stop-propagation="{{true}}" bindtap="hideModal">
+                确定
+            </view>
+        </view>
     </view>
 </view>
