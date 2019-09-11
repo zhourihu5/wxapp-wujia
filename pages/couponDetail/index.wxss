@@ -50,7 +50,7 @@ page{
   padding: 10rpx 6rpx;
   font-size:22rpx;
   font-family:PingFangSC-Regular;
-  font-weight:400;
+  font-weight:500;
   color:rgba(255,255,255,1);
   line-height:22rpx;
 
@@ -77,8 +77,8 @@ page{
   color:rgba(34,34,34,1);
   line-height:40rpx;
 
-  display: flex;
-  justify-content: center;
+  /*display: flex;*/
+  /*justify-content: center;*/
 }
 .text-num{
   color:#FF9B1D;
@@ -194,7 +194,7 @@ page{
   /*height:198rpx;*/
 
   flex: 1;
-  border-left: 1rpx dashed #FFFFFF;
+  border-left: 2rpx dashed #FFFFFF;
 }
 .btn-lq{
   /*width:112rpx;*/
