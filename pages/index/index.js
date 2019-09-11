@@ -239,7 +239,7 @@ Page({
                 return
             }
             that.data.isOpeningDoor=true
-            network.requestGet('/v1/apply/openDoor',{communtityCode:app.communtityCode},function (data) {
+            network.requestGet('/v1/apply/openDoor',{fid:app.fid},function (data) {
                 that.data.isOpeningDoor=false
                 app.showToast('锁已开')
             },function (msg) {
@@ -270,6 +270,11 @@ Page({
         this.isEnableTabBar()
     },
     showModalAddCommunity(e) {
+        var that=this
+        if(!app.userName){
+            that.showModal('ModalBindPhone');
+            return;
+        }
         this.showModal('ModalAddCommunity')
     },
     toCoupon(e){
