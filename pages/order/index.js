@@ -444,10 +444,10 @@ Page({
     delete(e){
         var active=this.data.active
         var index=e.currentTarget.dataset.index
-        var id=this.data.tabs[active].data[index].id
+        var item=this.data.tabs[active].data[index]
 
         var that = this
-        network.requestPost('/v1/order/deleteOrder', {id:id}, function (data) {
+        network.requestPost('/v1/order/deleteOrder', {id:item.id}, function (data) {
             that.data.tabs[active].data=that.data.tabs[active].data.filter(function(item1) {
                 return item1.id != item.id
             });
