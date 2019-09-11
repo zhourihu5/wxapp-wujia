@@ -1,29 +1,45 @@
 <cu-custom bgColor="titlebar-white" isBack="{{true}}">
     <view slot="backText"></view>
-    <view slot="content"><text class="{{navigationBarLoading?'wj-loading-icon':''}}"/>我的收货地址</view>
+    <view slot="content">
+        <text class="{{navigationBarLoading?'wj-loading-icon':''}}"/>
+        我的收货地址
+    </view>
 </cu-custom>
 <scroll-view scroll-y class="body"
              bindscrolltoupper='scrolltoupper'
              bindscrolltolower='scrolltolower'
 >
-<!--    style="top: calc( {{CustomBar}}px + 20rpx )"-->
-    <block wx:for="{{apiData}}" wx:for-item="item" wx:key="">
-<!--    <block wx:for="{{20}}" wx:for-item="item" wx:key="">-->
-        <view class="w-b {{index==0?'m-t-20':''}}"
-              hover-class="navigator-hover" hover-stop-propagation="{{true}}" bindtap="itemClick" data-index="{{index}}">
-            <view class="item-c {{index==0?'no-border':''}}" >
-                <view class="item-c-l">
-                    <view class="t-addr">{{item.communtityName}}{{item.address}}</view>
-                    <view class="t-gray-b">{{item.name}}{{item.phone}}</view>
+    <view class="cu-list menu-avatar">
+        <block wx:for="{{apiData}}" wx:for-item="item" wx:key="">
+            <!--    <block wx:for="{{20}}" wx:for-item="item" wx:key="">-->
+
+
+            <view class="w-b {{index==0?'m-t-20':''}} cu-item {{modalName=='move-box-'+ index?'move-cur':''}}"
+                  bindtouchstart="ListTouchStart" bindtouchmove="ListTouchMove" bindtouchend="ListTouchEnd"
+                  data-target="move-box-{{index}}"
+
+                  hover-class="navigator-hover" hover-stop-propagation="{{true}}" bindtap="itemClick"
+                  data-index="{{index}}"
+            >
+                <view class="item-c {{index==0?'no-border':''}}">
+                    <view class="item-c-l">
+                        <view class="t-addr">{{item.communtityName}}{{item.address}}</view>
+                        <view class="t-gray-b">{{item.name}}{{item.phone}}</view>
+                    </view>
+                    <view class="cuIcon-edit icon-edit" data-index="{{index}}"
+                          hover-class="navigator-hover" hover-stop-propagation="{{true}}" catchtap="toEdit"></view>
+
+                    <view class="move">
+<!--                        <view class="bg-grey">置顶</view>-->
+<!--                        <view class="bg-grey" data-index="{{index}}" catchtap="toEdit" >编辑</view>-->
+                        <view class="bg-red" data-index="{{index}}" catchtap="delete">删除</view>
+                    </view>
                 </view>
-                <view class="cuIcon-edit icon-edit" data-index="{{index}}"
-                      hover-class="navigator-hover" hover-stop-propagation="{{true}}" catchtap="toEdit"></view>
+
             </view>
 
-        </view>
-    </block>
-
-
+        </block>
+    </view>
 
 </scroll-view>
 <view class="b-b" hover-class="navigator-hover" hover-stop-propagation="{{true}}" bindtap="addNewAdress">

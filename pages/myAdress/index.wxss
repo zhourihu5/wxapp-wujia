@@ -145,3 +145,39 @@ page{
 
     margin-left: 20rpx;
 }
+
+
+.cu-list.menu-avatar>.cu-item {
+/*./colorui/main.wxss: 1270*/
+    position: relative;
+    display: flex;
+    padding-right: 30rpx;
+    /*height: 140rpx;*/
+    height: auto;
+    background-color: var(--white);
+    justify-content: flex-end;
+    align-items: center;
+
+}
+
+.cu-list>.cu-item.move-cur {
+    /*transform: translateX(-260rpx)*/
+    transform: translateX(-130rpx)
+}
+
+.cu-list>.cu-item .move {
+    position: absolute;
+    right: 0;
+    display: flex;
+    /*width: 260rpx;*/
+    width: 130rpx;
+    height: 100%;
+    transform: translateX(100%)
+}
+
+.cu-list>.cu-item .move view {
+    display: flex;
+    flex: 1;
+    justify-content: center;
+    align-items: center
+}

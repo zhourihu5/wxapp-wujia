@@ -57,7 +57,7 @@
             <view class="c-r-c" catchtap="couponClicked">
                 <view class="l-c">
                     <view class="t-corner"></view>
-                    <view class="v-line"></view>
+                    <view class="{{couponIsValid?'v-line':'v-line-invalid'}}"></view>
                     <view class="b-corner"></view>
                 </view>
                 <view class="coupon-use" >{{!couponIsValid?'不可用':couponTaken?'立即使用':'立即领取'}}</view>

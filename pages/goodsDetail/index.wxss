@@ -730,6 +730,13 @@ img{
   flex: 1;
   border-left: 2rpx dashed #FF9B1D;
 }
+.v-line-invalid{
+  /*width:2rpx;*/
+  /*height:198rpx;*/
+
+  flex: 1;
+  border-left: 2rpx dashed #FFFFFF;
+}
 
 
 .dialog-hint{

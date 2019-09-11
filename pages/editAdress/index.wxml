@@ -58,7 +58,7 @@
         </view>
     </view>
     <view class="{{isBtnEnabled?'b-b':'b-b-disabled'}}" hover-class="navigator-hover" hover-stop-propagation="{{true}}"
-          bindtap="onClickSave">保存并使用
+          bindtap="onClickSave">保存
     </view>
 
 </view>

@@ -422,8 +422,8 @@
     /*height:34px;*/
     font-size:24rpx;
     font-family:PingFangSC;
-    font-weight:500 !important;
-    /*font-weight:600;*/
+    /*font-weight:500 !important;*/
+    font-weight:600 !important;
     color:rgba(34,34,34,1);
     line-height:34rpx;
 
