@@ -68,7 +68,7 @@
                                     </view>
                                     <image wx:if="{{item.status=='3'||item.status=='4'}}"
                                            class="image-delete" src="/images/icon_delete.png"
-                                            catchtap="delete"   />
+                                            catchtap="delete"  data-index="{{index}}"/>
 
                                 </view>
                                 <view class="order-middle-item {{item.status=='2'?'no-border-bottom':''}}">
