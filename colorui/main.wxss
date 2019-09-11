@@ -1932,7 +1932,8 @@ button.icon.lg {
 	min-height: 0px;
 	padding-right: 220rpx;
 	box-shadow: 0rpx 0rpx 0rpx;
-	z-index: 9999;
+	/*z-index: 9999;*/
+	z-index: 1009;
 }
 
 .cu-custom .cu-bar .border-custom {
