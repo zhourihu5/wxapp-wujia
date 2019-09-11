@@ -203,11 +203,12 @@
 }
 .ysh-w{
     position: absolute;
-    right: 0;
+    /*right: 0;*/
+    right: calc( 44rpx + 20rpx );
     top: 20rpx;
     /*width: 90rpx;*/
     /*height: 90rpx;*/
-    padding: 20rpx;
+    padding: 10rpx;
     border-radius: 50%;
     border: 1rpx dashed rgba(255,155,29,1);
 
@@ -227,6 +228,10 @@
 
 
 }
+.ygq-w{
+    border: 1rpx dashed rgba(85,85,85,1);
+    color:rgba(85,85,85,1);
+}
 .ysh-r{
     width:74rpx;
     height:74rpx;
@@ -237,6 +242,9 @@
     display: flex;
     align-items: center;
     justify-content: center;
+}
+.ygq-r{
+    border: 1rpx solid rgba(85,85,85,1);
 }
 .ysh{
     background: white;
@@ -254,6 +262,11 @@
   font-weight:500;
   color:rgba(184,184,184,1);
   line-height:32rpx;
+}
+.image-delete{
+    width: 44rpx;
+    height: 44rpx;
+    border-radius: 50%;
 }
 .order-image{
   width:140rpx;
