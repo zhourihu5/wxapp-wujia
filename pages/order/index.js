@@ -440,6 +440,24 @@ Page({
             return
         }
         this.loadData()
-    }
+    },
+    delete(e){
+        var active=this.data.active
+        var index=e.currentTarget.dataset.index
+        var id=this.data.tabs[active].data[index].id
+
+        var that = this
+        network.requestPost('/v1/order/deleteOrder', {id:id}, function (data) {
+            that.data.tabs[active].data=that.data.tabs[active].data.filter(function(item1) {
+                return item1.id != item.id
+            });
+            that.setData({
+                tabs:that.data.tabs,
+            })
+            that.refresh()
+        }, function (msg) {
+
+        })
+    },
 
 })
