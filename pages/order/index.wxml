@@ -60,7 +60,16 @@
 
                                     </view>
 
-                                    <text wx:else  class="ygq">已过期</text>
+                                    <view wx:else  class="ysh-w ygq-w">
+                                        <view class="ysh-r ygq-r">
+                                            <view   class="ysh">已过期</view>
+                                        </view>
+
+                                    </view>
+                                    <image wx:if="{{item.status=='3'||item.status=='4'}}"
+                                           class="image-delete" src="/images/icon_delete.png"
+                                            catchtap="delete"   />
+
                                 </view>
                                 <view class="order-middle-item {{item.status=='2'?'no-border-bottom':''}}">
                                     <image class="order-image" src="{{item.activity.cover}}"/>

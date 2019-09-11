@@ -9,7 +9,7 @@
 <!--    style="margin-top:{{StatusBar}}px;padding-bottom:calc(98rpx + {{StatusBar}}px) "-->
     <!-- wxml -->
     <swiper wx:if="{{apiData.activity.commodity.attaInfos.length>1}}" class='u-wrp-bnr'
-            indicator-dots='true' autoplay='{{false}}' interval='5000' duration='300' circular='true'>
+            indicator-dots='true' autoplay='{{false}}' interval='1000' duration='300' circular='true'>
         <block wx:for="{{apiData.activity.commodity.attaInfos}}">
 <!--        <block wx:for="{{3}}">-->
             <swiper-item item-id="{{item.attaAddr}}">
@@ -133,7 +133,7 @@
 
 
 
-<view class="bottom-button" hover-class="navigator-hover" hover-stop-propagation="{{true}}" bindtap="toConfirmOrder" >去参团</view>
+<view class="bottom-button" hover-class="navigator-hover" hover-stop-propagation="{{true}}" bindtap="toConfirmOrder" >去下单</view>
 
 <view class="cu-modal full-screen  {{modalName=='ModalIntro'?'show':''}}">
     <view class="cu-dialog dialog relative">
