@@ -356,7 +356,8 @@ page{
 .hxm{
   /*width:606px;*/
   /*height:84px;*/
-  font-size:60rpx;
+  /*font-size:60rpx;*/
+  font-size:70rpx;
   font-family:FZLTTHK--GBK1;
   /*font-weight:normal;*/
   font-weight: 700;
