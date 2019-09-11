@@ -197,7 +197,7 @@ page{
   /*height:198rpx;*/
 
   flex: 1;
-  border-left: 1rpx dashed #FFFFFF;
+  border-left: 2rpx dashed #FFFFFF;
 }
 .btn-lq{
   /*width:112rpx;*/
@@ -358,7 +358,8 @@ page{
   /*height:84px;*/
   font-size:60rpx;
   font-family:FZLTTHK--GBK1;
-  font-weight:normal;
+  /*font-weight:normal;*/
+  font-weight: 700;
   color:rgba(255,255,255,1);
   line-height:76rpx;
 

@@ -64,6 +64,9 @@ Page({
             function (msg) {
             }
         )
+        // that.setData({//todo test
+        //         modalName: 'ModalTakeCouponSuccess',
+        // })
     },
     toMyCoupon(e){
         wx.redirectTo({
