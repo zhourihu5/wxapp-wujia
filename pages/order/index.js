@@ -469,6 +469,15 @@ Page({
         }, function (msg) {
 
         })
+        this.hideModal(e)
     },
+    showDeleteModal(e){
+        var active=this.data.active
+        var index=e.currentTarget.dataset.index
+        this.setData({
+            modalName:'ModalDelete',
+            currentItem:index,
+        })
 
+    },
 })
