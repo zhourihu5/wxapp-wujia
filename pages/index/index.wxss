@@ -416,7 +416,7 @@ page{
     text-decoration: line-through;
 }
 .full-screen{
-    /*bottom: -98rpx;*/
+    bottom: -98rpx;
     /*z-index: 99999999999999999999999999;*/
 }
 .sell-num{
@@ -875,12 +875,21 @@ movable-area {
     color:rgba(255,255,255,1);
     line-height:28rpx;
 
-    max-width: 448rpx;
+    /*max-width: 280rpx;*/
+    max-width: 294rpx;
     overflow: hidden;
-    white-space: nowrap;
-    text-overflow: ellipsis;
 
-    margin:0 12rpx;
+    white-space:nowrap;
+    overflow:hidden;
+    text-overflow:ellipsis;
+    text-align: left;
+
+    padding:0 12rpx;
+}
+.icon-coupon{
+    width: 150rpx;
+    height: 84rpx;
+    margin-left: 30rpx;
 }
 .invite-visitor{
     /*width:112px;*/
