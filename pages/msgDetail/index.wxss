@@ -141,3 +141,30 @@ page{
 
     padding: 20rpx 0 0 0 !important;
 }
+
+.unread-dot{
+    width:10rpx;
+    height:10rpx;
+    background:rgba(255,65,81,1);
+    border-radius: 50%;
+
+    /*!*width:12px;*!*/
+    /*!*height:28px;*!*/
+    /*font-size:20rpx;*/
+    /*font-family:PingFangSC-Regular;*/
+    /*font-weight:400;*/
+    /*color:rgba(255,255,255,1);*/
+    /*line-height:28rpx;*/
+
+    /*!*border-radius: 50%;*!*/
+    /*border-radius: 14rpx;*/
+    /*!*-webkit-text-fill-color: white;*!*/
+
+    /*display: flex;*/
+    /*margin-top: 14rpx;*/
+    /*align-items: center;*/
+    /*justify-content: center;*/
+    /*float: right;*/
+
+    /*padding: 0 8rpx;*/
+}
