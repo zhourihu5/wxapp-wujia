@@ -9,6 +9,7 @@ Page({
         modalName:null,
         apiData:null,
         hasTaken:false,
+        expired:false,
     },
     showNavigationBarLoading() {
         if(this.data.loading){//下拉刷新
@@ -141,7 +142,7 @@ Page({
                     hour: '00',
                     minute: '00',
                     second: '00',
-                    // isBtnEnabled:false,
+                    expired:true,
                 })
                 return
             }
