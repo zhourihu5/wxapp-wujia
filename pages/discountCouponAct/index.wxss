@@ -30,6 +30,10 @@ page{
     height:160rpx;
     background:rgba(158,158,158,1);
     border-radius:8rpx;
+
+    /*黑白滤镜*/
+    /*filter: saturate(0%);*/
+    filter: grayscale(100%);
 }
 .expired{
     color:rgba(203,203,203,1) !important;

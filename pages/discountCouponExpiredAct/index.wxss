@@ -36,6 +36,11 @@ page{
 
   margin-left: 24rpx;
 }
+.img-activity-expired{
+  /*黑白滤镜*/
+  /*filter: saturate(0%);*/
+  filter: grayscale(100%);
+}
 .i-c-c{
   height: 100%;
   flex: 1;
