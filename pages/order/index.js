@@ -310,9 +310,9 @@ Page({
         that.setData({
             active:event.detail.index
         })
-        if (that.data.tabs[that.data.active].data.length <= 0) {
+        // if (that.data.tabs[that.data.active].data.length <= 0) {
             that.loadDataIfNeeded()
-        }
+        // }
         var scrolling=this.data.tabs[that.data.active].scrolling
         var isUpper=this.data.tabs[that.data.active].isUpper
         this.data.scrolling = scrolling;
