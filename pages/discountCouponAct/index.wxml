@@ -29,7 +29,9 @@
             <view class="i-c-l" style="z-index: 2">
                 <view>
                     <text class="dollor">￥</text>
-                    <text class="money-v">{{item.coupon.money}}</text>
+                    <text class="money-v">{{utils.numBeforeDot(item.coupon.money)}}</text>
+                    <text class="money-v" style="font-size: 40rpx;" wx:if="{{utils.isNumDot(item.coupon.money)}}">.{{utils.numAfterDot(item.coupon.money)}}</text>
+
                 </view>
             </view>
             <image class="img-coupon-dollor" src="/images/coupon_dollor_img.png"/>
@@ -63,7 +65,9 @@
             <view class="i-c-l" style="z-index: 2">
                 <view>
                     <text class="dollor expired">￥</text>
-                    <text class="money-v expired">{{item.coupon.money}}</text>
+                    <text class="money-v expired">{{utils.numBeforeDot(item.coupon.money)}}</text>
+                    <text class="money-v expired" style="font-size: 40rpx;" wx:if="{{utils.isNumDot(item.coupon.money)}}">.{{utils.numAfterDot(item.coupon.money)}}</text>
+
                 </view>
             </view>
             <image class="img-coupon-dollor" src="/images/coupon_dollor_img_expired.png"/>

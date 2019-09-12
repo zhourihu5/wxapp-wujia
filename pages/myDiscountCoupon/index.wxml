@@ -37,7 +37,9 @@
                         <view class="i-c-l">
                             <view>
                                 <text class="dollor">￥</text>
-                                <text class="money-v">{{item.coupon.money}}</text>
+                                <text class="money-v">{{utils.numBeforeDot(item.coupon.money)}}</text>
+                                <text class="money-v" style="font-size: 40rpx;" wx:if="{{utils.isNumDot(item.coupon.money)}}">.{{utils.numAfterDot(item.coupon.money)}}</text>
+
                             </view>
                         </view>
                         <view class="flex-1 relative i-c-c p-l-40 " style="z-index: 2">
