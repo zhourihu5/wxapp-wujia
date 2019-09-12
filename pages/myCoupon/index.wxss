@@ -90,7 +90,7 @@ page{
   width:690rpx;
   height:224rpx;
   background:linear-gradient(270deg,rgba(255,202,108,1) 0%,rgba(255,169,62,1) 100%);
-  box-shadow:0rpx 4rpx 28rpx 0rpx rgba(228,228,228,0.57);
+  /*box-shadow:0rpx 4rpx 28rpx 0rpx rgba(228,228,228,0.57);*/
   border-radius: 16rpx;
 
   display: flex;
