@@ -875,7 +875,8 @@ movable-area {
     color:rgba(255,255,255,1);
     line-height:28rpx;
 
-    max-width: 280rpx;
+    /*max-width: 280rpx;*/
+    max-width: 294rpx;
     overflow: hidden;
 
     white-space:nowrap;
@@ -889,7 +890,6 @@ movable-area {
     width: 150rpx;
     height: 84rpx;
     margin-left: 30rpx;
-    margin-right: 20rpx;
 }
 .invite-visitor{
     /*width:112px;*/
