@@ -161,28 +161,36 @@ Page({
         }
 
         var that = this
-        var i=0
         var orderData=null
         interval = setInterval(function () {
-            for(i=0;i<that.data.tabs[0].data.length;i++){
+            for(let i=0;i<that.data.tabs[0].data.length;i++){
                 orderData=that.data.tabs[0].data[i]
                 if(orderData.status=='1'){
                     orderData.remainTime=util.calcRemainTime(orderData.payEndDate)
-                    // if(orderData.remainTime=='00:00:00'){
-                    //     that.refreshAllData()
-                    //     return;
-                    // }
+                    if(orderData.remainTime=='00:00:00'){
+                        // that.refreshAllData()
+                        // return;
+                        orderData.status='4'
+                    }
                 }
             }
-            for(i=0;i<that.data.tabs[1].data.length;i++){
+            var tabDataChanged=false
+            for(let i=0;i<that.data.tabs[1].data.length;i++){
                 orderData=that.data.tabs[1].data[i]
                 if(orderData.status=='1'){
                     orderData.remainTime=util.calcRemainTime(orderData.payEndDate)
-                    // if(orderData.remainTime=='00:00:00'){
-                    //     that.refreshAllData()
-                    //     return;
-                    // }
+                    if(orderData.remainTime=='00:00:00'){
+                        // that.refreshAllData()
+                        // return;
+                        orderData.status='4'
+                        tabDataChanged=true
+                    }
                 }
+            }
+            if(tabDataChanged){
+                that.data.tabs[1].data=that.data.tabs[1].data.filter(function(item) {
+                    return item.status != '1'
+                });
             }
             that.setData({
                 tabs:that.data.tabs
