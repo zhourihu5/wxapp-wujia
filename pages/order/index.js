@@ -163,6 +163,9 @@ Page({
         var that = this
         var orderData=null
         interval = setInterval(function () {
+            if(that.data.active>1){
+                return
+            }
             for(let i=0;i<that.data.tabs[0].data.length;i++){
                 orderData=that.data.tabs[0].data[i]
                 if(orderData.status=='1'){
