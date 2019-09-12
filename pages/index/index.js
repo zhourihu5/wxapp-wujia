@@ -145,6 +145,7 @@ Page({
             },
             function (data) {
                 app.token = data.token
+                let fidChanged=false
                 try {
                     let currentFamily=data.familyList[0];
                     let fid=wx.getStorageSync('fid')
@@ -152,6 +153,9 @@ Page({
                         for(let i=0;i<data.familyList.length;i++){
                             if(data.familyList[i].id==fid){
                                 currentFamily=data.familyList[i];
+                                if(i>0){
+                                    fidChanged=true
+                                }
                                 break;
                             }
                         }
@@ -198,6 +202,9 @@ Page({
                 that.showGuideInvite();
                 that.data.userId=data.userInfo.id
                 // that.onAppShow({path:'pages/index/index'})
+                if(fidChanged){
+                    that.refresh()
+                }
             },
             function (msg) {
 
@@ -379,6 +386,7 @@ Page({
                             apiData: data,
                         })
                         app.token = data.token
+                        let fidChanged=false
                         try {
                             let currentFamily=data.familyList[0];
                             let fid=wx.getStorageSync('fid')
@@ -386,6 +394,9 @@ Page({
                                 for(let i=0;i<data.familyList.length;i++){
                                     if(data.familyList[i].id==fid){
                                         currentFamily=data.familyList[i];
+                                        if(i>0){
+                                            fidChanged=true
+                                        }
                                         break;
                                     }
                                 }
@@ -442,6 +453,9 @@ Page({
                             that.showModal('ModalBindPhone');
 
 
+                        }
+                        if(fidChanged){
+                            that.refresh()
                         }
                     }, function (msg) {
 
