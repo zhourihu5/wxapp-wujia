@@ -438,7 +438,7 @@
     line-height:36rpx;
 }
 .img-coupon-ar{
-    width: 28rpx;
-    height: 28rpx;
-    margin-left: 2rpx;
+    width: 12rpx;
+    height: 18rpx;
+    margin-left: 8rpx;
 }

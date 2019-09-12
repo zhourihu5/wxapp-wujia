@@ -9,7 +9,7 @@ Page({
         modalName:null,
         apiData:null,
         hasTaken:false,
-        isTaking:false,
+        expired:false,
     },
     showNavigationBarLoading() {
         if(this.data.loading){//下拉刷新
@@ -83,16 +83,11 @@ Page({
     },
     takeCoupon(e){
         var that=this
-        if(that.data.isTaking){
-            return
-        }
-        that.data.isTaking=true
         network.requestPost('/v1/experienceActivity/receive',
             {
                 id: that.data.apiData.id,
             },
             function (data) {
-                that.data.isTaking=false
                 if(data.flag===false){
                     that.setData({
                         modalName: 'ModalTakeFail',
@@ -113,7 +108,6 @@ Page({
                 }
             },
             function (msg) {
-                that.data.isTaking=false
             }
         )
 
@@ -148,7 +142,7 @@ Page({
                     hour: '00',
                     minute: '00',
                     second: '00',
-                    // isBtnEnabled:false,
+                    expired:true,
                 })
                 return
             }

@@ -22,7 +22,7 @@
         <view class="xslqtyq m-b-50">限时领取体验劵活动数量剩余<text class="text-num">{{apiData.surplusNum}}</text>张</view>
 
     </view>
-    <view wx:if="{{hasTaken}}" class="coupon-g-g-b flex align-center m-t-20">
+    <view wx:if="{{hasTaken||apiData.surplusNum<=0||expired}}" class="coupon-g-g-b flex align-center m-t-20">
         <view class="flex-1 p-l-40 ">
             <view class="coupon-name" style="max-width: 416rpx;">{{apiData.name}}</view>
             <view class="coupon-time" style="max-width: 416rpx;">有效期至 {{apiData.endDate}}</view>
@@ -41,7 +41,7 @@
 <!--                    <view class="ysh">已过期</view>-->
 <!--                </view>-->
 <!--            </view>-->
-            <view class="btn-taken">已领取</view>
+            <view class="btn-taken">{{hasTaken?'已领取':'立即领取'}}</view>
         </view>
     </view>
     <view wx:else  class="coupon-o-g-b flex align-center m-t-20">
