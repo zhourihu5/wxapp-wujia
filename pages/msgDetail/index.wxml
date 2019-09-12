@@ -31,7 +31,13 @@
                                content-class="custom-content"
                                title-class="van-collapse-item-title"
                                right-icon-class="custom-right-icon"
-                               title="{{item.title}}">
+                               >
+<!--                title="{{item.title}}"-->
+                <view slot="title" class="flex">
+                    {{item.title}}
+<!--                    很长很长的一大段文字啊很长很长的一大段文字啊很长很长的一大段文字啊很长很长的一大段文字啊很长很长的一大段文字啊很长很长的一大段文字啊-->
+                    <view wx:if="{{!item.isRead}}" class="unread-dot"></view>
+                </view>
                 <!--                    topCellStyle="padding: 10px 0;color:#cccccc"-->
                 {{item.content}}
             </van-collapse-item>

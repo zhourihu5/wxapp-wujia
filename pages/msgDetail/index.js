@@ -58,7 +58,9 @@ Page({
         var that=this
         network.requestPost('/v1/message/updateWxIsRead',{messageId:messageId},function (data) {
             that.data.apiData[index].isRead=1
-
+            that.setData({
+                apiData:that.data.apiData
+            })
         },function (msg) {
 
         })
