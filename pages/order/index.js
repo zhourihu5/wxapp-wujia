@@ -187,11 +187,11 @@ Page({
                     }
                 }
             }
-            if(tabDataChanged){
-                that.data.tabs[1].data=that.data.tabs[1].data.filter(function(item) {
-                    return item.status != '1'
-                });
-            }
+            // if(tabDataChanged){
+            //     that.data.tabs[1].data=that.data.tabs[1].data.filter(function(item) {
+            //         return item.status != '1'
+            //     });
+            // }
             that.setData({
                 tabs:that.data.tabs
             })
