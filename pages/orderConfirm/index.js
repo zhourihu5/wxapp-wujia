@@ -64,11 +64,11 @@ Page({
             var paymentMoney=this.data.apiData.paymentMoney
             if(this.data.couponAct){
                 // this.data.paymentMoney-=this.data.couponAct.money
-                paymentMoney=util.accSub(this.data.apiData.paymentMoney,this.data.couponAct.money)
+                paymentMoney=util.accSub(paymentMoney,this.data.couponAct.money)
             }
             if(this.data.couponPlat){
                 // this.data.paymentMoney-=this.data.couponPlat.money
-                paymentMoney=util.accSub(this.data.apiData.paymentMoney,this.data.couponPlat.money)
+                paymentMoney=util.accSub(paymentMoney,this.data.couponPlat.money)
             }
             if(paymentMoney<0){
                 paymentMoney=0
