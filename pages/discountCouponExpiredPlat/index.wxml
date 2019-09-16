@@ -41,7 +41,7 @@
                 <view class="ysh-w" style="margin-left: -30rpx">
                     <view class="ysh-r">
 
-                        <view class="ysh">{{item.coupon.status=='1'?'已过期':'已使用'}}</view>
+                        <view class="ysh">{{item.coupon.status=='1'?'已使用':'已过期'}}</view>
                     </view>
                 </view>
             </view>
