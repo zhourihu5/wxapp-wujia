@@ -60,20 +60,21 @@ Page({
 
     },
     onShow(){
-        if(this.data.paymentMoney){
+        if(this.data.apiData&&this.data.apiData.paymentMoney){
+            var paymentMoney=this.data.apiData.paymentMoney
             if(this.data.couponAct){
                 // this.data.paymentMoney-=this.data.couponAct.money
-                this.data.paymentMoney=util.accSub(this.data.paymentMoney,this.data.couponAct.money)
+                paymentMoney=util.accSub(this.data.apiData.paymentMoney,this.data.couponAct.money)
             }
             if(this.data.couponPlat){
                 // this.data.paymentMoney-=this.data.couponPlat.money
-                this.data.paymentMoney=util.accSub(this.data.paymentMoney,this.data.couponPlat.money)
+                paymentMoney=util.accSub(this.data.apiData.paymentMoney,this.data.couponPlat.money)
             }
-            if(this.data.paymentMoney<0){
-                this.data.paymentMoney=0
+            if(paymentMoney<0){
+                paymentMoney=0
             }
             this.setData({
-                paymentMoney:this.data.paymentMoney,
+                paymentMoney:paymentMoney,
             })
         }
     },
