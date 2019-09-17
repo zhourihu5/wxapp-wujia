@@ -48,13 +48,13 @@
 .item-container{
   width: 100%;
   background-color: white;
-  padding: 0 30rpx;
+  padding: 30rpx 40rpx;
 }
 .item{
   width: 100%;
-  height: 94rpx;
+  /*height: 94rpx;*/
 
-  border-top: 1rpx #eeeeee solid;
+  /*border-top: 1rpx #eeeeee solid;*/
 
   /*flex-wrap: wrap;*/
   display: flex;
@@ -62,28 +62,28 @@
   justify-content: center;
 }
 .icon{
-  width:32rpx;
-  height:32rpx;
+  width:40rpx;
+  height:40rpx;
   /*background:rgba(0,0,0,1);*/
 
-  margin: 0 30rpx 0 0;
+  /*margin: 0 30rpx 0 0;*/
+  margin-right: 34rpx;
 }
 .ar{
   width: 28rpx;
   height: 28rpx;
 }
 .item-text{
-  /*width:112px;*/
-  /*height:40px;*/
-  font-size:28rpx;
-  font-family:PingFangSC-Regular;
+  /*width:128px;*/
+  /*height:44px;*/
+  font-size:32rpx;
+  font-family:PingFangSC;
   font-weight:400;
   color:rgba(34,34,34,1);
-  line-height:40rpx;
+  line-height:44rpx;
 
 
   flex: 1;
-  text-align: center|left;
 }
 .margin-r{
   margin-right: 15px;

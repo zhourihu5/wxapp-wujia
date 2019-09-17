@@ -16,10 +16,11 @@
     </view>
 
     <block wx:for="{{items}}" wx:for-item="item">
-        <view class="item-container" url="{{item.url}}" hover-class="navigator-hover"
+        <view class="item-container" style="{{index==0?'padding-top: 50rpx;':''}} {{index==items.lenght-1?'padding-bottom: 50rpx;':''}} "
+              url="{{item.url}}" hover-class="navigator-hover"
                    open-type="navigateTo" data-index="{{index}}" catchtap="itemClicked">
             <view class="item {{index==0?'no-border':''}}">
-                <image class="icon" src="{{item.icon}}"/>
+                <image src="{{item.icon}}" class="icon" style="height: {{item.height}}rpx;" />
                 <view class="item-text">{{item.title}}</view>
 <!--                <view class="icon_arrow_r ar"></view>-->
                 <image  class="img-arr-right" src="/images/icon_order_confirm_ar.png"/>

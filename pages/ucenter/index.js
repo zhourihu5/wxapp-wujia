@@ -7,12 +7,16 @@ Page({
             {
                 title: "基本资料",
                 icon: "/images/icon_profile.png",
-                url: "/pages/baseInfo/index"
+                url: "/pages/baseInfo/index",
+                width:40,
+                height:40,//rpx
             },
             {
                 title: "社区黄页",
                 icon: "/images/icon_yellow_page.png",
-                url: "/pages/yellowPage/index"
+                url: "/pages/yellowPage/index",
+                width:40,
+                height:40,//rpx
             },
             // {
             //     title: "门禁记录",
@@ -22,12 +26,16 @@ Page({
             {
                 title: "我的优惠券",
                 icon: "/images/icon_my_discount_coupon.png",
-                url: "/pages/myDiscountCoupon/index"
+                url: "/pages/myDiscountCoupon/index",
+                width:40,
+                height:34,//rpx
             },
             {
                 title: "我的体验券",
                 icon: "/images/icon_my_coupon.png",
-                url: "/pages/myCoupon/index"
+                url: "/pages/myCoupon/index",
+                width:40,
+                height:34,//rpx
             },
         ],
         nickName: '',
