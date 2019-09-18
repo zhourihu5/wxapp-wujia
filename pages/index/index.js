@@ -147,10 +147,11 @@ Page({
                 app.token = data.token
                 let fidChanged=false
                 try {
+                    let i=0
                     let currentFamily=data.familyList[0];
                     let fid=wx.getStorageSync('fid')
                     if(fid){
-                        for(let i=0;i<data.familyList.length;i++){
+                        for(i=0;i<data.familyList.length;i++){
                             if(data.familyList[i].id==fid){
                                 currentFamily=data.familyList[i];
                                 if(i>0){
@@ -166,6 +167,7 @@ Page({
                     app.fid=currentFamily.id
                     that.setData({
                         communtityName: currentFamily.name,
+                        cummunityIndex:i,
                     })
 
                 } catch (e) {
@@ -388,10 +390,11 @@ Page({
                         app.token = data.token
                         let fidChanged=false
                         try {
+                            let i=0
                             let currentFamily=data.familyList[0];
                             let fid=wx.getStorageSync('fid')
                             if(fid){
-                                for(let i=0;i<data.familyList.length;i++){
+                                for( i=0;i<data.familyList.length;i++){
                                     if(data.familyList[i].id==fid){
                                         currentFamily=data.familyList[i];
                                         if(i>0){
@@ -407,6 +410,7 @@ Page({
                             app.fid=currentFamily.id
                             that.setData({
                                 communtityName: currentFamily.name,
+                                cummunityIndex:i,
                             })
                         } catch (e) {
                         }
