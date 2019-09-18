@@ -45,7 +45,10 @@ page{
     color:rgba(34,34,34,1);
     line-height:30rpx;
 
-
+    max-width: 650rpx;
+    white-space:nowrap;
+    overflow:hidden;
+    text-overflow:ellipsis;
 
 }
 .dollar{
