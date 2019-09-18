@@ -2,7 +2,7 @@
     <view slot="backText"></view>
     <view slot="content"><text class="{{navigationBarLoading?'wj-loading-icon':''}}"/>体验券详情</view>
 </cu-custom>
-<view class="body">
+<scroll-view scroll-y class="body">
 <!--    <include src="../../refreshview/refreshHeaderView.wxml"/>-->
     <view class="w-c-c flex-direction align-center justify-center">
         <image class="img-coupon"
@@ -61,9 +61,12 @@
                   catchtap="takeCoupon">立即领取</view>
         </view>
     </view>
+    <view class="rules-c">
+        <view class="rules-title">活动规则：</view>
+        <view>1、这里写什么产品也不知道这里写什么产品也不知道这里写 2、什么产品也不知道这里写什么产品也不知道 2、什么产品也不知道这里写什么产品也不知道</view>
+    </view>
 
-
-</view>
+</scroll-view>
 <view class="cu-modal full-screen  {{modalName=='ModalTakeCouponSuccess'?'show':''}} "
       catchtap="hideModal">
     <view class="cu-dialog dialog-take-success relative" catchtap="doNothing">
