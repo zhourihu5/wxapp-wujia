@@ -960,6 +960,11 @@ movable-area {
 
     margin-top: 30rpx;
     margin-bottom: 20rpx;
+
+    max-width: 528rpx;
+    white-space:nowrap;
+    overflow:hidden;
+    text-overflow:ellipsis;
 }
 
 
