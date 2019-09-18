@@ -77,7 +77,7 @@
             <!--                <view class="qsy">去使用</view>-->
             <!--            </view>-->
             <image class="img-coupon-dollor" src="/images/coupon_dollor_img_expired.png"/>
-            <image class="img-coupon-selected" src="/images/icon_coupon_selected.png"/>
+<!--            <image class="img-coupon-selected" src="/images/icon_coupon_selected.png"/>-->
 
         </view>
 
