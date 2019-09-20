@@ -53,9 +53,6 @@ Page({
 
 
         let id = query.id
-        // if(true){
-        //     return
-        // }
        this.loadData(id)
 
     },

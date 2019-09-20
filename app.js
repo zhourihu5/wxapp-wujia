@@ -1,9 +1,8 @@
 App({
-
     // url:'http://192.168.250.16:8181',
     // url:'http://192.168.250.134:8181',
-    // url: 'http://testapi.home-guard.cn',
-    url: 'https://api.home-guard.cn',
+    url: 'http://testapi.home-guard.cn',
+    // url: 'https://api.home-guard.cn',
     token: null,
     isAuthorized: false,
     myAddress: null,//我的收获地址
@@ -131,6 +130,13 @@ App({
                     wx.getUserInfo({
                         success: function (res) {
                             that.wxUserInfo = res
+                            // var userInfo = res.userInfo
+                            // var nickName = userInfo.nickName
+                            // var avatarUrl = userInfo.avatarUrl
+                            // var gender = userInfo.gender //性别 0：未知、1：男、2：女
+                            // var province = userInfo.province
+                            // var city = userInfo.city
+                            // var country = userInfo.country
                         }
                     })
                 } else {
