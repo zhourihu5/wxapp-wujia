@@ -55,6 +55,7 @@
                 </view>
             </view>
         </view>
+
         <view class="w-p-100 flex align-center coupon-c p-t-40" style="padding-bottom: 12rpx"
               catchtap="toCouponDiscountPlat">
             <view class="flex-1">平台优惠券</view>
