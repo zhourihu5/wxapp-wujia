@@ -83,16 +83,12 @@ Page({
         that.setData({
             isLoading: true,
         })
-        var requestParam={
-            pageNum: that.customData.pageNum,
-            pageSize: that.customData.pageSize,
-            // communityId:app.communtityId
-        }
-        if(app.communtityId){
-            requestParam.communityId=app.communtityId
-        }
         network.requestGet('/v1/activity/findAll',
-            requestParam,
+            {
+                pageNum: that.customData.pageNum,
+                pageSize: that.customData.pageSize,
+                communityId:app.communtityId
+            },
             function (data) {
                 if (that.customData.pageNum == 1) {
                     that.data.list = []

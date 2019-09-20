@@ -158,7 +158,7 @@ Page({
         //todo 小区门禁和单元门禁有什么区别？？接口怎么区分？？ 现在只有单元门禁，小区门禁还未接入
 
         var paramData={
-            fid:app.fid,
+            communtityCode:app.communtityCode,
             pageNum: that.data.tabs[active].pageNum,
             pageSize:that.data.pageSize,
         }

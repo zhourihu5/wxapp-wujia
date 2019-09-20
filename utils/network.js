@@ -89,7 +89,7 @@ function requestLoading(url, data,method, message, successCallBack, failCallBack
             if(!isShowingModal){
                 isShowingModal=true
                 wx.showModal({
-                    // title:'提示:',
+                    title:'提示:',
                     showCancel:false,
                     content:msg,
                     success (res) {

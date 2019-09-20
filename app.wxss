@@ -51,12 +51,6 @@ scroll-view{
   color:rgba(34,34,34,1);
   line-height:44rpx;
 }
-.m-l-auto{
-  margin-left: auto;
-}
-.m-r-auto{
-  margin-right: auto;
-}
 .m-r-30{
   margin-right: 30rpx;
 }

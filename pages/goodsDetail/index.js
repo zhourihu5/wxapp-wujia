@@ -15,7 +15,6 @@ Page({
         formatTitle: ['产地', '规格', '重量', '包装', '保质期', '贮存方式'],
         couponTaken:false,
         couponIsValid:false,
-        isTaking:false,
     },
     showNavigationBarLoading(){
         this.setData({
@@ -206,12 +205,6 @@ Page({
         return num
     },
     toConfirmOrder: function (e) {
-        if(!app.userName){
-            wx.reLaunch({
-                url:"/pages/index/index"
-            })
-            return;
-        }
         if (!this.data.apiData) {
             app.showToast('数据正在加载中，请稍等')
             return
@@ -246,16 +239,11 @@ Page({
             this.toConfirmOrder(e)
             return
         }
-        if(that.data.isTaking){
-            return;
-        }
-        that.data.isTaking=true
         network.requestPost('/v1/coupon/receive',
             {
                 id: that.data.apiData.coupon.id,
             },
             function (data) {
-                that.data.isTaking=false
                 if(data.flag===false){
                     this.setData({
                         modalName: 'ModalTakeFail',
@@ -269,7 +257,6 @@ Page({
 
             },
             function (msg) {
-                that.data.isTaking=false
             }
         )
 
