@@ -67,11 +67,6 @@
                 <view class="coupon-remark expired">{{utils.couponLimit(item.coupon.limitNum)}}</view>
                 <view class="coupon-time expired">有效期至 {{item.coupon.endDate}}</view>
 
-                <view class="r-c" >
-                    <view class="t-corner"></view>
-                    <view class="v-line"></view>
-                    <view class="b-corner"></view>
-                </view>
             </view>
             <!--            <view class="i-c-r" style="z-index: 2">-->
             <!--                <view class="qsy">去使用</view>-->
