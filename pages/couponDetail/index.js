@@ -51,15 +51,14 @@ Page({
                that.setData({
                    apiData:data,
                })
-                if(data.userExperienceCount>0){
-                    that.setData({
-                        hasTaken:true,
-                    })
-                }else {
-                    that.setData({
-                        hasTaken:false,
-                    })
+                // if(data.userExperienceCount>0){
+                var hasTaken=true
+                if(data.isReceive===true){//还能领
+                    hasTaken=false
                 }
+                that.setData({
+                    hasTaken:hasTaken,
+                })
             },
             function (msg) {
             }
@@ -93,11 +92,15 @@ Page({
                         modalName: 'ModalTakeFail',
                     })
                 }else {
+                    var hasTaken=true
+                    if(data.isReceive===true){//还能领
+                        hasTaken=false
+                    }
                     that.setData({
                         modalName: 'ModalTakeCouponSuccess',
                         experienceCode:data.experienceCode.experienceCode,
                         finishDate:data.experienceCode.finishDate,
-                        hasTaken:true,
+                        hasTaken:hasTaken,
                     })
                 }
 
