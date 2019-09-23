@@ -14,7 +14,7 @@ Page({
         saleTip:null,
         formatTitle: ['产地', '规格', '重量', '包装', '保质期', '贮存方式'],
         couponTaken:false,
-        couponIsValid:false,
+        couponIsValid:true,
     },
     showNavigationBarLoading(){
         this.setData({
@@ -170,11 +170,12 @@ Page({
             if(data.coupon&&data.coupon.userCouponCount>0){
                 that.setData({
                     couponTaken:true,
-                    couponIsValid:data.coupon.isValid,
+                    couponIsValid:data.coupon.valid,
                 })
             }else {
                 that.setData({
                     couponTaken:false,
+                    couponIsValid:true,
                 })
             }
         }, function (msg) {
