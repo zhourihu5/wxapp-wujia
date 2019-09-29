@@ -227,6 +227,7 @@ Page({
             relation: that.data.relation,
             familyId: that.data.familyId,
             familyName: that.data.showAddress,
+            communityId:app.communtityId
         }, function (data) {
             that.data.isClicked=false
             wx.redirectTo({

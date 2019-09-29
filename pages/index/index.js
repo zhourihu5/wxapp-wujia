@@ -257,24 +257,64 @@ Page({
             return;
         }
 
-        if (this.customData.y < util.rpxToPx(20)) {
+        if (that.customData.y < util.rpxToPx(20)) {
             if(that.data.isOpeningDoor){
                 app.showToast('正在开锁，请稍等')
                 return
             }
-            that.data.isOpeningDoor=true
-            network.requestGet('/v1/apply/openDoor',{fid:app.fid},function (data) {
-                that.data.isOpeningDoor=false
-                app.showToast('锁已开')
-            },function (msg) {
-                that.data.isOpeningDoor=false
+
+            //todo 获取地理位置 开锁
+            wx.getLocation({
+                // type: 'wgs84',
+                success(res) {
+                    console.log('getLocation success,',res)
+                    that.data.isOpeningDoor=true
+                    network.requestGet('/v1/apply/openDoor',
+                        {
+                            fid:app.fid,
+                            longitude:res.longitude,
+                            latitude:res.latitude
+                        },
+                        function (data) {
+                        that.data.isOpeningDoor=false
+                        app.showToast('锁已开')
+                    },function (msg) {
+                        that.data.isOpeningDoor=false
+                    })
+                },
+                fail(res) {
+                    console.log('getLocation fail,',res)
+                    // app.showToast('请开启获取位置权限')
+                    wx.showModal({
+                        title:'提示',
+                        content:'请开启获取位置权限',
+                        cancelText:'取消',
+                        showCancel:false,
+                        confirmText:'确定',
+                        success(res) {
+                            console.log('showModal success',res)
+                            wx.openSetting({
+                                success(res) {
+                                    console.log('openSetting success,',res)
+                                },
+                                fail(res) {
+                                    console.log('openSetting fail,',res)
+                                }
+                            })
+                        }
+
+                    })
+
+                }
             })
+
         } else {
 
         }
-        this.customData.y =util.rpxToPx(40)
+        that.customData.y =util.rpxToPx(40)
 
         // this.showModal('ModalOpenDoorChoose')
+
     },
     isEnableTabBar() {
         this.enableTabBar(!this.data.modalName);
