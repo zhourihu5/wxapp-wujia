@@ -285,25 +285,19 @@ Page({
                 fail(res) {
                     console.log('getLocation fail,',res)
                     // app.showToast('请开启获取位置权限')
-                    wx.showModal({
-                        title:'提示',
-                        content:'请开启获取位置权限',
-                        cancelText:'取消',
-                        showCancel:false,
-                        confirmText:'确定',
-                        success(res) {
-                            console.log('showModal success',res)
-                            wx.openSetting({
-                                success(res) {
-                                    console.log('openSetting success,',res)
-                                },
-                                fail(res) {
-                                    console.log('openSetting fail,',res)
-                                }
-                            })
-                        }
-
-                    })
+                    that.showModal('ModalLocationSet')
+                    // wx.showModal({
+                    //     title:'提示',
+                    //     content:'请开启获取位置权限',
+                    //     cancelText:'取消',
+                    //     showCancel:false,
+                    //     confirmText:'确定',
+                    //     success(res) {
+                    //         console.log('showModal success',res)
+                    //         that.openSetting()
+                    //     }
+                    //
+                    // })
 
                 }
             })
@@ -315,6 +309,17 @@ Page({
 
         // this.showModal('ModalOpenDoorChoose')
 
+    },
+    openSetting(e){
+        this.hideModal(e)
+        wx.openSetting({
+            success(res) {
+                console.log('openSetting success,',res)
+            },
+            fail(res) {
+                console.log('openSetting fail,',res)
+            }
+        })
     },
     isEnableTabBar() {
         this.enableTabBar(!this.data.modalName);

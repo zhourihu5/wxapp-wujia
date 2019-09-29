@@ -185,6 +185,25 @@
     </view>
 
 </view>
+<view class="cu-modal full-screen  {{modalName=='ModalLocationSet'?'show':''}} {{shareing?'no-transit':''}}"
+      catchtap="hideModal">
+    <view class="cu-dialog dialog-location relative" catchtap="doNothing">
+        <view class="flex justify-between close-bar " style="margin-bottom: 6rpx;">
+            <view class="flex-1"></view>
+            <view class="cuIcon-close close-icon" hover-class="navigator-hover" hover-stop-propagation="{{true}}" catchtap="hideModal"></view>
+        </view>
+        <image class="img-location" src="/images/img_location.png"></image>
+        <view class="dialog-title-location">获取定位</view>
+<!--        <view class="dialog-msg">请先申请访客的邀请码，再发送给好友</view>-->
+        <view class="dialog-msg">允许吾家来获取你的定位</view>
+        <view class="dialog-btn-location-agree" hover-class="navigator-hover" hover-stop-propagation="{{true}}"
+                catchtap="openSetting" >
+            同意
+        </view>
+    </view>
+
+</view>
+
 <view class="cu-modal full-screen  {{modalName=='ModalOpenDoorChoose'?'show':''}}">
     <view class="cu-dialog dialog-open-door-setting relative">
         <view class="d-o-c">
