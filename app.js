@@ -1,8 +1,8 @@
 App({
-    // url:'http://192.168.250.16:8181',
+    // url:'http://192.168.250.8:8181',
     // url:'http://192.168.250.134:8181',
-    url: 'http://testapi.home-guard.cn',
-    // url: 'https://api.home-guard.cn',
+    // url: 'http://testapi.home-guard.cn',
+    url: 'https://api.home-guard.cn',
     token: null,
     isAuthorized: false,
     myAddress: null,//我的收获地址

@@ -66,7 +66,6 @@ Component({
   },
   methods: {
     onChange(event) {
-      console.log(event);
       this.setData({ active: event.detail });
       wx.switchTab({
         url: this.data.list[event.detail].pagePath,

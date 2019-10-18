@@ -66,6 +66,7 @@ Page({
         })
     },
     onLoad(option){
+      console.log("option ----- >", option)
         register&&register.register(this)
         this.data.typeNo=option.typeNo
         this.setData({
